@@ -3,7 +3,7 @@ var express = require('express')
 var app = express()
 // const cors = require("cors"); // pour envoyer du JSON plus facilement
 
-require("./src/routes/routes")(app);
+require("./src/routes/UtilisateurRoutes")(app);
 
 // Ecoute sur le PORT 3000
 const PORT = 3000;
