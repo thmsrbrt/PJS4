@@ -1,0 +1,25 @@
+{
+  "name": "pjs4",
+  "version": "1.0.0",
+  "description": "PJS4 back-end",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thmsrbrt/PJS4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thmsrbrt/PJS4/issues"
+  },
+  "homepage": "https://github.com/thmsrbrt/PJS4#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mariadb": "^2.5.5",
+    "mysql": "^2.18.1"
+  }
+}
