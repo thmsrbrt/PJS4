@@ -17,42 +17,42 @@ exports.findOneUtilisateurByID = (id, res) => {
     db.getConnection((err, conn) => {
         conn.query('SELECT * FROM utilisateur WHERE idUtilisateur = ' + id +';', function(err, rows, fields) {
             if (err) throw err;
-            //console.log('The solution is: ', JSON.stringify(rows[0]));
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(rows[0]));
+            res.end(JSON.stringify(utilisateur));
             conn.release();
         });
     });
 }
 
-exports.createUtilisateur = (req, res) => {
-    const objPOST = req.body;
-    var fields = "nom, prenom, email, motdepasse, type";
-    var val = "?,?,?,?,?";
-    var tabVal = [objPOST.nom, objPOST.prenom, objPOST.email, objPOST.mdp, objPOST.type];
-
-    if (objPOST.photo != null) {
-        fields += ", photoprofile";
-        val += ", ?";
-        tabVal.push(objPOST.photo);
-    }
-    if (objPOST.description != null) {
-        fields += ", description";
-        val += ", ?";
-        tabVal.push(objPOST.description);
-    }
-    if (objPOST.cvfile != null) {
-        fields += ", cvfile";
-        val += ", ?";
-        tabVal.push(objPOST.cvfile);
-    }
-
+exports.createUtilisateur = (fields, val, tabVal, res) => {
     db.getConnection((err, conn) => {
         conn.query('INSERT INTO utilisateur('+ fields + ')VALUES('+ val + ');', tabVal, function (err, data) {
             if (err) throw err;
-            res.end("Création validée avec validation !");
+            res.status(200).end("Création validée avec validation !");
             console.log("Création validée avec validation !");
             conn.release();
         });
     });
+}
+
+exports.updateUtilisateur = (updateString, id, res) => {
+    db.getConnection((err, conn) => {
+        conn.query('UPDATE utilisateur SET '+ updateString + ' WHERE idUtilisateur =' + id + ';', function (err, data) {
+            if (err) throw err;
+            res.status(200).end("Update validée avec validation !");
+            console.log("Update validée avec validation !");
+            conn.release();
+        });
+    });
+}
+
+exports.deleteUtilisateurById = (id, res) => {
+    db.getConnection((err, conn) => {
+        conn.query('DELETE FROM utilisateur WHERE idUtilisateur = '+ id + ';', (err, result) => {
+            if (err) throw err;
+            res.status(200).end("Suppression");
+            console.log("Suppression réussie");
+            conn.release();
+        })
+    })
 }
