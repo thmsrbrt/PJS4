@@ -45,9 +45,35 @@ exports.findOneUtilisateurByEmail = (email, res) => {
 
  */
 
-exports.findOneUtilisateurByEmail = (profile, done, accessToken) => {
+exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessToken) => {
     db.getConnection((err, conn) => {
-        conn.query("SELECT * FROM utilisateur WHERE Email = '" + profile._json.email +"';", function(err, rows, fields) {
+        conn.query("SELECT * FROM utilisateur WHERE Email = '" + email +"';", function(err, rows, fields) {
+            if (err) throw err;
+            let nb = rows.length;
+            if (nb === 0) {
+                console.log("Aucun compte avec cet email, il faut créer");
+                let fields = "nom, prenom, email, motdepasse"; // nom dans les colonnes de la table utilisateurs
+                let val = "?,?,?,?";
+                let tabVal =[last_name, first_name, email, accessToken];
+
+                let id = createUtilisateurBis(fields, val, tabVal);
+                console.log("j'ai crée le compte !");
+                done(null, {id: id, email: email});
+            }
+            else {
+                console.log("Deja un compte dans la BDD");
+                done(null, {id: rows[0].idUtilisateur, email: rows[0].email});
+                console.log("existant !");
+
+            }
+            conn.release();
+        });
+    });
+}
+
+exports.findOneUtilisateurByEmailPSD = (profile, done, accessToken) => {
+    db.getConnection((err, conn) => {
+        conn.query("SELECT * FROM utilisateur WHERE Email = '" + profile._json.email +"' and MotDePasse = '" + profile._json.password + "';", function(err, rows, fields) {
             if (err) throw err;
             let nb = rows.length;
             if (nb === 0) {
@@ -57,7 +83,7 @@ exports.findOneUtilisateurByEmail = (profile, done, accessToken) => {
                 let tabVal =[profile.displayName, "NULL", profile._json.email, accessToken];
             }
             else {
-                console.log("Deja un compte dans la BDD");
+                console.log("connexion réussi");
                 done(null, {id: rows[0].idUtilisateur, email: rows[0].email});
             }
             conn.release();
@@ -76,6 +102,20 @@ exports.createUtilisateur = (fields, val, tabVal, res) => {
     });
 }
 
+function createUtilisateurBis(fields, val, tabVal)  {
+    let test;
+    db.getConnection((err, conn) => {
+        conn.query('INSERT INTO utilisateur('+ fields + ')VALUES('+ val + ');', tabVal, function (err, data) {
+            if (err) throw err;
+            console.log("Création validée avec validation !");
+            console.log(data.insertId);
+            conn.release();
+            test =  data.insertId
+        });
+    });
+return test;
+}
+
 exports.updateUtilisateur = (updateString, id, res) => {
     db.getConnection((err, conn) => {
         conn.query('UPDATE utilisateur SET '+ updateString + ' WHERE idUtilisateur =' + id + ';', function (err, data) {
@@ -85,6 +125,10 @@ exports.updateUtilisateur = (updateString, id, res) => {
             conn.release();
         });
     });
+}
+
+exports.erreurGit = () => {
+    console.log("Je ne peux pas créer de compte car l'adresse mail n'est pas renseignée (privée)");
 }
 
 exports.deleteUtilisateurById = (id, res) => {

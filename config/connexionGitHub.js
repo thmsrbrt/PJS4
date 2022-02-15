@@ -23,13 +23,17 @@ module.exports = (app, passport) => {
     passport.use(new GitHubStrategy({
             clientID: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
-            callbackURL: "http://localhost:3000/user/signin/callback",
+            callbackURL: process.env.URL_NAME+"user/signin/github/callback",
             scope: 'user:email'
         },
         (accessToken, refreshToken, profile, done) => {
-            //return DB.findOneUtilisateurByEmail(profile, done);
-            //return done(null, profile);
-            return done(null, {name: profile.displayName, id: profile.id, email: profile._json.email, mdp: profile.mdp});
+            if (profile._json.email == null){
+                DB.erreurGit();
+                raise();
+                return;
+            }
+            return DB.findOneUtilisateurByEmail(profile._json.email, "", profile._json.name, done, accessToken);
+            //return done(null, {profile: profile._json});
         }
     ));
 }

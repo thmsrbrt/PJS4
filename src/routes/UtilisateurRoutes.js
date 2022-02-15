@@ -4,18 +4,18 @@ const bodyParser = require('body-parser');
 
 module.exports = app => {
     // Routes de requêtes sur table Utilisateur (uniquement si connecté)
-    router.get('/utilisateurs', utilisateurController.findUtilisateur);
-    router.get('/utilisateurs/all', utilisateurController.findAllUtilisateur);
-    router.post('/utilisateurs', utilisateurController.addUtilisateurs);
-    router.delete('/utilisateurs/:id', utilisateurController.deleteUtilisateurs);
+    router.get('/users', utilisateurController.findUtilisateur);
+    router.get('/users/all', utilisateurController.findAllUtilisateur);
+    router.post('/users', utilisateurController.addUtilisateurs);
+    router.delete('/users/:id', utilisateurController.deleteUtilisateurs);
 
     // test
-    router.get('/utilisateurs/email', utilisateurController.findUtilisateurByEmail);
+    router.get('/users/email', utilisateurController.findUtilisateurByEmail);
 
     // pour récupérer les infos dans post
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
 
     // pour utiliser le routage
-    app.use('/', router);
+    app.use('/dev', router);
 }
