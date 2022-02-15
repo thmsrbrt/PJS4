@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API utilisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-2">Routes :</h1>
+
+    <div class="mt-5">
+        <p class="mt-3"><span class="btn btn-danger">GET</span> /utilisateurs</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Attribut</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>id</td>
+                <td>int</td>
+                <td>Identifiant unique d'un utilisateur</td>
+                <td>http://localhost:3000/utilisateurs?id=1</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-5">
+        <p><span class="btn btn-danger">GET</span> /utilisateurs/all</p>
+        Retourne tous les utilisateurs de la table utilisateurs.
+    </div>
+
+    <div class="mt-5">
+        <p><span class="btn btn-primary">POST</span> /utilisateurs</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Attribut</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>nom</td>
+                <td>string</td>
+                <td><span class="text-danger">Requis :</span> Nom de l'utilisateur</td>
+            </tr>
+            <tr>
+                <td>prenom</td>
+                <td>string</td>
+                <td><span class="text-danger">Requis :</span> Prénom de l'utilisateur</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>string</td>
+                <td><span class="text-danger">Requis :</span> email sous format *@*.*</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>string</td>
+                <td><span class="text-danger">Requis :</span> 'Candidat' ou 'Entreprise'</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>Description du profil de l'utilisateur.</td>
+            </tr>
+            <tr>
+                <td>photo</td>
+                <td>string</td>
+                <td>Lien photo de profil.</td>
+            </tr>
+            <tr>
+                <td>cvfile</td>
+                <td>string</td>
+                <td>Lien du fichier CV.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-5">
+        <p><span class="btn btn-warning">DELETE</span> /utilisateurs/:id</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Attribut</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Exemple</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>:id</td>
+                <td>int</td>
+                <td><span class="text-danger">Requis :</span> ID de l'utilisateur à supprimer</td>
+                <td>http://localhost:3000/utilisateurs/2</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

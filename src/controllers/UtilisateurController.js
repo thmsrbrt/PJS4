@@ -1,9 +1,12 @@
 const DB = require('../models/UtilisateurModel')
 const path = require("path"); // prendre les connexions à la BDD correspondantes
-const bodyParser = require("body-parser");
 
 exports.findAllUtilisateur = (req, res) => {
-    DB.findAllUtilisateurs(res);
+    if (req.user) {
+        DB.findAllUtilisateurs(res);
+    } else {
+        res.status(500).end("pas connecté en session");
+    }
 }
 
 exports.findUtilisateur = (req, res) => {
@@ -13,6 +16,11 @@ exports.findUtilisateur = (req, res) => {
     } else {
         DB.findOneUtilisateurByID(req.query.id, res);
     }
+}
+
+exports.findUtilisateurByEmail = (req, res) => {
+    console.log(req.query.email);
+    DB.findOneUtilisateurByEmail(req.query.email, res);
 }
 
 exports.addUtilisateurs = (req, res) => {
