@@ -1,10 +1,10 @@
 //const mariadb = require('mariadb');
 const mysql = require("mysql");
-
+require('dotenv').config()
 //connexion BDD : à changer avec vos info (userDB, passwordDB, database)
-const userDB = 'lngeth';
-const passwordDB = '0207';
-const database = 'pjs4';
+const userDB = process.env.USERDB;
+const passwordDB = process.env.PASSDB;
+const database = process.env.DATABASE;
 
 //const connection = mariadb.createPool({ //mariaDB
 const conn = mysql.createPool({ // mysql
