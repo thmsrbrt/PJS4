@@ -16,6 +16,8 @@ CREATE TABLE Utilisateur(
                             Prenom     Varchar (255)  ,
                             Email      Varchar (255) NOT NULL ,
                             MotDePasse Varchar (1000) NOT NULL ,
+                            token VARCHAR (255),
+                            tokenTimeStamp integer,
                             PhotoProfile       Varchar (255) NOT NULL ,
                             Description Varchar (1000) ,
                             CVFile      Varchar (255) ,
