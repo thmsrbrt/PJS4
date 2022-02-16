@@ -113,7 +113,7 @@ function createUtilisateurBis(fields, val, tabVal)  {
             test =  data.insertId
         });
     });
-return test;
+    return test;
 }
 
 exports.updateUtilisateur = (updateString, id, res) => {
@@ -140,4 +140,12 @@ exports.deleteUtilisateurById = (id, res) => {
             conn.release();
         })
     })
+}
+
+export const updateUserToken = (email, token, timestamp) => {
+    db.getConnection((err, conn) => {
+        conn.query('UPDATE utilisateur SET token = ?, tokenTimeStamp = ? WHERE Email = ?;', [token, timestamp, email], function (err, data) {
+            if (err) throw err;
+        });
+    });
 }

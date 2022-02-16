@@ -4,6 +4,7 @@ const cors = require('cors');
 const crypto = require('crypto');
 const bodyparser = require('body-parser');
 
+
 const app = express()
 require('dotenv').config(); // pour récupérer les données dans .env
 
@@ -26,14 +27,17 @@ app.use(bodyparser.urlencoded({extended: true}));
  * Méthode permettant de vérifier la requête POST de login
  * @response avec un body si connexion possible, sans sinon
  */
-// TODO : vérfier en BDD + enregistrer le token en bdd avec timestamp
+// TODO : vérfier en BDD
 app.post("/login", (request, response) =>{
     //console.log(request.body)
     const { email, password } = request.body;
+    const date = Date.now();
     //console.log(getHashedPassword(password))
 
     if (users.find(user => user.email === email && user.password === getHashedPassword(password))){
-        const authToken = getToken(email);
+        const authToken = getToken(email, date);
+        const {updateUserToken} = require("./src/models/UtilisateurModel");
+        updateUserToken(email, authToken, date);
         response.json({"auth" : authToken}).send()
         // Avant, mettre le authToken en bdd pour le user concerné
     }
@@ -50,10 +54,11 @@ app.listen(PORT, () => {
 /**
  * Fonction permettant de créer un token d'authentification
  * @param email {string} Email de l'utilisateur
+ * @param date {number} Timestamp
  * @returns {string} Le token hashé et en base 64 composé d'une random string + email + timestamp
  */
-const getToken = (email) => {
-    return getHashedPassword(crypto.randomBytes(48).toString() + email + Date.now());
+const getToken = (email, date) => {
+    return getHashedPassword(crypto.randomBytes(48).toString() + email + date.toString());
 }
 
 /**
