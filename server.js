@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors');
 const crypto = require('crypto');
 const bodyparser = require('body-parser');
+const {updateUserToken, createUser} = require("./src/models/UtilisateurModel");
 
 
 const app = express()
@@ -36,7 +37,6 @@ app.post("/login", (request, res) =>{
 
     if (users.find(user => user.email === email && user.password === getHashedPassword(password))){
         const authToken = getToken(email, date);
-        const {updateUserToken} = require("./src/models/UtilisateurModel");
         updateUserToken(email, authToken, date);
         res.json({"auth" : authToken}).send()
         // Avant, mettre le authToken en bdd pour le user concerné
@@ -52,7 +52,6 @@ app.post("/register", (request, res) => {
     const { email, password } = request.body;
 
     if (!users.find(user => user.email === email)) {
-        const {createUser} = require("./src/models/UtilisateurModel");
         try {
             createUser(["bernard", "sans nom", getHashedPassword(password)])
             res.sendStatus(201)

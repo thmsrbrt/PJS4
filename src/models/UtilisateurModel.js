@@ -142,7 +142,7 @@ exports.deleteUtilisateurById = (id, res) => {
     })
 }
 
-export const updateUserToken = (email, token, timestamp) => {
+exports.updateUserToken = (email, token, timestamp) => {
     db.getConnection((err, conn) => {
         conn.query('UPDATE utilisateur SET token = ?, tokenTimeStamp = ? WHERE Email = ?;', [token, timestamp, email], function (err, data) {
             if (err) throw err;
@@ -150,7 +150,7 @@ export const updateUserToken = (email, token, timestamp) => {
     });
 }
 
-export const createUser = (donnees) =>  {
+exports.createUser = (donnees) =>  {
     try {
 
         db.getConnection((err, conn) => {
