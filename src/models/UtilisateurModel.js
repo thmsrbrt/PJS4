@@ -149,3 +149,20 @@ export const updateUserToken = (email, token, timestamp) => {
         });
     });
 }
+
+export const createUser = (donnees) =>  {
+    try {
+
+        db.getConnection((err, conn) => {
+        try {
+            conn.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
+                if (err) throw err;
+            });
+        }catch (err){
+            throw err;
+        }
+    });
+    }catch (err){
+        throw err;
+    }
+}

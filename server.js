@@ -3,6 +3,8 @@ const express = require('express')
 const cors = require('cors');
 const crypto = require('crypto');
 const bodyparser = require('body-parser');
+const {response} = require("express");
+const {createUser} = require("./src/models/UtilisateurModel");
 
 
 const app = express()
@@ -28,7 +30,7 @@ app.use(bodyparser.urlencoded({extended: true}));
  * @response avec un body si connexion possible, sans sinon
  */
 // TODO : vérfier en BDD
-app.post("/login", (request, response) =>{
+app.post("/login", (request, res) =>{
     //console.log(request.body)
     const { email, password } = request.body;
     const date = Date.now();
@@ -38,11 +40,26 @@ app.post("/login", (request, response) =>{
         const authToken = getToken(email, date);
         const {updateUserToken} = require("./src/models/UtilisateurModel");
         updateUserToken(email, authToken, date);
-        response.json({"auth" : authToken}).send()
+        res.json({"auth" : authToken}).send()
         // Avant, mettre le authToken en bdd pour le user concerné
     }
     else
-        response.send();
+        res.send();
+})
+
+app.post("/register", (request, res) => {
+    const { email, password } = request.body;
+
+    if (!users.find(user => user.email === email)) {
+        const {createUser} = require("./src/models/UtilisateurModel");
+        try {
+            createUser(["bernard", "sans nom", getHashedPassword(password)])
+            res.sendStatus(201)
+        }
+        catch (err){
+            res.status(403).json({"faillure" : err}).send();
+        }
+    }
 })
 
 // Ecoute sur le PORT 3000
