@@ -3,8 +3,6 @@ const express = require('express')
 const cors = require('cors');
 const crypto = require('crypto');
 const bodyparser = require('body-parser');
-const {response} = require("express");
-const {createUser} = require("./src/models/UtilisateurModel");
 
 
 const app = express()
@@ -46,7 +44,10 @@ app.post("/login", (request, res) =>{
     else
         res.send();
 })
-
+/**
+ * Méthode permettant de vérifier la requête POST de register
+ * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
+ */
 app.post("/register", (request, res) => {
     const { email, password } = request.body;
 
