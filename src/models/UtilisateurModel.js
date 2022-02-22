@@ -2,8 +2,8 @@ var db = require('../../config/connexionBDD');
 
 // récupère tous les utilsateurs
 exports.findAllUtilisateurs = res => {
-    db.getConnection((err, conn) =>{
-        conn.query('SELECT * FROM utilisateur;', function(err, rows, fields) {
+    db.getConnection((err, conn) => {
+        conn.query('SELECT * FROM utilisateur;', function (err, rows, fields) {
             if (err) throw err;
             //console.log('The solution is: ', JSON.stringify(rows[0]));
             res.setHeader('Content-Type', 'application/json');
@@ -15,7 +15,7 @@ exports.findAllUtilisateurs = res => {
 
 exports.findOneUtilisateurByID = (id, res) => {
     db.getConnection((err, conn) => {
-        conn.query('SELECT * FROM utilisateur WHERE idUtilisateur = ' + id +';', function(err, rows, fields) {
+        conn.query('SELECT * FROM utilisateur WHERE idUtilisateur = ' + id + ';', function (err, rows, fields) {
             if (err) throw err;
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(rows[0]));
@@ -23,77 +23,55 @@ exports.findOneUtilisateurByID = (id, res) => {
         });
     });
 }
-/*
-exports.findOneUtilisateurByEmail = (email, res) => {
-    db.getConnection((err, conn) => {
-        conn.query("SELECT * FROM utilisateur WHERE Email = '" + email +"';", function(err, rows, fields) {
-            if (err) throw err;
-            let nb = rows.length;
-            if (nb === 0) {
-                console.log("Aucun compte avec cet email, il faut créer");
-            }
-            else {
-                console.log("Deja un compte dans la BDD");
-            }
-
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(nb));
-            conn.release();
-        });
-    });
-}
-
- */
 
 exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessToken) => {
     db.getConnection((err, conn) => {
-        conn.query("SELECT * FROM utilisateur WHERE Email = '" + email +"';", function(err, rows, fields) {
+        conn.query("SELECT * FROM utilisateur WHERE Email = ?;", [email], function (err, rows, fields) {
             if (err) throw err;
             let nb = rows.length;
             if (nb === 0) {
                 console.log("Aucun compte avec cet email, il faut créer");
                 let fields = "nom, prenom, email, motdepasse"; // nom dans les colonnes de la table utilisateurs
-                let val = "?,?,?,?";
-                let tabVal =[last_name, first_name, email, accessToken];
+                let tabVal = [last_name, first_name, email, accessToken];
 
-                let id = createUtilisateurBis(fields, val, tabVal);
+                let id = createUtilisateurBis(fields, tabVal);
                 console.log("j'ai crée le compte !");
                 done(null, {id: id, email: email});
-            }
-            else {
+            } else {
                 console.log("Deja un compte dans la BDD");
                 done(null, {id: rows[0].idUtilisateur, email: rows[0].email});
-                console.log("existant !");
-
+                console.log("existant !");// TODO: Recupérer l'id et le mettre dans la session (et regler le problème du /#_=_) pour la suppression
             }
             conn.release();
         });
     });
 }
 
-exports.findOneUtilisateurByEmailPSD = (profile, done, accessToken) => {
+exports.findOneUtilisateurByEmailPSD = (profil, res) => {
     db.getConnection((err, conn) => {
-        conn.query("SELECT * FROM utilisateur WHERE Email = '" + profile._json.email +"' and MotDePasse = '" + profile._json.password + "';", function(err, rows, fields) {
+        conn.query("SELECT * FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, function (err, rows, fields) {
             if (err) throw err;
             let nb = rows.length;
             if (nb === 0) {
                 console.log("Aucun compte avec cet email, il faut créer");
-                let fields = [nom, prenom, email, motdepasse];
-                let val = "?,?,?,?";
-                let tabVal =[profile.displayName, "NULL", profile._json.email, accessToken];
-            }
-            else {
+                //let fields = [nom, prenom, email, motdepasse];
+                //let tabVal = [profil.displayName, "NULL", profil._json.email, accessToken];
+                res.end('nok');
+
+            } else {
                 console.log("connexion réussi");
                 done(null, {id: rows[0].idUtilisateur, email: rows[0].email});
             }
+            res.end('ok');
             conn.release();
         });
     });
+
 }
 
-exports.createUtilisateur = (fields, val, tabVal, res) => {
+exports.createUtilisateur = (tabVal, res) => {
     db.getConnection((err, conn) => {
-        conn.query('INSERT INTO utilisateur('+ fields + ')VALUES('+ val + ');', tabVal, function (err, data) {
+        conn.query('INSERT INTO utilisateur(nom, prenom, email, motdepasse, type, photoprofile, description, cvfile)VALUES(?,?,?,?,?,?,?,?);', tabVal, function (err, data) {
             if (err) throw err;
             res.status(200).end("Création validée avec validation !");
             console.log("Création validée avec validation !");
@@ -102,15 +80,16 @@ exports.createUtilisateur = (fields, val, tabVal, res) => {
     });
 }
 
-function createUtilisateurBis(fields, val, tabVal)  {
+function createUtilisateurBis(fields, tabVal) {
     let test;
     db.getConnection((err, conn) => {
-        conn.query('INSERT INTO utilisateur('+ fields + ')VALUES('+ val + ');', tabVal, function (err, data) {
+
+        conn.query('INSERT INTO utilisateur(?)VALUES(?);', [fields, tabVal], function (err, data) {
             if (err) throw err;
             console.log("Création validée avec validation !");
             console.log(data.insertId);
             conn.release();
-            test =  data.insertId
+            test = data.insertId
         });
     });
     return test;
@@ -118,7 +97,7 @@ function createUtilisateurBis(fields, val, tabVal)  {
 
 exports.updateUtilisateur = (updateString, id, res) => {
     db.getConnection((err, conn) => {
-        conn.query('UPDATE utilisateur SET '+ updateString + ' WHERE idUtilisateur =' + id + ';', function (err, data) {
+        conn.query('UPDATE utilisateur SET ? WHERE idUtilisateur = ? ;', [updateString, id], function (err, data) {
             if (err) throw err;
             res.status(200).end("Update validée avec validation !");
             console.log("Update validée avec validation !");
@@ -133,7 +112,7 @@ exports.erreurGit = () => {
 
 exports.deleteUtilisateurById = (id, res) => {
     db.getConnection((err, conn) => {
-        conn.query('DELETE FROM utilisateur WHERE idUtilisateur = '+ id + ';', (err, result) => {
+        conn.query('DELETE FROM utilisateur WHERE idUtilisateur = ? ;', [id], (err, result) => {
             if (err) throw err;
             res.status(200).end("Suppression");
             console.log("Suppression réussie");
@@ -150,19 +129,18 @@ exports.updateUserToken = (email, token, timestamp) => {
     });
 }
 
-exports.createUser = (donnees) =>  {
+exports.createUser = (donnees) => {
     try {
-
         db.getConnection((err, conn) => {
-        try {
-            conn.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
-                if (err) throw err;
-            });
-        }catch (err){
-            throw err;
-        }
-    });
-    }catch (err){
+            try {
+                conn.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
+                    if (err) throw err;
+                });
+            } catch (err) {
+                throw err;
+            }
+        });
+    } catch (err) {
         throw err;
     }
 }

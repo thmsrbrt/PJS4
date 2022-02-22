@@ -29,7 +29,7 @@ module.exports = (app, passport) => {
         (accessToken, refreshToken, profile, done) => {
             if (profile._json.email == null){
                 DB.erreurGit();
-                raise();
+                //raise();
                 return;
             }
             return DB.findOneUtilisateurByEmail(profile._json.email, "", profile._json.name, done, accessToken);

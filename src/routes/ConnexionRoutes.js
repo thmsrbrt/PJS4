@@ -1,6 +1,9 @@
 const connexionController = require("../controllers/ConnexionController");
 const passport = require("passport");
 const router = require("express").Router();
+const bodyParser = require('body-parser')
+//const jsonParser = bodyParser.json()
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 module.exports = app => {
     require('../../config/connexionGitHub')(app, passport);
@@ -12,7 +15,7 @@ module.exports = app => {
         (req, res) => {
             res.redirect('/user');
         });
-    router.get('/signin', connexionController.connexion);
+    router.post('/signin', urlencodedParser, connexionController.connexion);
     router.get('/failure', connexionController.connexionErreur);
     router.get('/logout', connexionController.deconnexion);
 
@@ -21,9 +24,9 @@ module.exports = app => {
         scope: [ 'email', 'user_location' ]
     }));
     router.get('/signin/facebook/callback',
-        passport.authenticate('facebook', { failureRedirect: '/failure', failureMessage: true }),
+        passport.authenticate('facebook', { failureRedirect: '/failure', failureMessage: true}),
         function(req, res) {
-            res.redirect('/');
+            res.redirect('/#_=_');
         });
     app.use('/user', router);
 
