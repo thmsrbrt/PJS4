@@ -131,16 +131,26 @@ exports.loginHandler = (req, res) => {
     const date = Date.now();
     //console.log(getHashedPassword(password))
 
-    if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
-        const authToken = getToken(email, date);
-        updateUserToken(email, authToken, date);
-        res.json({"auth": authToken}).send()
-        // Avant, mettre le authToken en bdd pour le user concerné
-    } else
-        res.send();
+    //if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
+    DB.findOneUtilisateurByEmailPSD([email, password], (err, data) => {
+        if (err)
+            err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
+        else {
+            const authToken = getToken(email, date);
+            updateUserToken(email, authToken, date);
+            res.json({"auth": authToken}).send()
+        }
+
+    })
 
 }
 
+DB.findOneUtilisateurByID(req.query.id, (err, data) => {
+    if (err)
+        err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
+    else
+        res.status(200).send(data);
+});
 
 /**
  * Fonction permettant de créer un token d'authentification

@@ -51,25 +51,16 @@ exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessT
     });
 }
 
-exports.findOneUtilisateurByEmailPSD = (profil, res) => {
-    db.getConnection((err, conn) => {
-        conn.query("SELECT * FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, function (err, rows, fields) {
-            if (err) throw err;
-            let nb = rows.length;
-            if (nb === 0) {
-                console.log("Aucun compte avec cet email, il faut créer");
-                //let fields = [nom, prenom, email, motdepasse];
-                //let tabVal = [profil.displayName, "NULL", profil._json.email, accessToken];
-                res.end('nok');
+exports.findOneUtilisateurByEmailPSD = (profil, cb) => {
+        db.query("SELECT Email FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
+            if (err) cb(err, null);
 
-            } else {
-                console.log("connexion réussi");
-                done(null, {id: rows[0].idUtilisateur, email: rows[0].email});
+            if (rows.length) {
+                cb(null, rows[0]);
+                return;
             }
-            res.end('ok');
-            conn.release();
+            cb({erreur : "not_found"});
         });
-    });
 
 }
 
