@@ -12,12 +12,16 @@ exports.findAllUtilisateur = (req, res) => {
 }
 
 exports.findUtilisateur = (req, res) => {
-    var utilisateur;
-    if (req.query.id == null) {
-        res.sendFile(path.join(__dirname,'../views/UtilisateurView.html'));
-    } else {
-        DB.findOneUtilisateurByID(req.query.id, res);
-    }
+    if (req.query.id == null)
+        res.status(500).send({message: "Erreur, id null"});
+    else
+        DB.findOneUtilisateurByID(req.query.id, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
+            else
+                res.status(200).send(data);
+        });
+
 }
 
 exports.findUtilisateurByEmail = (req, res) => {
@@ -103,18 +107,16 @@ exports.deleteUtilisateurs = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 exports.registerHandler = (req, res ) => {
-    return (request, res) => {
-        const {email, password} = request.body;
+    const {email, password} = req.body;
 
-        if (!users.find(user => user.email === email)) { // remplacer par une req bdd
-            try {
-                createUser(["bernard", "sans nom", getHashedPassword(password)])
-                res.sendStatus(201)
-            } catch (err) {
-                res.status(403).json({"faillure": err}).send();
-            }
+    if (!users.find(user => user.email === email)) { // remplacer par une req bdd
+        try {
+            createUser(["bernard", "sans nom", getHashedPassword(password)])
+            res.sendStatus(201)
+        } catch (err) {
+            res.status(403).json({"faillure": err}).send();
         }
-    };
+    }
 }
 
 /**
@@ -123,20 +125,20 @@ exports.registerHandler = (req, res ) => {
  */
 exports.loginHandler = (req, res) => {
     // TODO : vérfier en BDD
-    return (request, res) => {
-        //console.log(request.body)
-        const {email, password} = request.body;
-        const date = Date.now();
-        //console.log(getHashedPassword(password))
 
-        if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
-            const authToken = getToken(email, date);
-            updateUserToken(email, authToken, date);
-            res.json({"auth": authToken}).send()
-            // Avant, mettre le authToken en bdd pour le user concerné
-        } else
-            res.send();
-    };
+    //console.log(request.body)
+    const {email, password} = req.body;
+    const date = Date.now();
+    //console.log(getHashedPassword(password))
+
+    if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
+        const authToken = getToken(email, date);
+        updateUserToken(email, authToken, date);
+        res.json({"auth": authToken}).send()
+        // Avant, mettre le authToken en bdd pour le user concerné
+    } else
+        res.send();
+
 }
 
 

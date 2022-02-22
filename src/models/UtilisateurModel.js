@@ -13,14 +13,18 @@ exports.findAllUtilisateurs = res => {
     });
 }
 
-exports.findOneUtilisateurByID = (id, res) => {
-    db.getConnection((err, conn) => {
-        conn.query('SELECT * FROM utilisateur WHERE idUtilisateur = ' + id + ';', function (err, rows, fields) {
-            if (err) throw err;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(rows[0]));
-            conn.release();
-        });
+exports.findOneUtilisateurByID = (id, cb) => {
+    db.query('SELECT idUtilisateur FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
+        if (err) {
+            cb(err, null);
+            return;
+        }
+
+        if (rows.length) {
+            cb(null, rows[0]);
+            return;
+        }
+        cb({erreur : "not_found"});
     });
 }
 

@@ -22,8 +22,7 @@ module.exports = app => {
     app.use('/', router);
 
 
-    app.post("/login", loginHandler())
-
-    app.post("/register", registerHandler())
+    app.post("/login", loginHandler)
+    app.post("/register", registerHandler)
 
 }
