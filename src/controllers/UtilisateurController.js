@@ -145,12 +145,6 @@ exports.loginHandler = (req, res) => {
 
 }
 
-DB.findOneUtilisateurByID(req.query.id, (err, data) => {
-    if (err)
-        err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
-    else
-        res.status(200).send(data);
-});
 
 /**
  * Fonction permettant de créer un token d'authentification
