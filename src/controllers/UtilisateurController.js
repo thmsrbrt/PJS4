@@ -11,6 +11,12 @@ exports.findAllUtilisateur = (req, res) => {
     }
 }
 
+/**
+ * Méthode permettant de trouver un utilisateur à partir d'un id
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
+ */
 exports.findUtilisateur = (req, res) => {
     if (req.query.id == null)
         res.status(500).send({message: "Erreur, id null"});

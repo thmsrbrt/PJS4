@@ -13,6 +13,11 @@ exports.findAllUtilisateurs = res => {
     });
 }
 
+/**
+ * Méthode permettant de trouver un utilisateur en fonction de son id
+ * @param id {Integer} id de l'user
+ * @param cb {callback} traitement du résultat
+ */
 exports.findOneUtilisateurByID = (id, cb) => {
     db.query('SELECT idUtilisateur FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
@@ -51,6 +56,11 @@ exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessT
     });
 }
 
+/**
+ * Méthode permettant de trouver un utilisateur en fonction de son password et mot de passe
+ * @param profil {array<string>} email + password
+ * @param cb {callback} traitement du résultat
+ */
 exports.findOneUtilisateurByEmailPSD = (profil, cb) => {
         db.query("SELECT Email FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
             if (err) cb(err, null);
@@ -124,18 +134,11 @@ exports.updateUserToken = (email, token, timestamp) => {
     });
 }
 
+// TODO : Doc
 exports.createUser = (donnees) => {
-    try {
-        db.getConnection((err, conn) => {
-            try {
-                conn.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
-                    if (err) throw err;
-                });
-            } catch (err) {
-                throw err;
-            }
-        });
-    } catch (err) {
-        throw err;
-    }
+
+    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
+        if (err) throw err;
+    });
+
 }
