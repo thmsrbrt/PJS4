@@ -29,5 +29,4 @@ app.listen(PORT, () => {
 app.post("/login", loginHandler)
 app.post("/register", registerHandler)
 // TODO : Vérifier que client ait le droit de faire cette requête
-app.get("/users/:id", findUtilisateur)
-
+app.get("/users/:id", findUtilisateur);

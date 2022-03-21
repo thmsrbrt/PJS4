@@ -22,9 +22,7 @@ export const loginHandler = (req, res) => {
             updateUserToken(email, authToken, date);
             res.json({"auth": authToken}).send()
         }
-
     })
-
 }
 
 /**
