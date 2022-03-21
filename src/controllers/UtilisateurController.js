@@ -5,7 +5,12 @@ const crypto = require("crypto"); // prendre les connexions à la BDD correspond
 
 exports.findAllUtilisateur = (req, res) => {
     if (req.user) {
-        DB.findAllUtilisateurs(res);
+        DB.findAllUtilisateurs(res, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
+            else
+                res.status(200).send(data);
+        });
     } else {
         res.status(500).end("pas connecté en session");
     }
@@ -28,11 +33,6 @@ exports.findUtilisateur = (req, res) => {
                 res.status(200).send(data);
         });
 
-}
-
-exports.findUtilisateurByEmail = (req, res) => {
-    console.log(req.query.email);
-    DB.findOneUtilisateurByEmail(req.query.email, res);
 }
 
 exports.updateUtilisateurs = (req, res) => {
@@ -77,9 +77,12 @@ exports.updateUtilisateurs = (req, res) => {
                 updateString += ", cvfile = '" + objPOST.cvfile + "'";
             }
         }
-        console.log(updateString);
-        DB.updateUtilisateur(updateString, objPOST.id, res);
-        console.log("update réalisé");
+        DB.updateUtilisateur(updateString, objPOST.id, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Update non réussi'}) : res.status(500).send({message: "Erreur"});
+            else
+                res.status(200).end("Update validée avec validation !");
+        });
     }
 }
 

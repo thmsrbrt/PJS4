@@ -11,9 +11,6 @@ module.exports = app => {
     router.put('/users', utilisateurController.updateUtilisateurs);
     router.delete('/users/:id', utilisateurController.deleteUtilisateurs);
 
-    // test
-    router.get('/users/email', utilisateurController.findUtilisateurByEmail);
-
     // pour récupérer les infos dans post
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));

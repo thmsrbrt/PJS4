@@ -1,12 +1,17 @@
 const db = require('../../config/connexionBDD');
 
 // récupère tous les utilsateurs
-exports.findAllUtilisateurs = res => {
-    db.query('SELECT * FROM utilisateur;', function (err, rows, fields) {
-        if (err) throw err;
-        //console.log('The solution is: ', JSON.stringify(rows[0]));
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(rows), null, 2);
+exports.findAllUtilisateurs = (res, cb) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, token, tokenTimeStamp, PhotoProfile, Description, CVFile FROM utilisateur;', function (err, rows, fields) {
+        if (err) {
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows);
+            return;
+        }
+        cb({erreur: "not_found"});
     });
 }
 
@@ -16,7 +21,7 @@ exports.findAllUtilisateurs = res => {
  * @param cb {callback} traitement du résultat
  */
 exports.findOneUtilisateurByID = (id, cb) => {
-    db.query('SELECT idUtilisateur FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, token, tokenTimeStamp, PhotoProfile, Description, CVFile FROM v_candidat WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
             cb(err, null);
             return;
@@ -86,11 +91,17 @@ function createUtilisateurBis(fields, tabVal) {
     return test;
 }
 
-exports.updateUtilisateur = (updateString, id, res) => {
+exports.updateUtilisateur = (updateString, id, cb) => {
     db.query('UPDATE utilisateur SET ? WHERE idUtilisateur = ? ;', [updateString, id], function (err, data) {
-        if (err) throw err;
-        res.status(200).end("Update validée avec validation !");
-        console.log("Update validée avec validation !");
+        if (err) {
+            cb(err, null);
+            return;
+        }
+        if (data !== 0) {
+            cb(null, rows[0]);
+            return;
+        }
+        cb({erreur : "not_found"});
     });
 }
 
