@@ -18,7 +18,7 @@ CREATE TABLE Utilisateur(
                             MotDePasse Varchar (1000) NOT NULL ,
                             token VARCHAR (255),
                             tokenTimeStamp VARCHAR (255),
-                            PhotoProfile       Varchar (255) NOT NULL,
+                            PhotoProfile Varchar (255) NOT NULL,
                             Description Varchar (1000) ,
                             CVFile      Varchar (255) ,
                             Type        VARCHAR(32) NOT NULL
@@ -176,8 +176,8 @@ VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
        (53432, 'Bonjour nom, le poste a déja été pris, bonne continuation pour vos recherche noublié pas de regarder nos offre sur le site : www.offre-de-merde.fr', '2022-01-25 9:21:20', 11, 3),
        (642432, 'Bonjour Francois, \n je suis très intéressé par votre offre blabla ', '2022-01-24 10:00:00', 7, 111),
        (6764564, 'Bonjour clement, le poste est toujours a pourvoir blabla', '2022-01-26 14:59:20', 18, 111),
-       (7846543, 'Je peux faire l\'entretient cette semaine blbal ', '2022-01-30 16:21:58', 7, 111),
-       (24632323, 'Oui pas de probleme, je peux vous proposez par Teams Vendredi 15 heure ? \n dans l\'attente de votre retour. blabla', '2022-01-24 14:21:20', 18, 111),
+       (7846543, 'Je peux faire lentretient cette semaine blbal ', '2022-01-30 16:21:58', 7, 111),
+       (24632323, 'Oui pas de probleme, je peux vous proposez par Teams Vendredi 15 heure ? \n dans l\attente de votre retour. blabla', '2022-01-24 14:21:20', 18, 111),
        (4, 'Bonjour, je suis intéressé par cette offre qui me correspond à 100% blzblz', '2022-01-24 15:21:20', 4, 10);
 
 

@@ -34,7 +34,7 @@ export const loginHandler = (req, res) => {
 export const findUtilisateur = (req, res) => {
     //console.log(req.params)
     if (req.params.id == null)
-        res.status(500).send({message: "Erreur, id null"});
+        res.status(500).send({message: "Erreur, idUser null"});
     else
         findOneUtilisateurByID(req.params.id, (err, data) => {
             if (err)
@@ -42,7 +42,6 @@ export const findUtilisateur = (req, res) => {
             else
                 res.status(200).send(data);
         });
-
 }
 
 

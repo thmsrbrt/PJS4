@@ -1,5 +1,6 @@
 import db from "../../config/connexionBDD.js";
 
+
 /**
  * Méthode permettant de trouver un utilisateur en fonction de son password et mot de passe
  * @param profil {array<string>} email + password
