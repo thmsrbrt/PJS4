@@ -1,11 +1,16 @@
 import db from "../../config/connexionBDD.js";
 
-/**
- * Méthode permettant de trouver toutes les annonces
- * @param cb {callback} traitement du résultat
- */
-export const findAllAnnonce = (cb) => {
-    db.query('SELECT idAnnonce, titre, image, Description, nbCandidat, idEntreprise FROM Annonce', (err, rows) => {
+export const createCandidature = (data) => {
+    db.query('INSERT INTO candidature (CVfile, LettreMotivation, idCandidat, idAnnonce) VALUES (?, ?, ?, ?)', data, (err, res) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+    });
+}
+
+export const getAllCandidatureByIDCandidat = (idCandidat, cb) => {
+    db.query('SELECT * FROM candidature WHERE idCandidat = ?', idCandidat, (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
@@ -15,23 +20,21 @@ export const findAllAnnonce = (cb) => {
             cb(null, rows);
             return;
         }
-        cb({erreur: "not_found"});
+        cb({erreur: "Aucune candidature trouvée pour cette idCandidat"});
     });
 }
 
-export const findAnnonceByID = (id, cb) => {
-    db.query('SELECT * FROM ANNONCE WHERE idAnnonce = ?', [id], (err, row) => {
+export const getAllCandidatureByIDAnnonce = (idAnnonce, cb) => {
+    db.query('SELECT * FROM candidature WHERE idAnnonce = ?', idAnnonce, (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
             return;
         }
-        if (row) {
-            console.log(row[1]);
-            cb(null, row);
+        if (rows.length) {
+            cb(null, rows);
             return;
         }
-        cb({erreur: "not_found"});
+        cb({erreur: "Aucune candidature trouvée pour cette idAnnonce"}, null);
     });
 }
-
