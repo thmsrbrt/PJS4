@@ -6,6 +6,9 @@ import 'dotenv/config';
 
 
 import {findUtilisateur, loginHandler, registerHandler} from "./src/controllers/User.js";
+import {findAnnonce, findAllAnnonces, registerAnnonce} from "./src/controllers/Annonce.js";
+import { findEntreprise, registerEntreprise} from "./src/controllers/Entreprise.js";
+import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
 
 const app = express()
 
@@ -25,8 +28,19 @@ app.listen(PORT, () => {
     console.log(`Le serveur tourne sur le port : ${PORT}`);
 })
 
-// Routes
+// Routes - Utilisateurs
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
 // TODO : Vérifier que client ait le droit de faire cette requête
 app.get("/users/:id", findUtilisateur);
+// Routes - Annonce
+app.get("/annonce/:id", findAnnonce);
+app.get("/annonces/all", findAllAnnonces);
+app.post("/annonce/create", registerAnnonce);
+// Routes - Entreprise
+app.get("/entreprise/:id", findEntreprise);
+app.get("/entreprises/all", registerEntreprise);
+// Routes - Candidature
+app.get("/candidatures/annonce/:idAnnonce", getCandidatureAnnonce);
+app.get("/candidatures/candidat/:idCandidat", getCandidatureCandidat);
+app.post("/candidature/create", registerCandidature);
