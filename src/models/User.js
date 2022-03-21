@@ -31,8 +31,8 @@ export const updateUtilisateur = (updateString, id, cb) => {
     });
 }
 
-export const updateUserToken = (email, token, timestamp) => {
-    db.query('UPDATE utilisateur SET token = ?, tokenTimeStamp = ? WHERE Email = ?;', [token, timestamp, email], function (err, data) {
+export const updateUserToken = (email, token, tokenTimeStamp) => {
+    db.query('UPDATE utilisateur SET token = ?, tokenTimeStamp = ? WHERE Email = ?;', [token, tokenTimeStamp, email], function (err, data) {
         if (err) throw err;
     });
 }

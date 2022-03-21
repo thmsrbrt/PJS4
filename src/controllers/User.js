@@ -14,10 +14,10 @@ export const loginHandler = (req, res) => {
     //console.log(getHashedPassword(password))
 
     //if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
-    findOneUtilisateurByEmailPSD([email, password], (err, data) => {
-        if (err)
+    findOneUtilisateurByEmailPSD([email, getHashedPassword(password)], (err, data) => {
+        if (err) {
             err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
-        else {
+        } else {
             const authToken = getToken(email, date);
             updateUserToken(email, authToken, date);
             res.json({"auth": authToken}).send()
@@ -50,12 +50,12 @@ export const findUtilisateur = (req, res) => {
  * Méthode permettant de vérifier la requête POST de register
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
-export const registerHandler = (req, res ) => {
-    const {email, password} = req.body;
+export const registerHandler = (req, res) => {
+    const {email, password, nom, prenom } = req.body;
 
     if (!users.find(user => user.email === email)) { // remplacer par une req bdd
         try {
-            createUser(["bernard", "sans nom", getHashedPassword(password)])
+            createUser([nom, prenom, email, getHashedPassword(password)])
             res.sendStatus(201)
         } catch (err) {
             res.status(403).json({"faillure": err}).send();
