@@ -1,7 +1,6 @@
-const db = require('../../config/connexionBDD');
-
+import db from "../../config/connexionBDD";
 // récupère tous les utilsateurs
-exports.findAllUtilisateurs = (res, cb) => {
+export const findAllUtilisateurs = (res, cb) => {
     db.query('SELECT idUtilisateur, nom, prenom, email, token, tokenTimeStamp, PhotoProfile, Description, CVFile FROM utilisateur;', function (err, rows, fields) {
         if (err) {
             cb(err, null);
@@ -20,7 +19,7 @@ exports.findAllUtilisateurs = (res, cb) => {
  * @param id {Integer} id de l'user
  * @param cb {callback} traitement du résultat
  */
-exports.findOneUtilisateurByID = (id, cb) => {
+export const findOneUtilisateurByID = (id, cb) => {
     db.query('SELECT idUtilisateur, nom, prenom, email, token, tokenTimeStamp, PhotoProfile, Description, CVFile FROM v_candidat WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
             cb(err, null);
@@ -34,7 +33,7 @@ exports.findOneUtilisateurByID = (id, cb) => {
     });
 }
 
-exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessToken) => {
+export const findOneUtilisateurByEmail = (email, last_name, first_name, done, accessToken) => {
     db.query("SELECT * FROM utilisateur WHERE Email = ?;", [email], function (err, rows, fields) {
         if (err) throw err;
         let nb = rows.length;
@@ -59,7 +58,7 @@ exports.findOneUtilisateurByEmail = (email, last_name, first_name, done, accessT
  * @param profil {array<string>} email + password
  * @param cb {callback} traitement du résultat
  */
-exports.findOneUtilisateurByEmailPSD = (profil, cb) => {
+export const findOneUtilisateurByEmailPSD = (profil, cb) => {
     db.query("SELECT Email FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
         if (err) cb(err, null);
 
@@ -71,7 +70,7 @@ exports.findOneUtilisateurByEmailPSD = (profil, cb) => {
     });
 }
 
-exports.createUtilisateur = (tabVal, res) => {
+export const createUtilisateur = (tabVal, res) => {
     conn.query('INSERT INTO utilisateur(nom, prenom, email, motdepasse, type, photoprofile, description, cvfile)VALUES(?,?,?,?,?,?,?,?);', tabVal, function (err, data) {
         if (err) throw err;
         res.status(200).end("Création validée avec validation !");
@@ -91,7 +90,7 @@ function createUtilisateurBis(fields, tabVal) {
     return test;
 }
 
-exports.updateUtilisateur = (updateString, id, cb) => {
+export const updateUtilisateur = (updateString, id, cb) => {
     db.query('UPDATE utilisateur SET ? WHERE idUtilisateur = ? ;', [updateString, id], function (err, data) {
         if (err) {
             cb(err, null);
@@ -105,11 +104,11 @@ exports.updateUtilisateur = (updateString, id, cb) => {
     });
 }
 
-exports.erreurGit = () => {
+export const erreurGit = () => {
     console.log("Je ne peux pas créer de compte car l'adresse mail n'est pas renseignée (privée)");
 }
 
-exports.deleteUtilisateurById = (id, res) => {
+export const deleteUtilisateurById = (id, res) => {
     db.query('DELETE FROM utilisateur WHERE idUtilisateur = ? ;', [id], (err, result) => {
         if (err) throw err;
         res.status(200).end("Suppression");
@@ -117,14 +116,14 @@ exports.deleteUtilisateurById = (id, res) => {
     })
 }
 
-exports.updateUserToken = (email, token, timestamp) => {
+export const updateUserToken = (email, token, timestamp) => {
     db.query('UPDATE utilisateur SET token = ?, tokenTimeStamp = ? WHERE Email = ?;', [token, timestamp, email], function (err, data) {
         if (err) throw err;
     });
 }
 
 // TODO : Doc
-exports.createUser = (donnees) => {
+export const createUser = (donnees) => {
     db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
         if (err) throw err;
     });

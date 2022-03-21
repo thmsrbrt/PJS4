@@ -1,16 +1,14 @@
 // le root du projet
-const express = require('express')
-const cors = require('cors');
-const crypto = require('crypto');
-const bodyparser = require('body-parser');
-const {updateUserToken, createUser} = require("./src/models/UtilisateurModel");
+import express from "express";
+import cors from "cors";
+import bodyparser from "body-parser";
+import 'dotenv/config';
 
+
+import {findUtilisateur, loginHandler, registerHandler} from "./src/controllers/User.js";
 
 const app = express()
-require('dotenv').config(); // pour récupérer les données dans .env
 
-require("./src/routes/ConnexionRoutes")(app);
-require("./src/routes/UtilisateurRoutes")(app);
 
 // TODO : A specifier pour pas rendre l'api publique
 app.use(cors({
@@ -26,3 +24,10 @@ const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Le serveur tourne sur le port : ${PORT}`);
 })
+
+// Routes
+app.post("/login", loginHandler)
+app.post("/register", registerHandler)
+// TODO : Vérifier que client ait le droit de faire cette requête
+app.get("/users/:id", findUtilisateur)
+

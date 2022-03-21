@@ -1,23 +1,34 @@
-const connexionController = require("../controllers/ConnexionController");
-const passport = require("passport");
-const router = require("express").Router();
-const bodyParser = require('body-parser')
+import {
+    accueil,
+    connexion,
+    connexionErreur,
+    deconnexion
+} from "../controllers/ConnexionController.useless";
+import passport from "passport";
+import {Router} from "express";
+import bodyParser from "body-parser";
+import config from "../../config/connexionGitHub";
+
+import config0 from "../../config/connexionFacebook";
+
+const router = Router();
 //const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-module.exports = app => {
-    require('../../config/connexionGitHub')(app, passport);
-    require('../../config/connexionFacebook')(passport);
+//Jsais pas c'est quoi tout ce bordel ptdr
+export const ConnexionRoutes = app => {
+    config(app, passport);
+    config0(passport);
 
-    router.get('/', connexionController.accueil);
+    router.get('/', accueil);
     router.get('/login/github', passport.authenticate('github'));
     router.get('/signin/github/callback', passport.authenticate('github', { failureRedirect: '/failure' }),
         (req, res) => {
             res.redirect('/user');
         });
-    router.post('/signin', urlencodedParser, connexionController.connexion);
-    router.get('/failure', connexionController.connexionErreur);
-    router.get('/logout', connexionController.deconnexion);
+    router.post('/signin', urlencodedParser, connexion);
+    router.get('/failure', connexionErreur);
+    router.get('/logout', deconnexion);
 
     //facebook
     router.get('/login/facebook', passport.authenticate('facebook', {

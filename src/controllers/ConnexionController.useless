@@ -1,6 +1,6 @@
-const DB = require('../models/UtilisateurModel')
+import {findOneUtilisateurByEmailPSD} from "../models/UtilisateurModel";
 
-exports.accueil = (req, res) => {
+export const accueil = (req, res) => {
     res.set('Content-Type', 'text/html')
     res.write('<p>');
     if (req.user)
@@ -18,19 +18,19 @@ exports.accueil = (req, res) => {
         '<a href="http://localhost:3000/user/login/facebook/">login facebook</a>');
 }
 
-exports.connexion = (req, res) => {
+export const connexion = (req, res) => {
     //console.log(req);
     console.log(req.body.email);
     console.log(req.body.password);
     const profil = [req.body.email, req.body.password];
-    DB.findOneUtilisateurByEmailPSD(profil, res);
+    findOneUtilisateurByEmailPSD(profil, res);
 }
 
-exports.connexionErreur = (req, res) => {
+export const connexionErreur = (req, res) => {
     res.status(500).send('Erreur de connexion');
 }
 
-exports.deconnexion = (req, res) => {
+export const deconnexion = (req, res) => {
     req.logout();
     res.redirect('/user');
 }

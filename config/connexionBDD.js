@@ -1,6 +1,6 @@
 //const mariadb = require('mariadb');
-const mysql = require("mysql");
-require('dotenv').config()
+import mysql from "mysql";
+import 'dotenv/config';
 //connexion BDD : à changer avec vos info (userDB, passwordDB, database)
 const userDB = process.env.USERDB;
 const passwordDB = process.env.PASSDB;
@@ -16,4 +16,4 @@ const conn = mysql.createPool({ // mysql
     connectionLimit: 5
 });
 
-module.exports = conn;
+export default conn;

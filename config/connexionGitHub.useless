@@ -1,6 +1,6 @@
 const GitHubStrategy = require('passport-github2').Strategy;
 const session = require("express-session");
-const DB = require('../src/models/UtilisateurModel');
+const DB = require('../src/models/UtilisateurModel.useless');
 
 module.exports = (app, passport) => {
     // initialisation
