@@ -10,10 +10,10 @@ export const findAnnonce = (req, res) => {
     let idUtilisateur = req.params.idUtilisateur;
     if (idUtilisateur === null) {
         res.status(500).send({message: "Erreur, idAnnonce null"});
-    } else  {
-        findAnnonceByID(req.params.id, (err, data) => {
+    } else {
+        findAnnonceByID(idUtilisateur, (err, data) => {
             if (err) {
-                err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}): res.status(500).send({message: "Erreur"});
+                err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}) : res.status(500).send({message: "Erreur"});
             } else {
                 res.status(200).send(data);
             }
@@ -30,7 +30,7 @@ export const findAnnonce = (req, res) => {
 export const findAllAnnonces = (req, res) => {
     findAllAnnonce((err, data) => {
         if (err) {
-            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}): res.status(500).send({message: "Erreur"});
+            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
         } else {
             res.status(200).send(data);
         }

@@ -7,7 +7,7 @@ import 'dotenv/config';
 
 import {findUtilisateur, loginHandler, registerHandler} from "./src/controllers/User.js";
 import {findAnnonce, findAllAnnonces, registerAnnonce} from "./src/controllers/Annonce.js";
-import { findEntreprise, registerEntreprise} from "./src/controllers/Entreprise.js";
+import {findEntreprise, registerEntreprise} from "./src/controllers/Entreprise.js";
 import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
 import {
     addToConversationByUtilisateur,
