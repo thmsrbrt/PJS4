@@ -15,6 +15,21 @@ export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
     });
 };
 
+export const findByIdConversation = (idConversation, cb) => {
+    db.query('SELECT * FROM Conversation WHERE idConversation = ?', idConversation, (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (rows.length === 0) {
+            cb({erreur: "not_found"});
+            return;
+        }
+        cb(null, rows);
+    })
+}
+
 export const findAllByIDAnnonce = (idAnnonce, cb) => {
     db.query('SELECT * FROM conversation WHERE idAnnonce = ?;', idAnnonce, (err, rows) => {
         if (err) {

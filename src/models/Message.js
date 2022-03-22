@@ -15,7 +15,7 @@ export const findAllByIDConversation = (idConversation, cb) => {
 };
 
 export const createMessageByIDConversation = donnees => {
-    db.query('INSERT INTO utilisateur (Message, DateEnvoi, idUtilisateur, idConversation) VALUES (?,?,?,?);', donnees, function (err, data) {
+    db.query('INSERT INTO Message (Message, DateEnvoi, idUtilisateur, idConversation) VALUES (?,NOW(),?,?);', donnees, function (err, data) {
         if (err) throw err;
     });
 };
