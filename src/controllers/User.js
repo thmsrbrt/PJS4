@@ -1,26 +1,28 @@
 import {createUser, findOneUtilisateurByEmailPSD, findOneUtilisateurByID, updateUserToken} from "../models/User.js";
 import crypto from "crypto";
+import jwt from "jsonwebtoken";
+import {accessTokenSecret} from "../../server.js";
 
 /**
  * Méthode permettant de vérifier la requête POST de login
  * @response avec un body si connexion possible, sans sinon
  */
 export const loginHandler = (req, res) => {
-    // TODO : vérfier en BDD
 
-    //console.log(request.body)
     const {email, password} = req.body;
-    const date = Date.now();
-    //console.log(getHashedPassword(password))
+
+    if(!email || !password)
+        return res.sendStatus(401)
 
     //if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
     findOneUtilisateurByEmailPSD([email, getHashedPassword(password)], (err, data) => {
         if (err) {
-            err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
+            err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(403).send({message: "Erreur"});
         } else {
-            const authToken = getToken(email, date);
-            updateUserToken(email, authToken, date);
-            res.json({"auth": authToken}).send()
+            // const authToken = getToken(email, date);
+            // updateUserToken(email, authToken, date);
+            const accessToken = jwt.sign({email: data.email }, accessTokenSecret);
+            res.json({accessToken}).send()
         }
     })
 }
@@ -45,7 +47,7 @@ export const findUtilisateur = (req, res) => {
         });
 }
 
-
+// TODO : Appel BDD du registerHandler
 /**
  * Méthode permettant de vérifier la requête POST de register
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
