@@ -1,4 +1,9 @@
-import {findAllByIDConversation} from "../models/Message.js";
+import {createMessageByIDConversation, findAllByIDConversation} from "../models/Message.js";
+import {
+    createConversation,
+    findByIdConversation,
+    findConversationByIdUtilisateurAAndIdUtilisateurB
+} from "../models/Conversation.js";
 
 export const findAllMessageByIDConversation = (req, res) => {
     if (req.params.idConversation === null) {

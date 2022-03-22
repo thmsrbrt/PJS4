@@ -44,25 +44,24 @@ export const addToConversationByUtilisateur = (req, res) => {
     let {idAnnonce, libelle} = req.body;
     if (idUtilisateurCourant === null) {
         res.status(500).send({message: "Erreur: idUtilisateurCourant null"});
-    }
-    if (idUtilisateurDestinataire === null ) {
+    } else if (idUtilisateurDestinataire === null ) {
         res.status(500).send({message: "Erreur: idUtilisateurDestinataire null"});
-    }
-    if (idAnnonce === null) {
-        idAnnonce = "null";
-    }
-    if (libelle === null) {
-        libelle = "";
-    }
-
-    findConversationByIdUtilisateurAAndIdUtilisateurB([idUtilisateurCourant, idUtilisateurDestinataire], (err, data) => {
-        if (err) {
-            if (err.erreur === "not_found") {
-                createConversation([idUtilisateurCourant, idUtilisateurDestinataire, idAnnonce, libelle]);
-                res.status(200).send({message: 'Créée'});
-            } else {
-                res.status(500).send({message:"Erreur conversation déja existante"});
-            }
+    } else {
+        if (idAnnonce === null) {
+            idAnnonce = "null";
         }
-    });
+        if (libelle === null) {
+            libelle = "";
+        }
+        findConversationByIdUtilisateurAAndIdUtilisateurB([idUtilisateurCourant, idUtilisateurDestinataire], (err, data) => {
+            if (err) {
+                if (err.erreur === "not_found") {
+                    createConversation([idUtilisateurCourant, idUtilisateurDestinataire, idAnnonce, libelle]);
+                    res.status(200).send({message: 'Créée'});
+                } else {
+                    res.status(500).send({message:"Erreur conversation déja existante"});
+                }
+            }
+        });
+    }
 }
