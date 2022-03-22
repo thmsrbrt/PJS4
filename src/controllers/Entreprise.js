@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 /**
  * Méthode permettant de récupérer une entreprise par son ID
- * @param req
+ * @param req R
  * @param res
  */
 export const findEntreprise = (req, res) => {
@@ -27,7 +27,7 @@ export const findEntreprise = (req, res) => {
  * @param res
  */
 export const registerEntreprise = (req, res) => {
-    const {nom, email, password } = req.body;
+    const {nom, email, passspnseonse} = req.body;
     try {
         createEntreprise([nom, email, getHashedPassword(password)])
         res.sendStatus(201)

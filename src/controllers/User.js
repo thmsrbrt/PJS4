@@ -55,8 +55,8 @@ export const registerHandler = (req, res) => {
 
     if (!users.find(user => user.email === email)) { // remplacer par une req bdd
         try {
-            createUser([nom, prenom, email, getHashedPassword(password)])
-            res.sendStatus(201)
+            createUser([nom, prenom, email, getHashedPassword(password)]);
+            res.sendStatus(201);
         } catch (err) {
             res.status(403).json({"faillure": err}).send();
         }
