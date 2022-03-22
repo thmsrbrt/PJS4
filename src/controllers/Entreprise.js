@@ -7,10 +7,11 @@ import crypto from "crypto";
  * @param res
  */
 export const findEntreprise = (req, res) => {
-    if (req.params.id === null) {
+    let idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur === null) {
         res.status(500).send({message: "id null"});
     } else {
-        findEntrepriseByID(req.params.id, (err, data) => {
+        findEntrepriseByID(idUtilisateur, (err, data) => {
             if (err) {
                 err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}): res.status(500).send({message: "Erreur"});
             } else {

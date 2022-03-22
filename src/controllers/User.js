@@ -33,10 +33,11 @@ export const loginHandler = (req, res) => {
  */
 export const findUtilisateur = (req, res) => {
     //console.log(req.params)
-    if (req.params.id == null)
+    let idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur == null)
         res.status(500).send({message: "Erreur, idUser null"});
     else
-        findOneUtilisateurByID(req.params.id, (err, data) => {
+        findOneUtilisateurByID(idUtilisateur, (err, data) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
             else

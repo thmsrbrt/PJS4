@@ -7,7 +7,8 @@ import {createAnnonce, findAllAnnonce, findAnnonceByID} from "../models/Annonce.
  * @response Code HTTP 500 si erreur, 404 si annonce non trouvé et 200 si trouvé
  */
 export const findAnnonce = (req, res) => {
-    if (req.params.id === null) {
+    let idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur === null) {
         res.status(500).send({message: "Erreur, idAnnonce null"});
     } else  {
         findAnnonceByID(req.params.id, (err, data) => {

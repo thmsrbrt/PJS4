@@ -9,6 +9,12 @@ import {findUtilisateur, loginHandler, registerHandler} from "./src/controllers/
 import {findAnnonce, findAllAnnonces, registerAnnonce} from "./src/controllers/Annonce.js";
 import { findEntreprise, registerEntreprise} from "./src/controllers/Entreprise.js";
 import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
+import {
+    addToConversationByUtilisateur,
+    findAllConversationByIdAnnonce,
+    findAllConversationByIDUser
+} from "./src/controllers/Conversation.js";
+import {findAllMessageByIDConversation} from "./src/controllers/Message.js";
 
 const app = express()
 
@@ -32,15 +38,23 @@ app.listen(PORT, () => {
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
 // TODO : Vérifier que client ait le droit de faire cette requête
-app.get("/users/:id", findUtilisateur);
+// TODO : faire les updates
+app.get("/users/:idUtilisateur", findUtilisateur);
 // Routes - Annonce
-app.get("/annonce/:id", findAnnonce);
+app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", findAllAnnonces);
 app.post("/annonce/create", registerAnnonce);
 // Routes - Entreprise
-app.get("/entreprise/:id", findEntreprise);
+app.get("/entreprise/:idUtilisateur", findEntreprise);
 app.get("/entreprises/all", registerEntreprise);
 // Routes - Candidature
 app.get("/candidatures/annonce/:idAnnonce", getCandidatureAnnonce);
 app.get("/candidatures/candidat/:idCandidat", getCandidatureCandidat);
 app.post("/candidature/create", registerCandidature);
+// Routes - Conversation
+app.get("/conversation/utilisateur/:idUtilisateur", findAllConversationByIDUser);
+app.get("/conversation/annonce/:idAnnonce", findAllConversationByIdAnnonce);
+app.post("/conversation/create", addToConversationByUtilisateur);
+// Routes - Message
+app.get("/message/conversation/:idConversation", findAllMessageByIDConversation);
+

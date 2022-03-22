@@ -49,7 +49,7 @@ CREATE TABLE Annonce(
 #------------------------------------------------------------
 
 CREATE TABLE Conversation(
-                             idConversation     Int NOT NULL ,
+                             idConversation Int Auto_increment NOT NULL ,
                              idUtilisateurA Int NOT NULL ,
                              idUtilisateurB Int NOT NULL ,
                              Libelle        Varchar (32) NOT NULL ,
