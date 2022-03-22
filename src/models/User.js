@@ -14,7 +14,7 @@ export const findOneUtilisateurByEmailPSD = (profil, cb) => {
             cb(null, rows[0]);
             return;
         }
-        cb({erreur : "not_found"});
+        cb({erreur : "not_found"}, null);
     });
 }
 
@@ -25,10 +25,10 @@ export const updateUtilisateur = (updateString, id, cb) => {
             return;
         }
         if (data !== 0) {
-            cb(null, rows[0]);
+            cb(null, data[0]);
             return;
         }
-        cb({erreur : "not_found"});
+        cb({erreur : "not_found"}, null);
     });
 }
 
