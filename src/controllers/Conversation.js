@@ -1,7 +1,8 @@
 import {
     createConversation,
     findAllByIDAnnonce,
-    findAllByIDUtilisateur, findConversationByIdUtilisateurAAndIdUtilisateurB,
+    findAllByIDUtilisateur,
+    findConversationByIdUtilisateurAAndIdUtilisateurB,
 } from "../models/Conversation.js";
 
 /**
@@ -50,14 +51,14 @@ export const findAllConversationByIdAnnonce = (req, res) => {
  * Méthode qui
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS
- * @Response 200 si la création est un succès, 500 si une erreur interne est survenue
+ * @Response 200 si la création est un succès, 500 si une erreur interne est survenue, 404 si la conversation est deja existante
  */
 export const addToConversationByUtilisateur = (req, res) => {
     const {idUtilisateurCourant, idUtilisateurDestinataire} = req.body;
     let {idAnnonce, libelle} = req.body;
     if (idUtilisateurCourant === null) {
         res.status(500).send({message: "Erreur: idUtilisateurCourant null"});
-    } else if (idUtilisateurDestinataire === null ) {
+    } else if (idUtilisateurDestinataire === null) {
         res.status(500).send({message: "Erreur: idUtilisateurDestinataire null"});
     } else {
         if (idAnnonce === null) {
@@ -72,7 +73,7 @@ export const addToConversationByUtilisateur = (req, res) => {
                     createConversation([idUtilisateurCourant, idUtilisateurDestinataire, idAnnonce, libelle]);
                     res.status(200).send({message: 'Créée'});
                 } else {
-                    res.status(404).send({message:"Erreur conversation déja existante"});
+                    res.status(404).send({message: "Erreur conversation déja existante"});
                 }
             }
         });

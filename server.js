@@ -61,8 +61,7 @@ const authMW = (req, res, next) => {
             req.user = user;
             next();
         });
-    }
-    else
+    } else
         res.sendStatus(401);
 };
 

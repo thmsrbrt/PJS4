@@ -17,8 +17,7 @@ import {accessTokenSecret} from "../../server.js";
  */
 export const loginHandler = (req, res) => {
     const {email, password} = req.body;
-
-    if(!email || !password)
+    if (!email || !password)
         return res.sendStatus(401)
 
     //if (users.find(user => user.email === email && user.password === getHashedPassword(password))) { // remplacer par une req bdd
@@ -28,7 +27,7 @@ export const loginHandler = (req, res) => {
         } else {
             // const authToken = getToken(email, date);
             // updateUserToken(email, authToken, date);
-            const accessToken = jwt.sign({email: data.email }, accessTokenSecret);
+            const accessToken = jwt.sign({email: data.email}, accessTokenSecret);
             res.json({accessToken}).send()
         }
     })
@@ -47,7 +46,7 @@ export const findUtilisateur = (req, res) => {
     else
         findOneUtilisateurByID(idUtilisateur, (err, data) => {
             if (err)
-                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}): res.status(500).send({message: "Erreur"});
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
             else
                 res.status(200).send(data);
         });

@@ -14,7 +14,7 @@ export const findEntreprise = (req, res) => {
     } else {
         findEntrepriseByID(idUtilisateur, (err, data) => {
             if (err) {
-                err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}): res.status(500).send({message: "Erreur"});
+                err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}) : res.status(500).send({message: "Erreur"});
             } else {
                 res.status(200).send(data);
             }
