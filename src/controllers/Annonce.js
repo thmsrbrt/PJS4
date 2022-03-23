@@ -44,15 +44,13 @@ export const findAllAnnonces = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const registerAnnonce = (req, res) => {
-    let image;
-    if (req.body.image == null)
-        image = req.body.image;
-    else
+    let image=  req.body.image;
+    if (image === null)
         image = "null";
-    const {titre, description, idEntreprise} = req.body;
+    const {titre, description, idEntreprise, localisation} = req.body;
 
     try {
-        createAnnonce([titre, image, description, idEntreprise]);
+        createAnnonce([titre, image, description, idEntreprise, localisation]);
         res.sendStatus(201);
     } catch (err) {
         res.status(403).json({"faillure": err}).send();

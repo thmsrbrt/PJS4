@@ -39,8 +39,12 @@ export const findAnnonceByID = (id, cb) => {
     });
 }
 
+/**
+ * Méthode permettant de créer une annonce
+ * @param data {array<string>} contenant les données de l'annonce
+ */
 export const createAnnonce = (data) => {
-    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, nbCandidat) VALUES (?,?,?,?,0)', data, (err, res) => {
+    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, nbCandidat, datePublication, localisation) VALUES (?,?,?,?,0, NOW(), ?)', data, (err, res) => {
         if (err) {
             throw err;
         }
