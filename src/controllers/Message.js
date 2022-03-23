@@ -5,6 +5,12 @@ import {
     findConversationByIdUtilisateurAAndIdUtilisateurB
 } from "../models/Conversation.js";
 
+/**
+ * Méthode permettant de renvoyer tout les messages d'une conversation
+ * @param req Request vendant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 200 si réussite, 404 message non trouvé, 500 erreurs internes
+ */
 export const findAllMessageByIDConversation = (req, res) => {
     if (req.params.idConversation === null) {
         res.status(500).send({message: "Erreur, idConversation null"});
@@ -19,7 +25,13 @@ export const findAllMessageByIDConversation = (req, res) => {
     }
 }
 
-// TODO gérer les erreurs
+/**
+ * TODO gérer les erreurs
+ * Méthode permettant d'ajouter un message à une conversation
+ * @param req Request vendant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 201 si réussite, 403 dans le cas contraire, 500 erreurs internes
+ */
 export const addMessageToConversationByID = (req, res) => {
     const {message, idConversation, idUtilisateur} = req.body;
     if (idConversation === null) {

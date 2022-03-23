@@ -2,8 +2,8 @@ import db from "../../config/connexionBDD.js";
 
 /**
  * Méthode permettant de récupérer une entreprise par son id dans la BDD
- * @param id
- * @param cb
+ * @param id {number} - id de l'entreprise
+ * @param cb {callback} traitement du résultat
  */
 export const findEntrepriseByID = (id, cb) => {
   db.query("SELECT * FROM V_Entreprise WHERE id = ?", [id], (err, row) => {
@@ -22,7 +22,7 @@ export const findEntrepriseByID = (id, cb) => {
 
 /**
  * Méthode qui permet d'enregistrer une nouvelle entreprise dans la BDD
- * @param data
+ * @param data {object} - données de l'entreprise
  */
 export const createEntreprise = (data) => {
     db.query('INSERT INTO Entreprise (Nom, Email, MotDePasse, PhotoProfile, Type) VALUES (?, ?, ?, "default", "Entreprise")', data, (err, row) => {

@@ -6,8 +6,9 @@ import {
 
 /**
  * Méthode récupérer toutes les conversations d'un utilisateur à partir de son ID
- * @param req
- * @param res
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @Response 200 si la requête est un succès, 404 si la conversation n'existe pas, 500 si une erreur interne est survenue
  */
 export const findAllConversationByIDUser = (req, res) => {
     const idUtilisateur = req.params.idUtilisateur;
@@ -24,6 +25,12 @@ export const findAllConversationByIDUser = (req, res) => {
     }
 }
 
+/**
+ * Méthode récupérer toutes les conversations à partir de l'ID de l'annonce
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @Response 200 si la requête est un succès, 404 si la conversation n'existe pas, 500 si une erreur interne est survenue
+ */
 export const findAllConversationByIdAnnonce = (req, res) => {
     const idAnnonce = req.params.idAnnonce;
     if (idAnnonce === null) {
@@ -39,6 +46,13 @@ export const findAllConversationByIdAnnonce = (req, res) => {
     }
 }
 
+/**
+ * TODO : a revoir
+ * Méthode qui
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @Response 200 si la création est un succès, 500 si une erreur interne est survenue
+ */
 export const addToConversationByUtilisateur = (req, res) => {
     const {idUtilisateurCourant, idUtilisateurDestinataire} = req.body;
     let {idAnnonce, libelle} = req.body;
@@ -59,7 +73,7 @@ export const addToConversationByUtilisateur = (req, res) => {
                     createConversation([idUtilisateurCourant, idUtilisateurDestinataire, idAnnonce, libelle]);
                     res.status(200).send({message: 'Créée'});
                 } else {
-                    res.status(500).send({message:"Erreur conversation déja existante"});
+                    res.status(404).send({message:"Erreur conversation déja existante"});
                 }
             }
         });

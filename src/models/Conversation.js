@@ -1,5 +1,10 @@
 import db from "../../config/connexionBDD.js";
 
+/**
+ * Méthode permettant de récupérer toutes les conversations d'un utilisateur
+ * @param idUtilisateur {int} id de l'utilisateur
+ * @param cb {callback} traitement du résultat
+ */
 export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
     db.query('SELECT * FROM conversation WHERE idUtilisateurA = ? OR idUtilisateurB = ?', [idUtilisateur, idUtilisateur], (err, rows) => {
         if (err) {
@@ -15,6 +20,11 @@ export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
     });
 };
 
+/**
+ * Méthode permettant de récupérer toutes les conversations à partir d'un idConversation
+ * @param idConversation {int} id de la conversation
+ * @param cb {callback} traitement du résultat
+ */
 export const findByIdConversation = (idConversation, cb) => {
     db.query('SELECT * FROM Conversation WHERE idConversation = ?', idConversation, (err, rows) => {
         if (err) {
@@ -30,6 +40,11 @@ export const findByIdConversation = (idConversation, cb) => {
     })
 }
 
+/**
+ * Méthode permettant de récupérer toutes les conversations à partir d'un idAnnonce
+ * @param idAnnonce {int} id de l'annonce
+ * @param cb {callback} traitement du résultat
+ */
 export const findAllByIDAnnonce = (idAnnonce, cb) => {
     db.query('SELECT * FROM conversation WHERE idAnnonce = ?;', idAnnonce, (err, rows) => {
         if (err) {
@@ -45,6 +60,12 @@ export const findAllByIDAnnonce = (idAnnonce, cb) => {
     });
 };
 
+/**
+ * TODO : retourne qu'une seule conversation ? ou plusieurs ?
+ * Méthode permettant de récupérer la conversation entre deux utilisateurs
+ * @param data {object} contient les idUtilisateurA et idUtilisateurB
+ * @param cb {callback} traitement du résultat
+ */
 export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
     let donnees = [...data, ...data];
     db.query('SELECT * FROM Conversation WHERE (idUtilisateurA = ? AND idUtilisateurB= ?) OR (idUtilisateurB = ? and idUtilisateurA = ?);', donnees, (err, data) => {
@@ -58,6 +79,10 @@ export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
     });
 }
 
+/**
+ * Méthode permettant de créer une conversation
+ * @param donnees {object} contient les données de la conversation
+ */
 export const createConversation = (donnees) => {
     console.log(donnees);
     db.query('INSERT INTO conversation (idUtilisateurA, idUtilisateurB, idAnnonce, Libelle) VALUES (?,?,?,?);', (donnees), function (err, data) {

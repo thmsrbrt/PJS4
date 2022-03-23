@@ -3,8 +3,9 @@ import crypto from "crypto";
 
 /**
  * Méthode permettant de récupérer une entreprise par son ID
- * @param req R
- * @param res
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response code http 200 si réussite, code http 404 si aucune annonce n'est trouvée, code http 500 si erreur interne
  */
 export const findEntreprise = (req, res) => {
     let idUtilisateur = req.params.idUtilisateur;
@@ -23,8 +24,9 @@ export const findEntreprise = (req, res) => {
 
 /**
  * Méthode permettant de créer une entreprise
- * @param req
- * @param res
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response code http 201 si réussite, code http 403 si erreur interne
  */
 export const registerEntreprise = (req, res) => {
     const {nom, email, passspnseonse} = req.body;
