@@ -61,7 +61,6 @@ export const findAllByIDAnnonce = (idAnnonce, cb) => {
 };
 
 /**
- * TODO : retourne qu'une seule conversation ? ou plusieurs ?
  * Méthode permettant de récupérer la conversation entre deux utilisateurs
  * @param data {object} contient les idUtilisateurA et idUtilisateurB
  * @param cb {callback} traitement du résultat

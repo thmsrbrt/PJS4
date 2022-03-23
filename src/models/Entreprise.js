@@ -25,7 +25,19 @@ export const findEntrepriseByID = (id, cb) => {
  * @param data {object} - données de l'entreprise
  */
 export const createEntreprise = (data) => {
-    db.query('INSERT INTO Entreprise (Nom, Email, MotDePasse, PhotoProfile, Type) VALUES (?, ?, ?, "default", "Entreprise")', data, (err, row) => {
+    db.query('INSERT INTO Utilisateur (Nom, Email, MotDePasse, PhotoProfile, Type) VALUES (?, ?, ?, "default", "Entreprise")', data, (err, row) => {
+        if (err) {
+            throw err;
+        }
+    })
+}
+
+/**
+ * Méthode qui permet de modifier une entreprise dans la BDD
+ * @param data {object} - données de l'entreprise
+ */
+export const updateEntrepriseData = (data) => {
+    db.query('UPDATE Utilisateur SET Nom = ?, Email = ?, PhotoProfile = ? WHERE idUtilisateur = ?', data, (err, row) => {
         if (err) {
             throw err;
         }

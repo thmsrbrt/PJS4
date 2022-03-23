@@ -47,7 +47,6 @@ export const findAllConversationByIdAnnonce = (req, res) => {
 }
 
 /**
- * TODO : a revoir
  * Méthode qui
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS

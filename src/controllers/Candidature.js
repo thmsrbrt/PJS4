@@ -8,6 +8,9 @@ import {createCandidature, getAllCandidatureByIDAnnonce, getAllCandidatureByIDCa
  */
 export const registerCandidature = (req, res) => {
     const { CVFile, LettreMotivation, idCandidat, idAnnonce } = req.body;
+    if (!CVFile || !LettreMotivation || ! idCandidat || !idAnnonce) {
+        return res.sendStatus(401);
+    }
 
     try {
         createCandidature([CVFile, LettreMotivation, idCandidat, idAnnonce]);
@@ -23,7 +26,7 @@ export const registerCandidature = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const getCandidatureCandidat = (req, res) => {
-    let idCandidat = req.params.idCandidat;
+    const idCandidat = req.params.idCandidat;
     if (idCandidat == null) {
        res.status(500).send({message: "idCandidat is required"});
     } else {
@@ -44,7 +47,7 @@ export const getCandidatureCandidat = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const getCandidatureAnnonce = (req, res) => {
-    let idAnnonce = req.params.idAnnonce;
+    const idAnnonce = req.params.idAnnonce;
     if (idAnnonce == null) {
         res.status(500).send({message: "idAnnonce is required"});
     } else {

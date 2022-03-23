@@ -36,10 +36,9 @@ CREATE TABLE Annonce(
                         Titre               Varchar (255) NOT NULL ,
                         Image               Varchar (255) ,
                         Description         Varchar (1000) NOT NULL ,
-                        NbCandidat          Int NOT NULL ,
                         idEntreprise        Int NOT NULL,
-                        datePublication     DATE NOT NULL, -- TODO : implement date model et controller
-                        localisation        Varchar (255) NOT NULL -- TODO : implement localisation model et controller
+                        datePublication     DATE NOT NULL,
+                        localisation        Varchar (255) NOT NULL
     ,CONSTRAINT Annonce_PK PRIMARY KEY (idAnnonce)
 
     ,CONSTRAINT Annonce_Entreprise_FK FOREIGN KEY (idEntreprise) REFERENCES Utilisateur(idUtilisateur)
@@ -130,6 +129,7 @@ CREATE TRIGGER T_IncrementeNbCandidature -- (mySql)
     end;
 
 
+
 #------------------------------------------------------------
 # Inserts:
 #------------------------------------------------------------
@@ -206,9 +206,3 @@ SELECT * FROM Candidature;
 
 SELECT * FROM Conversation WHERE idUtilisateurB = 4 and idUtilisateurA = 3;
 SELECT * FROM Message WHERE idConversation = 1;
-
-
-
-
--- TODO : faire une vue pour récupérer les conversation du point de vue d'un utilisateurA
--- TODO : faire une vue pour le get du front avec plus informations pour simplifier éventuellement

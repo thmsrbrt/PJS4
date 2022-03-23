@@ -5,16 +5,22 @@ import bodyparser from "body-parser";
 import 'dotenv/config';
 import jwt from "jsonwebtoken";
 
-import {findUtilisateur, loginHandler, registerHandler} from "./src/controllers/User.js";
-import {findAnnonce, findAllAnnonces, registerAnnonce} from "./src/controllers/Annonce.js";
-import {findEntreprise, registerEntreprise} from "./src/controllers/Entreprise.js";
+import {
+    findUtilisateur,
+    loginHandler,
+    registerHandler,
+    updatePassword,
+    updateUserData
+} from "./src/controllers/User.js";
+import {findAllAnnonces, findAnnonce, registerAnnonce, updateAnnonce} from "./src/controllers/Annonce.js";
+import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
 import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
 import {
     addToConversationByUtilisateur,
     findAllConversationByIdAnnonce,
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
-import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
+import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Messages.js";
 
 const app = express()
 export const accessTokenSecret = process.env.TOKENSECRET;
@@ -61,28 +67,34 @@ const authMW = (req, res, next) => {
 };
 
 
-
 // Routes - Utilisateurs
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
-// TODO : Vérifier que client ait le droit de faire cette requête
-// TODO : faire les updates
 app.get("/users/:idUtilisateur", findUtilisateur);
+app.put("/users/update", authMW, updateUserData);
+app.put("/users/updatePassWord", authMW, updatePassword);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);
-app.post("/annonce/create", registerAnnonce);
+app.post("/annonce/create", authMW, registerAnnonce);
+app.put("/annonce/update", authMW, updateAnnonce);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise);
 app.get("/entreprises/all", registerEntreprise);
+app.put("/entreprise/update", authMW, updateEntreprise);
+app.put("/entreprise/updatePassWord", authMW, updatePassword);
 // Routes - Candidature
-app.get("/candidatures/annonce/:idAnnonce", getCandidatureAnnonce);
-app.get("/candidatures/candidat/:idCandidat", getCandidatureCandidat);
-app.post("/candidature/create", registerCandidature);
+app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce);
+app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat);
+app.post("/candidature/create", authMW, registerCandidature);
 // Routes - Conversation
-app.get("/conversation/utilisateur/:idUtilisateur", findAllConversationByIDUser);
-app.get("/conversation/annonce/:idAnnonce", findAllConversationByIdAnnonce);
-app.post("/conversation/create", addToConversationByUtilisateur);
+app.get("/conversation/utilisateur/:idUtilisateur", authMW, findAllConversationByIDUser);
+app.get("/conversation/annonce/:idAnnonce", authMW, findAllConversationByIdAnnonce);
+app.post("/conversation/create", authMW, addToConversationByUtilisateur);
 // Routes - Message
-app.get("/message/conversation/:idConversation", findAllMessageByIDConversation);
-app.post("/message/conversation/send", addMessageToConversationByID);
+app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConversation);
+app.post("/message/conversation/send", authMW, addMessageToConversationByID);
+// Routes - autres
+// TODO : nombre de message non lus par conversation
+// TODO : nombre de candidat pour une annonce
+app.get("/annonce/nbCandidat/:idCandidat", )

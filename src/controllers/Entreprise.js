@@ -1,4 +1,4 @@
-import {findEntrepriseByID} from "../models/Entreprise.js";
+import {findEntrepriseByID, updateEntrepriseData} from "../models/Entreprise.js";
 import crypto from "crypto";
 
 /**
@@ -8,7 +8,7 @@ import crypto from "crypto";
  * @response code http 200 si réussite, code http 404 si aucune annonce n'est trouvée, code http 500 si erreur interne
  */
 export const findEntreprise = (req, res) => {
-    let idUtilisateur = req.params.idUtilisateur;
+    const idUtilisateur = req.params.idUtilisateur;
     if (idUtilisateur === null) {
         res.status(500).send({message: "id null"});
     } else {
@@ -30,6 +30,9 @@ export const findEntreprise = (req, res) => {
  */
 export const registerEntreprise = (req, res) => {
     const {nom, email, passspnseonse} = req.body;
+    if (!nom || !email || !passspnseonse) {
+        return res.sendStatus(401);
+    }
     try {
         createEntreprise([nom, email, getHashedPassword(password)])
         res.sendStatus(201)

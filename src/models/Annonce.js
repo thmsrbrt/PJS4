@@ -51,3 +51,15 @@ export const createAnnonce = (data) => {
     });
 }
 
+/**
+ * Méthode permettant de mettre à jour une annonce
+ * @param data {array<string>} contenant les données de l'annonce
+ */
+export const updateAnnonceData = (data) => {
+    db.query('UPDATE annonce SET titre = ?, image = ?, description = ?, localisation = ? WHERE idAnnonce = ?', data, (err, res) => {
+        if (err) {
+            throw err;
+        }
+    });
+}
+

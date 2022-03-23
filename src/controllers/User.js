@@ -47,22 +47,31 @@ export const findUtilisateur = (req, res) => {
         });
 }
 
-// TODO : Appel BDD du registerHandler
 /**
  * Méthode permettant de vérifier la requête POST de register
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const registerHandler = (req, res) => {
-    const {email, password, nom, prenom } = req.body;
+    const {email, password, nom, prenom} = req.body;
+    if (!email || !password || !nom || !prenom)
+        return res.sendStatus(401)
 
-    if (!users.find(user => user.email === email)) { // remplacer par une req bdd
-        try {
-            createUser([nom, prenom, email, getHashedPassword(password)]);
-            res.sendStatus(201);
-        } catch (err) {
-            res.status(403).json({"faillure": err}).send();
+    findOneUtilisateurByEmail(email, (err, data) => {
+        if (err) {
+            if (err.erreur === "not_found") {
+                try {
+                    createUser([nom, prenom, email, getHashedPassword(password)]);
+                    res.sendStatus(200);
+                } catch (err) {
+                    res.status(403).json({"faillure": err}).send();
+                }
+            } else {
+                res.status(500).send({message: "Erreur"});
+            }
+        } else {
+            res.status(404).send({message: 'Utilisateur déjà existant'})
         }
-    }
+    });
 }
 
 
@@ -86,6 +95,7 @@ const getHashedPassword = (password) => {
     const sha256 = crypto.createHash('sha256');
     return sha256.update(password).digest('base64');
 }
+
 /**
  * A défaut d'utiliser la bdd, une liste d'objets avec comme attributs une email et un mot de passe hashé
  * @type {[{email: string, password: string}]}
