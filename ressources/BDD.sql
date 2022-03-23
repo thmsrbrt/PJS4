@@ -11,17 +11,17 @@ DROP TABLE IF EXISTS Utilisateur;
 #------------------------------------------------------------
 
 CREATE TABLE Utilisateur(
-                            idUtilisateur Int  Auto_increment  NOT NULL ,
-                            Nom        Varchar (255) NOT NULL ,
-                            Prenom     Varchar (255)  ,
-                            Email      Varchar (255) NOT NULL ,
-                            MotDePasse Varchar (1000) NOT NULL ,
-                            token VARCHAR (255),
-                            tokenTimeStamp VARCHAR (255),
-                            PhotoProfile Varchar (255) NOT NULL,
-                            Description Varchar (1000) ,
-                            CVFile      Varchar (255) ,
-                            Type        VARCHAR(32) NOT NULL
+                            idUtilisateur   Int  Auto_increment  NOT NULL ,
+                            Nom             Varchar (255) NOT NULL ,
+                            Prenom          Varchar (255)  ,
+                            Email           Varchar (255) NOT NULL ,
+                            MotDePasse      Varchar (1000) NOT NULL ,
+                            token           VARCHAR (255),
+                            tokenTimeStamp  VARCHAR (255),
+                            PhotoProfile    Varchar (255) NOT NULL,
+                            Description     Varchar (1000) ,
+                            CVFile          Varchar (255) ,
+                            Type            VARCHAR(32) NOT NULL
 
     ,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
 )ENGINE=InnoDB;
@@ -32,12 +32,14 @@ CREATE TABLE Utilisateur(
 #------------------------------------------------------------
 
 CREATE TABLE Annonce(
-                        idAnnonce   Int  Auto_increment  NOT NULL ,
-                        Titre       Varchar (255) NOT NULL ,
-                        Image       Varchar (255) ,
-                        Description Varchar (1000) NOT NULL ,
-                        NbCandidat      Int NOT NULL ,
-                        idEntreprise  Int NOT NULL
+                        idAnnonce           Int  Auto_increment  NOT NULL ,
+                        Titre               Varchar (255) NOT NULL ,
+                        Image               Varchar (255) ,
+                        Description         Varchar (1000) NOT NULL ,
+                        NbCandidat          Int NOT NULL ,
+                        idEntreprise        Int NOT NULL,
+                        datePublication     DATE NOT NULL, -- TODO : implement date model et controller
+                        localisation        Varchar (255) NOT NULL -- TODO : implement localisation model et controller
     ,CONSTRAINT Annonce_PK PRIMARY KEY (idAnnonce)
 
     ,CONSTRAINT Annonce_Entreprise_FK FOREIGN KEY (idEntreprise) REFERENCES Utilisateur(idUtilisateur)
@@ -70,11 +72,11 @@ CREATE TABLE Conversation(
 #------------------------------------------------------------
 
 CREATE TABLE Message(
-                        idMessage     Int  Auto_increment  NOT NULL ,
-                        Message       Varchar (1000) NOT NULL , -- contenu du message
-                        DateEnvoi     DATE NOT NULL, -- Date d'envoi du message
-                        idUtilisateur Int NOT NULL, -- utilisateur qui a envoyé le  -- vérifier que c'est userA ou userB avec trigger
-                        idConversation Int NOT NULL
+                        idMessage       Int  Auto_increment  NOT NULL ,
+                        Message         Varchar (1000) NOT NULL , -- contenu du message
+                        DateEnvoi       DATE NOT NULL, -- Date d'envoi du message
+                        idUtilisateur   Int NOT NULL, -- utilisateur qui a envoyé le  -- vérifier que c'est userA ou userB avec trigger
+                        idConversation  Int NOT NULL
     ,CONSTRAINT Message_PK PRIMARY KEY (idMessage)
 
     ,CONSTRAINT Message_Utilisateur_PK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur(idUtilisateur)
@@ -154,11 +156,11 @@ VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds','/Image/PhotoEnt
        (17, 'michelin', 'recruteur@michelin.fr', 'dfghjhgfds','/Image/PhotoEntreprise/michelin.png', 'Entreprise'),
        (18, 'stellantis', 'recrutement@stellantis.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/stellantis.png', 'Entreprise');
 
-INSERT INTO Annonce(idAnnonce, Titre, Image, Description, NbCandidat, idEntreprise)
-VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 0, 11), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
-       (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 100, 18),
-       (10, 'stage development interface web', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 3, 113),
-       (12, 'stage ', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa satge java bac+145 si tu es pas mort', 56, 113);
+INSERT INTO Annonce(idAnnonce, Titre, Image, Description, NbCandidat, idEntreprise, DatePublication, localisation)
+VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 0, 11, '2022-03-24 14:21:20', 'Paris'), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
+       (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 100, 18, '2022-03-24 14:21:20', 'Paris'),
+       (10, 'stage development interface web', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 3, 113, '2022-03-24 14:21:20', 'Paris'),
+       (12, 'stage ', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa satge java bac+145 si tu es pas mort', 56, 113, '2022-03-24 14:21:20', 'Paris');
 
 INSERT INTO Conversation(idConversation, idUtilisateurA, idUtilisateurB, Libelle, idAnnonce)
 VALUES (1, 1, 3, 'friends', null),
