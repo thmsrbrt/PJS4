@@ -14,7 +14,7 @@ import {
     findAllConversationByIdAnnonce,
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
-import {findAllMessageByIDConversation} from "./src/controllers/Message.js";
+import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
 
 const app = express()
 export const accessTokenSecret = process.env.TOKENSECRET;
@@ -85,4 +85,4 @@ app.get("/conversation/annonce/:idAnnonce", findAllConversationByIdAnnonce);
 app.post("/conversation/create", addToConversationByUtilisateur);
 // Routes - Message
 app.get("/message/conversation/:idConversation", findAllMessageByIDConversation);
-
+app.post("/message/conversation/send", addMessageToConversationByID);
