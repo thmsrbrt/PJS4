@@ -1,4 +1,12 @@
-import {createUser, findOneUtilisateurByEmailPSD, findOneUtilisateurByID, updateUserToken} from "../models/User.js";
+import {
+    createUser,
+    findOneUtilisateurByEmailPSD,
+    findOneUtilisateurByEmail,
+    findOneUtilisateurByID,
+    findPassWordByIdUtilisateur,
+    updatePasswordBDD,
+    updateUtilisateur
+} from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
@@ -8,7 +16,6 @@ import {accessTokenSecret} from "../../server.js";
  * @response avec un body si connexion possible, sans sinon
  */
 export const loginHandler = (req, res) => {
-
     const {email, password} = req.body;
 
     if(!email || !password)
@@ -34,8 +41,7 @@ export const loginHandler = (req, res) => {
  * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
  */
 export const findUtilisateur = (req, res) => {
-    //console.log(req.params)
-    let idUtilisateur = req.params.idUtilisateur;
+    const idUtilisateur = req.params.idUtilisateur;
     if (idUtilisateur == null)
         res.status(500).send({message: "Erreur, idUser null"});
     else
@@ -74,7 +80,56 @@ export const registerHandler = (req, res) => {
     });
 }
 
+/**
+ * Méthode pour mettre à jour les informations d'un utilisateur
+ * @param req Request de ExpressJS
+ * @param res Response de ExpressJS
+ */
+export const updateUserData = (req, res) => {
+    const {nom, email, photoProfile, idUtilisateur} = req.body;
+    let {prenom, description, cvFile} = req.body;
 
+    if (!nom || !email || !photoProfile || !idUtilisateur)
+        return res.sendStatus(401)
+
+    if (prenom == null)
+        prenom = "null";
+    if (description == null)
+        description = "null";
+    if (cvFile == null)
+        cvFile = "null";
+
+    try {
+        updateUtilisateur([nom, prenom, email, photoProfile, description, cvFile, idUtilisateur]);
+        res.sendStatus(201);
+    } catch (err) {
+        console.log(err);
+        res.status(403).json({"faillure": err}).send();
+    }
+}
+
+export const updatePassword = (req, res) => {
+    const {oldPassword, newPassword, newPassword2, idUtilisateur} = req.body;
+    if (!oldPassword || !newPassword || !newPassword2 || !idUtilisateur)
+        return res.sendStatus(401)
+
+    findPassWordByIdUtilisateur(idUtilisateur, (err, data) => {
+        if (err) {
+            err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
+        } else {
+            if (data.MotDePasse === getHashedPassword(oldPassword)) {
+                if (newPassword === newPassword2) {
+                    updatePasswordBDD([getHashedPassword(newPassword), idUtilisateur]);
+                    res.sendStatus(201);
+                } else {
+                    res.status(403).json({"faillure": "Les deux mots de passe ne correspondent pas"}).send();
+                }
+            } else {
+                res.status(403).json({"faillure": "Le mot de passe actuel n'est pas correct"}).send();
+            }
+        }
+    });
+}
 
 /**
  * Fonction permettant de créer un token d'authentification

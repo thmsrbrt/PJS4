@@ -2,16 +2,37 @@ import db from "../../config/connexionBDD.js";
 
 
 /**
- * Méthode permettant de trouver un utilisateur en fonction de son password et mot de passe
+ * Méthode permettant de trouver un utilisateur en fonction de son mail et mot de passe
  * @param profil {array<string>} email + password
  * @param cb {callback} traitement du résultat
  */
 export const findOneUtilisateurByEmailPSD = (profil, cb) => {
     db.query("SELECT Email FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
-        if (err) cb(err, null);
-
+        if (err) {
+            cb(err, null);
+            return;
+        }
         if (rows.length) {
             cb(null, rows[0]);
+            return;
+        }
+        cb({erreur : "not_found"}, null);
+    });
+}
+
+/**
+ * Méthode permettant de trouver un utilisateur en fonction de son mail
+ * @param profil {array<string>} email
+ * @param cb {callback} traitement du résultat
+ */
+export const findOneUtilisateurByEmail = (profil, cb) => {
+    db.query("SELECT Email FROM utilisateur WHERE Email = ?;", profil, (err, row) => {
+        if (err) {
+            cb(err, null);
+            return;
+        }
+        if (row.length) {
+            cb(null, row);
             return;
         }
         cb({erreur : "not_found"}, null);

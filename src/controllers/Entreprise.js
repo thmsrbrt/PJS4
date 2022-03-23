@@ -42,6 +42,26 @@ export const registerEntreprise = (req, res) => {
 }
 
 /**
+ * Méthode permettant de mettre à jour une entreprise
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ */
+export const updateEntreprise = (req, res) => {
+    const {nom, email, photoProfile, idEntreprise} = req.body;
+
+    if (!nom || !email || !photoProfile || !idEntreprise)
+        return res.sendStatus(401)
+
+    try {
+        updateEntrepriseData([nom, email, photoProfile, idEntreprise]);
+        res.sendStatus(201);
+    } catch (err) {
+        console.log(err);
+        res.status(403).json({"faillure": err}).send();
+    }
+}
+
+/**
  * Fonction permettant de transformer une string en un hash sha256 en base64
  * @param password {string} La string à transformer
  * @returns {string} La string hashée et en base 64
