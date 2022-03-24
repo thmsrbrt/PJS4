@@ -12,15 +12,15 @@ DROP TABLE IF EXISTS Utilisateur;
 
 CREATE TABLE Utilisateur(
                             idUtilisateur   Int  Auto_increment  NOT NULL ,
-                            Nom             Varchar (255) NOT NULL ,
-                            Prenom          Varchar (255)  ,
-                            Email           Varchar (255) NOT NULL ,
-                            MotDePasse      Varchar (1000) NOT NULL ,
+                            Nom             Varchar (255) NOT NULL,
+                            Prenom          Varchar (255),
+                            Email           Varchar (255) NOT NULL,
+                            MotDePasse      Varchar (1000) NOT NULL,
                             token           VARCHAR (255),
                             tokenTimeStamp  VARCHAR (255),
                             PhotoProfile    Varchar (255) NOT NULL,
-                            Description     Varchar (1000) ,
-                            CVFile          Varchar (255) ,
+                            Description     Varchar (1000),
+                            CVFile          Varchar (255),
                             Type            VARCHAR(32) NOT NULL
 
     ,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
@@ -118,17 +118,6 @@ CREATE OR REPLACE VIEW V_Entreprise AS
 # Triggers:
 #------------------------------------------------------------
 
--- CREATE OR REPLACE TRIGGER T_IncrementeNbCandidature -- (mariaDB)
-DROP TRIGGER IF EXISTS T_IncrementeNbCandidature; -- (mySql)
-CREATE TRIGGER T_IncrementeNbCandidature -- (mySql)
-    AFTER INSERT ON Candidature
-    FOR EACH ROW
-    BEGIN
-       UPDATE Annonce SET NbCandidat = NbCandidat + 1
-       WHERE Annonce.idAnnonce = NEW.IdAnnonce;
-    end;
-
-
 
 #------------------------------------------------------------
 # Inserts:
@@ -156,11 +145,11 @@ VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds','/Image/PhotoEnt
        (17, 'michelin', 'recruteur@michelin.fr', 'dfghjhgfds','/Image/PhotoEntreprise/michelin.png', 'Entreprise'),
        (18, 'stellantis', 'recrutement@stellantis.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/stellantis.png', 'Entreprise');
 
-INSERT INTO Annonce(idAnnonce, Titre, Image, Description, NbCandidat, idEntreprise, DatePublication, localisation)
-VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 0, 11, '2022-03-24 14:21:20', 'Paris'), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
-       (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 100, 18, '2022-03-24 14:21:20', 'Paris'),
-       (10, 'stage development interface web', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 3, 113, '2022-03-24 14:21:20', 'Paris'),
-       (12, 'stage ', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa satge java bac+145 si tu es pas mort', 56, 113, '2022-03-24 14:21:20', 'Paris');
+INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
+VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 11, '2022-03-24 14:21:20', 'Paris'), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
+       (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 18, '2022-03-24 14:21:20', 'Paris'),
+       (10, 'stage development interface web', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 113, '2022-03-24 14:21:20', 'Paris'),
+       (12, 'stage ', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa satge java bac+145 si tu es pas mort', 113, '2022-03-24 14:21:20', 'Paris');
 
 INSERT INTO Conversation(idConversation, idUtilisateurA, idUtilisateurB, Libelle, idAnnonce)
 VALUES (1, 1, 3, 'friends', null),
@@ -206,3 +195,12 @@ SELECT * FROM Candidature;
 
 SELECT * FROM Conversation WHERE idUtilisateurB = 4 and idUtilisateurA = 3;
 SELECT * FROM Message WHERE idConversation = 1;
+
+
+#------------------------------------------------------------ TEST
+SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A
+LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce
+GROUP BY A.idAnnonce;
+
+
+SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce WHERE A.idAnnonce = 10 GROUP BY A.idAnnonce;
