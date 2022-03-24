@@ -68,8 +68,10 @@ export const getProfilePictureById = (req, res) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou image non trouvée'}) : res.status(500).send({message: "Erreur"});
             else {
-                data.PhotoProfile = process.env.URL_NAME + data.PhotoProfile
-                res.status(200).send(data);
+                //data.PhotoProfile = process.env.URL_NAME + data.PhotoProfile
+                //res.status(200).send(data);
+                console.log(data.PhotoProfile)
+                res.sendFile(data.PhotoProfile,{root:'.'})
             }
 
         })
