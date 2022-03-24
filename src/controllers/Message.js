@@ -1,4 +1,4 @@
-import {createMessageByIDConversation, findAllByIDConversation} from "../models/Messages.js";
+import {createMessageByIDConversation, findAllByIDConversation} from "../models/Message.js";
 import {findByIdConversation} from "../models/Conversation.js";
 
 /**

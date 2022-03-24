@@ -8,7 +8,6 @@ import jwt from "jsonwebtoken";
 import {
     cvFileHandler,
     findUtilisateur, getCVFileUtilisateur,
-    findUtilisateur,
     getProfilePictureById,
     loginHandler,
     registerHandler,
@@ -24,8 +23,6 @@ import {
     findAllConversationByIdAnnonce,
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
-import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Messages.js";
-import {getProfilePictureById} from "./src/controllers/User.js";
 import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
 
 const app = express()
