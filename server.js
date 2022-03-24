@@ -6,7 +6,7 @@ import 'dotenv/config';
 import jwt from "jsonwebtoken";
 
 import {
-    findUtilisateur,
+    findUtilisateur, getCVFileUtilisateur,
     loginHandler,
     registerHandler,
     updatePassword,
@@ -20,7 +20,7 @@ import {
     findAllConversationByIdAnnonce,
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
-import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
+import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Messages.js";
 import {getProfilePictureById} from "./src/controllers/User.js";
 
 const app = express()
@@ -73,7 +73,8 @@ app.post("/register", registerHandler);
 app.get("/users/:idUtilisateur", findUtilisateur);
 app.put("/users/update", authMW, updateUserData);
 app.put("/users/updatePassWord", authMW, updatePassword);
-app.get("/pictures/:idUtilisateur", getProfilePictureById);
+app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
+app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);
