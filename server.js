@@ -20,7 +20,8 @@ import {
     findAllConversationByIdAnnonce,
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
-import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Messages.js";
+import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
+import {getProfilePictureById} from "./src/controllers/User.js";
 
 const app = express()
 export const accessTokenSecret = process.env.TOKENSECRET;
@@ -72,6 +73,7 @@ app.post("/register", registerHandler);
 app.get("/users/:idUtilisateur", findUtilisateur);
 app.put("/users/update", authMW, updateUserData);
 app.put("/users/updatePassWord", authMW, updatePassword);
+app.get("/pictures/:idUtilisateur", getProfilePictureById);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);

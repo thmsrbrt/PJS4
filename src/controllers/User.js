@@ -1,16 +1,17 @@
 import {
     createUser,
-    findOneUtilisateurByEmailPSD,
     findOneUtilisateurByEmail,
+    findOneUtilisateurByEmailPSD,
     findOneUtilisateurByID,
     findPassWordByIdUtilisateur,
+    getProfilePictureByIdBD,
     updatePasswordBDD,
     updateUtilisateur
 } from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
-
+// TODO : hasher les mots de passes
 /**
  * Méthode permettant de vérifier la requête POST de login
  * @response avec un body si connexion possible, sans sinon
@@ -51,6 +52,29 @@ export const findUtilisateur = (req, res) => {
                 res.status(200).send(data);
         });
 }
+
+/**
+ * Méthode permettant de trouver la photo de profil de l'utilisateur à partir de son id
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
+ */
+export const getProfilePictureById = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur == null)
+        res.status(500).send({message: "Erreur, idUtilisateur null"});
+    else
+        getProfilePictureByIdBD(idUtilisateur, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou image non trouvée'}) : res.status(500).send({message: "Erreur"});
+            else {
+                data.PhotoProfile = process.env.URL_NAME + data.PhotoProfile
+                res.status(200).send(data);
+            }
+
+        })
+}
+
 
 /**
  * Méthode permettant de vérifier la requête POST de register
@@ -130,6 +154,7 @@ export const updatePassword = (req, res) => {
     });
 }
 
+
 /**
  * Fonction permettant de créer un token d'authentification
  * @param email {string} Email de l'utilisateur
@@ -160,3 +185,4 @@ const users = [
         password: 'p8IJZfm72+lkhaLi3cFO1BPyCQxxwaPq26TqJJrkLWg=', //gfdsJHGF54!()
     },
 ]
+

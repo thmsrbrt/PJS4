@@ -16,7 +16,7 @@ export const findOneUtilisateurByEmailPSD = (profil, cb) => {
             cb(null, rows[0]);
             return;
         }
-        cb({erreur : "not_found"}, null);
+        cb({erreur: "not_found"}, null);
     });
 }
 
@@ -35,7 +35,7 @@ export const findOneUtilisateurByEmail = (profil, cb) => {
             cb(null, row);
             return;
         }
-        cb({erreur : "not_found"}, null);
+        cb({erreur: "not_found"}, null);
     });
 }
 
@@ -44,7 +44,7 @@ export const findOneUtilisateurByEmail = (profil, cb) => {
  * @param data {array<string>} data
  */
 export const updateUtilisateur = (data) => {
-    db.query('UPDATE utilisateur SET nom=?, prenom=?, email=?, PhotoProfile=?, Description=?, CVFile=? WHERE idUtilisateur = ? ;', data, (err,data) => {
+    db.query('UPDATE utilisateur SET nom=?, prenom=?, email=?, PhotoProfile=?, Description=?, CVFile=? WHERE idUtilisateur = ? ;', data, (err, data) => {
         if (err) {
             throw err;
         }
@@ -108,6 +108,22 @@ export const findPassWordByIdUtilisateur = (id, cb) => {
         cb({erreur: "not_found"});
     });
 }
+
+export const getProfilePictureByIdBD = (id, cb) => {
+    db.query('SELECT PhotoProfile FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows[0]);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}
+
 
 /**
  * Méthode permettant de mettre à jour le mot de passe d'un utilisateur
