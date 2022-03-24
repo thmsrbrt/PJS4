@@ -62,6 +62,15 @@ export const updateUtilisateur = (data) => {
     });
 }
 
+export const updateUserDataParamBD = (data) => {
+    db.query("update utilisateur set ?=?;",data,(err, data) => {
+        if (err){
+            throw err;
+        }
+    });
+}
+
+
 /**
  * Méthode permettant de mettre à jour le token d'un utilisateur
  * @param email {string} email de l'utilisateur

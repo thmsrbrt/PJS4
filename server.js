@@ -7,10 +7,13 @@ import jwt from "jsonwebtoken";
 
 import {
     findUtilisateur, getCVFileUtilisateur,
+    findUtilisateur,
+    getProfilePictureById,
     loginHandler,
     registerHandler,
     updatePassword,
-    updateUserData
+    updateUserData,
+    updateUserDataParam
 } from "./src/controllers/User.js";
 import {findAllAnnonces, findAnnonce, registerAnnonce, updateAnnonce} from "./src/controllers/Annonce.js";
 import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
@@ -22,6 +25,7 @@ import {
 } from "./src/controllers/Conversation.js";
 import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Messages.js";
 import {getProfilePictureById} from "./src/controllers/User.js";
+import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
 
 const app = express()
 export const accessTokenSecret = process.env.TOKENSECRET;
@@ -70,8 +74,9 @@ const authMW = (req, res, next) => {
 // Routes - Utilisateurs
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
-app.get("/users/:idUtilisateur", findUtilisateur);
+app.get("/users/:idUtilisateur", authMW, findUtilisateur);
 app.put("/users/update", authMW, updateUserData);
+app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);
 app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
@@ -99,4 +104,4 @@ app.post("/message/conversation/send", authMW, addMessageToConversationByID);
 // Routes - autres
 // TODO : nombre de message non lus par conversation
 // TODO : nombre de candidat pour une annonce
-app.get("/annonce/nbCandidat/:idCandidat", )
+app.get("/annonce/nbCandidat/:idCandidat",)

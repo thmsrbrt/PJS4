@@ -6,7 +6,9 @@ import {
     findPassWordByIdUtilisateur,
     getProfilePictureByIdBD,
     updatePasswordBDD,
-    updateUtilisateur, updateCVFileUtilisateur, getCVFileUtilisateurBD
+    updateUtilisateur, updateCVFileUtilisateur, getCVFileUtilisateurBD,
+    updateUserDataParamBD,
+    updateUtilisateur
 } from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
@@ -72,12 +74,8 @@ export const getProfilePictureById = (req, res) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou image non trouvée'}) : res.status(500).send({message: "Erreur"});
             else {
-                //data.PhotoProfile = process.env.URL_NAME + data.PhotoProfile
-                //res.status(200).send(data);
-                console.log(data.PhotoProfile)
-                res.sendFile(data.PhotoProfile,{root:'public/files/Image/'})
+                res.sendFile(data.PhotoProfile, {root: '.'})
             }
-
         })
 }
 
@@ -182,6 +180,17 @@ export const updateUserData = (req, res) => {
         res.status(403).json({"faillure": err}).send();
     }
 }
+export const updateUserDataParam = (req, res) => {
+    const {champ, valeur} = req.body;
+    try {
+        updateUserDataParamBD([champ, valeur]);
+        res.sendStatus(201);
+    } catch (err) {
+        console.log(err);
+        res.status(403).json({"faillure": err}).send();
+    }
+}
+
 
 export const updatePassword = (req, res) => {
     const {oldPassword, newPassword, newPassword2, idUtilisateur} = req.body;
