@@ -6,7 +6,8 @@ import db from "../../config/connexionBDD.js";
  * @param cb {callback} traitement du résultat
  */
 export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
-    db.query('SELECT * FROM conversation WHERE idUtilisateurA = ? OR idUtilisateurB = ?', [idUtilisateur, idUtilisateur], (err, rows) => {
+    db.query('SELECT * FROM V_Conversation WHERE idUtilisateurA = ? OR idUtilisateurB = ?',
+        [idUtilisateur, idUtilisateur], (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
@@ -26,7 +27,7 @@ export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
  * @param cb {callback} traitement du résultat
  */
 export const findByIdConversation = (idConversation, cb) => {
-    db.query('SELECT * FROM Conversation WHERE idConversation = ?', idConversation, (err, rows) => {
+    db.query('SELECT * FROM V_Conversation WHERE idConversation = ?', idConversation, (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
@@ -46,7 +47,7 @@ export const findByIdConversation = (idConversation, cb) => {
  * @param cb {callback} traitement du résultat
  */
 export const findAllByIDAnnonce = (idAnnonce, cb) => {
-    db.query('SELECT * FROM conversation WHERE idAnnonce = ?;', idAnnonce, (err, rows) => {
+    db.query('SELECT * FROM V_Conversation WHERE idAnnonce = ?;', idAnnonce, (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
@@ -67,7 +68,7 @@ export const findAllByIDAnnonce = (idAnnonce, cb) => {
  */
 export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
     let donnees = [...data, ...data];
-    db.query('SELECT * FROM Conversation WHERE (idUtilisateurA = ? AND idUtilisateurB= ?) OR (idUtilisateurB = ? and idUtilisateurA = ?);', donnees, (err, data) => {
+    db.query('SELECT * FROM V_Conversation WHERE (idUtilisateurA = ? AND idUtilisateurB= ?) OR (idUtilisateurB = ? and idUtilisateurA = ?);', donnees, (err, data) => {
         if (err) throw err;
         if (data.length > 0) {
             console.log("je suis dans le >0")
@@ -84,7 +85,7 @@ export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
  */
 export const createConversation = (donnees) => {
     console.log(donnees);
-    db.query('INSERT INTO conversation (idUtilisateurA, idUtilisateurB, idAnnonce, Libelle) VALUES (?,?,?,?);', (donnees), function (err, data) {
+    db.query('INSERT INTO conversation (idUtilisateurA, idUtilisateurB, idAnnonce, Libelle, read_at) VALUES (?,?,?,?, NOW());', (donnees), function (err, data) {
         if (err) throw err;
     });
 };

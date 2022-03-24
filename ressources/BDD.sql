@@ -21,7 +21,8 @@ CREATE TABLE Utilisateur(
                             PhotoProfile    Varchar (255) NOT NULL,
                             Description     Varchar (1000),
                             CVFile          Varchar (255),
-                            Type            VARCHAR(32) NOT NULL
+                            Type            VARCHAR(32) NOT NULL,
+                            read_at         datetime
 
     ,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
 )ENGINE=InnoDB;
@@ -54,7 +55,8 @@ CREATE TABLE Conversation(
                              idUtilisateurA Int NOT NULL ,
                              idUtilisateurB Int NOT NULL ,
                              Libelle        Varchar (32) NOT NULL ,
-                             idAnnonce      Int
+                             idAnnonce      Int,
+                             read_at        datetime
     -- ,CONSTRAINT Conversation_AK PRIMARY KEY (idUtilisateurA,idUtilisateurB)
     ,CONSTRAINT Conversation_PK PRIMARY KEY (idConversation)
     ,CONSTRAINT ConvUserA_UserB_Unique UNIQUE (idUtilisateurA, idUtilisateurB)
@@ -113,6 +115,10 @@ CREATE OR REPLACE VIEW V_Entreprise AS
            Utilisateur.PhotoProfile,Utilisateur.Type FROM Utilisateur
         WHERE Type = 'Entreprise';
 
+CREATE OR REPLACE VIEW V_Conversation AS
+    SELECT C.* , IF(C.read_at > U.read_at, 1, 0) as stateMessage
+    FROM `conversation` C
+        INNER JOIN utilisateur U ON idUtilisateurA = idUtilisateur;
 
 #------------------------------------------------------------
 # Triggers:
@@ -158,6 +164,10 @@ VALUES (1, 1, 3, 'friends', null),
        (3, 5, 11, 'Airbus stage java', 1),
        (111, 7, 18, 'stellantis stage test', 3),
        (10, 4, 113, 'axa stage dev jav web', 12);
+
+-- update les read_at à maintenant
+UPDATE Conversation SET read_at = NOW();
+UPDATE Utilisateur SET read_at = NOW();
 
 INSERT INTO Message(idMessage, Message, DateEnvoi, idUtilisateur, idConversation)
 VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
