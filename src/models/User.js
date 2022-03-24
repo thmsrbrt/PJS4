@@ -23,10 +23,9 @@ export const findOneUtilisateurByEmailPSD = (profil, cb) => {
 /**
  * Méthode qui permet d'enregistrer le CV d'un utilisateur
  * @param profil {array<string>} CV file name + idUtilisateur
- * @param cb {callback} traitement du résultat
  */
-export const updateCVFileUtilisateur = (profil, cb) => {
-    db.query("UPDATE utilisateur SET CVFile = ? WHERE idUtilisateur = ?;", profil, (err, rows) => {
+export const updateCVFileUtilisateur = (profil) => {
+    db.query("UPDATE utilisateur SET CVFile = ? WHERE idUtilisateur = ?;", profil, (err) => {
         if (err) throw err;
     });
 }
@@ -88,7 +87,7 @@ export const updateUserToken = (email, token, tokenTimeStamp) => {
  * @param donnees {array<string>} données à insérer
  */
 export const createUser = (donnees) => {
-    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, Description, PhotoProfile, Type) VALUES (?,?,?,?,?,"default","candidat");', donnees, function (err, data) {
+    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, Description, PhotoProfile, Type) VALUES (?,?,?,?,?,"thomas.png","candidat");', donnees, function (err, data) {
         if (err) throw err;
     });
 }

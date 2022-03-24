@@ -6,6 +6,7 @@ import 'dotenv/config';
 import jwt from "jsonwebtoken";
 
 import {
+    cvFileHandler,
     findUtilisateur, getCVFileUtilisateur,
     findUtilisateur,
     getProfilePictureById,
@@ -80,6 +81,7 @@ app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);
 app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
+app.post("/users/cvhandler", cvFileHandler);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);

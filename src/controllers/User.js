@@ -116,15 +116,22 @@ export const registerHandler = (req, res) => {
  * @param res Response venant de ExpressJS
  */
 export const cvFileHandler = (req, res) => {
-    const idUtilisateur = req.params.idUtilisateur;
-    const file = req.cvfile;
-    console.log(file.filename);
+    const idUtilisateur = req.body.idutilisateur;
+    const file = req.body.cvfile;
+
+    console.log(req.body);
+    console.log(idUtilisateur);
     if (!idUtilisateur || !file)
         res.status(500).send({message: "Erreur, idUser or CV null"});
     else {
         try {
-            updateCVFileUtilisateur([file.filename, idUtilisateur]);
-            fs.writeFile('./public/files/CV' + crypto.randomBytes(20).toString('hex') + file.filename, file);
+            updateCVFileUtilisateur([file, idUtilisateur]);
+            console.log("bdd")
+            // TODO ne marche pas, le fichier est enregistré mais pas lisible
+            fs.writeFileSync(('./public/files/CV/' + crypto.randomBytes(20).toString('hex') + file), (file), 'binary', (err) => {
+                if (err)
+                    res.status(500).send({message: "Erreur, impossible d'enregistrer le CV"});
+            });
             res.sendStatus(201);
         } catch (err) {
             res.status(500).send({message: "Erreur enregistrement CV"});
