@@ -21,6 +21,17 @@ export const findOneUtilisateurByEmailPSD = (profil, cb) => {
 }
 
 /**
+ * Méthode qui permet d'enregistrer le CV d'un utilisateur
+ * @param profil {array<string>} CV file name + idUtilisateur
+ * @param cb {callback} traitement du résultat
+ */
+export const updateCVFileUtilisateur = (profil, cb) => {
+    db.query("UPDATE utilisateur SET CVFile = ? WHERE idUtilisateur = ?;", profil, (err, rows) => {
+        if (err) throw err;
+    });
+}
+
+/**
  * Méthode permettant de trouver un utilisateur en fonction de son mail
  * @param profil {array<string>} email
  * @param cb {callback} traitement du résultat
@@ -68,7 +79,7 @@ export const updateUserToken = (email, token, tokenTimeStamp) => {
  * @param donnees {array<string>} données à insérer
  */
 export const createUser = (donnees) => {
-    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, PhotoProfile, Type) VALUES (?,?,?,?,"default","user");', donnees, function (err, data) {
+    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, Description, PhotoProfile, Type) VALUES (?,?,?,?,?,"default","candidat");', donnees, function (err, data) {
         if (err) throw err;
     });
 }
@@ -111,6 +122,26 @@ export const findPassWordByIdUtilisateur = (id, cb) => {
 
 export const getProfilePictureByIdBD = (id, cb) => {
     db.query('SELECT PhotoProfile FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows[0]);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}
+
+/**
+ * Méthode permettant de retourner le CV d'un utilisateur dans la BDD
+ * @param id {Integer} id de l'utilisateur
+ * @param cb {callback} traitement du résultat
+ */
+export const getCVFileUtilisateurBD = (id, cb) => {
+    db.query('SELECT CVFile FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);

@@ -6,11 +6,15 @@ import {
     findPassWordByIdUtilisateur,
     getProfilePictureByIdBD,
     updatePasswordBDD,
-    updateUtilisateur
+    updateUtilisateur, updateCVFileUtilisateur, getCVFileUtilisateurBD
 } from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
+import fs from 'fs';
+
+
+
 // TODO : hasher les mots de passes
 /**
  * Méthode permettant de vérifier la requête POST de login
@@ -71,7 +75,7 @@ export const getProfilePictureById = (req, res) => {
                 //data.PhotoProfile = process.env.URL_NAME + data.PhotoProfile
                 //res.status(200).send(data);
                 console.log(data.PhotoProfile)
-                res.sendFile(data.PhotoProfile,{root:'.'})
+                res.sendFile(data.PhotoProfile,{root:'public/files/Image/'})
             }
 
         })
@@ -84,14 +88,16 @@ export const getProfilePictureById = (req, res) => {
  */
 export const registerHandler = (req, res) => {
     const {email, password, nom, prenom} = req.body;
+    let description = req.body.description;
     if (!email || !password || !nom || !prenom)
         return res.sendStatus(401)
-
+    if (description == null)
+        description = "null";
     findOneUtilisateurByEmail(email, (err, data) => {
         if (err) {
             if (err.erreur === "not_found") {
                 try {
-                    createUser([nom, prenom, email, getHashedPassword(password)]);
+                    createUser([nom, prenom, email, getHashedPassword(password), description]);
                     res.sendStatus(200);
                 } catch (err) {
                     res.status(403).json({"faillure": err}).send();
@@ -103,6 +109,50 @@ export const registerHandler = (req, res) => {
             res.status(404).send({message: 'Utilisateur déjà existant'})
         }
     });
+}
+
+
+/**
+ * Méthode permettant d'enregistrer un CV dans la BDD
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ */
+export const cvFileHandler = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    const file = req.cvfile;
+    console.log(file.filename);
+    if (!idUtilisateur || !file)
+        res.status(500).send({message: "Erreur, idUser or CV null"});
+    else {
+        try {
+            updateCVFileUtilisateur([file.filename, idUtilisateur]);
+            fs.writeFile('./public/files/CV' + crypto.randomBytes(20).toString('hex') + file.filename, file);
+            res.sendStatus(201);
+        } catch (err) {
+            res.status(500).send({message: "Erreur enregistrement CV"});
+        }
+    }
+}
+
+/**
+ * Méthode permettant de récupérer un CV d'un utilisateur
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
+ */
+export const getCVFileUtilisateur = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    if (!idUtilisateur)
+        res.status(500).send({message: "Erreur, idUser null"});
+    else {
+        getCVFileUtilisateurBD(idUtilisateur, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou CV non trouvé'}) : res.status(500).send({message: "Erreur"});
+            else {
+                res.sendFile(data.CVFile,{root:'public/files/CV/'})
+            }
+        })
+    }
 }
 
 /**
@@ -176,15 +226,4 @@ const getHashedPassword = (password) => {
     const sha256 = crypto.createHash('sha256');
     return sha256.update(password).digest('base64');
 }
-
-/**
- * A défaut d'utiliser la bdd, une liste d'objets avec comme attributs une email et un mot de passe hashé
- * @type {[{email: string, password: string}]}
- */
-const users = [
-    {
-        email: 'ghjksd@ghn.fr',
-        password: 'p8IJZfm72+lkhaLi3cFO1BPyCQxxwaPq26TqJJrkLWg=', //gfdsJHGF54!()
-    },
-]
 
