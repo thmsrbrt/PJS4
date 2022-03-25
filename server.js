@@ -112,7 +112,7 @@ app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo);
 app.put("/users/update", authMW, updateUserData);
 app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);
-app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
+app.get("/users/photoProfile/:idUtilisateur", getProfilePictureById);
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
 app.post("/users/cvhandler", cvFileHandler);
 app.post("/users/picturehandler", profilePictureUploadHandler);
