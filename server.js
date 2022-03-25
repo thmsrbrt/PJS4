@@ -115,7 +115,7 @@ app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce);
 app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat);
 app.post("/candidature/create", authMW, registerCandidature);
 // Routes - Conversation
-app.get("/conversation/utilisateur/:idUtilisateur", authMW, findAllConversationByIDUser);
+app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAllConversationByIDUser);
 app.get("/conversation/annonce/:idAnnonce", authMW, findAllConversationByIdAnnonce);
 app.post("/conversation/create", authMW, addToConversationByUtilisateur);
 // Routes - Message
