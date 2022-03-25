@@ -5,9 +5,9 @@ import db from "../../config/connexionBDD.js";
  * @param idUtilisateur {int} id de l'utilisateur
  * @param cb {callback} traitement du résultat
  */
-export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
-    db.query('SELECT * FROM V_Conversation, message WHERE (V_Conversation.idUtilisateurA = ? OR V_Conversation.idUtilisateurB = ?) AND message.idConversation = V_Conversation.idConversation ORDER BY message.idMessage DESC LIMIT 1',
-        [idUtilisateur, idUtilisateur], (err, rows) => {
+export const findAllByIDUtilisateur = (idUtilisateur, cb) => { // SELECT * FROM V_Conversation, message WHERE (V_Conversation.idUtilisateurA = ? OR V_Conversation.idUtilisateurB = ?) AND message.idConversation = V_Conversation.idConversation ORDER BY message.idMessage DESC LIMIT 1
+    db.query('SELECT * FROM V_Conversation WHERE idUtilisateur = ?;',
+        idUtilisateur, (err, rows) => {
             if (err) {
                 console.log(err);
                 cb(err, null);
@@ -68,7 +68,7 @@ export const findAllByIDAnnonce = (idAnnonce, cb) => {
  */
 export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
     let donnees = [...data, ...data];
-    db.query('SELECT * FROM V_Conversation WHERE (idUtilisateurA = ? AND idUtilisateurB= ?) OR (idUtilisateurB = ? and idUtilisateurA = ?);', donnees, (err, data) => {
+    db.query('SELECT * FROM Conversation WHERE (idUtilisateurA = ? AND idUtilisateurB= ?) OR (idUtilisateurB = ? and idUtilisateurA = ?);', donnees, (err, data) => {
         if (err) throw err;
         if (data.length > 0) {
             console.log("je suis dans le >0")
@@ -89,3 +89,13 @@ export const createConversation = (donnees) => {
         if (err) throw err;
     });
 };
+
+/**
+ * Méthode pour mettre à jour la date de lecture de la conversation de l'utilisateur à aujourd'hui
+ * @param donnees
+ */
+export const updateConversationStatus = donnees => {
+    db.query('UPDATE Conversation_track SET read_at = NOW() WHERE idUtilisateur = ? AND idConversation = ?;', (donnees), function (err, data) {
+        if (err) throw err;
+    });
+}

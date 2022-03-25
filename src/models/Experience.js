@@ -58,11 +58,13 @@ export const addExperienceByIdUtilisateur = (data) => {
 }
 
 /**
+ * TODO : ne marche pas
  * Méthode qui permet de modifier une experience par idExperience
- * @param data : data de l'experience
+ * @param data : data de l'expeerience
  */
 export const updateExperienceByIdExperience = (data) => {
-    db.query('UPDATE experience SET dateDebut = ?, dateFin = ?, Societe = ?, Poste = ? WHERE idExperience = ?', data, (err) => {
+    console.log(data)
+    db.query('UPDATE experience SET dateDebut = TIMESTAMP(?) , dateFin = TIMESTAMP(?), Societe = ?, Poste = ? WHERE idExperience = ?', data, (err) => {
         if (err) {
              throw err;
         }
