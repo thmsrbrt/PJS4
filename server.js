@@ -4,7 +4,7 @@ import cors from "cors";
 import bodyparser from "body-parser";
 import 'dotenv/config';
 import jwt from "jsonwebtoken";
-import busboy from "connect-busboy";
+import fileUpload from "express-fileupload";
 
 import {
     cvFileHandler,
@@ -37,7 +37,9 @@ app.use(cors({
 // Si besoin d'explications, demandez moi
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
-app.use(busboy());
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 // Ecoute sur le PORT 3000
 const PORT = 3000;
