@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyparser from "body-parser";
 import 'dotenv/config';
 import jwt from "jsonwebtoken";
+import busboy from "connect-busboy";
 
 import {
     cvFileHandler,
@@ -36,6 +37,7 @@ app.use(cors({
 // Si besoin d'explications, demandez moi
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
+app.use(busboy());
 
 // Ecoute sur le PORT 3000
 const PORT = 3000;
@@ -123,5 +125,4 @@ app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConve
 app.post("/message/conversation/send", authMW, addMessageToConversationByID);
 // Routes - autres
 // TODO : nombre de message non lus par conversation
-// TODO : nombre de candidat pour une annonce
-app.get("/annonce/nbCandidat/:idCandidat",)
+

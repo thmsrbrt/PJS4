@@ -4,16 +4,19 @@ import {
     findOneUtilisateurByEmailPSD,
     findOneUtilisateurByID,
     findPassWordByIdUtilisateur,
+    getCVFileUtilisateurBD,
     getProfilePictureByIdBD,
+    updateCVFileUtilisateur,
     updatePasswordBDD,
-    updateUtilisateur, updateCVFileUtilisateur, getCVFileUtilisateurBD,
     updateUserDataParamBD,
+    updateUtilisateur,
 } from "../models/User.js";
-import crypto from "crypto";
+import crypto, {randomFillSync} from "crypto";
 import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
 import fs from 'fs';
-
+import busboy from 'connect-busboy';
+import * as path from "path";
 
 
 // TODO : hasher les mots de passes
@@ -117,24 +120,89 @@ export const registerHandler = (req, res) => {
  */
 export const cvFileHandler = (req, res) => {
     const idUtilisateur = req.body.idutilisateur;
-    const file = req.body.cvfile;
-
-    console.log(req.body);
-    console.log(idUtilisateur);
-    if (!idUtilisateur || !file)
+    console.log(idUtilisateur)
+    //var file = req.files.cvfile;
+    const random = (() => {
+        const buf = Buffer.alloc(16);
+        return () => randomFillSync(buf).toString('hex');
+    })();
+    if (!idUtilisateur)
         res.status(500).send({message: "Erreur, idUser or CV null"});
     else {
         try {
-            updateCVFileUtilisateur([file, idUtilisateur]);
-            console.log("bdd")
-            // TODO ne marche pas, le fichier est enregistré mais pas lisible
-            fs.writeFileSync(('./public/files/CV/' + crypto.randomBytes(20).toString('hex') + file), (file), 'binary', (err) => {
-                if (err)
-                    res.status(500).send({message: "Erreur, impossible d'enregistrer le CV"});
+            // recupere le fichier avec busboy et l'enregistre dans le dossier uploads
+            req.pipe(req.busboy);
+            // console.log(req.busboy);
+            const bb = busboy({headers: req.headers}); //https://www.npmjs.com/package/busboy
+            console.log(bb);
+            console.log(req.files);
+
+            req.busboy.on('file', (fieldname, file, filename, name) => { // https://stackoverflow.com/questions/31186192/req-busboy-onfile-not-firing
+                console.log("file")
+                const eename = random() + name;
+                const filePath = path.join('./public/CVfiles/', eename);
+                file.pipe(fs.createWriteStream(filePath));
+                file.on('end', () => {
+                    // enregistre le fichier dans la BDD
+                    updateCVFileUtilisateur([idUtilisateur, eename]);
+                });
+                res.status(200).send({message: "CV enregistré"});
             });
-            res.sendStatus(201);
+            /**
+             // recupere le fichier et l'enregistre dans le dossier uploads
+             const file = busboy({ headers: req.headers });
+             console.log(file);
+             const fileName = random() + file.name;
+             file.mv(`./public/CVfiles/${fileName}`, (err) => {
+                if (err)
+                    res.status(500).send({message: "Erreur, ieeeempossible d'enregistrer le CV"});
+                else {
+                    // enregistre le nom du fichier dans la BDD
+                    try {
+                        updateCVFileUtilisateur([idUtilisateur, fileName]);
+                        res.status(200).send({message: "CV enregistré"});
+                    } catch (err) {
+                        res.status(500).send({message: "Erreur, impossible d'enregistrer le CV"});
+                    }
+                }
+            });
+
+             console.log("try")
+             const bb = busboy({ headers: req.headers });
+             bb.on('file', (name, file, info) => {
+                console.log("eeeeeeee")
+                const saveTo = path.join(os.tmpdir(), './' + `busboy-upload-${random()}`);
+                file.pipe(fs.createWriteStream(saveTo));
+            });
+             bb.on('close', () => {
+                res.writeHead(200, { 'Connection': 'close' });
+                res.end(`That's all folks!`);
+            });
+             req.pipe(bb);
+             //return;
+             console.log(")----------------------------------------")
+
+             var fstream;
+             req.pipe(req.busboy);
+             console.log("test")
+             //console.log(req.busboy)
+             //const fileName = crypto.randomBytes(20).toString('hex')
+             console.log(fileName)
+             req.busboy.on('file', function (fieldname, file, fileName)  {
+                console.log("Uploading: " + fileName);
+                updateCVFileUtilisateur([fileName, idUtilisateur]);
+
+                fstream = fs.createWriteStream('./public/CVfiles/' + fileName);
+                file.pipe(fstream);
+                fstream.on('close', function () {
+                    res.send({message: 'back'} );
+
+                });
+            });
+             res.sendStatus(201);
+             */
         } catch (err) {
-            res.status(500).send({message: "Erreur enregistrement CV"});
+            res.status(500).send({message: "Erreur catch  enregistrement CV"});
         }
     }
 }
@@ -154,7 +222,7 @@ export const getCVFileUtilisateur = (req, res) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou CV non trouvé'}) : res.status(500).send({message: "Erreur"});
             else {
-                res.sendFile(data.CVFile,{root:'public/files/CV/'})
+                res.sendFile(data.CVFile, {root: 'public/CVfiles/'})
             }
         })
     }
