@@ -1,4 +1,10 @@
-import {createAnnonce, findAllAnnonce, findAnnonceByID, updateAnnonceData} from "../models/Annonce.js";
+import {
+    createAnnonce,
+    findAllAnnonce,
+    findAnnonceByID,
+    searchByKeywords,
+    updateAnnonceData
+} from "../models/Annonce.js";
 
 /**
  * Méthode pour trouver les informations d'une annonce par son id
@@ -46,7 +52,7 @@ export const findAllAnnonces = (req, res) => {
 export const registerAnnonce = (req, res) => {
     const {titre, description, idEntreprise, localisation} = req.body;
     if(!titre || !description || !idEntreprise || !localisation)
-        return res.sendStatus(401)
+        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
 
     let image=  req.body.image;
     if (image === null)
@@ -68,7 +74,7 @@ export const registerAnnonce = (req, res) => {
 export const updateAnnonce = (req, res) => {
     const {titre, description, localisation, idAnnonce} = req.body;
     if(!titre || !description || !localisation || !idAnnonce)
-        return res.sendStatus(401)
+        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
 
     let image = req.body;
     if (image == null)
@@ -83,6 +89,55 @@ export const updateAnnonce = (req, res) => {
     }
 }
 
-export const nbCandidatByIdAnnonce = (req, res) => {
 
+/**
+ * Méthode pour trouver les annonces par un mot clé
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ */
+export const findAnnonceByMotClef = (req, res) => {
+    const {motClef} = req.params;
+    if(!motClef)
+        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
+    console.log(motClef);
+    const name = '%' + motClef + '%';
+    searchByKeywords(name, (err, data) => {
+        if (err) {
+            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
+        } else {
+            //data.filter
+            res.status(200).send(data);
+        }
+    });
+}
+
+
+/**
+ * Méthode pour trouver les annonces par mots clés
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ */
+export const findAnnonceByMotsClefs = (req, res) => {
+    let {motsClefs} = req.params;
+    if(!motsClefs)
+        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
+    findAllAnnonce( (err, data) => {
+        if (err) {
+            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
+        } else {
+            //data.filter
+            let returnData = data;
+            motsClefs = motsClefs.split(";")
+            //console.log(data);
+            returnData.filter(annonce => {
+                annonce.Description.split(" ").filter(mot => {
+                    motsClefs.includes(mot);
+                });
+
+                console.log(annonce.Description.split(" "))
+                //motsClefs.includes(annonce.Description.split(" ")) || (annonce.titre.split(" ").includes(motsClefs))
+            });
+            res.status(200).send(returnData);
+        }
+    });
 }

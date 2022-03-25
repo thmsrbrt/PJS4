@@ -19,7 +19,13 @@ import {
     updateUserData,
     updateUserDataParam
 } from "./src/controllers/User.js";
-import {findAllAnnonces, findAnnonce, registerAnnonce, updateAnnonce} from "./src/controllers/Annonce.js";
+import {
+    findAllAnnonces,
+    findAnnonce,
+    findAnnonceByMotClef, findAnnonceByMotsClefs,
+    registerAnnonce,
+    updateAnnonce
+} from "./src/controllers/Annonce.js";
 import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
 import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
 import {
@@ -117,6 +123,13 @@ app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de 
 app.post("/users/cvhandler", cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
 app.post("/users/picturehandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
+app.get("/annonce/:idUtilisateur", findAnnonce);
+app.get("/annonces/all", authMW, findAllAnnonces);
+app.post("/annonce/create", authMW, registerAnnonce);
+app.put("/annonce/update", authMW, updateAnnonce);
+app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
+app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
+
 app.get("/annonce/:idUtilisateur", findAnnonce); // permet de récupérer les annonces d'un utilisateur : [idUtilisateur]
 app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer toutes les annonces
 app.post("/annonce/create", authMW, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]

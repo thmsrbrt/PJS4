@@ -63,3 +63,23 @@ export const updateAnnonceData = (data) => {
     });
 }
 
+/**
+ * Méthode permettant de trouver des annonces par mot clef
+ * @param data {array<string>} contenant le mot clé
+ * @param cb {callback} traitement du résultat
+ */
+export const searchByKeywords = (data, cb) => {
+    db.query(`SELECT * FROM Annonce A WHERE (Titre LIKE ? OR Description LIKE ?);`, [data,data], (err, row) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (row) {
+            cb(null, row);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}
+
