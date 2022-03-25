@@ -253,6 +253,11 @@ export const updateUserData = (req, res) => {
         res.status(403).json({"faillure": err}).send();
     }
 }
+/**
+ * Méthode qui permet de mettre à jour les données de l'utilisateur avec un paramètre précis
+ * @param req
+ * @param res
+ */
 export const updateUserDataParam = (req, res) => {
     const {champ, valeur} = req.body;
     try {
