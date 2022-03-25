@@ -25,7 +25,7 @@ export const findAllAnnonce = (cb) => {
  * @param cb {callback} traitement du résultat
  */
 export const findAnnonceByID = (id, cb) => {
-    db.query('SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce WHERE A.idAnnonce = ? GROUP BY A.idAnnonce', [id], (err, row) => {
+    db.query('SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, A.localisation, A.datePublication, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce WHERE A.idAnnonce = ? GROUP BY A.idAnnonce', [id], (err, row) => {
         if (err) {
             console.log(err);
             cb(err, null);
