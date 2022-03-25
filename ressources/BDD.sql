@@ -83,6 +83,19 @@ CREATE TABLE Conversation(
     ,CONSTRAINT Conversation_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce(idAnnonce)
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: Conversation_track
+#------------------------------------------------------------
+
+CREATE TABLE Conversation_track(
+                                   idConversationTrack Int Auto_increment NOT NULL ,
+                                   idUtilisateur Int NOT NULL ,
+                                   idConversation Int NOT NULL ,
+                                   read_at        datetime
+    ,CONSTRAINT ConversationTrack_PK PRIMARY KEY (idConversationTrack)
+    ,CONSTRAINT ConversationTrack_Utilisateur_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur(idUtilisateur)
+    ,CONSTRAINT ConversationTrack_Conversation_FK FOREIGN KEY (idConversation) REFERENCES Conversation(idConversation)
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: Message
@@ -132,30 +145,53 @@ CREATE OR REPLACE VIEW V_Entreprise AS
         WHERE Type = 'Entreprise';
 
 CREATE OR REPLACE VIEW V_Conversation AS
-    SELECT C.* , IF(C.read_at > U.read_at, 1, 0) as stateMessage
-    FROM `conversation` C
-        INNER JOIN utilisateur U ON idUtilisateurA = idUtilisateur;
+SELECT ct.*, C.Libelle, C.idAnnonce, IF(ct.read_at > U.read_at, 1, 0) as stateMessage
+FROM Conversation_track CT
+         INNER JOIN Utilisateur U on CT.idUtilisateur = U.idUtilisateur
+         INNER JOIN Conversation C on CT.idConversation = C.idConversation;
 
 #------------------------------------------------------------
 # Triggers:
 #------------------------------------------------------------
 
+DROP TRIGGER IF EXISTS T_Track_Message;
+CREATE TRIGGER T_Track_Message
+    BEFORE INSERT ON message
+    FOR EACH ROW
+BEGIN
+    DECLARE userA, userB, idConv INT;
+
+    SELECT idUtilisateurA INTO userA FROM conversation WHERE Conversation.idConversation = NEW.idConversation;
+    SELECT idUtilisateurB INTO userB FROM conversation WHERE Conversation.idConversation = NEW.idConversation;
+    SELECT COUNT(Conversation_track.idConversation) INTO idConv FROM conversation_track WHERE Conversation_track.idConversation = NEW.idConversation;
+
+    IF idConv > 0 THEN
+        UPDATE Conversation_track SET read_at = NOW() WHERE idConversation = NEW.idConversation AND idUtilisateur = userA;
+        UPDATE Conversation_track SET read_at = NOW() WHERE idConversation = NEW.idConversation AND idUtilisateur = userB;
+    ELSE
+        INSERT INTO Conversation_track(idUtilisateur, idConversation, read_at) VALUES (userA, NEW.idConversation, NOW() -1);
+        INSERT INTO Conversation_track(idUtilisateur, idConversation, read_at) VALUES (userB, NEW.idConversation, NOW() - 1);
+    END IF;
+
+    UPDATE utilisateur SET read_at = NOW() WHERE idUtilisateur = NEW.idUtilisateur;
+    UPDATE conversation_track SET read_at = NOW() WHERE idUtilisateur = NEW.idUtilisateur AND idConversation = NEW.idConversation;
+END;
 
 #------------------------------------------------------------
 # Inserts:
 #------------------------------------------------------------
 
-INSERT INTO Utilisateur(idUtilisateur, Prenom, Nom, Email, MotDePasse, PhotoProfile, Description, CVFile, Type)
-VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI1zafCHbxhZe3KLOoYXhdwQ=', '/Image/PhotoProfile/thomas.png', 'thomas fait une présentation de lui meme blablabla. ','/file/CVCandidat/thomas.pdf', 'Candidat'), -- thomas1234
-       (2, 'Thomas', 'Robert', 'thomas.robert@gmail.com', 'Pquru7g/HSkAZH6KuIQv1dM9Lu/w1KKOOm3P5eq0vyU=', '/Image/PhotoProfile/robert.png', 'znjdnznskd','/file/CVCandidat/thomas.pdf', 'Candidat'),-- (thz83.ghzis;
-       (3, 'Laurent', 'Ngeth', 'laurent.ngeth@icoud.com', 'lnUgriPo7hSIi65ygJAxuYOYrkpjZ3Phj/+RfXdnkzQ=', '/Image/PhotoProfile/laurent.png', 'laurentlaurent laurent laurent laurentlaurentlaurentlaurent','/file/CVCandidat/laurent.pdf', 'Candidat'), -- motdepasse
-       (4, 'Florian', 'Le gal', 'flo.le.gal234@icoud.com', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/flo.png', 'le mec qui a un stage','/file/CVCandidat/flo.pdf', 'Candidat'), -- trtrterzrez
-       (5, 'Ayoub', 'saispas', 'ayoub23456@gmail.com', '1Byps/+Tsk2kOcMqsowk/QMiD77hPTxGUPIBJRcq5y0=', '/Image/PhotoProfile/ayoub.png', 'znjdnznskd','/file/CVCandidat/ayoub.pdf', 'Candidat'), -- root1234
-       (6, 'Youcef', 'saispas', 'Youcef.youcef93@icoud.c', 'NPK4qvAjzZZfWO6PM8WnvNLQnrR4fj6iFFDTC8Zp81c=', '/Image/PhotoProfile/youcef.png', 'le mec avec un mot de passe fort','/file/CVCandidat/youcef.pdf', 'Candidat'), -- é/RTZJN(iuzdj4knfqd;.a@hea789er-ae
-       (7, 'Fabien', 'Rondan', 'fabien.rondan@protonmail.com', 'uclQZA4bN0DpisuT5mnGV2b2Zw3RYJupH/QQUrpIxvM=', '/Image/PhotoProfile/fab.png', 'znjdnznskd','/file/CVCandidat/fab.pdf', 'Candidat'), -- password1234
-       (8, 'Fabien', 'Rondan', 'fabiendu56334@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/fab.png', 'je dois te rendre ta souris je crois','/file/CVCandidat/fab.pdf', 'Candidat'), -- trtrterzrez
-       (9, 'Nahean', 'saisplus', 'nahean543@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/nahean.png', 'fait que blablater','/file/CVCandidat/nahean.pdf', 'Candidat'), -- trtrterzrez
-       (10, 'Quentin', 'Robert', 'quentin.robert@gmail.com', 'O6HlR8B6shobWyVG/lsFpUAdmeYTOsx1A1M95KyQzi0=', '/Image/PhotoProfile/qt.png', 'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ','/file/CVCandidat/qt.pdf', 'Candidat'); -- quentinrobert
+INSERT INTO Utilisateur(idUtilisateur, Prenom, Nom, Email, MotDePasse, PhotoProfile, Description, CVFile, Type, read_at)
+VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI1zafCHbxhZe3KLOoYXhdwQ=', '/Image/PhotoProfile/thomas.png', 'thomas fait une présentation de lui meme blablabla. ','/file/CVCandidat/thomas.pdf', 'Candidat', '2022-01-01 09:58:44'), -- thomas1234
+       (2, 'Thomas', 'Robert', 'thomas.robert@gmail.com', 'Pquru7g/HSkAZH6KuIQv1dM9Lu/w1KKOOm3P5eq0vyU=', '/Image/PhotoProfile/robert.png', 'znjdnznskd','/file/CVCandidat/thomas.pdf', 'Candidat', '2022-01-01 09:58:44'),-- (thz83.ghzis;
+       (3, 'Laurent', 'Ngeth', 'laurent.ngeth@icoud.com', 'lnUgriPo7hSIi65ygJAxuYOYrkpjZ3Phj/+RfXdnkzQ=', '/Image/PhotoProfile/laurent.png', 'laurentlaurent laurent laurent laurentlaurentlaurentlaurent','/file/CVCandidat/laurent.pdf', 'Candidat', '2022-01-01 09:58:44'), -- motdepasse
+       (4, 'Florian', 'Le gal', 'flo.le.gal234@icoud.com', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/flo.png', 'le mec qui a un stage','/file/CVCandidat/flo.pdf', 'Candidat', '2022-01-01 09:58:44'), -- trtrterzrez
+       (5, 'Ayoub', 'saispas', 'ayoub23456@gmail.com', '1Byps/+Tsk2kOcMqsowk/QMiD77hPTxGUPIBJRcq5y0=', '/Image/PhotoProfile/ayoub.png', 'znjdnznskd','/file/CVCandidat/ayoub.pdf', 'Candidat', '2022-01-01 09:58:44'), -- root1234
+       (6, 'Youcef', 'saispas', 'Youcef.youcef93@icoud.c', 'NPK4qvAjzZZfWO6PM8WnvNLQnrR4fj6iFFDTC8Zp81c=', '/Image/PhotoProfile/youcef.png', 'le mec avec un mot de passe fort','/file/CVCandidat/youcef.pdf', 'Candidat', '2022-01-01 09:58:44'), -- é/RTZJN(iuzdj4knfqd;.a@hea789er-ae
+       (7, 'Fabien', 'Rondan', 'fabien.rondan@protonmail.com', 'uclQZA4bN0DpisuT5mnGV2b2Zw3RYJupH/QQUrpIxvM=', '/Image/PhotoProfile/fab.png', 'znjdnznskd','/file/CVCandidat/fab.pdf', 'Candidat', '2022-01-01 09:58:44'), -- password1234
+       (8, 'Fabien', 'Rondan', 'fabiendu56334@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/fab.png', 'je dois te rendre ta souris je crois','/file/CVCandidat/fab.pdf', 'Candidat', '2022-01-01 09:58:44'), -- trtrterzrez
+       (9, 'Nahean', 'saisplus', 'nahean543@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoProfile/nahean.png', 'fait que blablater','/file/CVCandidat/nahean.pdf', 'Candidat', '2022-01-01 09:58:44'), -- trtrterzrez
+       (10, 'Quentin', 'Robert', 'quentin.robert@gmail.com', 'O6HlR8B6shobWyVG/lsFpUAdmeYTOsx1A1M95KyQzi0=', '/Image/PhotoProfile/qt.png', 'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ','/file/CVCandidat/qt.pdf', 'Candidat', '2022-01-01 09:58:44'); -- quentinrobert
 
 
 INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type)
