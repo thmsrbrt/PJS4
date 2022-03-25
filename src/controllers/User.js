@@ -33,8 +33,9 @@ export const loginHandler = (req, res) => {
         } else {
             // const authToken = getToken(email, date);
             // updateUserToken(email, authToken, date);
-            const accessToken = jwt.sign({email: data.email}, accessTokenSecret);
-            res.json({accessToken}).send()
+            //console.log(data.idUtilisateur)
+            const accessToken = jwt.sign({email: data.email, idUtilisateur: data.idUtilisateur}, accessTokenSecret);
+            res.json({accessToken, idUtilisateur: data.idUtilisateur}).send()
         }
     })
 }

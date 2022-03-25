@@ -7,7 +7,7 @@ import db from "../../config/connexionBDD.js";
  * @param cb {callback} traitement du résultat
  */
 export const findOneUtilisateurByEmailPSD = (profil, cb) => {
-    db.query("SELECT Email FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
+    db.query("SELECT Email, idUtilisateur FROM utilisateur WHERE Email = ? and MotDePasse = ?;", profil, (err, rows) => {
         if (err) {
             cb(err, null);
             return;

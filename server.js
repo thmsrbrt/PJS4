@@ -58,6 +58,7 @@ const authMW = (req, res, next) => {
         const token = authHeader.split(' ')[1];
 
         jwt.verify(token, accessTokenSecret, (err, user) => {
+            //console.log(user);
             if (err)
                 return res.sendStatus(403);
 
@@ -69,10 +70,30 @@ const authMW = (req, res, next) => {
 };
 
 
+/**
+ * Middleware permettant de vérifier l'auth d'une requête
+ * @param req La requête
+ * @param res La response
+ * @param next La suite (le controller)
+ * @returns {*} La response
+ */
+const checkUserId = (req, res, next) => {
+    console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
+    console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
+    console.log("ici");
+    if (req.user.idUtilisateur != req.params.idUtilisateur){
+        //console.log("erreur")
+        return res.sendStatus(403);
+    }
+
+    next();
+};
+
+// TODO : Normaliser le get de l'id utilisateur à req.params.idUtilisateur
 // Routes - Utilisateurs
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
-app.get("/users/:idUtilisateur", authMW, findUtilisateur);
+app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur);
 app.put("/users/update", authMW, updateUserData);
 app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);
