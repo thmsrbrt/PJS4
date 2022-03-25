@@ -185,8 +185,8 @@ export const profilePictureUploadHandler = (req, res) => {
                 });
             } else {
                 let profilePicture = req.files.profilepicture;
-                const name = req.body.idutilisateur + ".jpg";
-                profilePicture.mv('./public/Images/' + name);
+                const name = '/public/Images/' + req.body.idutilisateur + ".jpg";
+                profilePicture.mv("."+name);
                 updateUserProfilePictureDB([name, req.body.idutilisateur])
                 res.send({
                     status: true,

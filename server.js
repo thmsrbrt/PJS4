@@ -105,8 +105,8 @@ const checkUserId = (req, res, next) => {
 
 // TODO : Normaliser le get de l'id utilisateur à req.params.idUtilisateur
 // Routes - Utilisateurs
-app.post("/login", loginHandler);
-app.post("/register", registerHandler);
+app.post("/login", loginHandler); // permet de login l'utilisateur : [email, password]
+app.post("/register", registerHandler); // permet de créer un utilisateur : [email, password, nom, prenom, dateNaissance, adresse, ville, codePostal, pays, telephone, typeUtilisateur]
 app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur);
 app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo);
 app.put("/users/update", authMW, updateUserData);
@@ -145,4 +145,3 @@ app.get("/experience/:idExperience", authMW, getExperienceByIdExperience);
 app.delete("/experience/:idExperience", authMW, deleteExperienceByIdExperience);
 // Routes - autres
 // TODO : nombre de message non lus par conversation
-
