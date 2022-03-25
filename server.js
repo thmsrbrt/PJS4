@@ -118,7 +118,7 @@ app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo); // p
 app.put("/users/update", authMW, updateUserData); // permet de mettre à jour les infos d'un utilisateur : []
 app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword); // permet de mettre à jour le mot de passe d'un utilisateur : [oldPassword, newPassword, newPassword2, idUtilisateur]
-app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById); // permet de récupérer la photo de profil d'un utilisateur : [idUtilisateur]
+app.get("/users/photoProfile/:idUtilisateur", getProfilePictureById); // permet de récupérer la photo de profil d'un utilisateur : [idUtilisateur]
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de récupérer le CV d'un utilisateur : [idUtilisateur]
 app.post("/users/cvhandler", cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
 app.post("/users/picturehandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
