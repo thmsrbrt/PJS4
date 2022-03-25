@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Postule;
 DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Conversation_track;
 DROP TABLE IF EXISTS Conversation;
 DROP TABLE IF EXISTS Candidature;
 DROP TABLE IF EXISTS Annonce;
@@ -71,8 +72,7 @@ CREATE TABLE Conversation(
                              idUtilisateurA Int NOT NULL ,
                              idUtilisateurB Int NOT NULL ,
                              Libelle        Varchar (32) NOT NULL ,
-                             idAnnonce      Int,
-                             read_at        datetime
+                             idAnnonce      Int
     -- ,CONSTRAINT Conversation_AK PRIMARY KEY (idUtilisateurA,idUtilisateurB)
     ,CONSTRAINT Conversation_PK PRIMARY KEY (idConversation)
     ,CONSTRAINT ConvUserA_UserB_Unique UNIQUE (idUtilisateurA, idUtilisateurB)
@@ -194,15 +194,15 @@ VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI
        (10, 'Quentin', 'Robert', 'quentin.robert@gmail.com', 'O6HlR8B6shobWyVG/lsFpUAdmeYTOsx1A1M95KyQzi0=', '/Image/PhotoProfile/qt.png', 'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ','/file/CVCandidat/qt.pdf', 'Candidat', '2022-01-01 09:58:44'); -- quentinrobert
 
 
-INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type)
-VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds','/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise'),
-       (12, 'Alstom', 'recrutement@alstom.fr', 'dfghjhgfds','/Image/PhotoEntreprise/Alstom.png', 'Entreprise'),
-       (113, 'Axa', 'carrer@axa.fr', 'dfghjhgfds','/Image/PhotoEntreprise/Axa.png', 'Entreprise'),
-       (14,'bnp paribas', 'recrutement@bnp-paribas.fr', 'dfghjhgfds','/Image/PhotoEntreprise/bnp-paribas.png', 'Entreprise'),
-       (15, 'Bouygues', 'recrutement@bouyge.fr', 'dfghjhgfds','/Image/PhotoEntreprise/bouygues.png', 'Entreprise'),
-       (416, 'engie', 'carrer@engie.fr', 'dfghjhgfds','/Image/PhotoEntreprise/engie.png', 'Entreprise'),
-       (17, 'michelin', 'recruteur@michelin.fr', 'dfghjhgfds','/Image/PhotoEntreprise/michelin.png', 'Entreprise'),
-       (18, 'stellantis', 'recrutement@stellantis.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/stellantis.png', 'Entreprise');
+INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at)
+VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds','/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (12, 'Alstom', 'recrutement@alstom.fr', 'dfghjhgfds','/Image/PhotoEntreprise/Alstom.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (113, 'Axa', 'carrer@axa.fr', 'dfghjhgfds','/Image/PhotoEntreprise/Axa.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (14,'bnp paribas', 'recrutement@bnp-paribas.fr', 'dfghjhgfds','/Image/PhotoEntreprise/bnp-paribas.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (15, 'Bouygues', 'recrutement@bouyge.fr', 'dfghjhgfds','/Image/PhotoEntreprise/bouygues.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (416, 'engie', 'carrer@engie.fr', 'dfghjhgfds','/Image/PhotoEntreprise/engie.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (17, 'michelin', 'recruteur@michelin.fr', 'dfghjhgfds','/Image/PhotoEntreprise/michelin.png', 'Entreprise', '2022-01-01 09:58:44'),
+       (18, 'stellantis', 'recrutement@stellantis.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/stellantis.png', 'Entreprise', '2022-01-01 09:58:44');
 
 INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
 VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 11, '2022-03-24 14:21:20', 'Paris'), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
