@@ -106,8 +106,8 @@ const checkUserId = (req, res, next) => {
 // TODO : Normaliser le get de l'id utilisateur à req.params.idUtilisateur
 // Routes - Utilisateurs
 app.post("/login", loginHandler); // permet de login l'utilisateur : [email, password]
-app.post("/register", registerHandler); // permet de créer un utilisateur : [email, password, nom, prenom, dateNaissance, adresse, ville, codePostal, pays, telephone, typeUtilisateur]
-app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur);
+app.post("/register", registerHandler); // permet de créer un utilisateur : [email, password, nom, prenom, description]
+app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur); // permet de récupérer les infos d'un utilisateur : [idUtilisateur]
 app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo);
 app.put("/users/update", authMW, updateUserData);
 app.post("/users/update/", authMW, updateUserDataParam);

@@ -31,7 +31,7 @@ export const updateExperience = (req, res) => {
         res.status(500).send({message: "Erreur, Tout les champ sont obligatoire"});
     }
     if (dateFin === "" || dateFin === null || dateFin === undefined) {
-        dateFin = NULL;
+        dateFin = -1;
     }
     try {
         updateExperienceByIdExperience([dateDebut, dateFin, societe, poste, type, idExperience]);

@@ -79,3 +79,24 @@ export const addToConversationByUtilisateur = (req, res) => {
         });
     }
 }
+
+/**
+ * Méthode pour mettre à jour la date de lecture d'une conversation lors d'un clic
+ * @param req
+ * @param res
+ */
+export const updateReadConversation = (req, res) => {
+    const {idUtilisateur, idConversation} = req.body;
+    console.log("idUtilisateur : " + idUtilisateur);
+    console.log("idConversation : " + idConversation);
+    if (!idUtilisateur || !idConversation)
+        res.status(500).send({message: "Erreur: idUtilisateur et/ou idConversation null"});
+    else {
+        try {
+            updateConversationStatus([idUtilisateur, idConversation]);
+            res.status(201).send({message: "Mise a jour reussie"});
+        } catch (e) {
+            res.status(403).send({message: "Erreur: " + e});
+        }
+    }
+}
