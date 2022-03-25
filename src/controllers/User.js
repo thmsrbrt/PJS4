@@ -4,16 +4,16 @@ import {
     findOneUtilisateurByEmailPSD,
     findOneUtilisateurByID,
     findPassWordByIdUtilisateur,
+    getCVFileUtilisateurBD,
     getProfilePictureByIdBD,
+    updateCVFileUtilisateur,
     updatePasswordBDD,
-    updateUtilisateur, updateCVFileUtilisateur, getCVFileUtilisateurBD,
-    updateUserDataParamBD,
+    updateUserDataParamBD, updateUserProfilePictureDB,
+    updateUtilisateur,
 } from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
-import fs from 'fs';
-
 
 
 // TODO : hasher les mots de passes
@@ -58,6 +58,30 @@ export const findUtilisateur = (req, res) => {
                 res.status(200).send(data);
         });
 }
+
+/**
+ * Méthode permettant de trouver les infos publiques d'un utilisateur à partir d'un id
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
+ */
+export const findUtilisateurPublicInfo = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur == null)
+        res.status(500).send({message: "Erreur, idUser null"});
+    else
+        findOneUtilisateurByID(idUtilisateur, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
+            else
+                res.status(200).send({
+                    idUtilisateur: data.idUtilisateur,
+                    Prenom: data.Prenom,
+                    PhotoProfile: data.PhotoProfile
+                });
+        });
+}
+
 
 /**
  * Méthode permettant de trouver la photo de profil de l'utilisateur à partir de son id
@@ -117,27 +141,69 @@ export const registerHandler = (req, res) => {
  */
 export const cvFileHandler = (req, res) => {
     const idUtilisateur = req.body.idutilisateur;
-    const file = req.body.cvfile;
-
-    console.log(req.body);
     console.log(idUtilisateur);
-    if (!idUtilisateur || !file)
-        res.status(500).send({message: "Erreur, idUser or CV null"});
+    if (!idUtilisateur)
+        res.status(500).send({message: "Erreur, idUtilisateur null"});
     else {
         try {
-            updateCVFileUtilisateur([file, idUtilisateur]);
-            console.log("bdd")
-            // TODO ne marche pas, le fichier est enregistré mais pas lisible
-            fs.writeFileSync(('./public/files/CV/' + crypto.randomBytes(20).toString('hex') + file), (file), 'binary', (err) => {
-                if (err)
-                    res.status(500).send({message: "Erreur, impossible d'enregistrer le CV"});
-            });
-            res.sendStatus(201);
+            if (!req.files) {
+                res.send({
+                    status: false,
+                    message: 'No file uploaded'
+                });
+            } else {
+                let cv = req.files.cvfile;
+                const name = req.body.idutilisateur + ".pdf";
+                cv.mv('./public/CVfiles/' + name);
+                updateCVFileUtilisateur([name, req.body.idutilisateur])
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: cv.name,
+                        mimetype: cv.mimetype,
+                        size: cv.size
+                    }
+                });
+            }
         } catch (err) {
-            res.status(500).send({message: "Erreur enregistrement CV"});
+            res.status(500).send({message: "Erreur d'enregistrement du CV"});
         }
     }
 }
+
+export const profilePictureUploadHandler = (req, res) => {
+    const idUtilisateur = req.body.idutilisateur;
+    if (!idUtilisateur)
+        res.status(500).send({message: "Erreur, idUtilisateur null"});
+    else {
+        try {
+            if (!req.files) {
+                res.send({
+                    status: false,
+                    message: 'No file uploaded'
+                });
+            } else {
+                let profilePicture = req.files.profilepicture;
+                const name = req.body.idutilisateur + ".jpg";
+                profilePicture.mv('./public/Images/' + name);
+                updateUserProfilePictureDB([name, req.body.idutilisateur])
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: profilePicture.name,
+                        mimetype: profilePicture.mimetype,
+                        size: profilePicture.size
+                    }
+                });
+            }
+        } catch (err) {
+            res.status(500).send({message: "Erreur d'enregistrement de l'image de profil : " + err});
+        }
+    }
+}
+
 
 /**
  * Méthode permettant de récupérer un CV d'un utilisateur
@@ -154,7 +220,7 @@ export const getCVFileUtilisateur = (req, res) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur ou CV non trouvé'}) : res.status(500).send({message: "Erreur"});
             else {
-                res.sendFile(data.CVFile,{root:'public/files/CV/'})
+                res.sendFile(data.CVFile, {root: 'public/CVfiles/'})
             }
         })
     }

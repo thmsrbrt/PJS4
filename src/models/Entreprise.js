@@ -6,17 +6,17 @@ import db from "../../config/connexionBDD.js";
  * @param cb {callback} traitement du résultat
  */
 export const findEntrepriseByID = (id, cb) => {
-  db.query("SELECT * FROM V_Entreprise WHERE id = ?", [id], (err, row) => {
-      if (err) {
-        console.log(err);
-        cb(err, null);
-        return;
-      }
-      if (row){
-        cb(null, row);
-        return;
-      }
-      cb({erreur: "Aucune entreprise trouvée"});
+    db.query("SELECT * FROM V_Entreprise WHERE id = ?", [id], (err, row) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (row) {
+            cb(null, row);
+            return;
+        }
+        cb({erreur: "Aucune entreprise trouvée"});
     });
 }
 

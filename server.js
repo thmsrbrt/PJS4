@@ -4,16 +4,20 @@ import cors from "cors";
 import bodyparser from "body-parser";
 import 'dotenv/config';
 import jwt from "jsonwebtoken";
+import fileUpload from "express-fileupload";
 
 import {
     cvFileHandler,
-    findUtilisateur, getCVFileUtilisateur,
+    findUtilisateur,
+    findUtilisateurPublicInfo,
+    getCVFileUtilisateur,
     getProfilePictureById,
     loginHandler,
     registerHandler,
     updatePassword,
     updateUserData,
-    updateUserDataParam
+    updateUserDataParam,
+    profilePictureUploadHandler
 } from "./src/controllers/User.js";
 import {findAllAnnonces, findAnnonce, registerAnnonce, updateAnnonce} from "./src/controllers/Annonce.js";
 import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
@@ -36,6 +40,9 @@ app.use(cors({
 // Si besoin d'explications, demandez moi
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 // Ecoute sur le PORT 3000
 const PORT = 3000;
@@ -81,7 +88,7 @@ const checkUserId = (req, res, next) => {
     console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
     console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
     console.log("ici");
-    if (req.user.idUtilisateur != req.params.idUtilisateur){
+    if (req.user.idUtilisateur != req.params.idUtilisateur) {
         //console.log("erreur")
         return res.sendStatus(403);
     }
@@ -94,12 +101,14 @@ const checkUserId = (req, res, next) => {
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
 app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur);
+app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo);
 app.put("/users/update", authMW, updateUserData);
 app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);
 app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
 app.post("/users/cvhandler", cvFileHandler);
+app.post("/users/picturehandler", profilePictureUploadHandler);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);
@@ -123,5 +132,4 @@ app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConve
 app.post("/message/conversation/send", authMW, addMessageToConversationByID);
 // Routes - autres
 // TODO : nombre de message non lus par conversation
-// TODO : nombre de candidat pour une annonce
-app.get("/annonce/nbCandidat/:idCandidat",)
+
