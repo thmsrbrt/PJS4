@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Postule;
 DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Conversation_track;
 DROP TABLE IF EXISTS Conversation;
 DROP TABLE IF EXISTS Candidature;
 DROP TABLE IF EXISTS Annonce;
@@ -71,8 +72,7 @@ CREATE TABLE Conversation(
                              idUtilisateurA Int NOT NULL ,
                              idUtilisateurB Int NOT NULL ,
                              Libelle        Varchar (32) NOT NULL ,
-                             idAnnonce      Int,
-                             read_at        datetime
+                             idAnnonce      Int
     -- ,CONSTRAINT Conversation_AK PRIMARY KEY (idUtilisateurA,idUtilisateurB)
     ,CONSTRAINT Conversation_PK PRIMARY KEY (idConversation)
     ,CONSTRAINT ConvUserA_UserB_Unique UNIQUE (idUtilisateurA, idUtilisateurB)
