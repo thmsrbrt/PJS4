@@ -62,8 +62,8 @@ export const updateUtilisateur = (data) => {
 }
 
 export const updateUserDataParamBD = (data) => {
-    db.query("update utilisateur set ?=? WHERE idUtilisateur = ?;",data,(err, data) => {
-        if (err){
+    db.query("update utilisateur set ?=? WHERE idUtilisateur = ?;", data, (err, data) => {
+        if (err) {
             throw err;
         }
     });

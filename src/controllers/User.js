@@ -74,10 +74,13 @@ export const findUtilisateurPublicInfo = (req, res) => {
             if (err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
             else
-                res.status(200).send({idUtilisateur:data.idUtilisateur, Prenom:data.Prenom, PhotoProfile: data.PhotoProfile});
+                res.status(200).send({
+                    idUtilisateur: data.idUtilisateur,
+                    Prenom: data.Prenom,
+                    PhotoProfile: data.PhotoProfile
+                });
         });
 }
-
 
 
 /**
@@ -152,7 +155,7 @@ export const cvFileHandler = (req, res) => {
                 let cv = req.files.cvfile;
                 const name = req.body.idutilisateur + ".pdf";
                 cv.mv('./public/CVfiles/' + name);
-                updateCVFileUtilisateur([name,req.body.idutilisateur])
+                updateCVFileUtilisateur([name, req.body.idutilisateur])
                 res.send({
                     status: true,
                     message: 'File is uploaded',

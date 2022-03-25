@@ -8,17 +8,17 @@ import db from "../../config/connexionBDD.js";
 export const findAllByIDUtilisateur = (idUtilisateur, cb) => {
     db.query('SELECT * FROM V_Conversation, message WHERE (V_Conversation.idUtilisateurA = ? OR V_Conversation.idUtilisateurB = ?) AND message.idConversation = V_Conversation.idConversation ORDER BY message.idMessage DESC LIMIT 1',
         [idUtilisateur, idUtilisateur], (err, rows) => {
-        if (err) {
-            console.log(err);
-            cb(err, null);
-            return;
-        }
-        if (rows.length) {
-            cb(null, rows);
-            return;
-        }
-        cb({erreur: "not_found"});
-    });
+            if (err) {
+                console.log(err);
+                cb(err, null);
+                return;
+            }
+            if (rows.length) {
+                cb(null, rows);
+                return;
+            }
+            cb({erreur: "not_found"});
+        });
 };
 
 /**

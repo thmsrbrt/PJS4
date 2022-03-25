@@ -8,7 +8,9 @@ import fileUpload from "express-fileupload";
 
 import {
     cvFileHandler,
-    findUtilisateur, findUtilisateurPublicInfo, getCVFileUtilisateur,
+    findUtilisateur,
+    findUtilisateurPublicInfo,
+    getCVFileUtilisateur,
     getProfilePictureById,
     loginHandler,
     registerHandler,
@@ -85,7 +87,7 @@ const checkUserId = (req, res, next) => {
     console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
     console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
     console.log("ici");
-    if (req.user.idUtilisateur != req.params.idUtilisateur){
+    if (req.user.idUtilisateur != req.params.idUtilisateur) {
         //console.log("erreur")
         return res.sendStatus(403);
     }

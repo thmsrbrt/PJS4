@@ -7,8 +7,8 @@ import {createCandidature, getAllCandidatureByIDAnnonce, getAllCandidatureByIDCa
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const registerCandidature = (req, res) => {
-    const { CVFile, LettreMotivation, idCandidat, idAnnonce } = req.body;
-    if (!CVFile || !LettreMotivation || ! idCandidat || !idAnnonce) {
+    const {CVFile, LettreMotivation, idCandidat, idAnnonce} = req.body;
+    if (!CVFile || !LettreMotivation || !idCandidat || !idAnnonce) {
         return res.sendStatus(401);
     }
 
@@ -28,11 +28,11 @@ export const registerCandidature = (req, res) => {
 export const getCandidatureCandidat = (req, res) => {
     const idCandidat = req.params.idCandidat;
     if (idCandidat == null) {
-       res.status(500).send({message: "idCandidat is required"});
+        res.status(500).send({message: "idCandidat is required"});
     } else {
         getAllCandidatureByIDCandidat([idCandidat], (err, data) => {
             if (err) {
-                err.erreur === "Aucune candidature trouvée pour cette idCandidat" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}): res.status(500).send({message: "Erreur"});
+                err.erreur === "Aucune candidature trouvée pour cette idCandidat" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}) : res.status(500).send({message: "Erreur"});
             } else {
                 res.status(200).send(data);
             }
@@ -53,7 +53,7 @@ export const getCandidatureAnnonce = (req, res) => {
     } else {
         getAllCandidatureByIDAnnonce([idAnnonce], (err, data) => {
             if (err) {
-                err.erreur === "Aucune candidature trouvée pour cette idAnnonce" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}): res.status(500).send({message: "Erreur"});
+                err.erreur === "Aucune candidature trouvée pour cette idAnnonce" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}) : res.status(500).send({message: "Erreur"});
             } else {
                 res.status(200).send(data);
             }
