@@ -261,9 +261,11 @@ VALUES ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 1, 2),
 
 
 #------------------------------------------------------------ TEST
-SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A
-LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce
-GROUP BY A.idAnnonce;
+#SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A
+#LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce
+#GROUP BY A.idAnnonce;
 
 
-SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce WHERE A.idAnnonce = 10 GROUP BY A.idAnnonce;
+#SELECT A.idAnnonce, A.titre, A.image, A.Description, A.idEntreprise, COUNT(C.idCandidature) AS NbCandidat FROM Annonce A LEFT JOIN Candidature C ON A.idAnnonce = C.idannonce WHERE A.idAnnonce = 10 GROUP BY A.idAnnonce;
+
+#UPDATE experience SET dateDebut = '1234567', dateFin = '1', Societe = 'paris', Poste = 'touriste' WHERE idExperience = 1;
