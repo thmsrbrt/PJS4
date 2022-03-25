@@ -32,7 +32,7 @@ export const findAnnonceByID = (id, cb) => {
             return;
         }
         if (row) {
-            cb(null, row);
+            cb(null, row[0]);
             return;
         }
         cb({erreur: "not_found"});
