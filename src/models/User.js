@@ -69,6 +69,14 @@ export const updateUserDataParamBD = (data) => {
     });
 }
 
+export const updateUserProfilePictureDB = (data) => {
+    db.query("update utilisateur set PhotoProfile=? WHERE idUtilisateur = ?;", data, (err, data) => {
+        if (err) {
+            throw err;
+        }
+    });
+}
+
 
 /**
  * Méthode permettant de mettre à jour le token d'un utilisateur

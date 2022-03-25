@@ -16,7 +16,8 @@ import {
     registerHandler,
     updatePassword,
     updateUserData,
-    updateUserDataParam
+    updateUserDataParam,
+    profilePictureUploadHandler
 } from "./src/controllers/User.js";
 import {findAllAnnonces, findAnnonce, registerAnnonce, updateAnnonce} from "./src/controllers/Annonce.js";
 import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
@@ -107,6 +108,7 @@ app.put("/users/updatePassWord", authMW, updatePassword);
 app.get("/users/photoProfile/:idUtilisateur", authMW, getProfilePictureById);
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur);
 app.post("/users/cvhandler", cvFileHandler);
+app.post("/users/picturehandler", profilePictureUploadHandler);
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
 app.get("/annonces/all", authMW, findAllAnnonces);

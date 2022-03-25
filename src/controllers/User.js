@@ -8,7 +8,7 @@ import {
     getProfilePictureByIdBD,
     updateCVFileUtilisateur,
     updatePasswordBDD,
-    updateUserDataParamBD,
+    updateUserDataParamBD, updateUserProfilePictureDB,
     updateUtilisateur,
 } from "../models/User.js";
 import crypto from "crypto";
@@ -171,6 +171,39 @@ export const cvFileHandler = (req, res) => {
         }
     }
 }
+
+export const profilePictureUploadHandler = (req, res) => {
+    const idUtilisateur = req.body.idutilisateur;
+    if (!idUtilisateur)
+        res.status(500).send({message: "Erreur, idUtilisateur null"});
+    else {
+        try {
+            if (!req.files) {
+                res.send({
+                    status: false,
+                    message: 'No file uploaded'
+                });
+            } else {
+                let profilePicture = req.files.profilepicture;
+                const name = req.body.idutilisateur + ".jpg";
+                profilePicture.mv('./public/Images/' + name);
+                updateUserProfilePictureDB([name, req.body.idutilisateur])
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: profilePicture.name,
+                        mimetype: profilePicture.mimetype,
+                        size: profilePicture.size
+                    }
+                });
+            }
+        } catch (err) {
+            res.status(500).send({message: "Erreur d'enregistrement de l'image de profil : " + err});
+        }
+    }
+}
+
 
 /**
  * Méthode permettant de récupérer un CV d'un utilisateur
