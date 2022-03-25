@@ -8,7 +8,7 @@ import fileUpload from "express-fileupload";
 
 import {
     cvFileHandler,
-    findUtilisateur, getCVFileUtilisateur,
+    findUtilisateur, findUtilisateurPublicInfo, getCVFileUtilisateur,
     getProfilePictureById,
     loginHandler,
     registerHandler,
@@ -98,6 +98,7 @@ const checkUserId = (req, res, next) => {
 app.post("/login", loginHandler);
 app.post("/register", registerHandler);
 app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur);
+app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo);
 app.put("/users/update", authMW, updateUserData);
 app.post("/users/update/", authMW, updateUserDataParam);
 app.put("/users/updatePassWord", authMW, updatePassword);

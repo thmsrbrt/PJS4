@@ -60,6 +60,27 @@ export const findUtilisateur = (req, res) => {
 }
 
 /**
+ * Méthode permettant de trouver les infos publiques d'un utilisateur à partir d'un id
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si user non trouvé et 200 si trouvé
+ */
+export const findUtilisateurPublicInfo = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur == null)
+        res.status(500).send({message: "Erreur, idUser null"});
+    else
+        findOneUtilisateurByID(idUtilisateur, (err, data) => {
+            if (err)
+                err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
+            else
+                res.status(200).send({idUtilisateur:data.idUtilisateur, Prenom:data.Prenom, PhotoProfile: data.PhotoProfile});
+        });
+}
+
+
+
+/**
  * Méthode permettant de trouver la photo de profil de l'utilisateur à partir de son id
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS
