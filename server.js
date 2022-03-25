@@ -28,6 +28,13 @@ import {
     findAllConversationByIDUser
 } from "./src/controllers/Conversation.js";
 import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
+import {
+    deleteExperienceByIdExperience,
+    experienceHandler,
+    getAllExperiencesUser,
+    getExperienceByIdExperience,
+    updateExperience
+} from "./src/controllers/Experience.js";
 
 const app = express()
 export const accessTokenSecret = process.env.TOKENSECRET;
@@ -88,7 +95,7 @@ const checkUserId = (req, res, next) => {
     console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
     console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
     console.log("ici");
-    if (req.user.idUtilisateur != req.params.idUtilisateur) {
+    if (req.user.idUtilisateur != req.params.idUtilisateur){
         //console.log("erreur")
         return res.sendStatus(403);
     }
@@ -130,6 +137,12 @@ app.post("/conversation/create", authMW, addToConversationByUtilisateur);
 // Routes - Message
 app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConversation);
 app.post("/message/conversation/send", authMW, addMessageToConversationByID);
+// Routes - Experience
+app.post("/experience/create", authMW, experienceHandler);
+app.put("/experience/update", authMW, updateExperience);
+app.get("/experience/all/:idUtilisateur", authMW, getAllExperiencesUser);
+app.get("/experience/:idExperience", authMW, getExperienceByIdExperience);
+app.delete("/experience/:idExperience", authMW, deleteExperienceByIdExperience);
 // Routes - autres
 // TODO : nombre de message non lus par conversation
 

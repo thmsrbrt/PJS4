@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Conversation;
 DROP TABLE IF EXISTS Candidature;
 DROP TABLE IF EXISTS Annonce;
 DROP TABLE IF EXISTS Entreprise;
+DROP TABLE IF EXISTS Experience;
 DROP TABLE IF EXISTS Utilisateur;
 
 #------------------------------------------------------------
@@ -23,9 +24,24 @@ CREATE TABLE Utilisateur(
                             CVFile          Varchar (255),
                             Type            VARCHAR(32) NOT NULL,
                             read_at         datetime
-
     ,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
 )ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: Experience
+#------------------------------------------------------------
+
+CREATE TABLE Experience (
+                            idExperience   INT  Auto_increment  NOT NULL ,
+                            idUtilisateur  INT  NOT NULL,
+                            dateDebut      timestamp NOT NULL,
+                            dateFin        timestamp,
+                            Societe        Varchar (255) NOT NULL,
+                            Poste          Varchar (255) NOT NULL,
+                            Type           Varchar (255) NOT NULL, -- experiencePro / formation
+                            CONSTRAINT Experience_PK PRIMARY KEY (idExperience),
+                            CONSTRAINT Experience_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur(idUtilisateur)
+)ENGINE = InnoDB;
 
 
 #------------------------------------------------------------
