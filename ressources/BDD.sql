@@ -218,8 +218,8 @@ VALUES (1, 1, 3, 'friends', null),
        (10, 4, 113, 'axa stage dev jav web', 12);
 
 -- update les read_at à maintenant
-UPDATE Conversation SET read_at = NOW();
-UPDATE Utilisateur SET read_at = NOW();
+-- UPDATE Conversation SET read_at = NOW();
+-- UPDATE Utilisateur SET read_at = NOW();
 
 INSERT INTO Message(idMessage, Message, DateEnvoi, idUtilisateur, idConversation)
 VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
@@ -248,16 +248,16 @@ VALUES ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 1, 2),
 # Select *:
 #------------------------------------------------------------
 
-SELECT * FROM Utilisateur;
-SELECT * FROM V_Candidat;
-SELECT * FROM V_Entreprise;
-SELECT * FROM Annonce;
-SELECT * FROM Conversation;
-SELECT * FROM Message;
-SELECT * FROM Candidature;
+#SELECT * FROM Utilisateur;
+#SELECT * FROM V_Candidat;
+#SELECT * FROM V_Entreprise;
+#SELECT * FROM Annonce;
+#SELECT * FROM Conversation;
+#SELECT * FROM Message;
+#SELECT * FROM Candidature;
 
-SELECT * FROM Conversation WHERE idUtilisateurB = 4 and idUtilisateurA = 3;
-SELECT * FROM Message WHERE idConversation = 1;
+#SELECT * FROM Conversation WHERE idUtilisateurB = 4 and idUtilisateurA = 3;
+#SELECT * FROM Message WHERE idConversation = 1;
 
 
 #------------------------------------------------------------ TEST
