@@ -124,7 +124,7 @@ app.post("/users/cvhandler", cvFileHandler); // permet de mettre à jour le CV d
 app.post("/users/picturehandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce);
-app.get("/annonces/all", authMW, findAllAnnonces);
+app.get("/annonces/all", findAllAnnonces);
 app.post("/annonce/create", authMW, registerAnnonce);
 app.put("/annonce/update", authMW, updateAnnonce);
 app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
