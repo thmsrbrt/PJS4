@@ -138,7 +138,6 @@ app.get("/entreprises/all", registerEntreprise); // permet de créer une entrepr
 app.put("/entreprise/update", authMW, updateEntreprise); // permet de mettre à jour les données d'une entreprise : [nom, email, photoProfile, idEntreprise]
 app.put("/entreprise/updatePassWord", authMW, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
 // Routes - Candidature
-// TODO ne peut pas faire 2 candidatures pour une même annonce
 app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
 app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
 app.post("/candidature/create", authMW, registerCandidature); // permet de créer une candidature : [CVFile, LettreMotivation, idCandidat, idAnnonce]

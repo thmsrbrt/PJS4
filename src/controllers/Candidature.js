@@ -1,4 +1,9 @@
-import {createCandidature, getAllCandidatureByIDAnnonce, getAllCandidatureByIDCandidat} from "../models/Candidature.js";
+import {
+    createCandidature,
+    getAllCandidatureByIDAnnonce,
+    getAllCandidatureByIDCandidat,
+    getCandidatureByIdCandidatAndIdAnnonce
+} from "../models/Candidature.js";
 
 /**
  * Méthode pour créer une candidature
@@ -11,13 +16,21 @@ export const registerCandidature = (req, res) => {
     if (!CVFile || !LettreMotivation || !idCandidat || !idAnnonce) {
         return res.sendStatus(401);
     }
-
-    try {
-        createCandidature([CVFile, LettreMotivation, idCandidat, idAnnonce]);
-        res.sendStatus(201);
-    } catch (err) {
-        res.status(403).json({"faillure": err}).send();
-    }
+    getCandidatureByIdCandidatAndIdAnnonce([idCandidat, idAnnonce], (err, data) => {
+        if (data) {
+            res.status(403).send("Vous avez déjà postulé à cette annonce");
+        }
+        else if (err.erreur === "not_found") {
+            try {
+                createCandidature([CVFile, LettreMotivation, idCandidat, idAnnonce]);
+                res.sendStatus(201);
+            } catch (err) {
+                res.status(403).json({"faillure": err}).send();
+            }
+        } else {
+            res.status(403).send({"faillure": "Erreur lors de la création de la candidature"});
+        }
+    });
 }
 /**
  * Méthode pour récupérer les candidatures d'un candidat

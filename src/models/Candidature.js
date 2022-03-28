@@ -52,3 +52,22 @@ export const getAllCandidatureByIDAnnonce = (idAnnonce, cb) => {
         cb({erreur: "Aucune candidature trouvée pour cette idAnnonce"}, null);
     });
 }
+
+/**
+ * Méthode pour récupérer la candidature à une annonce d'un candidat
+ * @param donnees {array<string>} - Données
+ * @param cb {callback} traitement du résultat
+ */
+export const getCandidatureByIdCandidatAndIdAnnonce = (donnees, cb) => {
+    db.query('SELECT * FROM candidature WHERE idCandidat = ? and idAnnonce = ?', donnees, (err, rows) => {
+        if (err) {
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows);
+            return;
+        }
+        cb({erreur: "not_found"}, null);
+    });
+}
