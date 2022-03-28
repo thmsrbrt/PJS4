@@ -129,7 +129,6 @@ app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer tout
 app.post("/annonce/create", authMW, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update", authMW, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
 app.delete("/annonce/delete/:idAnnonce", authMW, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
-app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]

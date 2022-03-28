@@ -93,28 +93,6 @@ export const updateAnnonce = (req, res) => {
 
 
 /**
- * Méthode pour trouver les annonces par un mot clé
- * @param req Request venant de ExpressJS
- * @param res Response venant de ExpressJS
- */
-export const findAnnonceByMotClef = (req, res) => {
-    const {motClef} = req.params;
-    if(!motClef)
-        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
-    console.log(motClef);
-    const name = '%' + motClef + '%';
-    searchByKeywords(name, (err, data) => {
-        if (err) {
-            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
-        } else {
-            //data.filter
-            res.status(200).send(data);
-        }
-    });
-}
-
-
-/**
  * Méthode pour trouver les annonces par mots clés
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS
