@@ -1,10 +1,12 @@
 import {
-    createAnnonce,
+    createAnnonce, deleteAnnonceByIdAnnonce,
     findAllAnnonce,
     findAnnonceByID,
     searchByKeywords,
     updateAnnonceData
 } from "../models/Annonce.js";
+import db from "../../config/connexionBDD.js";
+import {deletExperienceByIdExperience} from "../models/Experience.js";
 
 /**
  * Méthode pour trouver les informations d'une annonce par son id
@@ -140,4 +142,22 @@ export const findAnnonceByMotsClefs = (req, res) => {
             res.status(200).send(returnData);
         }
     });
+}
+
+/**
+ * Méthode pour supprimer une annonce par son id
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ */
+export const deleteAnnonce = (req, res) => {
+    const {idAnnonce} = req.params;
+    if (!idAnnonce) {
+        res.status(500).send({message: "Erreur, idAnnonce = null"});
+    }
+    try {
+        deleteAnnonceByIdAnnonce(idAnnonce);
+        res.status(200).send({message: "Annonce supprimé"});
+    } catch (err) {
+        res.status(500).send({message: "Erreur suppression Annonce"});
+    }
 }

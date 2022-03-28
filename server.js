@@ -123,10 +123,12 @@ app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de 
 app.post("/users/cvhandler", cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
 app.post("/users/picturehandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
+// TODO front : dans le profile afficher les annonces d'une entreprise
 app.get("/annonce/:idUtilisateur", findAnnonce); // permet de récupérer les annonces d'un utilisateur : [idUtilisateur]
 app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer toutes les annonces
 app.post("/annonce/create", authMW, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update", authMW, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
+app.delete("/annonce/delete/:idAnnonce", authMW, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 // Routes - Entreprise
@@ -135,6 +137,7 @@ app.get("/entreprises/all", registerEntreprise); // permet de créer une entrepr
 app.put("/entreprise/update", authMW, updateEntreprise); // permet de mettre à jour les données d'une entreprise : [nom, email, photoProfile, idEntreprise]
 app.put("/entreprise/updatePassWord", authMW, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
 // Routes - Candidature
+// TODO ne peut pas faire 2 candidatures pour une même annonce
 app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
 app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
 app.post("/candidature/create", authMW, registerCandidature); // permet de créer une candidature : [CVFile, LettreMotivation, idCandidat, idAnnonce]
@@ -147,7 +150,7 @@ app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConve
 app.post("/message/conversation/send", authMW, addMessageToConversationByID); // permet d'envoyer un message à une conversation à partir de son ID : [message, idConversation, idUtilisateur]
 // Routes - Experience
 app.post("/experience/create", authMW, experienceHandler); // permet de créer une experience : [idUtilisateur, dateDebut, dateFin, societe, poste, type]
-app.put("/experience/update", authMW, updateExperience); // permet de mettre à jour une experience : [dateDebut, dateFin, societe, poste, type, idExperience]
+app.put("/experience/update", authMW, updateExperience); // permet de mettre à jour une experience : [dateDebut, dateFin, societe, poste, idExperience]
 app.get("/experience/all/:idUtilisateur", authMW, getAllExperiencesUser); // permet de récupérer toutes les experiences d'un utilisateur : [idUtilisateur]
 app.get("/experience/:idExperience", authMW, getExperienceByIdExperience); // permet de récupérer une experience : [idExperience]
 app.delete("/experience/:idExperience", authMW, deleteExperienceByIdExperience); // permet de supprimer une experience : [idExperience]

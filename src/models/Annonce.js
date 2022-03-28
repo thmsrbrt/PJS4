@@ -44,7 +44,7 @@ export const findAnnonceByID = (id, cb) => {
  * @param data {array<string>} contenant les données de l'annonce
  */
 export const createAnnonce = (data) => {
-    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, nbCandidat, datePublication, localisation) VALUES (?,?,?,?,0, NOW(), ?)', data, (err, res) => {
+    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, datePublication, localisation) VALUES (?,?,?,?, NOW(), ?)', data, (err, res) => {
         if (err) {
             throw err;
         }
@@ -80,6 +80,18 @@ export const searchByKeywords = (data, cb) => {
             return;
         }
         cb({erreur: "not_found"});
+    });
+}
+
+/**
+ * Méthode qui permet de supprimer une annonce par idAnnonce
+ * @param idAnnonce : id de l'annonce
+ */
+export const deleteAnnonceByIdAnnonce = (idAnnonce) => {
+    db.query('DELETE FROM annonce WHERE idAnnonce = ?', [idAnnonce], (err) => {
+        if (err) {
+            throw err;
+        }
     });
 }
 
