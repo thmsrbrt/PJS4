@@ -38,10 +38,10 @@ CREATE TABLE Experience
     idExperience  INT Auto_increment NOT NULL,
     idUtilisateur INT                NOT NULL,
     dateDebut     timestamp          NOT NULL,
-    dateFin       timestamp,
+    dateFin       timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00', -- la valeur par defaut est le 1er janvier 2000
     Societe       Varchar(255)       NOT NULL,
     Poste         Varchar(255)       NOT NULL,
-    Type          Varchar(255)       NOT NULL, -- experiencePro / formation
+    Type          Varchar(255)       NOT NULL,                               -- experiencePro / formation
     CONSTRAINT Experience_PK PRIMARY KEY (idExperience),
     CONSTRAINT Experience_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur)
 ) ENGINE = InnoDB;
@@ -56,7 +56,7 @@ CREATE TABLE Annonce
     idAnnonce       Int Auto_increment NOT NULL,
     Titre           Varchar(255)       NOT NULL,
     Image           Varchar(255),
-    Description     Varchar(1000)      NOT NULL,
+    Description     TEXT               NOT NULL,
     idEntreprise    Int                NOT NULL,
     datePublication DATE               NOT NULL,
     localisation    Varchar(255)       NOT NULL,
@@ -191,10 +191,12 @@ BEGIN
     IF idConv > 0 THEN
         UPDATE Conversation_track
         SET read_at = NOW()
-        WHERE idConversation = NEW.idConversation AND idUtilisateur = userA;
+        WHERE idConversation = NEW.idConversation
+          AND idUtilisateur = userA;
         UPDATE Conversation_track
         SET read_at = NOW()
-        WHERE idConversation = NEW.idConversation AND idUtilisateur = userB;
+        WHERE idConversation = NEW.idConversation
+          AND idUtilisateur = userB;
     ELSE
         INSERT INTO Conversation_track(idUtilisateur, idConversation, read_at)
         VALUES (userA, NEW.idConversation, NOW() - 1);
@@ -246,30 +248,38 @@ VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI
         'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ', '/file/CVCandidat/qt.pdf',
         'Candidat', '2022-01-01 09:58:44'); -- quentinrobert
 
-INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, dateFin, Societe, Poste, Type) VALUES
-(1, 1, '2020-01-01 09:58:44', '2021-01-01 09:58:44', 'apple', 'Vendeur', 'experiencePro'),
-(2, 1, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'PARIS', 'IUT', 'formation'),
-(3, 1, '2022-04-04 09:58:44', '2022-06-10 09:58:44', 'coworking', 'Developpeur', 'experiencePro'),
-(4, 3, '2017-09-01 09:58:44', '2020-07-01 09:58:44', 'paris', 'Etude Economie', 'formation'),
-(5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'belfort-paris', 'IUT informatique', 'formation'),
-(6, 3, '2022-04-04 00:00:00', '2022-08-01 00:00:00', 'Apple', 'Dev IA', 'experiencePro');
+INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, dateFin, Societe, Poste, Type)
+VALUES (1, 1, '2020-01-01 09:58:44', '2021-01-01 09:58:44', 'apple', 'Vendeur', 'experiencePro'),
+       (2, 1, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'PARIS', 'IUT', 'formation'),
+       (3, 1, '2022-04-04 09:58:44', '2022-06-10 09:58:44', 'coworking', 'Developpeur', 'experiencePro'),
+       (4, 3, '2017-09-01 09:58:44', '2020-07-01 09:58:44', 'paris', 'Etude Economie', 'formation'),
+       (5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'belfort-paris', 'IUT informatique', 'formation'),
+       (6, 3, '2022-04-04 00:00:00', NULL, 'Apple', 'Dev IA', 'experiencePro');
 
 INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at) -- trtrterzrez
-VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise',
+VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (12, 'Alstom', 'recrutement@alstom.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/Alstom.png', 'Entreprise',
+       (12, 'Alstom', 'recrutement@alstom.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/Alstom.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (113, 'Axa', 'carrer@axa.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/Axa.png', 'Entreprise',
+       (113, 'Axa', 'carrer@axa.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/Axa.png',
+        'Entreprise',
         '2022-01-01 09:58:44'),
-       (14, 'bnp paribas', 'recrutement@bnp-paribas.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/bnp-paribas.png',
+       (14, 'bnp paribas', 'recrutement@bnp-paribas.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/bnp-paribas.png',
         'Entreprise', '2022-01-01 09:58:44'),
-       (15, 'Bouygues', 'recrutement@bouyge.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/bouygues.png', 'Entreprise',
+       (15, 'Bouygues', 'recrutement@bouyge.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/bouygues.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (416, 'engie', 'carrer@engie.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/engie.png', 'Entreprise',
+       (416, 'engie', 'carrer@engie.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/engie.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (17, 'michelin', 'recruteur@michelin.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/michelin.png', 'Entreprise',
+       (17, 'michelin', 'recruteur@michelin.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/michelin.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (18, 'stellantis', 'recrutement@stellantis.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/stellantis.png',
+       (18, 'stellantis', 'recrutement@stellantis.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
+        '/Image/PhotoEntreprise/stellantis.png',
         'Entreprise', '2022-01-01 09:58:44');
 
 INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
