@@ -23,7 +23,7 @@ import {
     deleteAnnonce,
     findAllAnnonces,
     findAnnonce,
-    findAnnonceByMotClef, findAnnonceByMotsClefs,
+    findAnnonceByMotsClefs,
     registerAnnonce,
     updateAnnonce
 } from "./src/controllers/Annonce.js";
@@ -99,13 +99,13 @@ const authMW = (req, res, next) => {
  * @returns {*} La response
  */
 const checkUserId = (req, res, next) => {
-    console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
-    console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
-    console.log("ici");
-    if (req.user.idUtilisateur !== req.params.idUtilisateur) {
-        //console.log("erreur")
+    //console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
+    //console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
+    //console.log(req.user);
+    if (req.user.idUtilisateur.toString() === req.params.idUtilisateur.toString()) {
+        console.log("Vérification de l'user OK")
+    } else
         return res.sendStatus(403);
-    }
 
     next();
 };
@@ -116,19 +116,19 @@ app.post("/login", loginHandler); // permet de login l'utilisateur : [email, pas
 app.post("/register", registerHandler); // permet de créer un utilisateur : [email, password, nom, prenom, description]
 app.get("/users/:idUtilisateur", authMW, checkUserId, findUtilisateur); // permet de récupérer les infos d'un utilisateur : [idUtilisateur]
 app.get("/users/public/:idUtilisateur", authMW, findUtilisateurPublicInfo); // TODO : demander a flo // permet de récupérer les infos d'un utilisateur : [idUtilisateur]
-app.put("/users/update", authMW, updateUserData); // permet de mettre à jour les infos d'un utilisateur : []
-app.post("/users/update/", authMW, updateUserDataParam); // TODO demander a flo
-app.put("/users/updatePassWord", authMW, updatePassword); // permet de mettre à jour le mot de passe d'un utilisateur : [oldPassword, newPassword, newPassword2, idUtilisateur]
+app.put("/users/update/:idUtilisateur", authMW, checkUserId, updateUserData); // permet de mettre à jour les infos d'un utilisateur : []
+app.post("/users/update/:idUtilisateur", authMW, checkUserId, updateUserDataParam); // TODO demander a flo
+app.put("/users/updatePassWord/:idUtilisateur", authMW, checkUserId, updatePassword); // permet de mettre à jour le mot de passe d'un utilisateur : [oldPassword, newPassword, newPassword2, idUtilisateur]
 app.get("/users/photoProfile/:idUtilisateur", getProfilePictureById); // permet de récupérer la photo de profil d'un utilisateur : [idUtilisateur]
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de récupérer le CV d'un utilisateur : [idUtilisateur]
-app.post("/users/cvHandler", cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
-app.post("/users/photoProfileHandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
+app.post("/users/cvHandler/:idUtilisateur",authMW, checkUserId, cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
+app.post("/users/photoProfileHandler/:idUtilisateur", authMW, checkUserId, profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce); // permet de récupérer les annonces d'un utilisateur : [idUtilisateur]
 app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer toutes les annonces
-app.post("/annonce/create", authMW, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
-app.put("/annonce/update", authMW, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
-app.delete("/annonce/delete/:idAnnonce", authMW, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
+app.post("/annonce/create/:idUtilisateur", authMW, checkUserId, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
+app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
+app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
@@ -142,7 +142,7 @@ app.post("/candidature/create", authMW, registerCandidature); // permet de crée
 // Routes - Conversation
 app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAllConversationByIDUser); // permet de récupérer toutes les conversations d'un utilisateur à partir de son id: [idUtilisateur]
 app.get("/conversation/annonce/:idAnnonce", authMW, findAllConversationByIdAnnonce); // permet de récupérer toutes les conversations d'une annonce : [idAnnonce]
-app.post("/conversation/create", authMW, addToConversationByUtilisateur); // permet de créer une conversation : [idUtilisateur, idUrilisateur2]
+app.post("/conversation/create/:idUtilisateur", authMW, checkUserId, addToConversationByUtilisateur); // permet de créer une conversation : [idUtilisateur, idUrilisateur2]
 // Routes - Message
 app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConversation); // permet de récupérer tous les messages d'une conversation à partir de son ID: [idConversation]
 app.post("/message/conversation/send", authMW, addMessageToConversationByID); // permet d'envoyer un message à une conversation à partir de son ID : [message, idConversation, idUtilisateur]
@@ -151,6 +151,5 @@ app.post("/experience/create", authMW, experienceHandler); // permet de créer u
 app.put("/experience/update", authMW, updateExperience); // permet de mettre à jour une experience : [dateDebut, dateFin, societe, poste, idExperience]
 app.get("/experience/all/:idUtilisateur", authMW, getAllExperiencesUser); // permet de récupérer toutes les experiences d'un utilisateur : [idUtilisateur]
 app.get("/experience/:idExperience", authMW, getExperienceByIdExperience); // permet de récupérer une experience : [idExperience]
-app.delete("/experience/:idExperience", authMW, deleteExperienceByIdExperience); // permet de supprimer une experience : [idExperience]
+app.delete("/experience/:idExperience/:idUtilisateur", authMW, checkUserId, deleteExperienceByIdExperience); // permet de supprimer une experience : [idExperience]
 // Routes - autres
-// TODO : nombre de message non lus par conversation

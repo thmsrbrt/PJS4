@@ -16,7 +16,6 @@ import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
 
 
-
 /**
  * Méthode permettant de vérifier la requête POST de login
  * @response avec un body si connexion possible, sans sinon
@@ -141,7 +140,7 @@ export const registerHandler = (req, res) => {
  * @param res Response venant de ExpressJS
  */
 export const cvFileHandler = (req, res) => {
-    const idUtilisateur = req.body.idutilisateur;
+    const idUtilisateur = req.params.idutilisateur;
     console.log(idUtilisateur);
     if (!idUtilisateur)
         res.status(500).send({message: "Erreur, idUtilisateur null"});
@@ -174,7 +173,7 @@ export const cvFileHandler = (req, res) => {
 }
 
 export const profilePictureUploadHandler = (req, res) => {
-    const idUtilisateur = req.body.idutilisateur;
+    const idUtilisateur = req.params.idutilisateur;
     if (!idUtilisateur)
         res.status(500).send({message: "Erreur, idUtilisateur null"});
     else {
