@@ -101,7 +101,7 @@ const checkUserId = (req, res, next) => {
     console.log(`params id utilisateur : ${req.params.idUtilisateur}`);
     console.log(`user id utilisateur : ${req.user.idUtilisateur}`);
     console.log("ici");
-    if (req.user.idUtilisateur != req.params.idUtilisateur) {
+    if (req.user.idUtilisateur !== req.params.idUtilisateur) {
         //console.log("erreur")
         return res.sendStatus(403);
     }
@@ -123,17 +123,12 @@ app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de 
 app.post("/users/cvhandler", cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
 app.post("/users/picturehandler", profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
-app.get("/annonce/:idUtilisateur", findAnnonce);
-app.get("/annonces/all", findAllAnnonces);
-app.post("/annonce/create", authMW, registerAnnonce);
-app.put("/annonce/update", authMW, updateAnnonce);
-app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
-app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
-
 app.get("/annonce/:idUtilisateur", findAnnonce); // permet de récupérer les annonces d'un utilisateur : [idUtilisateur]
 app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer toutes les annonces
 app.post("/annonce/create", authMW, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update", authMW, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
+app.get("/annonce/motClef/:motClef", findAnnonceByMotClef);
+app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
 app.get("/entreprises/all", registerEntreprise); // permet de créer une entreprise : [nom, email, passspnseonse]

@@ -25,16 +25,16 @@ export const experienceHandler = (req, res) => {
 
 export const updateExperience = (req, res) => {
     const {idExperience} = req.body;
-    const {dateDebut, societe, poste, type} = req.body;
+    const {dateDebut, societe, poste} = req.body;
     let {dateFin} = req.body;
-    if (!idExperience || !dateDebut || !societe || !poste || !type) {
+    if (!idExperience || !dateDebut || !societe || !poste) {
         res.status(500).send({message: "Erreur, Tout les champ sont obligatoire"});
     }
     if (dateFin === "" || dateFin === null || dateFin === undefined) {
         dateFin = -1;
     }
     try {
-        updateExperienceByIdExperience([dateDebut, dateFin, societe, poste, type, idExperience]);
+        updateExperienceByIdExperience([dateDebut, dateFin, societe, poste, idExperience]);
         res.status(200).send({message: "Experience mise à jour"});
     } catch (err){
         res.status(500).send({message: "Erreur, Experience n'a pas pu être mise à jour"});

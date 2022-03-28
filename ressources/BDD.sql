@@ -246,6 +246,13 @@ VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI
         'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ', '/file/CVCandidat/qt.pdf',
         'Candidat', '2022-01-01 09:58:44'); -- quentinrobert
 
+INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, dateFin, Societe, Poste, Type) VALUES
+(1, 1, '2020-01-01 09:58:44', '2021-01-01 09:58:44', 'apple', 'Vendeur', 'experiencePro'),
+(2, 1, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'PARIS', 'IUT', 'formation'),
+(3, 1, '2022-04-04 09:58:44', '2022-06-10 09:58:44', 'coworking', 'Developpeur', 'experiencePro'),
+(4, 3, '2017-09-01 09:58:44', '2020-07-01 09:58:44', 'paris', 'Etude Economie', 'formation'),
+(5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'belfort-paris', 'IUT informatique', 'formation'),
+(6, 3, '2022-04-04 00:00:00', '2022-08-01 00:00:00', 'Apple', 'Dev IA', 'experiencePro');
 
 INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at)
 VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise',

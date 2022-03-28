@@ -16,7 +16,7 @@ import jwt from "jsonwebtoken";
 import {accessTokenSecret} from "../../server.js";
 
 
-// TODO : hasher les mots de passes
+
 /**
  * Méthode permettant de vérifier la requête POST de login
  * @response avec un body si connexion possible, sans sinon
@@ -60,6 +60,7 @@ export const findUtilisateur = (req, res) => {
 }
 
 /**
+ * TODO : a revoir
  * Méthode permettant de trouver les infos publiques d'un utilisateur à partir d'un id
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS
@@ -128,7 +129,7 @@ export const registerHandler = (req, res) => {
                 res.status(500).send({message: "Erreur"});
             }
         } else {
-            res.status(404).send({message: 'Utilisateur déjà existant'})
+            res.status(409).send({message: 'Utilisateur déjà existant'})
         }
     });
 }
