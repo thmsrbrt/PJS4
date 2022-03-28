@@ -85,7 +85,7 @@ export const findConversationByIdUtilisateurAAndIdUtilisateurB = (data, cb) => {
  */
 export const createConversation = (donnees) => {
     console.log(donnees);
-    db.query('INSERT INTO conversation (idUtilisateurA, idUtilisateurB, idAnnonce, Libelle, read_at) VALUES (?,?,?,?, NOW());', (donnees), function (err, data) {
+    db.query('INSERT INTO conversation (idUtilisateurA, idUtilisateurB, idAnnonce, Libelle) VALUES (?,?,?,?);', (donnees), function (err, data) {
         if (err) throw err;
     });
 };
