@@ -6,7 +6,7 @@ import db from "../../config/connexionBDD.js";
  * @param cb {callback} traitement du résultat
  */
 export const findEntrepriseByID = (id, cb) => {
-    db.query("SELECT * FROM V_Entreprise WHERE id = ?", [id], (err, row) => {
+    db.query("SELECT * FROM V_Entreprise WHERE idUtilisateur = ?", [id], (err, row) => {
         if (err) {
             console.log(err);
             cb(err, null);
