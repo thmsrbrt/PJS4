@@ -20,6 +20,7 @@ import {
     updateUserDataParam
 } from "./src/controllers/User.js";
 import {
+    deleteAnnonce,
     findAllAnnonces,
     findAnnonce,
     findAnnonceByMotClef, findAnnonceByMotsClefs,

@@ -85,7 +85,7 @@ CREATE TABLE Conversation
     ,
     CONSTRAINT Conversation_UtilisateurA_FK FOREIGN KEY (idUtilisateurA) REFERENCES Utilisateur (idUtilisateur),
     CONSTRAINT Conversation_UtilisateurB_FK FOREIGN KEY (idUtilisateurB) REFERENCES Utilisateur (idUtilisateur),
-    CONSTRAINT Conversation_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce)
+    CONSTRAINT Conversation_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce) ON DELETE SET NULL
 ) ENGINE = InnoDB;
 
 #------------------------------------------------------------
@@ -133,7 +133,7 @@ CREATE TABLE Candidature
     idAnnonce        Int                NOT NULL,
     CONSTRAINT Candidature_PK PRIMARY KEY (idCandidature),
     CONSTRAINT Candidature_Candidat_FK FOREIGN KEY (idCandidat) REFERENCES Utilisateur (idUtilisateur),
-    CONSTRAINT Candidature_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce)
+    CONSTRAINT Candidature_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 #------------------------------------------------------------
