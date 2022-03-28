@@ -124,7 +124,7 @@ app.post("/users/cvHandler/:idUtilisateur",authMW, checkUserId, cvFileHandler); 
 app.post("/users/photoProfileHandler/:idUtilisateur", authMW, checkUserId, profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
 app.get("/annonce/:idUtilisateur", findAnnonce); // permet de récupérer les annonces d'un utilisateur : [idUtilisateur]
-app.get("/annonces/all", authMW, findAllAnnonces); // permet de récupérer toutes les annonces
+app.get("/annonces/all", findAllAnnonces); // permet de récupérer toutes les annonces
 app.post("/annonce/create/:idUtilisateur", authMW, checkUserId, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
 app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
