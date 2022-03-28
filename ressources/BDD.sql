@@ -254,22 +254,22 @@ INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, dateFin, Societe,
 (5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'belfort-paris', 'IUT informatique', 'formation'),
 (6, 3, '2022-04-04 00:00:00', '2022-08-01 00:00:00', 'Apple', 'Dev IA', 'experiencePro');
 
-INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at)
-VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise',
+INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at) -- trtrterzrez
+VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/airbusGroup.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (12, 'Alstom', 'recrutement@alstom.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/Alstom.png', 'Entreprise',
+       (12, 'Alstom', 'recrutement@alstom.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/Alstom.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (113, 'Axa', 'carrer@axa.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/Axa.png', 'Entreprise',
+       (113, 'Axa', 'carrer@axa.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/Axa.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (14, 'bnp paribas', 'recrutement@bnp-paribas.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/bnp-paribas.png',
+       (14, 'bnp paribas', 'recrutement@bnp-paribas.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/bnp-paribas.png',
         'Entreprise', '2022-01-01 09:58:44'),
-       (15, 'Bouygues', 'recrutement@bouyge.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/bouygues.png', 'Entreprise',
+       (15, 'Bouygues', 'recrutement@bouyge.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/bouygues.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (416, 'engie', 'carrer@engie.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/engie.png', 'Entreprise',
+       (416, 'engie', 'carrer@engie.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/engie.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (17, 'michelin', 'recruteur@michelin.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/michelin.png', 'Entreprise',
+       (17, 'michelin', 'recruteur@michelin.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/michelin.png', 'Entreprise',
         '2022-01-01 09:58:44'),
-       (18, 'stellantis', 'recrutement@stellantis.fr', 'dfghjhgfds', '/Image/PhotoEntreprise/stellantis.png',
+       (18, 'stellantis', 'recrutement@stellantis.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=', '/Image/PhotoEntreprise/stellantis.png',
         'Entreprise', '2022-01-01 09:58:44');
 
 INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
