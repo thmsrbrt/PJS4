@@ -6,7 +6,7 @@ import db from "../../config/connexionBDD.js";
  * @param cb {callback} traitement du résultat
  */
 export const findAllByIDUtilisateur = (idUtilisateur, cb) => { // SELECT * FROM V_Conversation, message WHERE (V_Conversation.idUtilisateurA = ? OR V_Conversation.idUtilisateurB = ?) AND message.idConversation = V_Conversation.idConversation ORDER BY message.idMessage DESC LIMIT 1
-    db.query('SELECT * FROM V_Conversation WHERE idUtilisateur = ?;', idUtilisateur, (err, rows) => {
+    db.query('SELECT c.*, (SELECT m.idMessage FROM message AS m WHERE m.idConversation = c.idConversation ORDER BY m.idMessage DESC LIMIT 1) as idMessage, (SELECT m.Message FROM message AS m WHERE m.idConversation = c.idConversation ORDER BY m.idMessage DESC LIMIT 1) as Message, (SELECT m.DateEnvoi FROM message AS m WHERE m.idConversation = c.idConversation ORDER BY m.idMessage DESC LIMIT 1) as DateEnvoi FROM V_Conversation AS c WHERE (c.idUtilisateurA = ? OR c.idUtilisateurB = ?);', [idUtilisateur, idUtilisateur], (err, rows) => {
             if (err) {
                 console.log(err);
                 cb(err, null);

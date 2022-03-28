@@ -80,7 +80,8 @@ export const findUtilisateurPublicInfo = (req, res) => {
                 console.log(data)
                 res.status(200).send({
                     idUtilisateur: data.idUtilisateur,
-                    Prenom: data.Prenom,
+                    Prenom: data.prenom,
+                    Nom: data.nom,
                     PhotoProfile: data.PhotoProfile
                 });
             }
