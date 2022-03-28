@@ -2,14 +2,14 @@ import {
     createUser,
     findOneUtilisateurByEmail,
     findOneUtilisateurByEmailPSD,
-    findOneUtilisateurByID,
+    findCandidatByID,
     findPassWordByIdUtilisateur,
     getCVFileUtilisateurBD,
     getProfilePictureByIdBD,
     updateCVFileUtilisateur,
     updatePasswordBDD,
     updateUserDataParamBD, updateUserProfilePictureDB,
-    updateUtilisateur,
+    updateUtilisateur, findOneUtilisateurByID,
 } from "../models/User.js";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
@@ -67,18 +67,23 @@ export const findUtilisateur = (req, res) => {
  */
 export const findUtilisateurPublicInfo = (req, res) => {
     const idUtilisateur = req.params.idUtilisateur;
+    console.log(idUtilisateur)
     if (idUtilisateur == null)
         res.status(500).send({message: "Erreur, idUser null"});
     else
         findOneUtilisateurByID(idUtilisateur, (err, data) => {
-            if (err)
+            if (err){
+                console.log(err)
                 err.erreur === "not_found" ? res.status(404).send({message: 'Utilisateur non trouvé'}) : res.status(500).send({message: "Erreur"});
-            else
+            }
+            else{
+                console.log(data)
                 res.status(200).send({
                     idUtilisateur: data.idUtilisateur,
                     Prenom: data.Prenom,
                     PhotoProfile: data.PhotoProfile
                 });
+            }
         });
 }
 

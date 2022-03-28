@@ -104,9 +104,31 @@ export const createUser = (donnees) => {
  * Méthode permettant de trouver un utilisateur en fonction de son id
  * @param id {Integer} id de l'user
  * @param cb {callback} traitement du résultat
+ * Vous êtes vrmt pas foutus de donner un nom correct à cette méthode -> find candidat quand c'est un candidat et non utilisateur !
+ */
+export const findCandidatByID = (id, cb) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile FROM v_candidat WHERE idUtilisateur = ?', [id], (err, rows) => {
+        if (err) {
+            console.log(err)
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows[0]);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}
+
+
+/**
+ * Méthode permettant de trouver un utilisateur en fonction de son id
+ * @param id {Integer} id de l'user
+ * @param cb {callback} traitement du résultat
  */
 export const findOneUtilisateurByID = (id, cb) => {
-    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile FROM v_candidat WHERE idUtilisateur = ?', [id], (err, rows) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
             console.log(err)
             cb(err, null);
