@@ -123,21 +123,15 @@ export const findAnnonceByMotsClefs = (req, res) => {
     let {motsClefs} = req.params;
     if(!motsClefs)
         res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
+    motsClefs = motsClefs.toLowerCase();
     findAllAnnonce( (err, data) => {
         if (err) {
             err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
         } else {
-            //data.filter
-            let returnData = data;
-            motsClefs = motsClefs.split(";")
-            //console.log(data);
-            returnData.filter(annonce => {
-                annonce.Description.split(" ").filter(mot => {
-                    motsClefs.includes(mot);
-                });
-
-                console.log(annonce.Description.split(" "))
-                //motsClefs.includes(annonce.Description.split(" ")) || (annonce.titre.split(" ").includes(motsClefs))
+            const criteres = motsClefs.split(';');
+            const returnData = data.filter(annonce => {
+                return annonce.Description.replaceAll(',','').toLowerCase().split(' ').some(word => criteres.includes(word))
+                    || annonce.titre.replaceAll(',','').toLowerCase().split(' ').some(word => criteres.includes(word));
             });
             res.status(200).send(returnData);
         }
