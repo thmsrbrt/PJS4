@@ -47,7 +47,8 @@ export const registerEntreprise = (req, res) => {
  * @param res Response venant de ExpressJS
  */
 export const updateEntreprise = (req, res) => {
-    const {nom, email, photoProfile, idEntreprise} = req.body;
+    const idEntreprise = req.params.idUtilisateur;
+    const {nom, email, photoProfile} = req.body;
 
     if (!nom || !email || !photoProfile || !idEntreprise)
         return res.sendStatus(401)

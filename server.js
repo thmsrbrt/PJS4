@@ -110,7 +110,6 @@ const checkUserId = (req, res, next) => {
     next();
 };
 
-// TODO : Normaliser le get de l'id utilisateur à req.params.idUtilisateur
 // Routes - Utilisateurs
 app.post("/login", loginHandler); // permet de login l'utilisateur : [email, password]
 app.post("/register", registerHandler); // permet de créer un utilisateur : [email, password, nom, prenom, description]
@@ -133,8 +132,8 @@ app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
 app.get("/entreprises/all", registerEntreprise); // permet de créer une entreprise : [nom, email, passspnseonse]
-app.put("/entreprise/update", authMW, updateEntreprise); // permet de mettre à jour les données d'une entreprise : [nom, email, photoProfile, idEntreprise]
-app.put("/entreprise/updatePassWord", authMW, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
+app.put("/entreprise/update/:idUtilisateur", authMW, checkUserId, updateEntreprise); // permet de mettre à jour les données d'une entreprise : [nom, email, photoProfile, idEntreprise]
+app.put("/entreprise/updatePassWord/:idUtilisateur", authMW, checkUserId, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
 // Routes - Candidature
 app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
 app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
@@ -144,11 +143,11 @@ app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAll
 app.get("/conversation/annonce/:idAnnonce", authMW, findAllConversationByIdAnnonce); // permet de récupérer toutes les conversations d'une annonce : [idAnnonce]
 app.post("/conversation/create/:idUtilisateur", authMW, checkUserId, addToConversationByUtilisateur); // permet de créer une conversation : [idUtilisateur, idUrilisateur2]
 // Routes - Message
-app.get("/message/conversation/:idConversation", authMW, findAllMessageByIDConversation); // permet de récupérer tous les messages d'une conversation à partir de son ID: [idConversation]
-app.post("/message/conversation/send", authMW, addMessageToConversationByID); // permet d'envoyer un message à une conversation à partir de son ID : [message, idConversation, idUtilisateur]
+app.get("/message/conversation/:idConversation/:idUtilisateur", authMW, checkUserId, findAllMessageByIDConversation); // permet de récupérer tous les messages d'une conversation à partir de son ID: [idConversation]
+app.post("/message/conversation/send/:idUtilisateur", authMW, checkUserId, addMessageToConversationByID); // permet d'envoyer un message à une conversation à partir de son ID : [message, idConversation, idUtilisateur]
 // Routes - Experience
-app.post("/experience/create", authMW, experienceHandler); // permet de créer une experience : [idUtilisateur, dateDebut, dateFin, societe, poste, type]
-app.put("/experience/update", authMW, updateExperience); // permet de mettre à jour une experience : [dateDebut, dateFin, societe, poste, idExperience]
+app.post("/experience/create/:idUtilisateur", authMW, checkUserId, experienceHandler); // permet de créer une experience : [idUtilisateur, dateDebut, dateFin, societe, poste, type]
+app.put("/experience/update/:idUtilisateur", authMW, checkUserId, updateExperience); // permet de mettre à jour une experience : [dateDebut, dateFin, societe, poste, idExperience]
 app.get("/experience/all/:idUtilisateur", authMW, getAllExperiencesUser); // permet de récupérer toutes les experiences d'un utilisateur : [idUtilisateur]
 app.get("/experience/:idExperience", authMW, getExperienceByIdExperience); // permet de récupérer une experience : [idExperience]
 app.delete("/experience/:idExperience/:idUtilisateur", authMW, checkUserId, deleteExperienceByIdExperience); // permet de supprimer une experience : [idExperience]

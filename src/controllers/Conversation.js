@@ -54,7 +54,8 @@ export const findAllConversationByIdAnnonce = (req, res) => {
  * @Response 200 si la création est un succès, 500 si une erreur interne est survenue, 404 si la conversation est deja existante
  */
 export const addToConversationByUtilisateur = (req, res) => {
-    const {idUtilisateurCourant, idUtilisateurDestinataire} = req.body;
+    const idUtilisateurCourant = req.params.idUtilisateur;
+    const {idUtilisateurDestinataire} = req.body;
     let {idAnnonce, libelle} = req.body;
     if (idUtilisateurCourant === null) {
         res.status(500).send({message: "Erreur: idUtilisateurCourant null"});

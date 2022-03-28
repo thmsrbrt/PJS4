@@ -232,7 +232,8 @@ export const getCVFileUtilisateur = (req, res) => {
  * @param res Response de ExpressJS
  */
 export const updateUserData = (req, res) => {
-    const {nom, email, photoProfile, idUtilisateur} = req.body;
+    const idUtilisateur = req.params.idUtilisateur;
+    const {nom, email, photoProfile} = req.body;
     let {prenom, description, cvFile} = req.body;
 
     if (!nom || !email || !photoProfile || !idUtilisateur)
@@ -271,7 +272,8 @@ export const updateUserDataParam = (req, res) => {
 
 
 export const updatePassword = (req, res) => {
-    const {oldPassword, newPassword, newPassword2, idUtilisateur} = req.body;
+    const idUtilisateur = req.params.idUtilisateur;
+    const {oldPassword, newPassword, newPassword2} = req.body;
     if (!oldPassword || !newPassword || !newPassword2 || !idUtilisateur)
         return res.sendStatus(401)
 

@@ -6,7 +6,7 @@ import {
 import {NULL} from "mysql/lib/protocol/constants/types.js";
 
 export const experienceHandler = (req, res) => {
-    const {idUtilisateur} = req.body;
+    const idUtilisateur = req.params.idUtilisateur;
     const {dateDebut, societe, poste, type} = req.body;
     let {dateFin} = req.body;
     if (!idUtilisateur || !dateDebut || !societe || !poste || !type) {

@@ -29,7 +29,8 @@ export const findAllMessageByIDConversation = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, 500 erreurs internes
  */
 export const addMessageToConversationByID = (req, res) => {
-    const {message, idConversation, idUtilisateur} = req.body;
+    const idUtilisateur = req.params.idUtilisateur;
+    const {message, idConversation} = req.body;
     if (idConversation === null) {
         res.status(500).send({message: "Erreur: idconversation null"});
     } else if (idUtilisateur === null) {

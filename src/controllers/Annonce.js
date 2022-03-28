@@ -52,7 +52,8 @@ export const findAllAnnonces = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const registerAnnonce = (req, res) => {
-    const {titre, description, idEntreprise, localisation} = req.body;
+    const idEntreprise = req.params.idUtilisateur;
+    const {titre, description, localisation} = req.body;
     if(!titre || !description || !idEntreprise || !localisation)
         res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
 
