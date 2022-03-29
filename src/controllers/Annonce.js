@@ -4,10 +4,11 @@ import {
     findAnnonceByID,
     searchByKeywords,
     updateAnnonceData,
-    findCandidatFavoriteAnnonceModel
+    findCandidatFavoriteAnnonceModel, deleteFavAnnonceModel
 } from "../models/Annonce.js";
 import db from "../../config/connexionBDD.js";
 import {deletExperienceByIdExperience} from "../models/Experience.js";
+import {request} from "express";
 
 /**
  * Méthode pour trouver les informations d'une annonce par son id
@@ -144,7 +145,7 @@ export const findCandidatFavoriteAnnonce = (req, res) => {
     try {
         findCandidatFavoriteAnnonceModel(idUtilisateur, (err, data) => {
             if (err) {
-                err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
+                err.erreur === "not_found" ? res.status(404).send({message: "aucune annonce n'a été trouvé"}) : res.status(500).send({message: "Erreur"});
             } else {
                 console.log(data)
                 res.status(200).send(data);
@@ -152,5 +153,23 @@ export const findCandidatFavoriteAnnonce = (req, res) => {
         });
     } catch (err) {
         res.status(500).send({message: "Erreur findCandidatFavoriteAnnonce"});
+    }
+}
+
+export const deleteFavAnnonce = (req, res) => {
+    const {idUtilisateur, idAnnonce} = req.params;
+    if (!idUtilisateur || !idAnnonce) {
+        return res.status(500).send({message: "Erreur, idCandidat = null"});
+    }
+    try {
+        deleteFavAnnonceModel([idUtilisateur, idAnnonce], (err, data) => {
+            if (err) {
+                err.erreur === "not_found" ? res.status(404).send({message: "aucune annonce n'a été supprimée"}) : res.status(500).send({message: "Erreur"});
+            } else {
+                res.status(200).send(data);
+            }
+        });
+    } catch (err) {
+        res.status(500).send({message: "Erreur suppression Annonce"});
     }
 }

@@ -20,7 +20,7 @@ import {
     updateUserDataParam
 } from "./src/controllers/User.js";
 import {
-    deleteAnnonce,
+    deleteAnnonce, deleteFavAnnonce,
     findAllAnnonces,
     findAnnonce,
     findAnnonceByMotsClefs, findCandidatFavoriteAnnonce,
@@ -130,6 +130,7 @@ app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); /
 app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 app.get("/annonce/favoris/:idUtilisateur", authMW, checkUserId, findCandidatFavoriteAnnonce);
+app.post("/annonce/deleteFav/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteFavAnnonce);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
 app.get("/entreprises/all", registerEntreprise); // permet de créer une entreprise : [nom, email, passspnseonse]

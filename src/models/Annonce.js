@@ -102,10 +102,18 @@ export const findCandidatFavoriteAnnonceModel = (idUser, cb) => {
             cb(err, null);
             return;
         }
-        if (rows.length) {
-            cb(null, rows);
+        cb(null, rows);
+    });
+}
+
+export const deleteFavAnnonceModel = (data, cb) => {
+    db.query("DELETE FROM userFav WHERE idUser = ? AND idAnnonce = ?", data, (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
             return;
         }
-        cb({erreur: "not_found"});
+
+        cb(null, true);
     });
 }
