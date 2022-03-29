@@ -128,7 +128,7 @@ export const findCandidatByID = (id, cb) => {
  * @param cb {callback} traitement du résultat
  */
 export const findOneUtilisateurByID = (id, cb) => {
-    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile, Type FROM utilisateur WHERE idUtilisateur = ?', [id], (err, rows) => {
         if (err) {
             console.log(err)
             cb(err, null);
