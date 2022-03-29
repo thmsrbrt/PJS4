@@ -23,7 +23,7 @@ import {
     deleteAnnonce,
     findAllAnnonces,
     findAnnonce,
-    findAnnonceByMotsClefs,
+    findAnnonceByMotsClefs, findCandidatFavoriteAnnonce,
     registerAnnonce,
     updateAnnonce
 } from "./src/controllers/Annonce.js";
@@ -129,6 +129,7 @@ app.post("/annonce/create/:idUtilisateur", authMW, checkUserId, registerAnnonce)
 app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
 app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
+app.get("/annonce/favoris/:idUtilisateur", authMW, checkUserId, findCandidatFavoriteAnnonce);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
 app.get("/entreprises/all", registerEntreprise); // permet de créer une entreprise : [nom, email, passspnseonse]

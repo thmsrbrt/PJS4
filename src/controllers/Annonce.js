@@ -3,7 +3,8 @@ import {
     findAllAnnonce,
     findAnnonceByID,
     searchByKeywords,
-    updateAnnonceData
+    updateAnnonceData,
+    findCandidatFavoriteAnnonceModel
 } from "../models/Annonce.js";
 import db from "../../config/connexionBDD.js";
 import {deletExperienceByIdExperience} from "../models/Experience.js";
@@ -132,5 +133,24 @@ export const deleteAnnonce = (req, res) => {
         res.status(200).send({message: "Annonce supprimé"});
     } catch (err) {
         res.status(500).send({message: "Erreur suppression Annonce"});
+    }
+}
+
+export const findCandidatFavoriteAnnonce = (req, res) => {
+    const {idUtilisateur} = req.params;
+    if (!idUtilisateur) {
+        res.status(500).send({message: "Erreur, idCandidat = null"});
+    }
+    try {
+        findCandidatFavoriteAnnonceModel(idUtilisateur, (err, data) => {
+            if (err) {
+                err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
+            } else {
+                console.log(data)
+                res.status(200).send(data);
+            }
+        });
+    } catch (err) {
+        res.status(500).send({message: "Erreur findCandidatFavoriteAnnonce"});
     }
 }

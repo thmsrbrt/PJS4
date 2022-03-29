@@ -95,3 +95,17 @@ export const deleteAnnonceByIdAnnonce = (idAnnonce) => {
     });
 }
 
+export const findCandidatFavoriteAnnonceModel = (idUser, cb) => {
+    db.query("SELECT * FROM userFav, annonce WHERE userFav.idUser = ? AND userFav.idAnnonce = annonce.idAnnonce", [idUser], (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (rows.length) {
+            cb(null, rows);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}

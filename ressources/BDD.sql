@@ -54,7 +54,7 @@ CREATE TABLE Experience
 CREATE TABLE Annonce
 (
     idAnnonce       Int Auto_increment NOT NULL,
-    Titre           Varchar(255)       NOT NULL,
+    titre           Varchar(255)       NOT NULL,
     Image           Varchar(255),
     Description     TEXT               NOT NULL,
     idEntreprise    Int                NOT NULL,
@@ -135,6 +135,28 @@ CREATE TABLE Candidature
     CONSTRAINT Candidature_Candidat_FK FOREIGN KEY (idCandidat) REFERENCES Utilisateur (idUtilisateur),
     CONSTRAINT Candidature_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce) ON DELETE CASCADE
 ) ENGINE = InnoDB;
+
+
+
+CREATE TABLE `userfav` (
+   `idFav` int(11) NOT NULL,
+   `idUser` int(11) NOT NULL,
+   `idAnnonce` int(11) NOT NULL
+);
+
+ALTER TABLE `userfav`
+    ADD PRIMARY KEY (`idFav`),
+    ADD UNIQUE KEY `U_userFav` (`idUser`,`idAnnonce`),
+    ADD KEY `FK_annonce` (`idAnnonce`);
+
+ALTER TABLE `userfav`
+    MODIFY `idFav` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE `userfav`
+    ADD CONSTRAINT `FK_annonce` FOREIGN KEY (`idAnnonce`) REFERENCES `annonce` (`idAnnonce`),
+    ADD CONSTRAINT `FK_user` FOREIGN KEY (`idUser`) REFERENCES `utilisateur` (`idUtilisateur`);
+COMMIT;
+
 
 #------------------------------------------------------------
 # Vues: Utilisateurs (candidat, entreprise)
@@ -283,7 +305,7 @@ VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJK
         '1608225605867.jpeg',
         'Entreprise', '2022-01-01 09:58:44');
 
-INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
+INSERT INTO Annonce(idAnnonce, titre, Image, Description, idEntreprise, DatePublication, localisation)
 VALUES (1, 'stage developer java', null, 'airbus stage java bac+45', 11, '2022-03-24 14:21:20',
         'Paris'),
        (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 18,
@@ -334,6 +356,10 @@ VALUES ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 1, 2),
        ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 3, 7),
        ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 12, 4);
 
+
+INSERT INTO `userfav` (`idFav`, `idUser`, `idAnnonce`) VALUES
+   (2, 3, 1),
+   (1, 3, 3);
 
 #------------------------------------------------------------
 # Select *:
