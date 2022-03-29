@@ -19,7 +19,7 @@ export const createCandidature = (data) => {
  * @param cb {callback} traitement du résultat
  */
 export const getAllCandidatureByIDCandidat = (idCandidat, cb) => {
-    db.query('SELECT * FROM candidature WHERE idCandidat = ?', idCandidat, (err, rows) => {
+    db.query('SELECT * FROM candidature, annonce WHERE candidature.idCandidat = ? AND annonce.idAnnonce = candidature.idAnnonce', idCandidat, (err, rows) => {
         if (err) {
             console.log(err);
             cb(err, null);
@@ -69,5 +69,17 @@ export const getCandidatureByIdCandidatAndIdAnnonce = (donnees, cb) => {
             return;
         }
         cb({erreur: "not_found"}, null);
+    });
+}
+
+export const deleteCandidatureModel = (idCandidature, cb) => {
+    db.query('DELETE FROM candidature WHERE idCandidature = ?', idCandidature, (err, rows) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+
+        cb(null, true);
     });
 }

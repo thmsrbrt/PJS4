@@ -1,9 +1,10 @@
 import {
-    createCandidature,
+    createCandidature, deleteCandidatureModel,
     getAllCandidatureByIDAnnonce,
     getAllCandidatureByIDCandidat,
     getCandidatureByIdCandidatAndIdAnnonce
 } from "../models/Candidature.js";
+import {deleteFavAnnonceModel} from "../models/Annonce.js";
 
 /**
  * Méthode pour créer une candidature
@@ -39,7 +40,7 @@ export const registerCandidature = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const getCandidatureCandidat = (req, res) => {
-    const idCandidat = req.params.idCandidat;
+    const idCandidat = req.params.idUtilisateur;
     if (idCandidat == null) {
         res.status(500).send({message: "idCandidat is required"});
     } else {
@@ -47,6 +48,7 @@ export const getCandidatureCandidat = (req, res) => {
             if (err) {
                 err.erreur === "Aucune candidature trouvée pour cette idCandidat" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}) : res.status(500).send({message: "Erreur"});
             } else {
+                console.log(data)
                 res.status(200).send(data);
             }
         });
@@ -73,3 +75,23 @@ export const getCandidatureAnnonce = (req, res) => {
         });
     }
 }
+
+export const deleteCandidature = (req, res) => {
+    const {idCandidature} = req.params;
+    if (!idCandidature) {
+        console.log("idCandidature is required");
+        return res.status(500).send({message: "Erreur, idCandidat = null"});
+    }
+    try {
+        deleteCandidatureModel([idCandidature], (err, data) => {
+            if (err) {
+                console.log("err", err);
+                err.erreur === "not_found" ? res.status(404).send({message: "aucune annonce n'a été supprimée"}) : res.status(500).send({message: "Erreur"});
+            } else {
+                console.log("Candidature supprimée");
+                res.status(200).send(data);
+            }
+        });
+    } catch (err) {
+        res.status(500).send({message: "Erreur suppression Annonce"});
+    }}

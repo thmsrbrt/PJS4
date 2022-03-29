@@ -28,7 +28,12 @@ import {
     updateAnnonce
 } from "./src/controllers/Annonce.js";
 import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/controllers/Entreprise.js";
-import {getCandidatureAnnonce, getCandidatureCandidat, registerCandidature} from "./src/controllers/Candidature.js";
+import {
+    deleteCandidature,
+    getCandidatureAnnonce,
+    getCandidatureCandidat,
+    registerCandidature
+} from "./src/controllers/Candidature.js";
 import {
     addToConversationByUtilisateur,
     findAllConversationByIdAnnonce,
@@ -138,7 +143,9 @@ app.put("/entreprise/update/:idUtilisateur", authMW, checkUserId, updateEntrepri
 app.put("/entreprise/updatePassWord/:idUtilisateur", authMW, checkUserId, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
 // Routes - Candidature
 app.get("/candidatures/annonce/:idAnnonce", authMW, getCandidatureAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
-app.get("/candidatures/candidat/:idCandidat", authMW, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
+app.get("/candidatures/candidat/:idUtilisateur", authMW, checkUserId, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
+app.post("/candidatures/delete/:idCandidature/:idUtilisateur", authMW, checkUserId, deleteCandidature); // permet de supprimer une candidature d'un candidat : [idCandidature]
+
 app.post("/candidature/create", authMW, registerCandidature); // permet de créer une candidature : [CVFile, LettreMotivation, idCandidat, idAnnonce]
 // Routes - Conversation
 app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAllConversationByIDUser); // permet de récupérer toutes les conversations d'un utilisateur à partir de son id: [idUtilisateur]
