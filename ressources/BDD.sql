@@ -251,8 +251,11 @@ VALUES (1, 1, '2020-01-01 09:58:44', '2021-01-01 09:58:44', 'Apple', 'Vendeur', 
        (2, 1, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'PARIS', 'IUT Informatique', 'formation'),
        (3, 1, '2022-04-04 09:58:44', '2022-06-10 09:58:44', 'Coworking', 'Développeur', 'experiencePro'),
        (4, 3, '2017-09-01 09:58:44', '2020-07-01 09:58:44', 'Paris', 'Etude Économie', 'formation'),
-       (5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'Belfort-Paris', 'IUT informatique', 'formation'),
-       (6, 3, '2022-04-04 00:00:00', NULL, 'Apple', 'Dev IA', 'experiencePro');
+       (5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'Belfort-Paris', 'IUT informatique', 'formation');
+
+INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, Societe, Poste, Type)
+VALUES (6, 3, '2022-04-04 00:00:00', 'Apple', 'Dev IA', 'experiencePro');
+
 
 INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at) -- mot de passe pour les entreprises : trtrterzrez
 VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
