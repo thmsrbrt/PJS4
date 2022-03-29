@@ -108,7 +108,7 @@ export const createUser = (donnees) => {
  * @param cb {callback} traitement du résultat
  */
 export const findOneUtilisateurByID = (id, cb) => {
-    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile, (SELECT COUNT(*) FROM v_conversation vc WHERE stateMessage = 1 AND vc.idUtilisateur = ?) AS nbMsg FROM Utilisateur WHERE idUtilisateur = ?;', [id, id], (err, rows) => {
+    db.query('SELECT idUtilisateur, nom, prenom, email, PhotoProfile, Description, CVFile, Type, (SELECT COUNT(*) FROM v_conversation vc WHERE stateMessage = 1 AND vc.idUtilisateur = ?) AS nbMsg FROM Utilisateur WHERE idUtilisateur = ?;', [id, id], (err, rows) => {
         if (err) {
             console.log(err)
             cb(err, null);
