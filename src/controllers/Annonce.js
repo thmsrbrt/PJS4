@@ -100,23 +100,51 @@ export const updateAnnonce = (req, res) => {
  * @param req Request venant de ExpressJS
  * @param res Response venant de ExpressJS
  */
-export const findAnnonceByMotsClefs = (req, res) => {
+export const findAnnonceByMotsClefs = async (req, res) => {
     let {motsClefs} = req.params;
-    if(!motsClefs)
-        res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
+    //console.log(motsClefs);
+    if (!motsClefs)
+        res.status(200).send();
     motsClefs = motsClefs.toLowerCase();
-    findAllAnnonce( (err, data) => {
-        if (err) {
-            err.erreur === "not_found" ? res.status(404).send({message: 'aucune annonce na été trouvé'}) : res.status(500).send({message: "Erreur"});
-        } else {
-            const criteres = motsClefs.split(';');
-            const returnData = data.filter(annonce => {
-                return annonce.Description.replaceAll(',','').toLowerCase().split(' ').some(word => criteres.includes(word))
-                    || annonce.titre.replaceAll(',','').toLowerCase().split(' ').some(word => criteres.includes(word));
+
+    const criteres = motsClefs.split(';');
+    let data = [];
+
+    const promise = new Promise((resolve, reject) => {
+        criteres.forEach(
+            (critere, index) => {
+                searchByKeywords("%" + critere + "%", (err, newData) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        data = data.concat(newData);
+                    }
+                    if (index === criteres.length - 1) {
+                        resolve(data);
+                    }
+                });
+            }
+        )
+    })
+
+
+    promise.then(
+        (data) => {
+            let datas = [];
+            const dataUnique = data.filter((item, pos) => {
+                if (datas.indexOf(item.idAnnonce) === -1) {
+                    datas.push(item.idAnnonce);
+                    return item;
+                }
             });
-            res.status(200).send(returnData);
+            res.status(200).send(dataUnique);
         }
-    });
+    ).catch(
+        (err) => {
+            res.status(500).send({message: "Erreur, lors de la requête"});
+        }
+    )
+
 }
 
 /**
