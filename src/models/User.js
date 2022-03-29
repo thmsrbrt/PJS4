@@ -95,7 +95,7 @@ export const updateUserToken = (email, token, tokenTimeStamp) => {
  * @param donnees {array<string>} données à insérer
  */
 export const createUser = (donnees) => {
-    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, Description, PhotoProfile, Type) VALUES (?,?,?,?,?,"thomas.png","candidat");', donnees, function (err, data) {
+    db.query('INSERT INTO utilisateur (Nom, Prenom, Email, MotDePasse, Description, PhotoProfile, Type) VALUES (?,?,?,?,?,"default.png","candidat");', donnees, function (err, data) {
         if (err) throw err;
     });
 }

@@ -25,7 +25,7 @@ CREATE TABLE Utilisateur
     Description    Varchar(1000),
     CVFile         Varchar(255),
     Type           VARCHAR(32)        NOT NULL,
-    read_at        datetime,
+    read_at        timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00',
     CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
 ) ENGINE = InnoDB;
 
@@ -58,7 +58,7 @@ CREATE TABLE Annonce
     Image           Varchar(255),
     Description     TEXT               NOT NULL,
     idEntreprise    Int                NOT NULL,
-    datePublication DATE               NOT NULL,
+    datePublication timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00'               NOT NULL,
     localisation    Varchar(255)       NOT NULL,
     CONSTRAINT Annonce_PK PRIMARY KEY (idAnnonce),
     CONSTRAINT Annonce_Entreprise_FK FOREIGN KEY (idEntreprise) REFERENCES Utilisateur (idUtilisateur)
@@ -97,7 +97,7 @@ CREATE TABLE Conversation_track
     idConversationTrack Int Auto_increment NOT NULL,
     idUtilisateur       Int                NOT NULL,
     idConversation      Int                NOT NULL,
-    read_at             datetime,
+    read_at             timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00',
     CONSTRAINT ConversationTrack_PK PRIMARY KEY (idConversationTrack),
     CONSTRAINT ConversationTrack_Utilisateur_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur),
     CONSTRAINT ConversationTrack_Conversation_FK FOREIGN KEY (idConversation) REFERENCES Conversation (idConversation)
@@ -111,7 +111,7 @@ CREATE TABLE Message
 (
     idMessage      Int Auto_increment NOT NULL,
     Message        Varchar(1000)      NOT NULL,                                                              -- contenu du message
-    DateEnvoi      DATE               NOT NULL,                                                              -- Date d'envoi du message
+    DateEnvoi      timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00',                                                              -- Date d'envoi du message
     idUtilisateur  Int                NOT NULL,                                                              -- utilisateur qui a envoyé le  -- vérifier que c'est userA ou userB avec trigger
     idConversation Int                NOT NULL,
     CONSTRAINT Message_PK PRIMARY KEY (idMessage),
@@ -217,35 +217,31 @@ END;
 
 INSERT INTO Utilisateur(idUtilisateur, Prenom, Nom, Email, MotDePasse, PhotoProfile, Description, CVFile, Type, read_at)
 VALUES (1, 'Thomas', 'Robert', 'thomas.robert@icoud.com', 'bucUJKdRehLFuAXB9JMXI1zafCHbxhZe3KLOoYXhdwQ=',
-        '/Image/PhotoProfile/thomas.png', 'thomas fait une présentation de lui meme blablabla. ',
-        '/file/CVCandidat/thomas.pdf', 'Candidat', '2022-01-01 09:58:44'),  -- thomas1234
+        'Thomas.jpg', 'Je suis actuellement à la recherche d une alternance pour Septembre 2022',
+        'CV_ROBERT_Thomas_2022-alt.pdf', 'Candidat', '2022-01-01 09:58:44'),  -- thomas1234
        (2, 'Thomas', 'Robert', 'thomas.robert@gmail.com', 'Pquru7g/HSkAZH6KuIQv1dM9Lu/w1KKOOm3P5eq0vyU=',
-        '/Image/PhotoProfile/robert.png', 'znjdnznskd', '/file/CVCandidat/thomas.pdf', 'Candidat',
+        '1631351563860.jpeg', 'Je suis à la recherche d un stage pour Avril 2022', 'CV_ROBERT_Thomas_2022-alt.pdf', 'Candidat',
         '2022-01-01 09:58:44'),-- (thz83.ghzis;
        (3, 'Laurent', 'Ngeth', 'laurent.ngeth@icoud.com', 'lnUgriPo7hSIi65ygJAxuYOYrkpjZ3Phj/+RfXdnkzQ=',
-        '/Image/PhotoProfile/laurent.png', 'laurentlaurent laurent laurent laurentlaurentlaurentlaurent',
-        '/file/CVCandidat/laurent.pdf', 'Candidat', '2022-01-01 09:58:44'), -- motdepasse
+        '1631351563860.jpeg', 'A la recherche d un stage en IA pour Septembre 2022',
+        'CV_Dev_1.pdf', 'Candidat', '2022-01-01 09:58:44'), -- motdepasse
        (4, 'Florian', 'Le gal', 'flo.le.gal234@icoud.com', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
-        '/Image/PhotoProfile/flo.png', 'le mec qui a un stage', '/file/CVCandidat/flo.pdf', 'Candidat',
+        '1634823518449.jpeg', 'Disponible pour un jobs dété en développement', 'pdf_modèle.pdf', 'Candidat',
         '2022-01-01 09:58:44'),                                             -- trtrterzrez
-       (5, 'Ayoub', 'saispas', 'ayoub23456@gmail.com', '1Byps/+Tsk2kOcMqsowk/QMiD77hPTxGUPIBJRcq5y0=',
-        '/Image/PhotoProfile/ayoub.png', 'znjdnznskd', '/file/CVCandidat/ayoub.pdf', 'Candidat',
+       (5, 'Ayoub', 'BEN FRAJ', 'ayoub23456@gmail.com', '1Byps/+Tsk2kOcMqsowk/QMiD77hPTxGUPIBJRcq5y0=',
+        '1643362441723.jpeg', 'Actuellement en DUT informatique à lIUT de Paris Descartes', 'pdf_modèle.pdf', 'Candidat',
         '2022-01-01 09:58:44'),                                             -- root1234
-       (6, 'Youcef', 'saispas', 'Youcef.youcef93@icoud.c', 'NPK4qvAjzZZfWO6PM8WnvNLQnrR4fj6iFFDTC8Zp81c=',
-        '/Image/PhotoProfile/youcef.png', 'le mec avec un mot de passe fort', '/file/CVCandidat/youcef.pdf', 'Candidat',
+       (6, 'Youcef', 'MEDILEH', 'Youcef.youcef93@icoud.c', 'NPK4qvAjzZZfWO6PM8WnvNLQnrR4fj6iFFDTC8Zp81c=',
+        '1643362441723.jpeg', 'A la recherche dun stage en Cybersécurité ', 'pdf_modèle.pdf', 'Candidat',
         '2022-01-01 09:58:44'),                                             -- é/RTZJN(iuzdj4knfqd;.a@hea789er-ae
        (7, 'Fabien', 'Rondan', 'fabien.rondan@protonmail.com', 'uclQZA4bN0DpisuT5mnGV2b2Zw3RYJupH/QQUrpIxvM=',
-        '/Image/PhotoProfile/fab.png', 'znjdnznskd', '/file/CVCandidat/fab.pdf', 'Candidat',
+        '1638893705524.jpeg', 'Acctuelement en DUT Informatique à lIUT Paris Rives de Seine', 'pdf_modèle.pdf', 'Candidat',
         '2022-01-01 09:58:44'),                                             -- password1234
        (8, 'Fabien', 'Rondan', 'fabiendu56334@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
-        '/Image/PhotoProfile/fab.png', 'je dois te rendre ta souris je crois', '/file/CVCandidat/fab.pdf', 'Candidat',
-        '2022-01-01 09:58:44'),                                             -- trtrterzrez
-       (9, 'Nahean', 'saisplus', 'nahean543@icoud.c', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
-        '/Image/PhotoProfile/nahean.png', 'fait que blablater', '/file/CVCandidat/nahean.pdf', 'Candidat',
+        '1638893705524.jpeg', 'A la recherche dun jobs dété', 'pdf_modèle.pdf', 'Candidat',
         '2022-01-01 09:58:44'),                                             -- trtrterzrez
        (10, 'Quentin', 'Robert', 'quentin.robert@gmail.com', 'O6HlR8B6shobWyVG/lsFpUAdmeYTOsx1A1M95KyQzi0=',
-        '/Image/PhotoProfile/qt.png',
-        'qt qt qt moi je serais medecin généraliste et rien d\'autre AVEC UNE APOSTROPHE ', '/file/CVCandidat/qt.pdf',
+        'default.png', 'Médecin généraliste sur Paris', 'pdf_modèle.pdf',
         'Candidat', '2022-01-01 09:58:44'); -- quentinrobert
 
 INSERT INTO Experience(idExperience, idUtilisateur, dateDebut, dateFin, Societe, Poste, Type)
