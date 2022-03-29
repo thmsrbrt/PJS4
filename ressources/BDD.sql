@@ -172,8 +172,9 @@ FROM Conversation_track CT
 #------------------------------------------------------------
 # Triggers:
 #------------------------------------------------------------
-
 DROP TRIGGER IF EXISTS T_Track_Message;
+
+DELIMITER /
 CREATE TRIGGER T_Track_Message
     BEFORE INSERT
     ON message
@@ -209,8 +210,9 @@ BEGIN
     SET read_at = NOW()
     WHERE idUtilisateur = NEW.idUtilisateur
       AND idConversation = NEW.idConversation;
-END;
+END/
 
+DELIMITER ;
 #------------------------------------------------------------
 # Inserts:
 #------------------------------------------------------------
