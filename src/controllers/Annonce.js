@@ -58,8 +58,8 @@ export const registerAnnonce = (req, res) => {
         res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
 
     let image=  req.body.image;
-    if (image === null)
-        image = "null";
+    if (image === null || image === undefined || image === "")
+        image = "default.png";
 
     try {
         createAnnonce([titre, image, description, idEntreprise, localisation]);
@@ -79,9 +79,9 @@ export const updateAnnonce = (req, res) => {
     if(!titre || !description || !localisation || !idAnnonce)
         res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
 
-    let image = req.body;
+    let image = req.body.image;
     if (image == null)
-        image = "null";
+        image = "default.png";
 
     try {
         updateAnnonceData([titre, image, description, localisation, idAnnonce]);
