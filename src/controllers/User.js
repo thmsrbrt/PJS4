@@ -2,7 +2,6 @@ import {
     createUser,
     findOneUtilisateurByEmail,
     findOneUtilisateurByEmailPSD,
-    findCandidatByID,
     findPassWordByIdUtilisateur,
     getCVFileUtilisateurBD,
     getProfilePictureByIdBD,
