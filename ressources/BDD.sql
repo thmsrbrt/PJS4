@@ -254,7 +254,7 @@ VALUES (1, 1, '2020-01-01 09:58:44', '2021-01-01 09:58:44', 'Apple', 'Vendeur', 
        (5, 3, '2020-09-01 09:58:44', '2022-06-01 09:58:44', 'Belfort-Paris', 'IUT informatique', 'formation'),
        (6, 3, '2022-04-04 00:00:00', NULL, 'Apple', 'Dev IA', 'experiencePro');
 
-INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at) -- trtrterzrez
+INSERT INTO Utilisateur(idUtilisateur, Nom, Email, MotDePasse, PhotoProfile, Type, read_at) -- mot de passe pour les entreprises : trtrterzrez
 VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJKkfJ2VRdDJXSme/g=',
         '1631370145894.jpeg', 'Entreprise',
         '2022-01-01 09:58:44'),
@@ -281,14 +281,14 @@ VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJK
         'Entreprise', '2022-01-01 09:58:44');
 
 INSERT INTO Annonce(idAnnonce, Titre, Image, Description, idEntreprise, DatePublication, localisation)
-VALUES (1, 'stage developer java', null, 'airbus satge java bac+45', 11, '2022-03-24 14:21:20',
-        'Paris'), -- pourquoi il ya un idcandidat ? je trouve pas sa logique -- nbcandidat = 3 apres insert
+VALUES (1, 'stage developer java', null, 'airbus stage java bac+45', 11, '2022-03-24 14:21:20',
+        'Paris'),
        (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 18,
         '2022-03-24 14:21:20', 'Paris'),
-       (10, 'stage development interface web', '/Image/PhotoEntreprise/AxaAnonce.png',
+       (10, 'stage development interface web', '1589821547937.jpeg',
         'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 113,
         '2022-03-24 14:21:20', 'Paris'),
-       (12, 'stage ', '/Image/PhotoEntreprise/AxaAnonce.png', 'axa satge java bac+145 si tu es pas mort', 113,
+       (12, 'stage ', '1589821547937.jpeg', 'axa satge java bac+145 si tu es pas mort', 113,
         '2022-03-24 14:21:20', 'Paris');
 
 INSERT INTO Conversation(idConversation, idUtilisateurA, idUtilisateurB, Libelle, idAnnonce)
@@ -306,6 +306,7 @@ INSERT INTO Message(idMessage, Message, DateEnvoi, idUtilisateur, idConversation
 VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
        (12345, 'Bonjour, votre candidature nous plait beaucoup, etes vous dispo dem pour un test ',
         '2022-01-24 11:43:20', 3, 1),
+       (12345, 'message pour la conv 2 ', '2022-01-24 11:43:20', 3, 2),
        (34343, 'Je suis disponible demain 1O heure pour passer le teste ', '2022-01-24 14:21:20', 1, 1),
        (3546432, 'Bonjour, vous avez réussi le test avec un grand success', '2022-01-27 10:05:20', 3, 1),
        (1, 'Bonjour, je suis intéressé par votre entreprise, et le poste que vous proposez .', '2022-01-24 9:21:20', 5,
@@ -323,12 +324,12 @@ VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
 
 
 INSERT INTO Candidature(cvfile, lettremotivation, idannonce, idcandidat)
-VALUES ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 1, 2),
-       ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 1, 3),
-       ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 12, 2),
-       ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 1, 4),
-       ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 3, 7),
-       ('/file/CVCandidat/fab.pdf', 'blabalbalblablal balbla ', 12, 4);
+VALUES ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 1, 2),
+       ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 1, 3),
+       ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 12, 2),
+       ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 1, 4),
+       ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 3, 7),
+       ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 12, 4);
 
 
 #------------------------------------------------------------

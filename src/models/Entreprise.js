@@ -25,7 +25,7 @@ export const findEntrepriseByID = (id, cb) => {
  * @param data {object} - données de l'entreprise
  */
 export const createEntreprise = (data) => {
-    db.query('INSERT INTO Utilisateur (Nom, Email, MotDePasse, PhotoProfile, Type) VALUES (?, ?, ?, "default", "Entreprise")', data, (err, row) => {
+    db.query('INSERT INTO Utilisateur (Nom, Email, MotDePasse, PhotoProfile, Type) VALUES (?, ?, ?, "default.png", "Entreprise")', data, (err, row) => {
         if (err) {
             throw err;
         }
