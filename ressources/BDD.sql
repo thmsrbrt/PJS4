@@ -309,7 +309,7 @@ INSERT INTO Message(idMessage, Message, DateEnvoi, idUtilisateur, idConversation
 VALUES (12343, 'Bonjour, je suis intéressé ...', '2022-01-24 10:21:20', 1, 1),
        (12345, 'Bonjour, votre candidature nous plait beaucoup, etes vous dispo dem pour un test ',
         '2022-01-24 11:43:20', 3, 1),
-       (12345, 'message pour la conv 2 ', '2022-01-24 11:43:20', 3, 2),
+       (12346, 'message pour la conv 2 ', '2022-01-24 11:43:20', 3, 2),
        (34343, 'Je suis disponible demain 1O heure pour passer le teste ', '2022-01-24 14:21:20', 1, 1),
        (3546432, 'Bonjour, vous avez réussi le test avec un grand success', '2022-01-27 10:05:20', 3, 1),
        (1, 'Bonjour, je suis intéressé par votre entreprise, et le poste que vous proposez .', '2022-01-24 9:21:20', 5,
@@ -343,8 +343,8 @@ VALUES ('CV_ROBERT_Thomas_2022-alt.pdf', 'blabalbalblablal balbla ', 1, 2),
 #SELECT * FROM V_Candidat;
 #SELECT * FROM V_Entreprise;
 #SELECT * FROM Annonce;
-#SELECT * FROM Conversation;
-#SELECT * FROM Message;
+SELECT * FROM Conversation;
+SELECT * FROM Message;
 #SELECT * FROM Candidature;
 
 #SELECT * FROM Conversation WHERE idUtilisateurB = 4 and idUtilisateurA = 3;
