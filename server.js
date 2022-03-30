@@ -20,6 +20,7 @@ import {
     updateUserDataParam
 } from "./src/controllers/User.js";
 import {
+    addFavAnnonce,
     deleteAnnonce, deleteFavAnnonce,
     findAllAnnonces,
     findAnnonce,
@@ -137,6 +138,7 @@ app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, del
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
 app.get("/annonce/favoris/:idUtilisateur", authMW, checkUserId, findCandidatFavoriteAnnonce);
 app.post("/annonce/deleteFav/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteFavAnnonce);
+app.post("/annonce/addFav/:idAnnonce/:idUtilisateur", authMW, checkUserId, addFavAnnonce);
 // Routes - Entreprise
 app.get("/entreprise/:idUtilisateur", findEntreprise); // permet de récupérer les infos d'une entreprise : [idUtilisateur]
 app.get("/entreprises/all", registerEntreprise); // permet de créer une entreprise : [nom, email, passspnseonse]

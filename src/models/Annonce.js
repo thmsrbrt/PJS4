@@ -85,12 +85,15 @@ export const updateAnnonceData = (data) => {
  * @param cb {callback} traitement du résultat
  */
 export const searchByKeywords = (data, cb) => {
-    db.query(`SELECT * FROM Annonce A WHERE (Titre LIKE ? OR Description LIKE ? OR localisation LIKE ? OR datePublication LIKE ?);`, [data,data,data,data], (err, row) => {
+    db.query(`SELECT *
+              FROM Annonce A
+              WHERE (Titre LIKE ? OR Description LIKE ? OR localisation LIKE ? OR
+                     datePublication LIKE ?);`, [data, data, data, data], (err, row) => {
         if (err) {
             cb(err, null);
             return;
         }
-         cb(null, row);
+        cb(null, row);
     });
 }
 
@@ -100,6 +103,14 @@ export const searchByKeywords = (data, cb) => {
  */
 export const deleteAnnonceByIdAnnonce = (idAnnonce) => {
     db.query('DELETE FROM annonce WHERE idAnnonce = ?', [idAnnonce], (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+}
+
+export const addFavoriteAnnonceModel = (data) => {
+    db.query('INSERT INTO userFav (idUser, idAnnonce) VALUES (?,?)', data, (err, res) => {
         if (err) {
             throw err;
         }

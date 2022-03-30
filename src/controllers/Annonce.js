@@ -4,7 +4,7 @@ import {
     findAnnonceByID,
     searchByKeywords,
     updateAnnonceData,
-    findCandidatFavoriteAnnonceModel, deleteFavAnnonceModel, findAnnonceByUserIdModel
+    findCandidatFavoriteAnnonceModel, deleteFavAnnonceModel, findAnnonceByUserIdModel, addFavoriteAnnonceModel
 } from "../models/Annonce.js";
 import db from "../../config/connexionBDD.js";
 import {deletExperienceByIdExperience} from "../models/Experience.js";
@@ -203,6 +203,24 @@ export const findCandidatFavoriteAnnonce = (req, res) => {
         });
     } catch (err) {
         res.status(500).send({message: "Erreur findCandidatFavoriteAnnonce"});
+    }
+}
+
+export const addFavAnnonce = (req, res) => {
+    const {idUtilisateur, idAnnonce} = req.params;
+    if (!idUtilisateur || !idAnnonce) {
+        return res.status(500).send({message: "Erreur, idCandidat = null"});
+    }
+    try {
+        addFavoriteAnnonceModel([idUtilisateur, idAnnonce], (err, data) => {
+            if (err) {
+                err.erreur === "not_found" ? res.status(404).send({message: "aucune annonce n'a été ajoutée"}) : res.status(500).send({message: "Erreur"});
+            } else {
+                res.status(200).send(data);
+            }
+        });
+    } catch (err) {
+        res.status(500).send({message: "Erreur ajout Annonce"});
     }
 }
 

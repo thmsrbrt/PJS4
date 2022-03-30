@@ -114,7 +114,10 @@ export const getProfilePictureById = (req, res) => {
  * @response Code HTTP 201 si réussite, 403 dans le cas contraire, avec la raison dans le body ("faillure")
  */
 export const registerHandler = (req, res) => {
+    console.log("TEST TEST TEST");
     const {email, password, nom, prenom} = req.body;
+    console.log("TEST TEST TEST");
+    console.log(email, password, nom, prenom);
     let description = req.body.description;
     if (!email || !password || !nom || !prenom)
         return res.sendStatus(401)
