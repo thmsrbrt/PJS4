@@ -1,0 +1,601 @@
+{
+  "search_metadata": {
+    "id": "62418e6e477c0eeb48eb543f",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/29a87aaa791f25de/62418e6e477c0eeb48eb543f.json",
+    "created_at": "2022-03-28 10:31:10 UTC",
+    "processed_at": "2022-03-28 10:31:10 UTC",
+    "google_jobs_url": "https://www.google.fr/search?q=python&ibp=htl;jobs&uule=w+CAIQICIUSWxlLWRlLUZyYW5jZSxGcmFuY2U&hl=fr&gl=fr",
+    "raw_html_file": "https://serpapi.com/searches/29a87aaa791f25de/62418e6e477c0eeb48eb543f.html",
+    "total_time_taken": 0.66
+  },
+  "search_parameters": {
+    "q": "python",
+    "engine": "google_jobs",
+    "location_requested": "Ile-de-France, France",
+    "location_used": "Ile-de-France,France",
+    "google_domain": "google.fr",
+    "hl": "fr",
+    "gl": "fr"
+  },
+  "jobs_results": [
+    {
+      "title": "INGÉNIEUR C++ / PYTHON / INTELLIGENCE ARTIFICIELLE (IT) (H/F)",
+      "company_name": "YGL CONSULTING",
+      "location": "Croissy",
+      "via": "via LinkedIn",
+      "description": "Pour mener à bien les projets confiés, vous serez amené à :\n• Réaliser des prototypes tout en développant des algorithmes innovants via de l'intelligence artificielle.\n• Embarque de nouvelles solutions au sein des produits\n• Valider des algorithmes en temps et condition réel.\n• Etre à l'aise sur de la documentation.\n• Veille technologique et être en mesure de proposer des solution innovante autour des technologies\n\n=) C/C++\n\n=) Python\n\n=) Linux\n\n=) Framework liés à l'intelligence artificielle",
+      "extensions": [
+        "il y a 19 heures",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 19 heures",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJTkfDiU5JRVVSIEMrKyAvIFBZVEhPTiAvIElOVEVMTElHRU5DRSBBUlRJRklDSUVMTEUgKElUKSAoSC9GKSIsImh0aWRvY2lkIjoiaUJtemlfbGgyMXNBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgTGlua2VkSW4iLCJsaW5rIjoiaHR0cHM6Ly9mci5saW5rZWRpbi5jb20vam9icy92aWV3L2luZyVDMyVBOW5pZXVyLWMlMkIlMkItcHl0aG9uLWludGVsbGlnZW5jZS1hcnRpZmljaWVsbGUtaXQtaC1mLWF0LXlnbC1jb25zdWx0aW5nLTI5OTM4NzYxNzk/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Python Programmer - ML based solutions for Systematic Hedge Fund",
+      "company_name": "CareerAddict",
+      "location": "Paris",
+      "via": "via LinkedIn",
+      "description": "My client is a leading Multi-Strategy Hedge Fund who seeks an experienced Software Engineer with a genuine passion for Python and Data. This newly created role would involve reporting direct to the Head of Data Science & Engineering building applications, frameworks, pipelines, tools and APIs for the Quant Research, Trading and other technology teams.\n\nYour role as a Lead Developer, a title given as you will take full life cycle ownership of solutions as both a Software Engineer and Product Owner, will involve the design, build and implementation of leading-edge Big Data and ML solutions to the business. Key projects include partnering with the Quants and Machine Learning Researchers to build frameworks, tools and APIs to allow models to ingest text-based data using advanced NLP methods, then feed into Backtesting simulators, Risk calculation and Algo execution systems. This is one of multi concurrently projects you and this small 4 man-team will be focused on in 2022.\n\nCandidate... suited to these roles will be -\n• True Software Engineers with a passion for Python including experience/exposure to the likes of Async.io in Python 3.0, ML Libs such as Tensorflow and associated Keras API\n• Ideally some experience of web Front End languages such as Angular or React\n• Experience of Web Scraping technology such as BeautifulSoup, Request and Selenium\n• Achieved outstanding academic success in Computer Science, Data Analytics, Machine or Mathematics",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEpZX9JvwV69zRqXISzzw2Ajgsxtr0IBGN22ZTAsM&s",
+      "extensions": [
+        "il y a 1 jour",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 1 jour",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJQeXRob24gUHJvZ3JhbW1lciAtIE1MIGJhc2VkIHNvbHV0aW9ucyBmb3IgU3lzdGVtYXRpYyBIZWRnZSBGdW5kIiwiaHRpZG9jaWQiOiJBcjludGdQME5uNEFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiZmMiOiJFdUlCQ3FJQlFWQkZNa2RYUVhGa1JWcHRTVWN6VXpkd1RsTnNaRmd5ZGxGMlRscDNRalZXTTFFNVpGUkNjVWszTVMxV1lXUmtSM2g1V1ZSWVUwVjBaRU5PTFRKWFEwb3hVbXR2VmpoRVRXbGtWRVJEUVdkbkxXMU1iVUZTZGpsQ01uZHhUVlZYTkd4dGVFRmZYMDVYUnpoMlF5MVJaMlJvYWs5a1FsYzRkVjlwVURRME9GWlFNWEJHUkVnMmJFTkJSR3RtWm1vM2VWSkhNRlZXUm1obVZXZ3lOVU5sZDFaUkVoZGlielZDV1hGRVRFMWtMV1Y1ZEUxUVgxOUhVWFZCZHhvaVFVUnFWMTh6VEhFeVRsVnBMWGhNY21KMU5YUnJjSFpwWVdaVWNGOHlabG8xVVEiLCJmY3YiOiIzIiwiZmNfaWQiOiJmY18xIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBMaW5rZWRJbiIsImxpbmsiOiJodHRwczovL2ZyLmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvcHl0aG9uLXByb2dyYW1tZXItbWwtYmFzZWQtc29sdXRpb25zLWZvci1zeXN0ZW1hdGljLWhlZGdlLWZ1bmQtYXQtY2FyZWVyYWRkaWN0LTI5ODcxNzU3NTI/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Développeur confirmé Python / React H/F",
+      "company_name": "Seyos",
+      "location": "Boulogne-Billancourt",
+      "via": "via Cadremploi",
+      "description": "Quelles sont les missions ?\n\nEnvie de travailler dans un contexte international et auprès de grands comptes ? Ce poste est pour vous. Notre client édite une solution logicielle destinée à la gestion collaborative. Leader sur le marché, cette société cherche à renforcer ses équipes avec un(e) Développeur fullstack Python / Django - React.\n\nPoste basé à Boulogne-Billancourt,\nRémunération : 45 000 - 60 000 Euros brut annuel selon expérience,\nEnvironnement technique : Python, Django, React, Docker.\n\nIntégré(e) à l'équipe technique, vous serez en charge de participer aux nouveaux produits et être référent de vos projets.\n\nPour cela, vous serez en charge de :\n\n- Participer à l'évolution de la plateforme,\n- Faire évoluer l'existant côté back-end : Python / Django, et côté front-end : React,\n- Travailler sur des API,\n- Participer aux projets en mode agile.\n\nQuel est le profil idéal ?\n\n- Vous avez une expérience significative sur un poste similaire,\n- Vous avez développé avec Django et... idéalement React,\n- Vous êtes force de proposition (envers l'équipe produit et les partenaires),\n- Une expérience au sein de grand compte ou SSII est un plus,\n- Votre anglais est d'un bon niveau.\n\nLes plus :\n\n- Société en forte croissance à l'international : États-Unis, Canada, Asie,\n- Entreprise libérée : initiatives, responsabilités, prise de décisions,\n- Locaux agréables : salle de sport, table de ping-pong, garage pour les deux roues, terrasse avec plancha !\n\nQui a publié cette offre ?\n\nDepuis 2014, Seyos, cabinet de recrutement informatique connecte les candidats et les entreprises dans le secteur du numérique. Spécialisé dans le recrutement IT, web et informatique, notre équipe vous accompagne dans la recherche de l¿emploi ou du candidat idéal dans le Grand Ouest (Nantes, Rennes), à Paris, mais également à Lyon, Bordeaux, Lille, Toulouse, Strasbourg et Montpellier",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjAsZfMDpb25KyttpcYhPpp8qeLktOHWTZzZ5VbnY&s",
+      "extensions": [
+        "il y a 1 jour",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 1 jour",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgY29uZmlybcOpIFB5dGhvbiAvIFJlYWN0IEgvRiIsImh0aWRvY2lkIjoieHkySUxHUHdWYXNBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgQ2FkcmVtcGxvaSIsImxpbmsiOiJodHRwczovL3d3dy5jYWRyZW1wbG9pLmZyL2VtcGxvaS9kZXRhaWxfb2ZmcmU/b2ZmcmVJZD0xNTY4MjgxNjkyNTk5MzM5MFx1MDAyNnV0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Stage | Développeur Python (H/F)",
+      "company_name": "Datascientest",
+      "location": "Puteaux",
+      "via": "via Welcome To The Jungle",
+      "description": "Nous sommes à la recherche de développeurs talentueux capables de réaliser et de démontrer la faisabilité de certaines technologies, dans le but d’aider les membres de l’équipe à intégrer ces technologies en production.\nTu passeras environ 20% de ton temps dans l’apprentissage de compétences externes, et le reste du temps dans des tâches inter équipes data.\n\nTu intégreras une équipe de 8 développeurs qui va doubler en 2022. Nos missions sont variées et permettront de répondre à tes objectifs de carrière :\n• Développement et déploiement de nouvelles features\n• Architecture cloud pour répondre à des problématiques de scaling et de performance\n• Diffusion et utilisation des données en coordination avec l’équipe Data\n• Mise en place et respect des bonnes pratiques de code : tests, Git Flow, CI/CD, code review\n• Formations intra pour assurer l’évolution techniques des équipes Data et Devs\n• Participation active à l’évolution de l’équipe au travers des “cérémonies” Agile\n\nEn tant que... stagiaire nous attendons à ce que tu montes en compétences le plus tôt possible pour être opérationnel sur des tâches de dev à valeur ajouté pour DataScientest.\n\nNotre cœur de métier est la formation ce qui permet cette montée en compétence rapide. Notre situation d’hyper croissance permet également de proposer beaucoup de besoins différents et donc de travailler sur des tâches correspondant à tes attentes",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGacBzB_aRfxpk5HQKsSQZYXm6sPuBRSRPeELoSw&s",
+      "extensions": [
+        "il y a 3 jours",
+        "Stage"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "Stage"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTdGFnZSB8IETDqXZlbG9wcGV1ciBQeXRob24gKEgvRikiLCJodGlkb2NpZCI6InFpei1UYmdGYXNZQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJmYyI6IkV1SUJDcUlCUVZCRk1rZFhRMnRMZFV0T2FFSjRNMWREYWtSWk9VSjJObE5XYkhoeWRGQjRjRTVaZDJGMVN6Tm5lSGRMYlc4eFJWUktVVjlSWVZkQmNHdHFhazF6U1hGQlRsOXNOSHBUWDFGcGNXeDZOMXBsYUhsSFlsY3pWMUEwVlhKb2NrVnRaM04zV2tSTWRVWjFZV3R2VW1wM1l6WkZlR0ptWTB0M1dWbDNhbGRTTW1kd01HUXRWREZrTUUweGJXaG5ZbTE0YVZVeGFtazBZVTF6ZEhScFJHcGtjSGxuRWhkaWJ6VkNXWEZFVEUxa0xXVjVkRTFRWDE5SFVYVkJkeG9pUVVScVYxOHpTVFV4ZDA1a05uWTFOelIzVDFGblpGWkJlazVWU0RGUU0wWnpadyIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIFdlbGNvbWUgVG8gVGhlIEp1bmdsZSIsImxpbmsiOiJodHRwczovL3d3dy53ZWxjb21ldG90aGVqdW5nbGUuY29tL2ZyL2NvbXBhbmllcy9kYXRhc2NpZW50ZXN0L2pvYnMvZGV2ZWxvcHBldXItcHl0aG9uLWgtZi1zdGFnZV9wdXRlYXV4P3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Développeur Python (H/F)",
+      "company_name": "Prime Engineering",
+      "location": "Boulogne-Billancourt",
+      "via": "via Welcome To The Jungle",
+      "description": "• Adaptation des scripts de transfert de données machine vers les serveurs et de transcodage des données vers les systèmes d’information\n• Modifier les requêtes qui interrogent notre ERP pour les orienter vers le MES\n• Modifier les fonctions des scripts\n• Adaptation des applications Web Production\n• Requêtes vers l’ERP actuel pour les orienter vers des solutions de contournement, .csv exporté de SAP / E-Prod / …",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Oi2zj7BvAaTIPww_Gk90yXJyZCRrstw30Ve8LUQ&s",
+      "extensions": [
+        "il y a 4 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 4 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgUHl0aG9uIChIL0YpIiwiaHRpZG9jaWQiOiIyWm5OOHNhWHlKRUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiZmMiOiJFdUlCQ3FJQlFWQkZNa2RYUTJWV09ERnZhV1JWVUhwS1dtbHVaWGhvY0ZoRVRqZHlkbTlMTlhWUWVHTXdRVk5qUjNKTVlVRkVZVzVPUTFKVVNrdENNSFJFYkcxT1p6TmZSblZSZW1GRVdGbFVSR3ROTkRnME1URXdXR1JSYW1oZmNEUlljVTh4YlRoTFdWOTNaM2Q1YzJGbFdGaG5XREZhY1ZCelpWOVJTRWRvY2pSSE4wMXBVMTlQUkdVMFRFTm5kRjgxVkVWRVYwNUxhbXhKT0ZJNVlsSm5ZbmxGYW5KUkVoZGlielZDV1hGRVRFMWtMV1Y1ZEUxUVgxOUhVWFZCZHhvaVFVUnFWMTh6VERWdFNYVTBUMHRLWWpSeFRHTk5kbkpRZEhwRFZXTnhNa3B4VVEiLCJmY3YiOiIzIiwiZmNfaWQiOiJmY18zIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBXZWxjb21lIFRvIFRoZSBKdW5nbGUiLCJsaW5rIjoiaHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvcHJpbWUtZW5naW5lZXJpbmcvam9icy9kZXZlbG9wcGV1ci1weXRob24taC1mX2JvdWxvZ25lLWJpbGxhbmNvdXJ0P3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Expert Usage Python H/F",
+      "company_name": "BNP Paribas Cardif",
+      "location": "Nanterre",
+      "via": "via BNP Paribas",
+      "description": "Concrètement votre Quotidien ?\n\nLes compétences Python sont stratégiques pour Cardif.\nCe langage permet de développer les solutions d’Intelligence Artificielle. De plus, il permet aux autres métiers manipulant des données de réaliser des développements efficaces (Finance, Actuariat, etc.)\nNous créons un centre de compétences Python et cherchons un expert Python confirmé pour développer l’activité.\nLa mission consiste à être Tech Leader Python chez Cardif.\nVous accompagnerez le déploiement du langage python chez cardif .,\nVous apporterez votre expertise pour aider les développeurs tant au niveau du code que de l’architecture applicative.\nVous développerez des librairies, solutions et outillages propres à Cardif (monitoring, analyse de code automatique, etc.)\nVous rédigerez les standards de développements Python en partenariat avec les Datascientistes\nVous intervenez sur toutes les étapes du cycle de développement (Design, Buid, Test, Deploy, Monitor, Improve)\nVous participerez à la... création de la nouvelle plateforme Python de Cardif\nVous assurerez la promotion de l’usage de Python au sein de Cardif\n\nL’environnement de travail, c’est important !\n\nVous travaillez avec des équipes très variées : Datascientists, équipes à Nanterre, équipes à l’international dans une trentaine de pays, Métiers de l’assurance (Finance, Actuariat, etc.), acteurs du groupe BNP Paribas, éditeur, etc.\nVous évoluerez dans un monde à la pointe de la technique : Modèles de datascience (Python, Anaconda, Jupyter, Domino Datalab, etc.), Hébergement Cloud, kubernetes, docker, Télécoms, WS/Api, Système d’information Cardif (plus de 500 applications, ~10.000 serveurs, ~ 30 pays)\nL’environnement de travail est dynamique et positif avec un réel partenariat avec les Datascientist et les métiers financiers de Cardif\nLe lieu de travail est à Nanterre (accessible en RER, parking voiture et vélo) et le télétravail fait partie de notre quotidien.\n\nLa rémunération ?\n\nC'est un sujet important, qui sera bien sûr abordé. Votre formation et votre expérience seront valorisées et prises en compte.\nPourquoi rejoindre BNP Paribas ?\n\nNotre monde change : notre manière de nous informer, de consommer… et de travailler aussi ! Aujourd’hui, ce qui compte dans un job, c’est de vivre de véritables expériences, d’apprendre, de partager objectifs et résultats avec ses collègues. Bref, de tracer son propre chemin, différent, responsable et durable. Chez BNP Paribas, nous recrutons nos collaborateurs avec l’idée qu’ils nous aideront à concevoir le monde et la banque de demain.\n\nEt après ?\n\nCe poste vous permettra de travailler sur des sujets d'Intelligence Artificiel et de développer des compétences liées à l'Analytics.\nLes interactions avec l’architecture seront importantes et permettront une évolution vers cette filière.\nLa mission est à l’intersection entre l’AI, le Dev et l’OPS : vous pourrez aussi évoluer vers un poste AI-DEV-OPS\nLe contexte International est extrêmement présent et renforcera votre savoir-être multiculturel.\nCet environnement dynamique et stratégique favorisera les évolutions au sein de l’entreprise et du groupe BNP Paribas, soit en France, soit à l’International.\n\nEt vous êtes-vous notre prochain expert Python ?\n\nVous avez un bac + 5 en informatique et une expérience de 10 ans en développement dont 5 en Python, ce qui vous a permis de développer une expertise sur Python et son écosystème (Librairies, Anaconda, Jupyter, etc).\n\nVous êtes familier avec la culture agile Devops, Data Engineering,IA Data science\nVotre niveau d’anglais est avancé\nAutonome, vous êtes organisé et apte à travailler avec des profils variés.\nVous aimez transmettre vos connaissances et avez de l’impact\nEt si en plus vous avez une bonne capacité d’adaptation …alors postulez !\nEnfin, nous attachons une importance particulière à ce que nos futurs collaborateurs agissent au quotidien avec responsabilité éthique et professionnelle.\nÀ tout moment pendant le processus de recrutement, les informations figurant sur votre CV et vos données d’identification pourront être vérifiées par un prestataire externe mandaté par BNP Paribas",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlpu6l6eThYQT05dxjmIh_Y-qovMcuNEVansmk&s=0",
+      "extensions": [
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJFeHBlcnQgVXNhZ2UgUHl0aG9uIEgvRiIsImh0aWRvY2lkIjoiYlY1Y2JVbGI0T01BQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImZjIjoiRXVJQkNxSUJRVkJGTWtkWFJFeFhkWEpmVFVWemNWOTNMV2R2VW1KUGRIRnhPWGxCY2tsZkxWRkRZVk4yVkZsaFVHNDVTV0pGWDFaUmFqZFlRbU5XVHpjMVZrUkJMV2szVkRNd1gwNUNNak41VWpGcWNYZ3dWVkZsTFRaaFkyWjVWM05ZWkhjNGQxRkxVM1JzVUdkRlNHOHhZa2xwV0ZwaWJUQkNhVnByUVV4SFVEWkZjbWxOTXpFeFIyODFXRGhhUW5SZk5sZ3dTRkYxU1doWmFXWmxRWHBZTWs5d2VrMTNFaGRpYnpWQ1dYRkVURTFrTFdWNWRFMVFYMTlIVVhWQmR4b2lRVVJxVjE4elNrRjRhbWhWTTBsZkxXTXpURkUyWlZOSFVVeDBPR0ozVTBnMmR3IiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfNCIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgQk5QIFBhcmliYXMiLCJsaW5rIjoiaHR0cHM6Ly9ncm91cC5ibnBwYXJpYmFzL2VtcGxvaS1jYXJyaWVyZS9vZmZyZS1lbXBsb2kvZXhwZXJ0LXVzYWdlLXB5dGhvbi1oLWY/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Développeur en Python et Flask",
+      "company_name": "Free-Work.com",
+      "location": "Paris",
+      "via": "via LinkedIn",
+      "description": "ingénieur spécialisé dans le développement logiciel en Python et Flask.\n\nUne connaissance dans les technologies suivantes sont nécessaires :\n\nPHP5 et Shell, pour la lecture du code existant\n\nPython 3.9\n\nFlask et Web Service\n\nMariaDb\n\nPdftk et Poppler\n\nAnsible\n\nGit",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgZW4gUHl0aG9uIGV0IEZsYXNrIiwiaHRpZG9jaWQiOiJnMHVXdDg5bnEzSUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBMaW5rZWRJbiIsImxpbmsiOiJodHRwczovL2ZyLmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvZCVDMyVBOXZlbG9wcGV1ci1lbi1weXRob24tZXQtZmxhc2stYXQtZnJlZS13b3JrLWNvbS0yOTkwMzM3MTk3P3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Alternant Développement Fullstack Python / ReactJS H/F",
+      "company_name": "VISIAN",
+      "location": "Levallois-Perret",
+      "via": "via SmartRecruiters Job Search",
+      "description": "Description de l'entreprise\n\nSociété de conseil spécialisée dans l’innovation, le design produit et la data, Visian se donne pour mission d’anticiper, de concevoir des produits innovants et d’exploiter les nouveaux usages de la data.\n\nVisian a fait le choix de se spécialiser sur Python et les consultant(e)s de Visian sont même allés jusqu’à créer la PySquad pour s’entraider et développer un centre d’excellence autour de pratiques et de normes communes. La PySquad se donne pour mission de répondre efficacement aux enjeux de développement, d’accélération et d’industrialisation de projets innovants.\n\nMotivés(es) par le challenge,l’envie de monter en compétences, le désir de partager ses connaissances et de s’enrichir continuellement de l’apport des autres,les consultant(e)s Visian forment une équipe dynamique, pleine d’idées et d’ambitions.\n\nDescription du poste\n\nNous recherchons pour septembre 2022, un profil développeur Fullstack Python/Javascript pour participer au développement d’une... plateforme web de collaboration et de gestion de processus IT. La plateforme est sur une V1 et de nouvelles fonctionnalités ambitieuses sont en cours de développement ou dans le backlog.(Réseau/portageenmobilité/etc.)\n\nL’équipe est composée d’un product owner et d’un autre développeur.Un développeur sénior complète le dispositif pour donner les bonnes pratiques et direction d’architecture applicative.\n\nRôle:\n• Participation aux cérémonies agiles et présentation des démos\n• Développement de composants ReactJS/Hooks\n• Implémentation des interfaces UI\n• Développement d’API REST avec Django\n• Designer et configurer la chaîne CI/CD pour le Back et le Front\n• Code review,pair programming et documentation du code\n• Maintenance et correction des bugs\n• Ecrire les tests unitaires avec Pytest\n• Déployer l’application sur AWS\n\nEnvironnement technique :\n• Python(Django),pytest\n• ReactJS,Typecript,Html/Css,Boostrap\n• HTML/CSS,\n• AWS(Amplify,EC2..),Docker,Git\n\nQualifications\n\nVous êtes en quatrième ou dernière année de Master Bac+5, grandes écoles d'ingénieurs ou d'informatique.\n\nVous souhaitez monter en compétences sur Python, Javascript, React et Cloud AWS\n\nVous avez un tempérament tourné vers lechallenge et le résultat\n\nVous êtes force de proposition",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBbHRlcm5hbnQgRMOpdmVsb3BwZW1lbnQgRnVsbHN0YWNrIFB5dGhvbiAvIFJlYWN0SlMgSC9GIiwiaHRpZG9jaWQiOiJNT3BRYTM1UXhuY0FBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBTbWFydFJlY3J1aXRlcnMgSm9iIFNlYXJjaCIsImxpbmsiOiJodHRwczovL2pvYnMuc21hcnRyZWNydWl0ZXJzLmNvbS9WSVNJQU4vNzQzOTk5ODE0NDc5MjYwLWFsdGVybmFudC1kZXZlbG9wcGVtZW50LWZ1bGxzdGFjay1weXRob24tcmVhY3Rqcy1oLWY/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Développeur Expérimenté - Front WEB Python H/F (92)",
+      "company_name": "infotem",
+      "location": "Courbevoie",
+      "via": "via Freelance Info",
+      "description": "Très bon niveau sur les technologies actuelles :\nCompétences solides en WEB Python (Django).\nCapacité à appréhender et à travailler dans un code existant ;\nConnaissance des workflows de déploiement et tests automatisés ;\nForte volonté de monter en compétence technique ;\nForte appétence pour le travail en équipe.",
+      "extensions": [
+        "il y a 4 jours",
+        "330 € à 420 € par jour"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 4 jours"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgRXhww6lyaW1lbnTDqSAtIEZyb250IFdFQiBQeXRob24gSC9GICg5MikiLCJodGlkb2NpZCI6InVpbFNEa3V0Y0pJQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIEZyZWVsYW5jZSBJbmZvIiwibGluayI6Imh0dHBzOi8vd3d3LmZyZWVsYW5jZS1pbmZvLmZyL21pc3Npb24vZGV2ZWxvcHBldXItZXhwZXJpbWVudGUtZnJvbnQtd2ViLXB5dGhvbi1oLWYtMTY3Nzk4Mj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Développeur API - Python",
+      "company_name": "wineos",
+      "location": "Charenton-le-Pont",
+      "via": "via Www.free-Work.com",
+      "description": "bjectifs de la mission et tâches\nContexte :\n\nRenfort de l’équipe de développement de la sécurité des réseaux.\n\nMissions :\n\nDéveloppement de code en suivant les méthodologies de l’équipe. Analyse, validation et revue de code.\nParticipation aux sprints de développement et à l’amélioration continue.\nLa priorité sera donnée au développement d’un système innovant d’automatisation des règles firewall multi-technologiques à base d’API.\nDes connaissances de sécurité réseaux sont un plus.\nPrestataire expérimenté en développement d’application et en méthode agile\n\nProfil :\n\n- Réaliser les API donnant accès aux services internes en respectant les exigences de performance et de sécurité\n- Définir les nouvelles APIs en collaboration avec les équipes métiers et d’architecture\n- Développer et maintenir les APIs (basé sur les techno type Java, Maven, RAML, Anypoint)\n- Créer les tests unitaires / intégrations associés à chaque API\n- Déployer les APIs sur les différents environnements\n\nCompétences... techniques :\n\n- Python - Expert - Impératif\n- API - Expert - Impératif\n- Développement d’application - Confirmé - Important\n\nLivrables\nCode en python",
+      "extensions": [
+        "il y a 3 jours",
+        "40 k $US par an",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgQVBJIC0gUHl0aG9uIiwiaHRpZG9jaWQiOiI1ck9kbFBaak9VSUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBXd3cuZnJlZS1Xb3JrLmNvbSIsImxpbmsiOiJodHRwczovL3d3dy5mcmVlLXdvcmsuY29tL2ZyL3RlY2gtaXQvZGV2ZWxvcHBldXIvam9iLW1pc3Npb24vZGV2ZWxvcHBldXItYXBpLXB5dGhvbi0xP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    }
+  ],
+  "chips": [
+    {
+      "type": "Lieu",
+      "param": "city",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Paris",
+          "value": "D7fiBh9u5kdglIxow4ILBA=="
+        },
+        {
+          "text": "Bordeaux",
+          "value": "gcpR9-gnVQ2Jejl7A4ZjeQ=="
+        },
+        {
+          "text": "Nantes",
+          "value": "ra6o8IHuBUgw7Q0eUjcNBA=="
+        },
+        {
+          "text": "Toulouse",
+          "value": "_1J17G-7rhIwEEEvnPYGBA=="
+        },
+        {
+          "text": "Rennes",
+          "value": "hZDWpy_eDkgwq-Q2zaUMBA=="
+        },
+        {
+          "text": "Grenoble",
+          "value": "b76J1ov0ikeYU5luzRCMYQ=="
+        },
+        {
+          "text": "Lyon",
+          "value": "l4foalHq9EfwIbvkKqsIBA=="
+        },
+        {
+          "text": "Montpellier",
+          "value": "sZ3dJQevthIC6JQodFaHrQ=="
+        },
+        {
+          "text": "Boulogne-Billancourt",
+          "value": "YUevEOh65keQPotow4ILBA=="
+        },
+        {
+          "text": "Cesson-Sévigné",
+          "value": "NYvWwzHZDkhAkCyTGOayVQ=="
+        },
+        {
+          "text": "Lannion",
+          "value": "OcUjxYorEkgANOY2zaUMBA=="
+        },
+        {
+          "text": "Tours",
+          "value": "VZqXSrPV_EcwhDgF18gNBA=="
+        },
+        {
+          "text": "Courbevoie",
+          "value": "vccvsApl5kcQPotow4ILBA=="
+        },
+        {
+          "text": "Issy-les-Moulineaux",
+          "value": "xy7Ltot65kehJ24ad9Amiw=="
+        },
+        {
+          "text": "Marseille",
+          "value": "M1PaREO_yRIgApf9pRkIBA=="
+        },
+        {
+          "text": "Nanterre",
+          "value": "vyXf2YRk5kfiR8FqHO4hew=="
+        },
+        {
+          "text": "Andrézieux-Bouthéon",
+          "value": "sy2MvrZM9EcTO0AYuE2JSw=="
+        },
+        {
+          "text": "Besançon",
+          "value": "CxPu8PpijUcw7ROzNM4JBA=="
+        },
+        {
+          "text": "Nice",
+          "value": "MS2FahDQzRJwmpf9pRkIBA=="
+        },
+        {
+          "text": "Pau",
+          "value": "6XpctIVIVg2wlBNIF2UGBA=="
+        },
+        {
+          "text": "Puteaux",
+          "value": "xfUaLBpl5kfgyvJ51T872A=="
+        },
+        {
+          "text": "Saint-Denis",
+          "value": "YW0056pu5kcN6Sj5uuvvxw=="
+        },
+        {
+          "text": "Saint-Herblain",
+          "value": "iTDXQEWTBUhB1BQ8jHe7LQ=="
+        },
+        {
+          "text": "Strasbourg",
+          "value": "wbIYXknIlkcfJOcYMUgalw=="
+        },
+        {
+          "text": "Valbonne",
+          "value": "vUmYZ1gpzBKVIlwyvAXXSg=="
+        },
+        {
+          "text": "Aix-en-Provence",
+          "value": "WRK5BKONyRKjiLbIvlO5XA=="
+        },
+        {
+          "text": "Amiens",
+          "value": "C3aL1xOE50fgIGKBPvEKBA=="
+        },
+        {
+          "text": "Asnières-sur-Seine",
+          "value": "KxuhrEJv5kfAPotow4ILBA=="
+        },
+        {
+          "text": "Avignon",
+          "value": "B528OYfrtRI2ex36bptC5g=="
+        },
+        {
+          "text": "Balma",
+          "value": "OVsdyz69rhKyYTdZcSVHTw=="
+        },
+        {
+          "text": "Bezons",
+          "value": "04KEHBZk5kegNYtow4ILBA=="
+        },
+        {
+          "text": "Blagnac",
+          "value": "VeJ4cDGlrhJZp5eN1hq2_g=="
+        },
+        {
+          "text": "Bord-Saint-Georges",
+          "value": "dZk_h8we-kdffDChfn_dOw=="
+        },
+        {
+          "text": "Béthune",
+          "value": "_xmTA1ki3UcYfcaBX9z5wg=="
+        },
+        {
+          "text": "Caen",
+          "value": "M8kETL1CCkhZCNAwn3SlPQ=="
+        },
+        {
+          "text": "Chambéry",
+          "value": "Y19pCFeoi0eciT2mzxrC1Q=="
+        },
+        {
+          "text": "Charenton-le-Pont",
+          "value": "U_JmF1dy5keQOYtow4ILBA=="
+        },
+        {
+          "text": "Chindrieux",
+          "value": "7-MIlgl0i0fgtLrkKqsIBA=="
+        },
+        {
+          "text": "Cluses",
+          "value": "icNpE94GjEe6IP4HrBj3xg=="
+        },
+        {
+          "text": "Colmar",
+          "value": "z8Fw9t9lkUdm6WxhPn5d4w=="
+        },
+        {
+          "text": "Croissy",
+          "value": "fRXJ291i5kc7QlugTSwymw=="
+        },
+        {
+          "text": "Dijon",
+          "value": "dZb974yd8kfQWBSzNM4JBA=="
+        },
+        {
+          "text": "Isneauville",
+          "value": "NQTSm2Hb4Eevs1dDxSdblQ=="
+        },
+        {
+          "text": "L'Île-Saint-Denis",
+          "value": "s0JvbjJv5kegO4tow4ILBA=="
+        },
+        {
+          "text": "La Ciotat",
+          "value": "5bjorGOvyRLQA5f9pRkIBA=="
+        },
+        {
+          "text": "Le Haillan",
+          "value": "YQ4YmMbQVA2Q5BZIF2UGBA=="
+        },
+        {
+          "text": "Lens",
+          "value": "uaFMb18w3Udw5mOBPvEKBA=="
+        },
+        {
+          "text": "Levallois-Perret",
+          "value": "0_88t4Nv5kewPYtow4ILBA=="
+        },
+        {
+          "text": "Lille",
+          "value": "EW4ls3nVwkdgY2SBPvEKBA=="
+        },
+        {
+          "text": "Limours",
+          "value": "T6I9tzAr5Edy7oxO6h1tjA=="
+        },
+        {
+          "text": "Metz",
+          "value": "qbZ0YBvclEdpprs1tuRrWQ=="
+        },
+        {
+          "text": "Moissy-Cramayel",
+          "value": "TzOhIkDj5UcuBSCXd7SFKg=="
+        },
+        {
+          "text": "Montesson",
+          "value": "Weq5RUhi5kdAO4xow4ILBA=="
+        }
+      ]
+    },
+    {
+      "type": "Date de publication",
+      "param": "date_posted",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Depuis hier",
+          "value": "today"
+        },
+        {
+          "text": "Depuis 3 jours",
+          "value": "3days"
+        },
+        {
+          "text": "Depuis 1 semaine",
+          "value": "week"
+        },
+        {
+          "text": "Depuis 1 mois",
+          "value": "month"
+        }
+      ]
+    },
+    {
+      "type": "Langue",
+      "param": "language",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Résultats en français",
+          "value": "fr"
+        },
+        {
+          "text": "Résultats en anglais",
+          "value": "en"
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "param": "employment_type",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "À plein temps",
+          "value": "FULLTIME"
+        },
+        {
+          "text": "Stage",
+          "value": "INTERN"
+        },
+        {
+          "text": "Prestataire",
+          "value": "CONTRACTOR"
+        },
+        {
+          "text": "À temps partiel",
+          "value": "PARTTIME"
+        }
+      ]
+    },
+    {
+      "type": "Employeur",
+      "param": "organization_mid",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Urban Linker",
+          "value": "/g/1wt3mqgv"
+        },
+        {
+          "text": "Capgemini",
+          "value": "/m/03vlk0"
+        },
+        {
+          "text": "CS Group",
+          "value": "/m/0cqjrj6"
+        },
+        {
+          "text": "Atos",
+          "value": "/m/03mndf"
+        },
+        {
+          "text": "Inetum",
+          "value": "/m/0cqhjj6"
+        },
+        {
+          "text": "Page Personnel",
+          "value": "/g/11bc5q6slk"
+        },
+        {
+          "text": "Celad",
+          "value": "/g/11bym_s0lb"
+        },
+        {
+          "text": "Budget Insight",
+          "value": "/g/11c1xfqqp3"
+        },
+        {
+          "text": "CS GROUP",
+          "value": "/g/1tj_4kmv"
+        },
+        {
+          "text": "Hays",
+          "value": "/m/065xwy"
+        },
+        {
+          "text": "Letsignit",
+          "value": "/g/11b6dp_mc2"
+        },
+        {
+          "text": "SOAT",
+          "value": "/g/11gxm7gl8g"
+        },
+        {
+          "text": "Akema",
+          "value": "/g/11fy28s_16"
+        },
+        {
+          "text": "Astek",
+          "value": "/g/1234blrc"
+        },
+        {
+          "text": "Banque de France",
+          "value": "/m/0382ml"
+        },
+        {
+          "text": "Berger-Levrault",
+          "value": "/g/11f0186mp9"
+        },
+        {
+          "text": "Cobblestone Energy",
+          "value": "/g/11h3lg86zl"
+        },
+        {
+          "text": "Iliad",
+          "value": "/m/04jhmd3"
+        },
+        {
+          "text": "LINKBYNET",
+          "value": "/g/11f00s44gb"
+        },
+        {
+          "text": "Lengow",
+          "value": "/g/11b_2qm5ds"
+        },
+        {
+          "text": "SOFTEAM",
+          "value": "/g/11fy265ncl"
+        },
+        {
+          "text": "Societe Generale",
+          "value": "/m/02qhc8"
+        },
+        {
+          "text": "TEOLIA",
+          "value": "/g/11rd8gd4f6"
+        },
+        {
+          "text": "Talan",
+          "value": "/g/11f01hb7k9"
+        },
+        {
+          "text": "Thales",
+          "value": "/m/01phj4"
+        },
+        {
+          "text": "Veepee",
+          "value": "/g/124spxtpq"
+        },
+        {
+          "text": "Viveris.",
+          "value": "/g/11bymx7ymf"
+        },
+        {
+          "text": "3DS OUTSCALE",
+          "value": "/g/11b8zg2vf6"
+        },
+        {
+          "text": "ACFOR",
+          "value": "/g/11h6rxc7kf"
+        }
+      ]
+    }
+  ]
+}

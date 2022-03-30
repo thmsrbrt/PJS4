@@ -132,7 +132,7 @@ app.post("/users/photoProfileHandler/:idUtilisateur", authMW, checkUserId, profi
 app.get("/annonce/:idAnnonce", findAnnonce); // permet de récupérer une annonce : [idAnnonce]
 app.get("/annonces/all", findAllAnnonces); // permet de récupérer toutes les annonces
 app.get("/annonces/user/:idUtilisateur", authMW, findAnnonceByUserId); // permet de récupérer toutes les annonces
-app.post("/annonce/create/:idUtilisateur", authMW, checkUserId, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
+app.post("/annonce/create/:idUtilisateur", /*authMW, checkUserId,*/ registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
 app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);

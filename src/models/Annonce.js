@@ -60,7 +60,7 @@ export const findAnnonceByUserIdModel = (idUser, cb) => {
  * @param data {array<string>} contenant les données de l'annonce
  */
 export const createAnnonce = (data) => {
-    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, datePublication, localisation) VALUES (?,?,?,?, NOW(), ?)', data, (err, res) => {
+    db.query('INSERT INTO annonce (titre, image, description, idEntreprise, datePublication, localisation, lien) VALUES (?,?,?,?, NOW(), ?, ?)', data, (err, res) => {
         if (err) {
             throw err;
         }

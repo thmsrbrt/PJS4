@@ -60,6 +60,7 @@ CREATE TABLE Annonce
     idEntreprise    Int                NOT NULL,
     datePublication timestamp          NOT NULL DEFAULT '2000-01-01 00:00:00'               NOT NULL,
     localisation    Varchar(255)       NOT NULL,
+    lien            TEXT,
     CONSTRAINT Annonce_PK PRIMARY KEY (idAnnonce),
     CONSTRAINT Annonce_Entreprise_FK FOREIGN KEY (idEntreprise) REFERENCES Utilisateur (idUtilisateur)
 ) ENGINE = InnoDB;
@@ -306,16 +307,16 @@ VALUES (11, 'Airbus group', 'recruteur@airbus.fr', 'UO7328CJnIfAi+39/m+zk1pjirJK
         '1608225605867.jpeg',
         'Entreprise', '2022-01-01 09:58:44');
 
-INSERT INTO Annonce(idAnnonce, titre, Image, Description, idEntreprise, DatePublication, localisation)
+INSERT INTO Annonce(idAnnonce, titre, Image, Description, idEntreprise, DatePublication, localisation, lien)
 VALUES (1, 'stage developer java', null, 'airbus stage java bac+45', 11, '2022-03-24 14:21:20',
-        'Paris'),
+        'Paris','-1'),
        (3, 'stage test python', null, 'stellantis bac+34 minimum ecole d\'ingénieur du future', 18,
-        '2022-03-24 14:21:20', 'Paris'),
+        '2022-03-24 14:21:20', 'Paris','-1'),
        (10, 'stage development interface web', '1589821547937.jpeg',
         'axa require compétence java, HTML, CSS, Python, JAvascript, Synfony, Angulard, Android, UNIX', 113,
-        '2022-03-24 14:21:20', 'Paris'),
+        '2022-03-24 14:21:20', 'Paris','-1'),
        (12, 'stage ', '1589821547937.jpeg', 'axa satge java bac+145 si tu es pas mort', 113,
-        '2022-03-24 14:21:20', 'Paris');
+        '2022-03-24 14:21:20', 'Paris','-1');
 
 INSERT INTO Conversation(idConversation, idUtilisateurA, idUtilisateurB, Libelle, idAnnonce)
 VALUES (1, 1, 3, 'friends', null),

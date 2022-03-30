@@ -6,7 +6,7 @@ from serpapi import GoogleSearch
 
 
 def jsonhandle(jsonfile):
-    with open(jsonfile+".json", 'r', encoding='utf-8') as f:
+    with open(jsonfile + ".json", 'r', encoding='utf-8') as f:
         extracted = json.load(f)  # load json file
         jobs_results = extracted['jobs_results']
         #  print(jobs_results)
@@ -19,8 +19,13 @@ def jsonhandle(jsonfile):
             localisation = job['location']
             # get description
             description = job['description']
-            # get thumbnail
-            # thumbnail = job['thumbnail']
+            # get thumbnail if it exists
+            if 'thumbnail' in job:
+                thumbnail = job['thumbnail']
+                print("thumbnail: ", thumbnail)
+            else:
+                thumbnail = "-1"
+
             # get provider
             via = job['via']
             # get job_id
@@ -29,9 +34,9 @@ def jsonhandle(jsonfile):
             job_link = json.loads(job_id)['apply_link']['link']
             x = requests.post("http://localhost:3000/annonce/create/11",
                               data={"titre": titre, "description": description,
-                                    "image": "monimageaussi", "localisation": localisation})
+                                    "image": thumbnail, "localisation": localisation, "lien": job_link})
 
-            print(x.text)
+        print(x.text)
 
 
 def get_jobs(query):
@@ -56,8 +61,6 @@ def base64decoder(input_string):
 
 
 if __name__ == '__main__':
-    query = "html"
-    get_jobs(query)
+    query = "linux"
+    # get_jobs(query)
     jsonhandle(query)
-
-# TODO: get thumbnail

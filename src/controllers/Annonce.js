@@ -77,16 +77,18 @@ export const findAnnonceByUserId = (req, res) => {
  */
 export const registerAnnonce = (req, res) => {
     const idEntreprise = req.params.idUtilisateur;
-    const {titre, description, localisation} = req.body;
+    let {titre, description, localisation, lien} = req.body;
     if(!titre || !description || !idEntreprise || !localisation)
         res.status(500).send({message: "Erreur, toute les informations sont obligatoires"});
-
+    if (!lien) {
+        lien = "-1";
+    }
     let image=  req.body.image;
     if (image === null || image === undefined || image === "")
         image = "default.png";
 
     try {
-        createAnnonce([titre, image, description, idEntreprise, localisation]);
+        createAnnonce([titre, image, description, idEntreprise, localisation, lien]);
         res.sendStatus(201);
     } catch (err) {
         res.status(403).json({"faillure": err}).send();

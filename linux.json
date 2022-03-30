@@ -1,0 +1,603 @@
+{
+  "search_metadata": {
+    "id": "6241ab470f986626841dbcb8",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/bf566c79c325adc1/6241ab470f986626841dbcb8.json",
+    "created_at": "2022-03-28 12:34:15 UTC",
+    "processed_at": "2022-03-28 12:34:15 UTC",
+    "google_jobs_url": "https://www.google.fr/search?q=linux&ibp=htl;jobs&uule=w+CAIQICIUSWxlLWRlLUZyYW5jZSxGcmFuY2U&hl=fr&gl=fr",
+    "raw_html_file": "https://serpapi.com/searches/bf566c79c325adc1/6241ab470f986626841dbcb8.html",
+    "total_time_taken": 2.11
+  },
+  "search_parameters": {
+    "q": "linux",
+    "engine": "google_jobs",
+    "location_requested": "Ile-de-France, France",
+    "location_used": "Ile-de-France,France",
+    "google_domain": "google.fr",
+    "hl": "fr",
+    "gl": "fr"
+  },
+  "jobs_results": [
+    {
+      "title": "ADMINISTRATEUR SYSTEME LINUX - H/F",
+      "company_name": "Banque de France",
+      "location": "Paris",
+      "via": "via Welcome To The Jungle",
+      "description": "Lors de cette mission, il sera demandé à l’alternant de participer aux projets d’évolutions des infrastructures et systèmes dont l’équipe a la responsabilité.\n\nLes projets portent entre autres sur :\n• Refonte de l’infrastructure NTP\n• Refonte de l’infrastructure DNS, DHCP, IPAM\n• Migration des outils d’automatisation (Puppet, Ansible)\n• Support et évolutions des plateformes Européennes et de Cloud privé\n• Support et évolutions des systèmes d’exploitation Linux/Unix.\n\nDans le cadre de votre mission, vous travaillerez en collaboration avec les architectes d’entreprise ainsi que\nles différents experts techniques :\n• Étude technique de solutions\n• Écriture des documentations techniques des architectures à mettre en œuvre\n• Mise en œuvre des nouvelles infrastructures\n• Etude et suivi de la mise en œuvre des socles systèmes\n• Commande de serveurs.",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrBIHZ61izH-ALrtJplMgcYVNFzrV0U4QEPt3V8as&s",
+      "extensions": [
+        "il y a 6 heures",
+        "Prestataire"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 6 heures",
+        "schedule_type": "Prestataire"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBRE1JTklTVFJBVEVVUiBTWVNURU1FIExJTlVYIC0gSC9GIiwiaHRpZG9jaWQiOiJrcEpqWTBLS2I3OEFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiZmMiOiJFdUlCQ3FJQlFWQkZNa2RYUkZSS1NXeDBOMkZpVmtoNk1tTnZaVkV6WVhseVkxbDViRWMwYWpKd1IxSkZjREpaTVdOVlJrOTNSazlMZVRCRmNWaEthek5HU0VaaE0wWjNjVXhvWTFwUVFVVkNTMVJ2YldvMFRtaE1lbXhIU2xveVZHeERORXRmTVRGMVNtY3dZWFI2VkVnNWQwSkpMVU5aV0dSUlpDMXFVVTFMWVdvNFpESkdUMnR2TmpsM1pWSjNNVGhqTUhBeVpVbE9aRTUxZUZCWWRuRnlSMnh0UlV0M0VoZFRTM1JDV1hacVVrOXdRMnQ1ZEUxUWVuRlRXaTFCU1JvaVFVUnFWMTh6UzA1bll6QnBOVVpIV0ZwUGVtbDJjV1pyVGxkSGFXRnVOWEphWnciLCJmY3YiOiIzIiwiZmNfaWQiOiJmY18xIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBXZWxjb21lIFRvIFRoZSBKdW5nbGUiLCJsaW5rIjoiaHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvYmFucXVlLWRlLWZyYW5jZS9qb2JzL2FkbWluaXN0cmF0ZXVyLXN5c3RlbWUtbGludXgtaC1mX3BhcmlzP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "administrateur système linux Virtualisation",
+      "company_name": "R&S TELECOM",
+      "location": "Paris",
+      "via": "via Freelance Info",
+      "description": "Revoir les procédures de migration et les appliquer\n-être responsable du bon fonctionnement du système d'information de l'entreprise.\n-Il/elle conçoit et conduit l'acheminement de l'information vers les utilisateurs\n-Il assure la cohérence et l'accessibilité aux informations\n-Il garantit le support technique et la maintenance du système.",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnq-VC5uv3TUoM0fAHvHEJXO5lHgnR949NV0mjCKc&s",
+      "extensions": [
+        "il y a 13 heures"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 13 heures"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJhZG1pbmlzdHJhdGV1ciBzeXN0w6htZSBsaW51eCBWaXJ0dWFsaXNhdGlvbiIsImh0aWRvY2lkIjoiQkFRTjkyQzNRTmdBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgRnJlZWxhbmNlIEluZm8iLCJsaW5rIjoiaHR0cHM6Ly93d3cuZnJlZWxhbmNlLWluZm8uZnIvbWlzc2lvbi9hZG1pbmlzdHJhdGV1ci1zeXN0ZW1lLWxpbnV4LXZpcnR1YWxpc2F0aW9uLTE2Nzg1ODE/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Ingénieur Système Linux Senior (H/F)",
+      "company_name": "Neovity",
+      "location": "Arpajon",
+      "via": "via Talent Detection",
+      "description": "Description du poste et Missions\n\nPassionné d’Open Source, l’environnement Linux RedHat fait partie de votre quotidien depuis plusieurs années. Vous aimez travailler sur des infrastructures conséquentes avec des projets challengeant ? Venez rejoindre des experts du Calcul Haute Performance (HPC), ils innovent les supercalculateurs les plus puissants en Europe.\n\nL’équipe de 20 personnes œuvre au MCO et à l’évolution des infrastructures HPC avancées. Après une phase d’adaptation/formation à l’environnement HPC, vous avez pour missions :\n\n- Maintien en condition opérationnelle des systèmes Linux HPC incluant les supercalculateurs et systèmes de stockages associés\n- Déploiement des solutions sur les infrastructures virtualisées et conteneurisées\n- Contribuer à l’amélioration continue : proposer et mettre en œuvre des solutions d’automatisation, de haute disponibilité ...\n- Analyse, diagnostic et résolution d'incidents de production\n- Rédaction de documentations techniques, des procédures... d'exploitation\n\nEnvironnement technologique : Linux Redhat/CentOS, Scripting Shell / Python, Monitoring Nagios, Docker, OpenStack, Puppet, Ansible, Réseaux Ethernet/Infiniband …\n\nCDI – Basé à Arpajon – Rémunération attractive en fonction de votre expérience.\nCela vous intéresse et vous souhaitez en savoir plus ? Contactez-moi : bastien.grandjouan@myneovity.fr\nProfil recherché\n\nInformations utiles\n• Localisation : Arpajon - 91, France\n• Contrat : CDI\n• Salaire : 60000,00 à 70000,00 EUR par an\n• Niveau de qualification : Ingénieur/Cadre/Bac +5, Technicien/Employé Bac +2, Agent de maîtrise/Bac +3/4\n• Expérience : + 7 ans\n• Modalités de travail : Temps complet\n• Fonction : Informatique - Systèmes/Réseaux\n• Secteur : Secteur informatique/ESN\n\nQui sommes nous ?\n\nNeovity est un service de recrutement spécialisé sur les métiers de l'IT. Nantais, nous avons des clients sur toute la France et après un échange sur vos attentes, nous vous mettons en relation UNIQUEMENT avec les entreprises qui y répondent",
+      "extensions": [
+        "il y a 3 jours",
+        "60 k € à 70 k € par an",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIFN5c3TDqG1lIExpbnV4IFNlbmlvciAoSC9GKSIsImh0aWRvY2lkIjoiM2tiRXZxekVGQlVBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgVGFsZW50IERldGVjdGlvbiIsImxpbmsiOiJodHRwczovL3d3dy50YWxlbnRkZXRlY3Rpb24uY29tL25lb3ZpdHkvb2ZmcmUtMzMyMDAtTnlVVFRXP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Ingénieur système Linux - F/H",
+      "company_name": "CS Group",
+      "location": "Le Plessis-Robinson",
+      "via": "via Monster",
+      "description": "Description de l'entreprise\n\nLa mission de CS GROUP : être à la pointe des technologies pour garantir la sécurité de tous dans un monde en pleine mutation.L’expertise reconnue du groupe lui permet d’intervenir là où les enjeux de sécurité sont les plus sensibles : aéronautique, défense, énergie, spatial… Et, aussi, là où les réponses sont à inventer ou à réinventer : lutte anti-drones, cybersécurité, traitement de données satellitaires…\n\nVous souhaitez évoluer dans une entreprise à dimension humaine qui encourage l’innovation, la curiosité et la prise de responsabilités ? Un groupe qui cultive la diversité de ces métiers, issus de l'univers IT mais aussi du monde scientifique et qui investit près de 15% de son CA en R&D ? Rejoignez-nous et additionnons nos talents !\n\nDescription du poste\n\nAu sein de la BU Défense et Sécurité de CS GROUP, vous intégrerez le Département IT, DevOps & SSI qui est en charge de la conception et de l’administration du Système d’Information de Production des... projets protégés, et du support aux projets métiers.\n\nEn tant qu’ingénieur des systèmes Linux, vous concevez, intégrez et exploitez les moyens informatiques, matériels et logiciels, vous maintenez en conditions opérationnelles et de sécurité les SI protégés et participez au support des équipes métiers.\n\nEn particulier, vous aurez en charge de :\n• Concevoir et faire évoluer les infrastructures IT en environnement Linux,\n• Assurer le bon fonctionnement, la disponibilité et la sécurité du SI (MCO/MCS)\n• Déployer et maintenir les serveurs et des postes de travail Linux et Windows,\n• Diagnostiquer et de résoudre les dysfonctionnements, de traiter les tickets concernant le helpdesk,\n• Rédiger les procédures, les dossiers d’intégrations… et de maintenir le référentiel documentaire,\n• Administrer les briques de sécurité (antivirus, package de sécurité systèmes…), de mettre à jour les logiciels,\n• Analyser les incidents et de mettre en place les correctifs.\n\nQualifications\n\nDe formation Bac+5, spécialisé dans l’Ingénierie des Systèmes d’Information, vous avez une expérience confirmée.\n\nVous êtes expert dans les systèmes d’exploitation Linux RHEL, CentOS, Fedora…\n\nVous maîtrisez bash, python et l’industrialisation des systèmes (scripting, Ansible, Puppet, Kixstart…), la virtualisation des serveurs (Hyperviseurs RHEV, LibVirt,…), ainsi que la gestion du stockage de type SAN iSCSI.\n\nVous avez des compétences en intégration matérielle et logicielle et la maîtrise des protocoles sécurisées (SSH, SSL,…).\n\nVous connaissez également les concepts et techniques d’architecture des systèmes et des réseaux, les technologies d’annuaires LDAP. Des connaissances réseau CISCO et sécurité (VLAN, VPN...), et une expérience des bases de données seront un plus. Vos compétences rédactionnelles sont d’un bon niveau.\n\nVous disposez de qualités telles que l’autonomie, l’esprit d’équipe et l’écoute.\nVous êtes réactif, rigoureux et organisé, et vous savez rendre compte de vos activités.\n\nÀ compétences égales, ce poste est ouvert aux personnes en situation de handicap.\n\nInformations supplémentaires\n\nPourquoi choisir CS GROUP ?\n\nPour notre filière Expert qui valorise vos compétences techniques, notre engagement dans l’innovation avec un budget R&D de 30 millions d’euros/an, nos engagements sociétaux et environnementaux : index d’égalité professionnelle à 86/100, partenaire de l’association Elles bougent, membre de la planète Tech Care etc.\n\nEt bien sûr :\n\nla possibilité de télétravailler, un programme de cooptation, la complémentaire santé, les RTT, le CE.\n\nLa suite des événements :\n\nSi votre profil correspond, vous aurez un entretien technique avec un de nos Responsables opérationnels. Puis, vous rencontrerez Hyewon lors d’un entretien RH. Et nous nous engageons à vous faire un retour par téléphone",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVmbG072_BXfZ7NzyomDK7pzeofqv5Erng1cIgIUg&s",
+      "extensions": [
+        "il y a 5 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 5 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIHN5c3TDqG1lIExpbnV4IC0gRi9IIiwiaHRpZG9jaWQiOiJYX0czRWl6VWFLMEFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiZmMiOiJFc3dCQ293QlFWQkZNa2RYUWpkUWVHWmtPVU5HUlhaWE4yaE1YMEZvUjNkQlFrZERUakI2V1hwNVdYTTFkVXhxYVZBeU9IWlBkMHN6YUhsSmVtcFhlV3Q0V1RGWU1uQjRkSEZNYms1UVIxWkdVbVZsUkUxc1RVTmhVMmxOVlRGemQxODRiR2xvZGw4eWJWQlZYM1pVWlhoblZVbHVTWE0wYVVoTU4zRjNjVzlHYlcxeWFucDFSMHg1WmpZdGVWQmxaVFFTRjFOTGRFSlpkbXBTVDNCRGEzbDBUVkI2Y1ZOYUxVRkpHaUpCUkdwWFh6TkpOemxqUlRRM1ZEQjBlbUZpY2xkTGFUYzRkRVJNV2xWTlRIRlIiLCJmY3YiOiIzIiwiZmNfaWQiOiJmY18yIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBNb25zdGVyIiwibGluayI6Imh0dHBzOi8vd3d3Lm1vbnN0ZXIuZnIvb2ZmcmVzLWRlbXBsb2kvaW5nJUMzJUE5bmlldXItc3lzdCVDMyVBOG1lLWxpbnV4LWYtaC1sZS1wbGVzc2lzLXJvYmluc29uLTExLS01MzgwNWJmZS1hMzJlLTQ0NzgtYjA5ZC02ZTA3NzUxZWU2OWI/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Administrateur Système Linux – Alternance F/H",
+      "company_name": "3DS OUTSCALE",
+      "location": "Saint-Cloud",
+      "via": "via Outscale",
+      "description": "L’histoire de 3DS OUTSCALE, a débuté avec un objectif : assurer la souveraineté des données.\n\nAujourd’hui, grâce au travail de nos équipes, nous sommes fiers de mettre en œuvre, chaque jour, notre savoir-faire face à ce défi !\n\nEn effet, 3DS OUTSCALE s’est imposé comme le Cloud d’hyper-confiance en proposant des services Cloud d’Infrastructure hautement qualifiés : ISO 27001, HDS, SecNumCloud…\n\nTINA, notre propre orchestrateur évolue chaque année dans les mains innovantes de notre département R&D.\n\nNous rejoindre, c’est bien plus que “trouver un travail”, c’est se lever chaque matin avec l’envie de révolutionner le secteur du Cloud et ainsi contribuer au monde de demain !\n\nÉtant une entreprise en perpétuelle croissance, et toujours à la recherche de nouveaux talents, nous recrutons un.e Administrateur.rice Système Linux en alternance afin de renforcer notre équipe Continuité de Service.\n\nVos missions\n\nAccompagné·e par les autres membres de l’équipe, vous aurez pour missions de :\n•... Participer à la gestion du cycle de vie de TINA OS et de ses composants\n• Proposer des évolutions systèmes dans le cadre de l’optimisation et de la résilience des architectures\n• Participer à l’automatisation des déploiements systèmes de TINA (MAJ et installations nouvelle région / Solution On premise)\n• Contribuer à la rédaction de documents, mener et partager des réflexions afin d’assurer le transfert de compétences auprès des nouveaux collaborateurs.\n• Assurer le support client IaaS de niveau 2 et 3.\n\nStack technique\n• Linux\n• Salt Stack\n• Scripting Python, Bash\n\nVotre Profil\n• Vous préparez un diplôme Bac+5 dans le domaine de l’Administration Système et Réseaux et recherchez une alternance pour la rentrée de septembre 2022.\n• Vous êtes passionné·e par l’Informatique, les nouvelles technologies et le domaine de l’Administration Systèmes et Réseaux.\n• Vous êtes curieux·se et faites preuve d’une bonne communication écrite et orale.\n• Vous avez une première expérience en administration système Linux avec idéalement d’outils de type Salt Stack, Ansible, Puppet, Chef…\n• Un anglais technique demandé.\n\nNos avantages\n• Télétravail : jusqu’à 2 jours par semaine selon l’organisation de l’équipe\n• Primes de participation et d’intéressement en fonction des résultats de l’entreprise\n• Carte Swile (9€/jour)\n• Yuco (pour des sessions sportives entre collègues)\n• CSE (réductions voyages, places de cinéma, parcs, abonnements sportifs…)\n• Application du forfait mobilité durable\n\nLa Diversité de 3DS OUTSCALE trouve aussi son expression dans notre politique de recrutement qui privilégie l’égalité des chances, la diversité des individus au sein de nos équipes.\n\n[ninja_forms id=1",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBZG1pbmlzdHJhdGV1ciBTeXN0w6htZSBMaW51eCDigJMgQWx0ZXJuYW5jZSBGL0giLCJodGlkb2NpZCI6ImlVVWZDMGc5eWFZQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJmYyI6IkV1SUJDcUlCUVZCRk1rZFhRbGxRU2s1aE1YaHFRMk5HT0ZGeFNFTlpTMWhZUkRkVGIwdHZSVzl2Um5acFVXVmZZMEp6Wm5vNFJITkRTVE5OZVc5MVZsSnBNSFpxUVRGR2RubHJja2g1Ym1sd1VWOTBWVFp2WVRGU1JGY3pSMGw2U0d0a1UzZHdOMjQzTTNJemRsTldSbXBEZW1WMGVsZzVTR2xmYUdKR2EwcDZVblF0TkZwVk4zUjRVak51T0hkS1QxUkpURE54WDNSRWNFeE1aMjVQVldwR2RtMXlVekIzRWhkVFMzUkNXWFpxVWs5d1EydDVkRTFRZW5GVFdpMUJTUm9pUVVScVYxOHpTamczZUZONFdtOW5jMlZTZWtwUE9GZHBYM0JST1V0aGFreFBRUSIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzMiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIE91dHNjYWxlIiwibGluayI6Imh0dHBzOi8vZnIub3V0c2NhbGUuY29tL3Bvc3RlL2FkbWluaXN0cmF0ZXVyLXN5c3RlbWUtbGludXgtYWx0ZXJuYW5jZS1mLWgvP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Administrateur Systeme Linux",
+      "company_name": "e-Kent",
+      "location": "Paris",
+      "via": "via LinkedIn",
+      "description": "Vous avez soif de nouvelles aventures et souhaitez réaliser de nouveaux challenges professionnels ? Kent a un poste pour vous !\n\nDans une entreprise du secteur sanitaire, vous pourrez vous épanouir en tant qu'Administrateur système Linux au sein d'une équipe prête à tout pour relever de nouveaux challenges et proposer des produits adaptés à l'ensemble de leurs clients. Venez rejoindre un groupe qui a plus de 60 ans d'existence au savoir faire technologique avancé., * Administration, supervision et évolution des infrastructures systèmes ;\n• Sauvegarde et virtualisation ;\n• Elaboration des procédures d'installation et d'exploitation ;\n• Optimisation de l'usage des ressources ;\n• Participation à la veille technologique ;\n• Maintien à jour de la documentation et des procédures d'exploitation ;\n• Supervision de l'infrastructure sur les plans matériels et logiciels ;\n• Assurer la qualité et la disponibilité des services aux utilisateurs ;\n• Mise en pratique d'un transfert de compétences aux... équipes support de niveau 1 et 2 ;\n• Coordination du niveau 3 avec les supports externes ;\n• Assister les équipes réseaux et projets ainsi que les développeurs de services et d'applications.\n\nEnvironnement technique : Linux, VMware, Azure, Office 362, AD Veeam, Oracle, MySQL, etc...\n\nVous justifiez d'une première expérience significative dans un poste similaire, et vous êtes motivé !\n\nVous êtes une personne\n• Capable d'analyser et de comprendre des applications spécifiques ;\n• Autonome, Rigoureuse et Organisée ;\n• Polyvalente et Flexible ;\n• Forte de proposition ;\n• Vous disposez d'une aisance relationnelle et rédactionnelle",
+      "extensions": [
+        "il y a 2 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 2 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBZG1pbmlzdHJhdGV1ciBTeXN0ZW1lIExpbnV4IiwiaHRpZG9jaWQiOiJzVlZtMHJ0a3owTUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBMaW5rZWRJbiIsImxpbmsiOiJodHRwczovL2ZyLmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvYWRtaW5pc3RyYXRldXItc3lzdGVtZS1saW51eC1hdC1lLWtlbnQtMjk5MzIxNDEzOD91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Ingénieur Système Linux Junior (H/F)",
+      "company_name": "Neovity",
+      "location": "Arpajon",
+      "via": "via Talent Detection",
+      "description": "Description du poste et Missions\n\nHPC ? Superordinateurs ? Vous connaissez ?\nLe Calcul Haute Performance est possible grâce aux superordinateurs qui sont conçus pour atteindre les plus hautes performances possibles en termes de vitesse de calcul.\nVenez rejoindre le premier constructeur européen !\n\nUne équipe de 9 personnes est dédiée à l’exploitation, l’administration et l’évolution des infrastructures des supercalculateurs en environnement Linux RedHat. Vous avez pour missions :\n\n- Administrer et exploiter les infrastructures systèmes et les outils Traitement des incidents et gestion des problèmes\n- Gestion des changements\nMaintenir et sécuriser les environnementsParticiper au projet\n- Faire évoluer les infrastructures HPC\n- Être force de proposition sur les matériels, outils et les logiciels à mettre en œuvre (dans une démarche DevOps)\nAssurer un support niveau 2/3Rédiger ou mettre à jour la documentation\nProfil recherché\n\nDe formation bac+5, vous avez une première expérience en... environnement Linux Redhat et des compétences en monitoring, virtualisation et scripting. Venez découvrir l’environnement HPC ! Vous serez formé aux outils et aux technologies ; et vous intégrez une équipe de passionnés qui s’épanouissent sur des projets conséquents.\nCDI – Basé à Arpajon – Rémunération attractive en fonction de votre expérience.\nInformations utiles\n• Localisation : Arpajon - 91, France\n• Contrat : CDI\n• Salaire : Non défini\n• Niveau de qualification : Ingénieur/Cadre/Bac +5\n• Expérience : 1 à 7 ans, + 7 ans\n• Modalités de travail : Temps complet\n• Fonction : Informatique - Systèmes/Réseaux\n• Secteur : Secteur informatique/ESN\n\nQui sommes nous ?\n\nNeovity est un service de recrutement spécialisé sur les métiers de l'IT. Nantais, nous avons des clients sur toute la France et après un échange sur vos attentes, nous vous mettons en relation UNIQUEMENT avec les entreprises qui y répondent",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIFN5c3TDqG1lIExpbnV4IEp1bmlvciAoSC9GKSIsImh0aWRvY2lkIjoieWsydTVqQTg3bklBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgVGFsZW50IERldGVjdGlvbiIsImxpbmsiOiJodHRwczovL3d3dy50YWxlbnRkZXRlY3Rpb24uY29tL25lb3ZpdHkvb2ZmcmUtMzMyMDAtcUZ0aHFIP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Ingénieur Développement Linux Embarqué F/H",
+      "company_name": "SAGEMCOM",
+      "location": "Rueil-Malmaison",
+      "via": "via JobTeaser",
+      "description": "Sagemcom est un intégrateur de ruptures technologiques dans le monde de l'énergie et des télécoms.\n\n\" Numéro 2 mondial des solutions haut débit (box internet et services logiciels associés)\n\n\" Numéro 2 mondial des solutions audio-vidéo (hubs vidéo 4K, sound box et vidéo sound box)\n\n\" Leader européen des solutions smart-grid (comptage communicant, réseaux intelligents, électrification rurale, IoT)\n\nSagemcom a réalisé 2,1 milliards d'euros de chiffre d'affaires en 2019. L'effectif de 5 500 personnes est réparti dans plus de 50 pays. Sagemcom conçoit, fabrique et expédie plus de 40 millions de terminaux dans le monde chaque année.\n\nIngénieur Développement Linux Embarqué F/H\n\nStage – 6 mois\n\nMission\n\nSagemcom conçoit des décodeurs TV et systèmes audio connectés incluant de nombreuses fonctions audios innovantes, comme des assistants vocaux (Alexa, OK Google, ...) ou des hauts parleurs intégrés de haute qualité (Devialet).\n\nDans ce contexte, le Bluetooth est d’une grande importance comme... moyen d’entrée/sortie audio.\n\nDans le contexte général des développements logiciel de nos produits set top box, le stage porte sur le développement d'un outil d'audit et de surveillance en temps réel des différents allocateurs mémoire. Les fournisseurs de chipset de set top box fournissent un composant logiciel qui contient son propre allocateur mémoire, qui fonctionne de pair avec l'allocateur mémoire du système (Android).\n\nCet outil permettra de déterminer dynamiquement la valeur optimale de ces paramètres et voir quels sont les besoins mémoire en fonction des cas d'utilisation. Il faudra pour cela être capable d'analyser et d'instrumenter du code assez complexe, sans changer drastiquement le temps réel de ce système embarqué.\n\nBénéfices\n• Vous préparez une formation d'ingénieur en systèmes embarqués.\n• Vous disposez de réelles capacités d'analyse et de synthèse et faites preuves de curiosité.\n• Vous êtes méthodique et force de proposition.\n• Vous avez des expériences de développement en C, kernel linux et des notions en Android serait un plus.\n• Vous êtes autonome et rigoureux.\n\nSagemcom est une entreprise handi-accueillante",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfJXYsIJZfgpmq5HwI6-nhn8a5riECnP1JgF4hOjI&s",
+      "extensions": [
+        "il y a 3 jours",
+        "Stage"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "Stage"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIETDqXZlbG9wcGVtZW50IExpbnV4IEVtYmFycXXDqSBGL0giLCJodGlkb2NpZCI6ImJ3Wll1Mnp2bm1RQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJmYyI6IkVzd0JDb3dCUVZCRk1rZFhSRXByTVhVM1kwdEZkRE5OVkY5V1pGZHdUVGRqVlMxM1ZtUk1PRmxrYzJOVGEwcHJZMEZzYWs5S05XUlNhMHhETm5sSlduVjRkMGx6ZUU5Sk1HSlZXVnBmWDFZdGNuUXRaRkpmZW1KbmVWSlBOMVZYVDNoVVVXaHllWHBMYkVwT1gyUlZTMFkyVjNZMFRsODBhREJ1ZVc5VGNFUmFNa1k1VWpWRmEwVXRRa0ZTT1RRMmMyVVNGMU5MZEVKWmRtcFNUM0JEYTNsMFRWQjZjVk5hTFVGSkdpSkJSR3BYWHpOS2QzUkpPVXRTWWpCTlZsbFljMHg1VVdJeU1FNXlVelkyZDJ4biIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzQiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIEpvYlRlYXNlciIsImxpbmsiOiJodHRwczovL3d3dy5qb2J0ZWFzZXIuY29tL2ZyL2pvYi1vZmZlcnMvODY3MDYzNC1zYWdlbWNvbS1pbmdlbmlldXItZGV2ZWxvcHBlbWVudC1saW51eC1lbWJhcnF1ZS1mLWg/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Ingénieur - Linux/Unix - DSI - Île-de-France - F/H",
+      "company_name": "Sopra Steria",
+      "location": "Paris",
+      "via": "via Welcome To The Jungle",
+      "description": "Votre futur environnement de travail\n\nAu sein de Sopra Steria, vous êtes rattaché(e) à la Direction des Systèmes d'Information qui conçoit, intègre et exploite les systèmes d'information et les infrastructures informatiques internes du Groupe, en France et à l'international.\n\nVous rejoignez la Direction des Systèmes d?Information en tant qu'ingénieur Linux / Unix. Vous intégrez une équipe internationale au sein du pôle infrastructure.\n\nVotre rôle et votre mission:\n\nVous avez pour mission de suivre, faire évoluer et maintenir un parc comptant plus de 6000 serveurs *nix. Pour parvenir à cela vous travaillerez sur les sujets suivants :\n\n- La mise en oeuvre des infrastructures Linux / Unix\n- La gestion de la sécurité,\n- La participation aux projets d'études et d'amélioration de ces environnements (analyse des besoins, dimensionnement des infrastructures).\n- L'amélioration des processus d'industrialisation (automatisation, scripting, reporting),\n- L'administration, et le maintien en... conditions opérationnelles des plateformes *nix.\n\nEnvironnement technique\n\nVous travaillez dans un contexte international, dans l'environnement technologique suivant :\n\n- Linux: Red Hat, CentOS, Debian, Oracle Linux\n- Unix: AIX, Solaris, HPUX\n- Scripting: Python, Bash, Perl\n- Infrastructures virtuelles (VMware, Azure, AWS) ou physiques\n- Technologies Ansible / Centreon / Netbackup / Docker / Oracle\n\nCe que nous vous offrons :\n\nÊtre au coeur de la stratégie cloud d'un groupe de 50.000 personnes, en contact avec tous les intervenants cloud : responsables projets, développeurs, éditeurs.\n\nÉgalement, vous bénéficiez des avantages suivant :\n\n- Un accord télétravail pour télétravailler jusqu'à 2 jours par semaine.\n- Un package avantages intéressant : une mutuelle, un C.E, des tickets restaurant, primes d'intéressement, de participation et de cooptation, actionnariat salarié.\n- Un accompagnement individualisé avec un mentor\n- Des opportunités de carrières multiples : plus de 50 métiers, autant de passerelles à imaginer ensemble.\n- 5 jours de formation par an avec Sopra Steria Academy\n- La possibilité de s'engager auprès de notre fondation ou de notre partenaire « Vendredi »\n- L'opportunité de rejoindre le collectif Tech'Me UP (formations, conférences, veille, et bien plus encore",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPAU19c4y-RwNJzXxiKzMiOhnujklcONa22atZiBs&s",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIC0gTGludXgvVW5peCAtIERTSSAtIMOObGUtZGUtRnJhbmNlIC0gRi9IIiwiaHRpZG9jaWQiOiJtYTNna3hUZGdiQUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiZmMiOiJFdUlCQ3FJQlFWQkZNa2RYUXpkU04wdHRSVVZxUjFSa00zcGhYMFZoWDBSdFgzQXlNamxXZEVGSFExTkNjVEYyT0RSdVZYZzVNbWRHVmxsWVdHdzRjVGR6UTFWYVowSlhVMVV6Vm1NeE5rTmxYMVU1WVdWS1YyZHVha0ZYZG05ME5UTlVielV6ZDI1TU5rSlBNak5XTm10YVJIbE1kbmxwTW5OTWNrRkRZVjh0UmpObWRuUlNVbm8wVEU5eU5GTmhlRlphVVhOcFFrdGtVR3h2YXpsbFJqWXlNRzFwWW5WUkVoZFRTM1JDV1hacVVrOXdRMnQ1ZEUxUWVuRlRXaTFCU1JvaVFVUnFWMTh6VEhCSWNreFVSMFZVTldWMVJFWTBiR1EzWnkxVVNVeHhja0ozVVEiLCJmY3YiOiIzIiwiZmNfaWQiOiJmY181IiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBXZWxjb21lIFRvIFRoZSBKdW5nbGUiLCJsaW5rIjoiaHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvc29wcmEtc3RlcmlhL2pvYnMvaW5nZW5pZXVyLWxpbnV4LXVuaXgtZHNpLWlsZS1kZS1mcmFuY2UtZi1oX2lsZS1kZS1mcmFuY2U/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Ingénieur système Linux H/F",
+      "company_name": "Akka Technologies",
+      "location": "Villejuif",
+      "via": "via Akka Technologies",
+      "description": "AKKA Groupe d’ingénierie et de conseil en technologies de plus de 21 000 concepteurs, acteurs et penseurs aux avant-postes du monde digital et connecté, est un accélérateur d’innovation pour les plus grands groupes industriels mondiaux.\nLa mutation numérique transforme radicalement la conception et la nature même de l’ensemble des produits et engendre une constante évolution des usages et des technologies. Face à cet enjeu de transformation numérique, nos consultants conçoivent des solutions innovantes pour accompagner nos clients sur l’ensemble du cycle de vie de leurs produits.\nNous apportons une expertise qui englobe la totalité de l’environnement technologique produit et digital. C’est ce positionnement qui fait d'AKKA un groupe unique.\n\nNotre centre de compétences Telecom est à la recherche de nouveaux talents pour rejoindre une équipe en fort développement sur des projets stratégiques dans les domaines de la fibre, des softwares, des réseaux mobiles, des infras réseaux et... systèmes. A ce titre, au sein d’une équipe d’experts, nous recrutons notre futur ingénieur système Linux H/F.\nVous serez intégré au sein d'un de nos clients sur la région parisienne. Vous interviendrez sur plusieurs missions définies en amont avec votre chef de projet, notamment :\n- La participation aux rotations des « récurrences » au sein du domaine PFS : points de synchronisation, résolution et escalade, amélioration continue\n- La supervision et la réalisation des travaux programmés en heures non ouvrées (supervision des services en production, traitement des alertes, réalisation des actions\n- Le maintien en conditions opérationnelles : gestion des incidents N2 et N3, maintien de la documentation\n- La participation aux astreintes système environ 5 fois par an\n- L’intégration des développements : mise à disposition d’environnements de développement, recette, (pré-)production, support aux équipes de développement, rédaction des procédures\n- L’amélioration continue de l’exploitabilité des services : monitoring et supervision orientée service et expérience utilisateur\nDe formation ingénieur ou BAC+5 vous avez au minimum 2 ans d’expérience sur de la production Linux (Ubuntu LTS, socle de référence des serveurs). Vous maîtrisez parfaitement Bash (scripting shell chaines de traitement et transformations), Python (automatisation) et avez déjà abordé les langages HTML / javascript / CSS.\nVous avez de bonnes connaissances en déploiement/intégration (Ansible, GIT/SVN, Docker).\nVous avez déjà travaillé avec Apache, si possible Nginx et Memcached/redis.\nVotre autonomie, votre capacité d’analyse et votre détermination font de vous la personne idéale pour appréhender ce poste. Proactif, vous maintenez vos connaissances à jour à travers une veille assidue.\nVous souhaitez intégrer une équipe dynamique et participer à des projets internationaux innovants, rejoignez-nous !\nA compétences égales tous nos postes sont ouverts aux personnes en situation de handicap",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtQGBZBHjK3D6bsf5YPUaLG1gnp1aGAwZVvHUnQkE&s",
+      "extensions": [
+        "il y a 13 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 13 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJJbmfDqW5pZXVyIHN5c3TDqG1lIExpbnV4IEgvRiIsImh0aWRvY2lkIjoic1MwTXhTdHRmcGNBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImZjIjoiRXVJQkNxSUJRVkJGTWtkWFF6QlhWVGRmWkRSMVdWZEhiVEZIY2tsNVl6Wm9ZemRmV1ZkNE4zTTRWRXBSWTBOeVUzQnJkM0psT1VaYU5VNXhZbmRXTW5KeU1pMDRVSEF3VnpjMVVGTnNYMFpDVUhjMWNXWmhVMFZNYmw5bU5VUnlhMk5wV25nd1NEUTBWelJYV21RMWJtSktObmx6V2tWdk1YTmhTVzUxWjNkaVpIZzJiVFpxTlU5YVptRk1TRlo2WjI5U2VISkVkRTl4UldWU1VubzVZMGsxVkRkRVlXRjNFaGRUUzNSQ1dYWnFVazl3UTJ0NWRFMVFlbkZUV2kxQlNSb2lRVVJxVjE4elNuVnVWVkprYVZWdWIwY3dMV3BRV25CNWJFOUhjMWQwU0RWZlVRIiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfNiIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgQWtrYSBUZWNobm9sb2dpZXMiLCJsaW5rIjoiaHR0cHM6Ly93d3cuYWtrYS10ZWNobm9sb2dpZXMuY29tL3Blb3BsZS1jYXJlZXJzL2pvYi1vZmZlci9pbmdlbmlldXItc3lzdGVtZS1saW51eC1oLWYvP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    }
+  ],
+  "chips": [
+    {
+      "type": "Lieu",
+      "param": "city",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Paris",
+          "value": "D7fiBh9u5kdglIxow4ILBA=="
+        },
+        {
+          "text": "Toulouse",
+          "value": "_1J17G-7rhIwEEEvnPYGBA=="
+        },
+        {
+          "text": "Nantes",
+          "value": "ra6o8IHuBUgw7Q0eUjcNBA=="
+        },
+        {
+          "text": "Lyon",
+          "value": "l4foalHq9EfwIbvkKqsIBA=="
+        },
+        {
+          "text": "Strasbourg",
+          "value": "wbIYXknIlkcfJOcYMUgalw=="
+        },
+        {
+          "text": "Lille",
+          "value": "EW4ls3nVwkdgY2SBPvEKBA=="
+        },
+        {
+          "text": "Cesson-Sévigné",
+          "value": "NYvWwzHZDkhAkCyTGOayVQ=="
+        },
+        {
+          "text": "Montpellier",
+          "value": "sZ3dJQevthIC6JQodFaHrQ=="
+        },
+        {
+          "text": "Orléans",
+          "value": "44bzndTk5EcpgMN55H25ng=="
+        },
+        {
+          "text": "Rennes",
+          "value": "hZDWpy_eDkgwq-Q2zaUMBA=="
+        },
+        {
+          "text": "Villeurbanne",
+          "value": "ryN2zS_A9EdSJlslKwy6ww=="
+        },
+        {
+          "text": "Aix-en-Provence",
+          "value": "WRK5BKONyRKjiLbIvlO5XA=="
+        },
+        {
+          "text": "Bordeaux",
+          "value": "gcpR9-gnVQ2Jejl7A4ZjeQ=="
+        },
+        {
+          "text": "Bruyères-le-Châtel",
+          "value": "8Y9o7xPR5UcsL8BtwD3wlQ=="
+        },
+        {
+          "text": "Courbevoie",
+          "value": "vccvsApl5kcQPotow4ILBA=="
+        },
+        {
+          "text": "Grenoble",
+          "value": "b76J1ov0ikeYU5luzRCMYQ=="
+        },
+        {
+          "text": "Niort",
+          "value": "9YbWETIwB0jAKuhgktMFBA=="
+        },
+        {
+          "text": "Saint-Cloud",
+          "value": "j45beSR75keCz2CwCgehTA=="
+        },
+        {
+          "text": "Tours",
+          "value": "VZqXSrPV_EcwhDgF18gNBA=="
+        },
+        {
+          "text": "Angers",
+          "value": "nY7lANp4CEgwnA0eUjcNBA=="
+        },
+        {
+          "text": "Arpajon",
+          "value": "_VF9X5rQ5UfgSotow4ILBA=="
+        },
+        {
+          "text": "Bezons",
+          "value": "04KEHBZk5kegNYtow4ILBA=="
+        },
+        {
+          "text": "Chambéry",
+          "value": "Y19pCFeoi0eciT2mzxrC1Q=="
+        },
+        {
+          "text": "Cholet",
+          "value": "5fDNrRREBkiAlg0eUjcNBA=="
+        },
+        {
+          "text": "Labège",
+          "value": "re_k4PKVrhJulsDWE_9BJA=="
+        },
+        {
+          "text": "Metz",
+          "value": "qbZ0YBvclEdpprs1tuRrWQ=="
+        },
+        {
+          "text": "Nanterre",
+          "value": "vyXf2YRk5kfiR8FqHO4hew=="
+        },
+        {
+          "text": "Rueil-Malmaison",
+          "value": "K4enU1pj5kcgPYtow4ILBA=="
+        },
+        {
+          "text": "Asnières-sur-Seine",
+          "value": "KxuhrEJv5kfAPotow4ILBA=="
+        },
+        {
+          "text": "Issy-les-Moulineaux",
+          "value": "xy7Ltot65kehJ24ad9Amiw=="
+        },
+        {
+          "text": "Le Haillan",
+          "value": "YQ4YmMbQVA2Q5BZIF2UGBA=="
+        },
+        {
+          "text": "Le Mans",
+          "value": "MarzFNKI4kd_4H1qTF0CaQ=="
+        },
+        {
+          "text": "Saint-Denis",
+          "value": "YW0056pu5kcN6Sj5uuvvxw=="
+        },
+        {
+          "text": "Saint-Ouen",
+          "value": "Dak3HeRu5keQOotow4ILBA=="
+        },
+        {
+          "text": "Valbonne",
+          "value": "vUmYZ1gpzBKVIlwyvAXXSg=="
+        },
+        {
+          "text": "Vélizy-Villacoublay",
+          "value": "-acYgeR75kdQNoxow4ILBA=="
+        },
+        {
+          "text": "Antibes",
+          "value": "qZFankXVzRKwn5f9pRkIBA=="
+        },
+        {
+          "text": "Arcueil",
+          "value": "m-9wxBFx5kfwOYtow4ILBA=="
+        },
+        {
+          "text": "Bagnols-sur-Cèze",
+          "value": "aaiaQsWktRJDqoOWtYjY6w=="
+        },
+        {
+          "text": "Biot",
+          "value": "LUL4hzcrzBLQnpf9pRkIBA=="
+        },
+        {
+          "text": "Blagnac",
+          "value": "VeJ4cDGlrhJZp5eN1hq2_g=="
+        },
+        {
+          "text": "Bourges",
+          "value": "F7SbuHeW-ke-hVzNLCj7yw=="
+        },
+        {
+          "text": "Cambrai",
+          "value": "8_mkN3y7wkf7ELpaPjxPFA=="
+        },
+        {
+          "text": "Cannes",
+          "value": "__8MU4CBzhIgnpf9pRkIBA=="
+        },
+        {
+          "text": "Cesson",
+          "value": "3WUfBiDl5UfAYYxow4ILBA=="
+        },
+        {
+          "text": "Charenton-le-Pont",
+          "value": "U_JmF1dy5keQOYtow4ILBA=="
+        },
+        {
+          "text": "Châtillon",
+          "value": "kSNSQpFw5kdgPotow4ILBA=="
+        },
+        {
+          "text": "Clichy",
+          "value": "37pZhAxv5kfLaxOwc6RdcA=="
+        },
+        {
+          "text": "Colombelles",
+          "value": "71Kx5ShmCkjKdnxl95HLbA=="
+        },
+        {
+          "text": "Colombes",
+          "value": "S0wd8shl5kcgPotow4ILBA=="
+        },
+        {
+          "text": "Flers-en-Escrebieux",
+          "value": "DbpH8wTMwkegERGN7TxhXQ=="
+        },
+        {
+          "text": "Gonesse",
+          "value": "MR6JMsFq5ke0KA3CRSjgUg=="
+        },
+        {
+          "text": "Gradignan",
+          "value": "m1yfR0nfVA0Q5RZIF2UGBA=="
+        }
+      ]
+    },
+    {
+      "type": "Date de publication",
+      "param": "date_posted",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Depuis hier",
+          "value": "today"
+        },
+        {
+          "text": "Depuis 3 jours",
+          "value": "3days"
+        },
+        {
+          "text": "Depuis 1 semaine",
+          "value": "week"
+        },
+        {
+          "text": "Depuis 1 mois",
+          "value": "month"
+        }
+      ]
+    },
+    {
+      "type": "Langue",
+      "param": "language",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Résultats en français",
+          "value": "fr"
+        },
+        {
+          "text": "Résultats en anglais",
+          "value": "en"
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "param": "employment_type",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "À plein temps",
+          "value": "FULLTIME"
+        },
+        {
+          "text": "Prestataire",
+          "value": "CONTRACTOR"
+        },
+        {
+          "text": "Stage",
+          "value": "INTERN"
+        },
+        {
+          "text": "À temps partiel",
+          "value": "PARTTIME"
+        }
+      ]
+    },
+    {
+      "type": "Employeur",
+      "param": "organization_mid",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Atos",
+          "value": "/m/03mndf"
+        },
+        {
+          "text": "Capgemini",
+          "value": "/m/03vlk0"
+        },
+        {
+          "text": "Inetum",
+          "value": "/m/0cqhjj6"
+        },
+        {
+          "text": "Michael Page",
+          "value": "/m/04cxldw"
+        },
+        {
+          "text": "3DS OUTSCALE",
+          "value": "/g/11b8zg2vf6"
+        },
+        {
+          "text": "Groupe SII",
+          "value": "/g/155rxgkm"
+        },
+        {
+          "text": "Akka Technologies",
+          "value": "/m/0cqgflz"
+        },
+        {
+          "text": "CELAD",
+          "value": "/g/11bym_s0lb"
+        },
+        {
+          "text": "Expectra",
+          "value": "/g/11bc6s15j5"
+        },
+        {
+          "text": "CS Group",
+          "value": "/m/0cqjrj6"
+        },
+        {
+          "text": "Astek",
+          "value": "/g/1234blrc"
+        },
+        {
+          "text": "Ausy",
+          "value": "/g/120zv4z5"
+        },
+        {
+          "text": "Canonical",
+          "value": "/m/045s92"
+        },
+        {
+          "text": "HAYS",
+          "value": "/m/065xwy"
+        },
+        {
+          "text": "INFIDIS",
+          "value": "/g/11g9mr_16t"
+        },
+        {
+          "text": "Iliad",
+          "value": "/m/04jhmd3"
+        },
+        {
+          "text": "Sopra Steria",
+          "value": "/g/1tppr87d"
+        },
+        {
+          "text": "Thales",
+          "value": "/m/01phj4"
+        },
+        {
+          "text": "Alstom",
+          "value": "/m/011wfk"
+        },
+        {
+          "text": "Axess Groupe",
+          "value": "/g/11b6dsm2y4"
+        },
+        {
+          "text": "Blue Soft",
+          "value": "/g/11f0169gx8"
+        },
+        {
+          "text": "Consort Nt",
+          "value": "/m/0cp6mrp"
+        },
+        {
+          "text": "Crédit Mutuel",
+          "value": "/m/0crh_jr"
+        },
+        {
+          "text": "France Televisions",
+          "value": "/m/02z__m"
+        },
+        {
+          "text": "Modis France",
+          "value": "/g/11h7k4njvv"
+        },
+        {
+          "text": "Orange Business Services",
+          "value": "/m/08zvyz"
+        },
+        {
+          "text": "STMicroelectronics",
+          "value": "/m/015n83"
+        },
+        {
+          "text": "Safran",
+          "value": "/m/0613kb"
+        },
+        {
+          "text": "Scalian",
+          "value": "/g/11f013f29c"
+        }
+      ]
+    }
+  ]
+}

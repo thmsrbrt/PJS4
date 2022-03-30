@@ -1,0 +1,593 @@
+{
+  "search_metadata": {
+    "id": "6241b330c9de4563739124e3",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/4f40fbc42e92b8d2/6241b330c9de4563739124e3.json",
+    "created_at": "2022-03-28 13:08:00 UTC",
+    "processed_at": "2022-03-28 13:08:00 UTC",
+    "google_jobs_url": "https://www.google.fr/search?q=java&ibp=htl;jobs&uule=w+CAIQICIUSWxlLWRlLUZyYW5jZSxGcmFuY2U&hl=fr&gl=fr",
+    "raw_html_file": "https://serpapi.com/searches/4f40fbc42e92b8d2/6241b330c9de4563739124e3.html",
+    "total_time_taken": 1.99
+  },
+  "search_parameters": {
+    "q": "java",
+    "engine": "google_jobs",
+    "location_requested": "Ile-de-France, France",
+    "location_used": "Ile-de-France,France",
+    "google_domain": "google.fr",
+    "hl": "fr",
+    "gl": "fr"
+  },
+  "jobs_results": [
+    {
+      "title": "Alternance - 24 mois -  Développeur C++ / Java / Python H/F",
+      "company_name": "Natixis",
+      "location": "Paris",
+      "via": "via Welcome To The Jungle",
+      "description": "Votre MISSION & bien plus encore…\n\nVous intégrez la Direction des systèmes d'information (DSI) de Natixis (3 300 collaborateurs), à la croisée des enjeux stratégiques de développement de nouveaux services & usages clients et de la nécessaire adaptation de son modèle aux nouvelles réglementations bancaires.\n\nDSI internationale, implantée dans 12 pays et 4 continents, elle est dotée d'une forte culture clients et innovante grâce aux nouvelles méthodologies & technologies liées notamment au big data, à la blockchain, l'IT bi-modal, l'Agilité, l'Expérience utilisateur, la Sécurité de l'Information ou la Robotique.\n\nLa DSI s'adapte en permanence pour apporter le maximum de valeur à l'ensemble des métiers de Natixis. Ses collaborateurs et les challenges qu'ils relèvent en sont sa meilleure vitrine.\n\nVous rejoignez notre équipe au sein de la DSI, qui recherche un développeur C++, Java et Python., pour un contrat d'alternance de 24 mois à pourvoir dès à présent.\n\nEn collaboration avec votre... tuteur vos missions principales seront :\n\n- Concevoir, maintenir et enrichir la suite des composants logiciels autour de notre application;\n- Effectuer la mise en place des tests d'intégration continue, à améliorer l'automatisation et la gestion des configurations;\n- Développer de nouveaux outils pour l'ensemble de nos équipes.\n\nDes compétences web seraient appréciées",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1EYglJLAoqlNi26wCJpNlWlV-fH87ENtUDBJvYw&s",
+      "extensions": [
+        "il y a 3 heures",
+        "Prestataire"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 heures",
+        "schedule_type": "Prestataire"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBbHRlcm5hbmNlIC0gMjQgbW9pcyAtICBEw6l2ZWxvcHBldXIgQysrIC8gSmF2YSAvIFB5dGhvbiBIL0YiLCJodGlkb2NpZCI6Ik1DWTZWaGpwaE0wQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIFdlbGNvbWUgVG8gVGhlIEp1bmdsZSIsImxpbmsiOiJodHRwczovL3d3dy53ZWxjb21ldG90aGVqdW5nbGUuY29tL2ZyL2NvbXBhbmllcy9uYXRpeGlzL2pvYnMvYWx0ZXJuYW5jZS0yNC1tb2lzLWRldmVsb3BwZXVyLWMtamF2YS1weXRob24taC1mX3BhcmlzP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Développeur JAVA JEE",
+      "company_name": "Digilinks",
+      "location": "Boulogne-Billancourt",
+      "via": "via Www.free-Work.com",
+      "description": "Ce poste n’est pas ouvert à la sous traitance\n\nJe recherche un profil senior de 4 ans d’expérience ou plus sur du java jee\n- Maitriser le langage JAVA\n\nOutils : Java, JEE, Hibernate, Spring, Spring Boot, Postgresql, Kibana, Tomcat, Kafka, Git, Kubernetes, Docker, Jenkins, GitLab CI CD",
+      "extensions": [
+        "il y a 13 heures",
+        "48 k $US par an",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 13 heures",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgSkFWQSBKRUUiLCJodGlkb2NpZCI6Ii1yQnFYci1JcTBjQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIFd3dy5mcmVlLVdvcmsuY29tIiwibGluayI6Imh0dHBzOi8vd3d3LmZyZWUtd29yay5jb20vZnIvdGVjaC1pdC9kZXZlbG9wcGV1ci9qb2ItbWlzc2lvbi9kZXZlbG9wcGV1ci1qYXZhLWplZS03Mj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Senior Java Developer- Full remote (H/F)",
+      "company_name": "Hurryman",
+      "location": "Paris",
+      "via": "via LinkedIn",
+      "description": "Éditeur Saas, filiale dun groupe américain spécialisé en cybersécurité, la société est en plein développement sur le marché international. Depuis sa création, elle a remporté de multiples prix dinnovation et revendique plusieurs millions d’utilisateurs à travers le monde.\n\nLe panel des solutions proposées permet aux entreprises de se protéger, de manière proactive, face aux menaces liées à la cybersécurité.\n\nDans un contexte dhyper-croissance, lentreprise souhaiterait proposer une toute nouvelle solution concernant la sécurité des environnements Cloud de ses clients. Ainsi, afin de créer, développer et implanter cette nouvelle solution, léditeur souhaite recruter un/e Développeur Java maîtrisant également la technologie Kotlin.\n\nLe full télétravail est envisageable pour ce poste.\n\nLe Poste\n\nVous participez au développement dun solution dès sa phase de conception, et accompagné(e) du lead technique, vos principales missions seront :\n• Créer, développer, implémenter de nouvelles APIs\n•... Contribuer au CI/CD en intégrant vos travaux au sein des conteneurs et pipelines créés par léquipe DevOps\n• Contribuer à la qualité du code produit (TDD, documentation technique...)\n• Faire de la veille technologique\n\nEnvironnement technique : Kotlin, Groovy, Java, AWS, GRPC...\n\nProfil\n\nVous avez des expériences significatives au sein denvironnement Saas, darchitectures de micro-services.\n\nVous avez des compétences très avancées (voir une expertise) en Java et (idéalement) avec des connaissances en Kotlin (voir Groovy).\n\nVous avez un niveau danglais technique (voir conversationnel).\n\nDes connaissances en cybersécurité seraient un plus mais non un pré-requis pour ce poste.\n\nInformations contractuellesContrat : CDI\n\nSalaire : selon profil (à partir de 65-70 k€)\n\nLocalisation : Full remote ou Paris",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvfvuMUFZU4RRaFn4mWD7Rq8CtHvSTrFHTpjgpQjE&s",
+      "extensions": [
+        "il y a 4 heures",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 4 heures",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgSmF2YSBEZXZlbG9wZXItIEZ1bGwgcmVtb3RlIChIL0YpIiwiaHRpZG9jaWQiOiJTWVRCM3hQbkg1WUFBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBMaW5rZWRJbiIsImxpbmsiOiJodHRwczovL2ZyLmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvc2VuaW9yLWphdmEtZGV2ZWxvcGVyLWZ1bGwtcmVtb3RlLWgtZi1hdC1odXJyeW1hbi0yOTk0Mzg3MTUyP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Développeur Java VueJs",
+      "company_name": "HR-TEAM",
+      "location": "Courbevoie",
+      "via": "via Www.free-Work.com",
+      "description": "Contexte :\nDans le cadre d’un renfort, nous recherchons un Développeur Java VueJs (H/F) ;\n\nProjet :\nVotre intervenez sur un projet à forte valeur ajoutée dans le secteur de l’Assurance ;\n\nLa prestation se déroule dans le cadre de la création d’une équipe Digital pour prendre en charge l’analyse fonctionnelle et la réalisation des US du backlog et de la gestion courante.\n\nPoste et missions :\n\nDévelopper en Java/Spring ;\nDévelopper les User Story du Front Office dans le respect des normes ;\nRéalisation des tests unitaires et méthodologie TDD ;\nRéalisation des interfaces si nécessaire ;\nMise à jour de la documentation technique ;\nParticipation aux cérémonies Agiles ;\n\nEnvironnement Technique :\n- Java 8 ;\n- Spring / SpringBoot ;\n- VueJs\n- Angular 8+ ;\n- Jenkins ;\n- Docker ;\n- Git & Gitlab\n- Sonar\n- Openshift ;",
+      "extensions": [
+        "il y a 13 heures",
+        "65 k $US par an",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 13 heures",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgSmF2YSBWdWVKcyIsImh0aWRvY2lkIjoickt3M0hjblVHZDBBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgV3d3LmZyZWUtV29yay5jb20iLCJsaW5rIjoiaHR0cHM6Ly93d3cuZnJlZS13b3JrLmNvbS9mci90ZWNoLWl0L2RldmVsb3BwZXVyL2pvYi1taXNzaW9uL2RldmVsb3BwZXVyLWphdmEtdnVlanMtMTU/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Développeur Logiciel JAVA - Préparation de mission H/F",
+      "company_name": "MBDA France",
+      "location": "Le Plessis-Robinson",
+      "via": "via L'Usine Nouvelle",
+      "description": "Venez partager et développer vos compétences avec nos 3000 collaborateurs sur notre site du Plessis-Robinson.\nRejoignez la Direction Software Engineering qui développe l'ensemble des moyens logiciels nécessaire au bon fonctionnement de nos systèmes d'armes.\nRejoignez le Service Logiciels de Préparation de Mission ayant en charge le développement des algorithmes intégrés dans les logiciels permettant de calculer les données nécessaires à un missile pour accomplir sa (ou ses) mission(s).\nLe logiciel de préparation de missions, permet à un opérateur de préparer les données nécessaires à des missiles pour accomplir leur mission avec les meilleures performances. Ces logiciels opérationnels mettent en oeuvre des technologies avancées : IHM évoluées en Java, des architectures complexes et des algorithmes multiples modélisant le comportement du missile.\nVous interviendrez sur l'ensemble des phases de développement des algorithmes de ces logiciels puis contribuerez à leur intégration dans le... logiciel de préparation de mission ou de contrôle de mission.\nVous rejoindrez une équipe composée d'une trentaine de personnes, jeunes, dynamiques et curieuses de s'essayer à de nouvelles méthodologies de développement.\nÊtre Développeur Logiciel chez MBDA, c'est :\n- Mener une analyse critique des spécifications fonctionnelles et logicielles, participer à leur rédaction le cas échéant,\n- Participer la conception statique et dynamique,\n- Réaliser l'implémentation du logiciel en Java,\n- Réaliser les tests unitaires et de bon fonctionnement,\n- Maintenir la chaine d'intégration continue,\n- Assurer la gestion de configuration pour les développements réalisés.\n\nEn plus des nombreux échanges au sein de l'équipe, vous serez amené(e) à collaborer étroitement avec l'équipe fonctionnelle en interface avec le client final.\nLa diversité des activités au sein du département offre de nombreuses perspectives d'évolution tant dans le domaine technique que dans le domaine de la gestion de projet",
+      "extensions": [
+        "il y a 3 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 3 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgTG9naWNpZWwgSkFWQSAtIFByw6lwYXJhdGlvbiBkZSBtaXNzaW9uIEgvRiIsImh0aWRvY2lkIjoiNll0eHo5Z0ZZcGNBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImZjIjoiRXVFQkNxSUJRVkJGTWtkWFFYUkNjMmRUY21sV1ZVZDFkV0l3U0c1aFExbHZiSFkwTVdwaVltaElZVGhtU0VJdFNIVnBjRnA2YXpaS2RXeFZkM0Y0YURCTkxVWm5VR3BZVXpoUFRHeE9jWGxzUmt0ak1rVlRSRUkyTFhCNE1teDVWM2RYUTJoM04xbHBaVFF3Y0ZGV1prWXROMFIzTURFMlVXeDNhSGhEVW1GeWNHVnhXVmREYzFCSFNuTkNVRWhZYVRNeFpXTnJNVVZWTUZScGRISmFPRXh4UW10a2JscEJFaFpOWWs1Q1dYRlBka2xRUTBobloyVkthWEEyVVVOQkdpSkJSR3BYWHpOSmR6ZE9WVzFhY1hoWk1XMUdRazlhWkdrd04zVllMV0k1Wld0QiIsImZjdiI6IjMiLCJmY19pZCI6ImZjXzEiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIEwnVXNpbmUgTm91dmVsbGUiLCJsaW5rIjoiaHR0cHM6Ly93d3cudXNpbmVub3V2ZWxsZS5jb20vb2ZmcmUtZW1wbG9pL29mZnJlLWVtcGxvaS1kZXZlbG9wcGV1ci1sb2dpY2llbC1qYXZhLXByZXBhcmF0aW9uLWRlLW1pc3Npb24taC1mLW8tMzM3NTA4Mz91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "développeur sénior Java & Angular 2+ / Freelance",
+      "company_name": "Freelance-info.fr",
+      "location": "Levallois-Perret",
+      "via": "via LinkedIn",
+      "description": "Dev. Full-stack confirmé : Expériences significatives sur les 3 critères suivants pratiqués dans des missions différentes :\n\nJAVA, ANGULAR (pas AngularJS) et Micro-services Connaissance ou volontaire à travailler sur JSF (PrimeFaces) Profil ayant effectué que des missions longues (au minimum 1 an par mission) Une connaissance du monde de l'assurance serait un plus Sensibilité au DevSecOps et Cloud Voici la stack complète : Langages : JavaScript, Java, Java EE\n\nFramework Et Logiques\n\nSpring Boot 2.0, Spring Security, Spring Data, Spring MVC, Spring Batch, Spring Cloud, JSF 2.0 & PrimeFaces, Web Services, REST, JUnit & Mockito, RestTemplate, Angular 2+, Angular Material, Jasmine & Protractor, Micro-services, Eureka, API Gateway, Circuit breaker, Feign Outils : IntelliJ, VS Code, GITLAB, Maven, Artifactory, Tomcat 8, SoapUI, Postman, Talend Open Studio\n\nDB : SQL Server, PostgreSQL",
+      "extensions": [
+        "il y a 47 minutes",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 47 minutes",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJkw6l2ZWxvcHBldXIgc8OpbmlvciBKYXZhIFx1MDAyNiBBbmd1bGFyIDIrIC8gRnJlZWxhbmNlIiwiaHRpZG9jaWQiOiJ2dEhSUnA0S1lua0FBQUFBQUFBQUFBPT0iLCJ1dWxlIjoidytDQUlRSUNJVVNXeGxMV1JsTFVaeVlXNWpaU3hHY21GdVkyVSIsImdsIjoiZnIiLCJobCI6ImZyIiwiYXBwbHlfbGluayI6eyJ0aXRsZSI6IlBvc3R1bGVyIHN1ciBMaW5rZWRJbiIsImxpbmsiOiJodHRwczovL2ZyLmxpbmtlZGluLmNvbS9qb2JzL3ZpZXcvZCVDMyVBOXZlbG9wcGV1ci1zJUMzJUE5bmlvci1qYXZhLWFuZ3VsYXItMiUyQi1mcmVlbGFuY2UtYXQtZnJlZWxhbmNlLWluZm8tZnItMjk4OTExMzcyMT91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Concepteur Développeur JAVA J2EE",
+      "company_name": "Effixio",
+      "location": "Boulogne-Billancourt",
+      "via": "via Talent Detection",
+      "description": "Description du poste et Missions\n\nDéveloppement sur le web service, spring, hibernate\nSupport: la maintenance du système, suivi de production\nSuivi et encadrement des nouveaux arrivants.\nTech lead\nRelation avec les équipes (MOA)\n\nEnvrionnement : JAVA J2EE .NET SQL\nProfil recherché\n\nBon relationnel\nInformations utiles\n• Localisation : Boulogne-Billancourt - 92, France\n• Contrat : CDI\n• Salaire : Non défini\n• Niveau de qualification : Ingénieur/Cadre/Bac +5\n• Expérience : 1 à 7 ans, + 7 ans\n• Modalités de travail : Temps complet\n• Fonction : Informatique - Développement\n• Secteur : Secteur informatique/ESN\n\nQui sommes nous ?\n\nSociété de conseil en stratégie, organisation et systèmes d'information, EffiXio assiste ses clients dans la réalisation de leurs choix stratégiques, opérationnels et technologiques.\n\nEntreprise attachée à la mixité et à la diversité, nous reconnaissons et recrutons tous les talents.\n\nEFFIXIO est un cabinet au service de la compétitivité de tous les grands secteurs... industriels : Assurance, Banque, Santé, Services, Industrie.\n\nPrésent Paris et Lille, Effixio ambitionne un développement plus vaste.\n\nSon positionnement sur les niches dites de \"Grand Spécialiste\" lui permet de proposer une offre globale alliant la capacité de production industrielle d'un grand groupe à l'expertise et la souplesse d'un spécialiste.\n\nPlaçant l'innovation au cœur de sa stratégie, EFFIXIO mène des projets d'envergure, allant des études jusqu'à l'industrialisation et la production. le Groupe privilégie une relation de proximité avec ses clients grâce aux compétences de ses 50 collaborateurs.\n\nEffixio place son efficacité au service de l’entreprise, pour la rendre plus performante et plus compétitive.\n\nPour l'ensemble de ses activités, EFFIXIO déploie progressivement de nouvelles offres combinant l'ensemble de ses savoir-faire Architecture, Sécurité, Digital et Conseil.\n\nCes offres, qui regroupent les expertises d’EFFIXIO serviront les enjeux stratégiques de nos clients sur 3 grandes thématiques:\n\n1.Expérience Client\n\n2.Efficacité opérationnelle\n\n3.Sécurisation des données & Actifs\n\nNous sommes un opérateur global de solutions innovantes d’entreprise.\n\nAssociés et collaborateurs garantissent conseil et assistance auprès de leurs clients dans :\n\n· la définition des choix stratégiques,\n\n· la déclinaison organisationnelle,\n\n· la déclinaison opérationnelle,\n\n· la mise en œuvre technologique.\n\nEFFIXIO recrute sur profil ; capacités, qualités, et potentiel d’évolution. Voilà ce que nous privilégions",
+      "extensions": [
+        "il y a 4 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 4 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJDb25jZXB0ZXVyIETDqXZlbG9wcGV1ciBKQVZBIEoyRUUiLCJodGlkb2NpZCI6IkZTd29IRURVRHZvQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIFRhbGVudCBEZXRlY3Rpb24iLCJsaW5rIjoiaHR0cHM6Ly93d3cudGFsZW50ZGV0ZWN0aW9uLmNvbS9lZmZpeGlvL29mZnJlLTU3MzkxLTJ5UkJGQj91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    },
+    {
+      "title": "Analyste Développeur Fullstack Java Angular H/F",
+      "company_name": "Atos",
+      "location": "Bezons",
+      "via": "via Jobs At Atos",
+      "description": "À propos d’Atos\n\nAtos est un leader international de la transformation digitale avec 107 000 collaborateurs et un chiffre d’affaires annuel de plus de 11 milliards d’euros. Numéro un européen du cloud, de la cybersécurité et des supercalculateurs, le Groupe fournit des solutions intégrées pour tous les secteurs, dans 71 pays. Pionnier des services et produits de décarbonation, Atos s’engage à fournir des solutions numériques sécurisées et décarbonées à ses clients. Atos est une SE (Société Européenne) cotée sur Euronext Paris et fait partie des indices CAC 40 ESG et Next 20.\n\nLa raison d’être d’Atos est de contribuer à façonner l’espace informationnel. Avec ses compétences et ses services, le Groupe supporte le développement de la connaissance, de l’éducation et de la recherche dans une approche pluriculturelle et contribue au développement de l’excellence scientifique et technologique. Partout dans le monde, Atos permet à ses clients et à ses collaborateurs, et plus généralement au... plus grand nombre, de vivre, travailler et progresser durablement et en toute confiance dans l’espace informationnel.\n\nLe développeur full-stack est amené à intervenir dès la phase d’architecture logicielle d’un projet, où il va concevoir de nouvelles fonctionnalités et les spécifier. Il va ensuite participer activement à la phase d’implémentation de la solution (codage), ainsi qu’aux étapes de tests unitaires et fonctionnels. Il peut interagir avec le client pour comprendre et caractériser ses besoins, voire le conseiller si nécessaire.\n\nPour devenir développeur full-stack chez Atos, il faut être de formation ingénieur (ou son équivalent universitaire BAC + 5) et être passionné par le monde du développement logiciel.\n\nDe plus, il faut être familier des méthodes de développement Agile (ex : Scrum).\n\nEnfin, au niveau humain, être un professionnel polyvalent, adaptable, créatif et possédant un bon esprit d’analyse et un sens relationnel développé. C’est également un métier qui convient aux personnes qui aiment apprendre continuellement dans la mesure où de nouvelles technologies surviennent régulièrement.\n\nPour ce poste, les connaissances attendues sont en priorité la maîtrise des développements en langage Java, Java JEE et les compétences en Javascript et en Angular seraient un plus.\n\nExpérience souhaitée entre 1 et 5 ans.\n\nChez Atos, nous voulons que nos employés se sentent valorisés, appréciés et libres d'être eux-mêmes au travail. Nos process RH sont conçus pour prévenir la discrimination envers l'identité ou l'orientation sexuelle, la religion, l’origine ethnique, l'âge, la neurodiversité, le handicap, la citoyenneté ou tout autre aspect qui rend nos collaborateurs uniques. Partout dans le monde, nous avons créé plusieurs programmes pour soutenir la culture inclusive d'Atos, et nous travaillons pour nous assurer que tous nos collaborateurs aient une chance égale de sentir qu'ils sont exactement là où ils doivent être",
+      "extensions": [
+        "il y a 17 jours",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 17 jours",
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJBbmFseXN0ZSBEw6l2ZWxvcHBldXIgRnVsbHN0YWNrIEphdmEgQW5ndWxhciBIL0YiLCJodGlkb2NpZCI6InRhV3JMa01tMUdZQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJmYyI6IkVzc0JDb3dCUVZCRk1rZFhRbUphVDBwVGMyRklTM2xOVEdac2FqVkhka2xNZW10Vk9DMVVTVWxVU1VwUGExZEZObU51YTFWa2VGOUdValIwWTJOTWRHUmxhMk4xTTNwc1dreENPQzFmV25CZlRrMW5TMGR3YjJVelQxRm5iblJpYWxZM1QxaDZNVWg0VUd4WWNXMURRMU5hYVRCRmJuWkJOemRYWmpCNE5YSnZZMDFaUlhCeFpHazFOazFoWHpWQk1tMFNGazFpVGtKWmNVOTJTVkJEU0dkblpVcHBjRFpSUTBFYUlrRkVhbGRmTTB0RFl6RlVSVlo2ZDFGNE0zWmlXV3RJTTI0ME5HNWZTRWhsTFhjIiwiZmN2IjoiMyIsImZjX2lkIjoiZmNfMiIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgSm9icyBBdCBBdG9zIiwibGluayI6Imh0dHBzOi8vam9icy5hdG9zLm5ldC9qb2IvQXViZXJ2aWxsaWVycy05My1BbmFseXN0ZS1EJUMzJUE5dmVsb3BwZXVyLUZ1bGxzdGFjay1KYXZhLUFuZ3VsYXItSEYtSWxlLzY5NjA5NzAwMS8/dXRtX2NhbXBhaWduPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX3NvdXJjZT1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9tZWRpdW09b3JnYW5pYyJ9fQ=="
+    },
+    {
+      "title": "Développeur JAVA/SPRING",
+      "company_name": "Freelance Informatique",
+      "location": "Île-de-France",
+      "via": "via Freelance Informatique",
+      "description": "Nous recherchons deux développeurs JAVA/SPRING pour un de nos clients grands comptes sur Paris.\n\nDémarrage ==> ASAP\n\nContexte :\nContribution au développement d'une application de consultation d'annonces immobilières\n\nTâches :\nAnalyse, développement, tests unitaires\n\nAttendu de la mission :\nCréation d'une projet, mise en place des bonnes pratique, participer à la création d'un produit en Agile.\n\nCompétence Technique 1 Java EE\nCompétence Technique 2 Spring\nCompétence Technique 3 JS\n\nCompétence Humaine 1 Capacité travailler en équipe\nCompétence Humaine 2 Bon relationnel pour intégration dans une équipe multi métier\nCompétence Humaine 3 Expérience dans un environnement agile",
+      "extensions": [
+        "il y a 4 jours",
+        "Prestataire"
+      ],
+      "detected_extensions": {
+        "posted_at": "il y a 4 jours",
+        "schedule_type": "Prestataire"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJEw6l2ZWxvcHBldXIgSkFWQS9TUFJJTkciLCJodGlkb2NpZCI6Im5uOEtCdXpHX01ZQUFBQUFBQUFBQUE9PSIsInV1bGUiOiJ3K0NBSVFJQ0lVU1d4bExXUmxMVVp5WVc1alpTeEdjbUZ1WTJVIiwiZ2wiOiJmciIsImhsIjoiZnIiLCJhcHBseV9saW5rIjp7InRpdGxlIjoiUG9zdHVsZXIgc3VyIEZyZWVsYW5jZSBJbmZvcm1hdGlxdWUiLCJsaW5rIjoiaHR0cHM6Ly93d3cuZnJlZWxhbmNlLWluZm9ybWF0aXF1ZS5mci9taXNzaW9uLWRldmVsb3BwZXVyLWphdmEtc3ByaW5nLXN1ci1wYXJpcy0yMjAzMjVDMDAzP3V0bV9jYW1wYWlnbj1nb29nbGVfam9ic19hcHBseVx1MDAyNnV0bV9zb3VyY2U9Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fbWVkaXVtPW9yZ2FuaWMifX0="
+    },
+    {
+      "title": "Tech Lead Java",
+      "company_name": "Mobiskill",
+      "location": "Paris",
+      "via": "via Mobiskill",
+      "description": "La société:Cette startup parisienne propose une solution marketing SaaS qui s’appuie sur la compréhension du comportement online et offline des utilisateurs afin d’activer des campagnes média. Vous recherchez un poste de Tech Lead, vous adorez les algos et vous apportez une réelle réflexion sur des problématiques de gestion de fort trafic ? Ce poste est fait pour vous!\nLes missions:Vous serez responsable des choix technologiques de l'équipeTraitement de la Data pour améliorer la pertinence du produitLancement de nouvelles fonctionnalités Identifier les sources de fraudesOptimisation de performanceLa stack:Java, Springboot, React, GCP\nLe profil:Minimum 5 ans d'expérienceVous avez de bonnes bases en data structure et algorithmieVous aimez craquer des problèmes complexesVous êtes pragmatique et proposez des choix efficaces Garant des bonnes pratiques de développement\nLes++:Contexte internationale: Asie Pacifique, Australie, Inde Ils viennent de lever 2 millions d'€ pour donner une réelle... perspective produit Société tech avec que des équipes passionnées par le développement Mutuelle, tickets restaurant, séminaire annuel et des Hackathons réguliers\nLe process:1er entretien avec le Product Director1 test technique avec code reviewDeuxième entretien avec des développeurs de l'équipe",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Ep1pogFytksoWV4zeOuwFevQ81gJG2pLtHKYWBU&s",
+      "extensions": [
+        "60 k € à 70 k € par an",
+        "À plein temps"
+      ],
+      "detected_extensions": {
+        "schedule_type": "À plein temps"
+      },
+      "job_id": "eyJqb2JfdGl0bGUiOiJUZWNoIExlYWQgSmF2YSIsImh0aWRvY2lkIjoiWURQSXhUd0k2aUFBQUFBQUFBQUFBQT09IiwidXVsZSI6IncrQ0FJUUlDSVVTV3hsTFdSbExVWnlZVzVqWlN4R2NtRnVZMlUiLCJnbCI6ImZyIiwiaGwiOiJmciIsImFwcGx5X2xpbmsiOnsidGl0bGUiOiJQb3N0dWxlciBzdXIgTW9iaXNraWxsIiwibGluayI6Imh0dHBzOi8vbW9iaXNraWxsLmZyL2pvYi90ZWNoLWxlYWQtamF2YS03MzEwLTA1Lz91dG1fY2FtcGFpZ249Z29vZ2xlX2pvYnNfYXBwbHlcdTAwMjZ1dG1fc291cmNlPWdvb2dsZV9qb2JzX2FwcGx5XHUwMDI2dXRtX21lZGl1bT1vcmdhbmljIn19"
+    }
+  ],
+  "chips": [
+    {
+      "type": "Lieu",
+      "param": "city",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Paris",
+          "value": "D7fiBh9u5kdglIxow4ILBA=="
+        },
+        {
+          "text": "Lyon",
+          "value": "l4foalHq9EfwIbvkKqsIBA=="
+        },
+        {
+          "text": "Nantes",
+          "value": "ra6o8IHuBUgw7Q0eUjcNBA=="
+        },
+        {
+          "text": "Bordeaux",
+          "value": "gcpR9-gnVQ2Jejl7A4ZjeQ=="
+        },
+        {
+          "text": "Aix-en-Provence",
+          "value": "WRK5BKONyRKjiLbIvlO5XA=="
+        },
+        {
+          "text": "Rennes",
+          "value": "hZDWpy_eDkgwq-Q2zaUMBA=="
+        },
+        {
+          "text": "Toulouse",
+          "value": "_1J17G-7rhIwEEEvnPYGBA=="
+        },
+        {
+          "text": "Lille",
+          "value": "EW4ls3nVwkdgY2SBPvEKBA=="
+        },
+        {
+          "text": "Issy-les-Moulineaux",
+          "value": "xy7Ltot65kehJ24ad9Amiw=="
+        },
+        {
+          "text": "Montpellier",
+          "value": "sZ3dJQevthIC6JQodFaHrQ=="
+        },
+        {
+          "text": "Strasbourg",
+          "value": "wbIYXknIlkcfJOcYMUgalw=="
+        },
+        {
+          "text": "Boulogne-Billancourt",
+          "value": "YUevEOh65keQPotow4ILBA=="
+        },
+        {
+          "text": "Nanterre",
+          "value": "vyXf2YRk5kfiR8FqHO4hew=="
+        },
+        {
+          "text": "Grenoble",
+          "value": "b76J1ov0ikeYU5luzRCMYQ=="
+        },
+        {
+          "text": "Levallois-Perret",
+          "value": "0_88t4Nv5kewPYtow4ILBA=="
+        },
+        {
+          "text": "Courbevoie",
+          "value": "vccvsApl5kcQPotow4ILBA=="
+        },
+        {
+          "text": "Le Plessis-Robinson",
+          "value": "P1DV6gZ65ke4GvrCuXxDqg=="
+        },
+        {
+          "text": "Marseille",
+          "value": "M1PaREO_yRIgApf9pRkIBA=="
+        },
+        {
+          "text": "Neuilly-sur-Seine",
+          "value": "tZbjc2Nl5keXszL1nHU53A=="
+        },
+        {
+          "text": "Annecy",
+          "value": "u_5hWOWPi0criau1MqyQag=="
+        },
+        {
+          "text": "Bezons",
+          "value": "04KEHBZk5kegNYtow4ILBA=="
+        },
+        {
+          "text": "Caen",
+          "value": "M8kETL1CCkhZCNAwn3SlPQ=="
+        },
+        {
+          "text": "Cesson-Sévigné",
+          "value": "NYvWwzHZDkhAkCyTGOayVQ=="
+        },
+        {
+          "text": "Clermont-Ferrand",
+          "value": "B4Uuf90b90cib6A4YDCUOQ=="
+        },
+        {
+          "text": "Croix",
+          "value": "jc8q-VQow0fgbmSBPvEKBA=="
+        },
+        {
+          "text": "Metz",
+          "value": "qbZ0YBvclEdpprs1tuRrWQ=="
+        },
+        {
+          "text": "Niort",
+          "value": "9YbWETIwB0jAKuhgktMFBA=="
+        },
+        {
+          "text": "Orléans",
+          "value": "44bzndTk5EcpgMN55H25ng=="
+        },
+        {
+          "text": "Pessac",
+          "value": "o7h8IvnYVA2YX_lLMx3OOg=="
+        },
+        {
+          "text": "Tours",
+          "value": "VZqXSrPV_EcwhDgF18gNBA=="
+        },
+        {
+          "text": "Valbonne",
+          "value": "vUmYZ1gpzBKVIlwyvAXXSg=="
+        },
+        {
+          "text": "Vélizy-Villacoublay",
+          "value": "-acYgeR75kdQNoxow4ILBA=="
+        },
+        {
+          "text": "Antony",
+          "value": "f8cFRhF35kfQPotow4ILBA=="
+        },
+        {
+          "text": "Arcueil",
+          "value": "m-9wxBFx5kfwOYtow4ILBA=="
+        },
+        {
+          "text": "Arras",
+          "value": "e1r5ZthH3UchKmUF265paA=="
+        },
+        {
+          "text": "Aubagne",
+          "value": "yyal8DOjyRK8woyx4SGNLA=="
+        },
+        {
+          "text": "Belfort",
+          "value": "4UhO_Hg7kkfQUA2zNM4JBA=="
+        },
+        {
+          "text": "Brest",
+          "value": "k1uS2eG7FkirMJwXWINIxg=="
+        },
+        {
+          "text": "Charenton-le-Pont",
+          "value": "U_JmF1dy5keQOYtow4ILBA=="
+        },
+        {
+          "text": "Cholet",
+          "value": "5fDNrRREBkiAlg0eUjcNBA=="
+        },
+        {
+          "text": "Dardilly",
+          "value": "tTNWzdCS9EcQJbvkKqsIBA=="
+        },
+        {
+          "text": "Dijon",
+          "value": "dZb974yd8kfQWBSzNM4JBA=="
+        },
+        {
+          "text": "Eysines",
+          "value": "E9DeTOLWVA24uZxCgjNzlw=="
+        },
+        {
+          "text": "Fontenay-sous-Bois",
+          "value": "kyBwzV4N5kdAOYtow4ILBA=="
+        },
+        {
+          "text": "Gentilly",
+          "value": "RQ0vknRx5kcgOYtow4ILBA=="
+        },
+        {
+          "text": "Guyancourt",
+          "value": "yWYl1raA5kfQPoxow4ILBA=="
+        },
+        {
+          "text": "Illkirch-Graffenstaden",
+          "value": "7a783RbKlkfJ9J0Zvdc0Hg=="
+        },
+        {
+          "text": "La Ciotat",
+          "value": "5bjorGOvyRLQA5f9pRkIBA=="
+        },
+        {
+          "text": "Laval",
+          "value": "wWtZ_On9CEjgFg0eUjcNBA=="
+        },
+        {
+          "text": "Lezennes",
+          "value": "H5XjCGnWwkegY2SBPvEKBA=="
+        },
+        {
+          "text": "Marcq-en-Barœul",
+          "value": "33qpSSkqw0fW9h2_4l56qA=="
+        },
+        {
+          "text": "Massy",
+          "value": "ASDNmoR35kenA6QiZFUPAw=="
+        },
+        {
+          "text": "Mayenne",
+          "value": "0RHQHMSmCUhdOmh1qMIhXw=="
+        }
+      ]
+    },
+    {
+      "type": "Date de publication",
+      "param": "date_posted",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Depuis hier",
+          "value": "today"
+        },
+        {
+          "text": "Depuis 3 jours",
+          "value": "3days"
+        },
+        {
+          "text": "Depuis 1 semaine",
+          "value": "week"
+        },
+        {
+          "text": "Depuis 1 mois",
+          "value": "month"
+        }
+      ]
+    },
+    {
+      "type": "Type",
+      "param": "employment_type",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "À plein temps",
+          "value": "FULLTIME"
+        },
+        {
+          "text": "Stage",
+          "value": "INTERN"
+        },
+        {
+          "text": "Prestataire",
+          "value": "CONTRACTOR"
+        },
+        {
+          "text": "À temps partiel",
+          "value": "PARTTIME"
+        }
+      ]
+    },
+    {
+      "type": "Employeur",
+      "param": "organization_mid",
+      "options": [
+        {
+          "text": "Tous"
+        },
+        {
+          "text": "Atos",
+          "value": "/m/03mndf"
+        },
+        {
+          "text": "Capgemini",
+          "value": "/m/03vlk0"
+        },
+        {
+          "text": "Groupe SII",
+          "value": "/g/1tkmlw6c"
+        },
+        {
+          "text": "Inetum",
+          "value": "/m/0cqhjj6"
+        },
+        {
+          "text": "CELAD",
+          "value": "/g/11bym_s0lb"
+        },
+        {
+          "text": "Orange Business Services",
+          "value": "/m/08zvyz"
+        },
+        {
+          "text": "AUSY",
+          "value": "/g/120zv4z5"
+        },
+        {
+          "text": "Akka Technologies",
+          "value": "/m/0cqgflz"
+        },
+        {
+          "text": "Modis France",
+          "value": "/g/11h7k4njvv"
+        },
+        {
+          "text": "Sopra Steria",
+          "value": "/g/1tppr87d"
+        },
+        {
+          "text": "Agixis",
+          "value": "/g/11b6dp_mnw"
+        },
+        {
+          "text": "FRG Technology Consulting",
+          "value": "/g/11h6ys0djp"
+        },
+        {
+          "text": "La Poste Groupe",
+          "value": "/m/02rv2xh"
+        },
+        {
+          "text": "Michael Page France",
+          "value": "/m/04cxldw"
+        },
+        {
+          "text": "Societe Generale",
+          "value": "/m/02qhc8"
+        },
+        {
+          "text": "Urban Linker",
+          "value": "/g/1wt3mqgv"
+        },
+        {
+          "text": "EkWateur",
+          "value": "/g/11gk8y640h"
+        },
+        {
+          "text": "Apside",
+          "value": "/g/11fy1r6c2f"
+        },
+        {
+          "text": "Believe",
+          "value": "/m/0fr3nkx"
+        },
+        {
+          "text": "CS GROUP",
+          "value": "/m/0cqjrj6"
+        },
+        {
+          "text": "CS Novidy's",
+          "value": "/g/11f01fz1jf"
+        },
+        {
+          "text": "ESENS",
+          "value": "/g/1v830dx9"
+        },
+        {
+          "text": "Elastic",
+          "value": "/g/11h0_6t28s"
+        },
+        {
+          "text": "Harvest",
+          "value": "/g/1tkv91z0"
+        },
+        {
+          "text": "INFOTEL",
+          "value": "/g/122pl5k_"
+        },
+        {
+          "text": "KLANIK",
+          "value": "/g/11c1t617dj"
+        },
+        {
+          "text": "L'Atelier",
+          "value": "/g/11df0py91s"
+        },
+        {
+          "text": "MICHAEL PAGE",
+          "value": "/g/1tgw4b02"
+        },
+        {
+          "text": "Natixis",
+          "value": "/g/1tf8sdvp"
+        },
+        {
+          "text": "SQLI",
+          "value": "/g/11b75gh94q"
+        },
+        {
+          "text": "Thales",
+          "value": "/m/01phj4"
+        }
+      ]
+    }
+  ]
+}
