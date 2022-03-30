@@ -31,8 +31,8 @@ import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/contro
 import {
     deleteCandidature,
     getCandidatureAnnonce,
-    getCandidatureCandidat,
-    registerCandidature
+    getCandidatureCandidat, getCandidatureNotRefusedAnnonce,
+    registerCandidature, setCandidatureRetenueState
 } from "./src/controllers/Candidature.js";
 import {
     addToConversationByUtilisateur,
@@ -144,9 +144,11 @@ app.put("/entreprise/update/:idUtilisateur", authMW, checkUserId, updateEntrepri
 app.put("/entreprise/updatePassWord/:idUtilisateur", authMW, checkUserId, updatePassword); // permet de mettre à jour le mot de passe d'une entreprise : [oldPassword, newPassword, newPassword2, idEntreprise]
 // Routes - Candidature
 app.get("/candidatures/annonce/:idAnnonce", getCandidatureAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
+app.get("/candidatures/annonce/notRefused/:idAnnonce", getCandidatureNotRefusedAnnonce); // permet de récupérer les candidatures d'une annonce : [idAnnonce]
 app.get("/candidatures/candidat/:idUtilisateur", authMW, checkUserId, getCandidatureCandidat); // permet de récupérer les candidatures d'un candidat : [idCandidat]
 app.post("/candidatures/delete/:idCandidature/:idUtilisateur", authMW, checkUserId, deleteCandidature); // permet de supprimer une candidature d'un candidat : [idCandidature]
-
+app.put("/candidatures/:idCandidature/retenir/:idUtilisateur/", authMW, checkUserId, setCandidatureRetenueState); // permet de set le state du champs retenue d'une candidature d'un candidat : [idCandidature]
+// TODO : delete offer (cascade delete et tout en bdd + verif user = proprietaire annonce)
 app.post("/candidature/create", authMW, registerCandidature); // permet de créer une candidature : [CVFile, LettreMotivation, idCandidat, idAnnonce]
 // Routes - Conversation
 app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAllConversationByIDUser); // permet de récupérer toutes les conversations d'un utilisateur à partir de son id: [idUtilisateur]

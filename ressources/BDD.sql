@@ -131,6 +131,7 @@ CREATE TABLE Candidature
     LettreMotivation Varchar(2000),
     idCandidat       Int                NOT NULL,
     idAnnonce        Int                NOT NULL,
+    retenue  	     tinyint(1)  NOT NULL DEFAULT -1,
     CONSTRAINT Candidature_PK PRIMARY KEY (idCandidature),
     CONSTRAINT Candidature_Candidat_FK FOREIGN KEY (idCandidat) REFERENCES Utilisateur (idUtilisateur),
     CONSTRAINT Candidature_Annonce0_FK FOREIGN KEY (idAnnonce) REFERENCES Annonce (idAnnonce) ON DELETE CASCADE
