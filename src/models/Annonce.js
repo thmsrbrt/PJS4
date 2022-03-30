@@ -39,6 +39,22 @@ export const findAnnonceByID = (id, cb) => {
     });
 }
 
+
+export const findAnnonceByUserIdModel = (idUser, cb) => {
+    db.query('SELECT * FROM Annonce A WHERE A.idEntreprise = ?', [idUser], (err, row) => {
+        if (err) {
+            console.log(err);
+            cb(err, null);
+            return;
+        }
+        if (row) {
+            cb(null, row);
+            return;
+        }
+        cb({erreur: "not_found"});
+    });
+}
+
 /**
  * Méthode permettant de créer une annonce
  * @param data {array<string>} contenant les données de l'annonce

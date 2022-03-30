@@ -4,7 +4,7 @@ import {
     findAnnonceByID,
     searchByKeywords,
     updateAnnonceData,
-    findCandidatFavoriteAnnonceModel, deleteFavAnnonceModel
+    findCandidatFavoriteAnnonceModel, deleteFavAnnonceModel, findAnnonceByUserIdModel
 } from "../models/Annonce.js";
 import db from "../../config/connexionBDD.js";
 import {deletExperienceByIdExperience} from "../models/Experience.js";
@@ -17,11 +17,11 @@ import {request} from "express";
  * @response Code HTTP 500 si erreur, 404 si annonce non trouvé et 200 si trouvé
  */
 export const findAnnonce = (req, res) => {
-    const idUtilisateur = req.params.idUtilisateur;
-    if (idUtilisateur === null) {
+    const idAnnonce = req.params.idAnnonce;
+    if (idAnnonce === null) {
         res.status(500).send({message: "Erreur, idAnnonce null"});
     } else {
-        findAnnonceByID(idUtilisateur, (err, data) => {
+        findAnnonceByID(idAnnonce, (err, data) => {
             if (err) {
                 err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}) : res.status(500).send({message: "Erreur"});
             } else {
@@ -46,6 +46,28 @@ export const findAllAnnonces = (req, res) => {
         }
     });
 }
+
+/**
+ * Méthode pour trouver une annonce en fonction de l'id d'une entreprise
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @response Code HTTP 500 si erreur, 404 si aucunes annonces trouvées et 200 si trouvé
+ */
+export const findAnnonceByUserId = (req, res) => {
+    const idUtilisateur = req.params.idUtilisateur;
+    if (idUtilisateur === null) {
+        res.status(500).send({message: "Erreur, idUtilisateur null"});
+    } else {
+        findAnnonceByUserIdModel(idUtilisateur, (err, data) => {
+            if (err) {
+                err.erreur === "not_found" ? res.status(404).send({message: 'Annonce non trouvée'}) : res.status(500).send({message: "Erreur"});
+            } else {
+                res.status(200).send(data);
+            }
+        });
+    }
+}
+
 
 /**
  * Méthode pour créer une annonce
