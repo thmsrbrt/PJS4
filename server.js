@@ -43,7 +43,7 @@ import {
 import {
     addToConversationByUtilisateur,
     findAllConversationByIdAnnonce,
-    findAllConversationByIDUser
+    findAllConversationByIDUser, getConvByUtilisateur
 } from "./src/controllers/Conversation.js";
 import {addMessageToConversationByID, findAllMessageByIDConversation} from "./src/controllers/Message.js";
 import {
@@ -161,6 +161,7 @@ app.post("/candidature/create", authMW, registerCandidature); // permet de crée
 app.get("/conversation/utilisateur/:idUtilisateur", authMW, checkUserId, findAllConversationByIDUser); // permet de récupérer toutes les conversations d'un utilisateur à partir de son id: [idUtilisateur]
 app.get("/conversation/annonce/:idAnnonce", authMW, findAllConversationByIdAnnonce); // permet de récupérer toutes les conversations d'une annonce : [idAnnonce]
 app.post("/conversation/create/:idUtilisateur", authMW, checkUserId, addToConversationByUtilisateur); // permet de créer une conversation : [idUtilisateur, idUrilisateur2]
+app.get("/conversation/get/:idUtilisateur", authMW, checkUserId, getConvByUtilisateur); // permet de récup/créer une conversation : [idUtilisateur, idUrilisateur2]
 // Routes - Message
 app.get("/message/conversation/:idConversation/:idUtilisateur", authMW, checkUserId, findAllMessageByIDConversation); // permet de récupérer tous les messages d'une conversation à partir de son ID: [idConversation]
 app.post("/message/conversation/send/:idUtilisateur", authMW, checkUserId, addMessageToConversationByID); // permet d'envoyer un message à une conversation à partir de son ID : [message, idConversation, idUtilisateur]

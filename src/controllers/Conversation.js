@@ -82,6 +82,49 @@ export const addToConversationByUtilisateur = (req, res) => {
 }
 
 /**
+ * Méthode de récupérer/créer une conversation à partir d'un id d'utilisateur
+ * @param req Request venant de ExpressJS
+ * @param res Response venant de ExpressJS
+ * @Response 200 si la création est un succès, 500 si une erreur interne est survenue, 404 si la conversation est deja existante
+ */
+export const getConvByUtilisateur = (req, res) => {
+    const idUtilisateurCourant = req.params.idUtilisateur;
+    const {idUtilisateurDestinataire} = req.body;
+    let {idAnnonce, libelle} = req.body;
+    if (idUtilisateurCourant === null) {
+        res.status(500).send({message: "Erreur: idUtilisateurCourant null"});
+    } else if (idUtilisateurDestinataire === null) {
+        res.status(500).send({message: "Erreur: idUtilisateurDestinataire null"});
+    } else {
+        if (idAnnonce === null) {
+            idAnnonce = "null";
+        }
+        if (libelle === null) {
+            libelle = "";
+        }
+        findConversationByIdUtilisateurAAndIdUtilisateurB([idUtilisateurCourant, idUtilisateurDestinataire], (err, data) => {
+            if (err) {
+                if (err.erreur === "not_found") {
+                    createConversation([idUtilisateurCourant, idUtilisateurDestinataire, idAnnonce, libelle]);
+                    findConversationByIdUtilisateurAAndIdUtilisateurB([idUtilisateurCourant, idUtilisateurDestinataire], (error, conv) => {
+                        if (error) {
+                            res.status(500).send({message: "Erreur interne"});
+                        } else {
+                            res.status(200).send(conv);
+                        }
+                    });
+                } else {
+                    res.status(404).send({message: "Erreur"});
+                }
+            }else
+                res.status(200).send(data);
+        });
+    }
+}
+
+
+
+/**
  * Méthode pour mettre à jour la date de lecture d'une conversation lors d'un clic
  * @param req
  * @param res

@@ -13,6 +13,7 @@ export const findAllByIDUtilisateur = (idUtilisateur, cb) => { // SELECT * FROM 
             return;
         }
         if (rows.length) {
+            console.log(rows);
             cb(null, rows);
             return;
         }
