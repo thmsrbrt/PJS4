@@ -21,10 +21,13 @@ import {
 } from "./src/controllers/User.js";
 import {
     addFavAnnonce,
-    deleteAnnonce, deleteFavAnnonce,
+    deleteAnnonce,
+    deleteFavAnnonce,
     findAllAnnonces,
     findAnnonce,
-    findAnnonceByMotsClefs, findAnnonceByUserId, findCandidatFavoriteAnnonce,
+    findAnnonceByMotsClefs,
+    findAnnonceByUserId,
+    findCandidatFavoriteAnnonce,
     registerAnnonce,
     updateAnnonce
 } from "./src/controllers/Annonce.js";
@@ -32,8 +35,10 @@ import {findEntreprise, registerEntreprise, updateEntreprise} from "./src/contro
 import {
     deleteCandidature,
     getCandidatureAnnonce,
-    getCandidatureCandidat, getCandidatureNotRefusedAnnonce,
-    registerCandidature, setCandidatureRetenueState
+    getCandidatureCandidat,
+    getCandidatureNotRefusedAnnonce,
+    registerCandidature,
+    setCandidatureRetenueState
 } from "./src/controllers/Candidature.js";
 import {
     addToConversationByUtilisateur,
@@ -126,13 +131,13 @@ app.post("/users/update/:idUtilisateur", authMW, checkUserId, updateUserDataPara
 app.put("/users/updatePassWord/:idUtilisateur", authMW, checkUserId, updatePassword); // permet de mettre à jour le mot de passe d'un utilisateur : [oldPassword, newPassword, newPassword2, idUtilisateur]
 app.get("/users/photoProfile/:idUtilisateur", getProfilePictureById); // permet de récupérer la photo de profil d'un utilisateur : [idUtilisateur]
 app.get("/users/cv/:idUtilisateur", authMW, getCVFileUtilisateur); // permet de récupérer le CV d'un utilisateur : [idUtilisateur]
-app.post("/users/cvHandler/:idUtilisateur",authMW, checkUserId, cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
+app.post("/users/cvHandler/:idUtilisateur", authMW, checkUserId, cvFileHandler); // permet de mettre à jour le CV d'un utilisateur : [idUtilisateur, cv (dans files de la requête post)]
 app.post("/users/photoProfileHandler/:idUtilisateur", authMW, checkUserId, profilePictureUploadHandler); // permet de mettre à jour la photo de profil d'un utilisateur : [idUtilisateur, photo (dans files de la requête post)]
 // Routes - Annonce
 app.get("/annonce/:idAnnonce", findAnnonce); // permet de récupérer une annonce : [idAnnonce]
 app.get("/annonces/all", findAllAnnonces); // permet de récupérer toutes les annonces
 app.get("/annonces/user/:idUtilisateur", authMW, findAnnonceByUserId); // permet de récupérer toutes les annonces
-app.post("/annonce/create/:idUtilisateur", /*authMW, checkUserId,*/ registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
+app.post("/annonce/create/:idUtilisateur", authMW, checkUserId, registerAnnonce); // permet de créer une annonce : [titre, description, idEntreprise, localisation]
 app.put("/annonce/update/:idUtilisateur", authMW, checkUserId, updateAnnonce); // permet de mettre à jour une annonce : [titre, description, localisation, idAnnonce]
 app.delete("/annonce/delete/:idAnnonce/:idUtilisateur", authMW, checkUserId, deleteAnnonce); // permet de supprimer une annonce : [idAnnonce]
 app.get("/annonce/motsClefs/:motsClefs", findAnnonceByMotsClefs);
