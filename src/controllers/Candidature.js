@@ -46,9 +46,9 @@ export const getCandidatureCandidat = (req, res) => {
     } else {
         getAllCandidatureByIDCandidat([idCandidat], (err, data) => {
             if (err) {
-                err.erreur === "Aucune candidature trouvée pour cette idCandidat" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}) : res.status(500).send({message: "Erreur"});
+                res.status(500).send({message: "Erreur"});
             } else {
-                console.log(data)
+                // console.log(data)
                 res.status(200).send(data);
             }
         });
@@ -68,7 +68,7 @@ export const getCandidatureAnnonce = (req, res) => {
     } else {
         getAllCandidatureByIDAnnonce([idAnnonce], (err, data) => {
             if (err) {
-                err.erreur === "Aucune candidature trouvée pour cette idAnnonce" ? res.status(404).send({message: 'erreur lors de la récupération des candidatures'}) : res.status(500).send({message: "Erreur"});
+                res.status(500).send({message: "Erreur"});
             } else {
                 res.status(200).send(data);
             }

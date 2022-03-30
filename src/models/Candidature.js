@@ -16,7 +16,7 @@ export const createCandidature = (data) => {
 /**
  * Méthode permettant de récupérer toutes les candidatures par idCandidat
  * @param idCandidat {number} - Id du candidat
- * @param cb {callback} traitement du résultat
+ * @param cb {function} traitement du résultat
  */
 export const getAllCandidatureByIDCandidat = (idCandidat, cb) => {
     db.query('SELECT * FROM candidature, annonce WHERE candidature.idCandidat = ? AND annonce.idAnnonce = candidature.idAnnonce', idCandidat, (err, rows) => {
@@ -25,11 +25,7 @@ export const getAllCandidatureByIDCandidat = (idCandidat, cb) => {
             cb(err, null);
             return;
         }
-        if (rows.length) {
-            cb(null, rows);
-            return;
-        }
-        cb({erreur: "Aucune candidature trouvée pour cette idCandidat"});
+        cb(null, rows);
     });
 }
 
@@ -45,11 +41,7 @@ export const getAllCandidatureByIDAnnonce = (idAnnonce, cb) => {
             cb(err, null);
             return;
         }
-        if (rows.length) {
-            cb(null, rows);
-            return;
-        }
-        cb({erreur: "Aucune candidature trouvée pour cette idAnnonce"}, null);
+        cb(null, rows);
     });
 }
 

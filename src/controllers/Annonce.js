@@ -195,9 +195,9 @@ export const findCandidatFavoriteAnnonce = (req, res) => {
     try {
         findCandidatFavoriteAnnonceModel(idUtilisateur, (err, data) => {
             if (err) {
-                err.erreur === "not_found" ? res.status(404).send({message: "aucune annonce n'a été trouvé"}) : res.status(500).send({message: "Erreur"});
+                res.status(500).send({message: "Erreur"});
             } else {
-                console.log(data)
+                // console.log(data)
                 res.status(200).send(data);
             }
         });
