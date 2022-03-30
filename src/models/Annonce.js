@@ -109,11 +109,13 @@ export const deleteAnnonceByIdAnnonce = (idAnnonce) => {
     });
 }
 
-export const addFavoriteAnnonceModel = (data) => {
+export const addFavoriteAnnonceModel = (data, cb) => {
     db.query('INSERT INTO userFav (idUser, idAnnonce) VALUES (?,?)', data, (err, res) => {
+        console.log(err);
         if (err) {
-            throw err;
+            cb(err, null);
         }
+        cb(null, true);
     });
 }
 
